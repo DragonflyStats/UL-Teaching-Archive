@@ -1,0 +1,23 @@
+I'm running a random forest model using R's caret package, and running varImp on the returned object gives me the averaged variable importance across the number of bootstrap iterations. However, I would rather assess variable importance for each iteration. Is this possible using the caret package?
+
+Reproducible example:
+\begin{verbatim}
+library(caret)
+mod <- train(Species ~ ., data = iris,
+         method = "cforest",
+         controls = cforest_unbiased(ntree = 10))
+varImp(mod)
+\end{verbatim}
+returns:
+\begin{verbatim}
+cforest variable importance
+Overall
+Petal.Width  100.0000
+Petal.Length  86.6279
+Sepal.Length   0.5814
+Sepal.Width    0.0000 
+\end{verbatim}
+what I'm interested in is rather a list of length=number of bootstrap resamples with variable importance for each iteration. This might be possible using some combination of returnResamp = "all" and a custom summaryFunction but I'm not wise enough to know.
+
+
+\end{document}
