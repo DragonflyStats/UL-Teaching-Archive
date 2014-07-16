@@ -1,0 +1,23 @@
+
+%---------------------------------------------------%
+% https://static.squarespace.com/static/51156277e4b0b8b2ffe11c00/t/51e7e42ce4b0fd2e32684bca/1374151724529/user_C5.0.pdf
+
+% Scheduling Data
+
+These data consist of informaion about compute jobs sent to a queuing system.
+Given details about the job, predict how long the job will take (i.e. very
+fast, fast, moderate, long).
+\begin{framed}
+\begin{verbatim}
+> library(AppliedPredictiveModeling)
+> data(schedulingData)
+> library(caret)
+> set.seed(733)
+> inTrain <- createDataPartition(schedulingData$Class, p = .75, list = FALSE)
+> training <- schedulingData[ inTrain,]
+> testing <- schedulingData[-inTrain,]
+\end{verbatim}
+\end{framed}
+\end{document}
+
+%------------------------------------------------------%
