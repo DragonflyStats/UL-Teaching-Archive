@@ -1,0 +1,44 @@
+%--------------------------------------------------%
+
+% - http://sites.stat.psu.edu/~jiali/course/stat597e/notes2/bagging.pdf
+
+Bagging and boosting are meta-algorithms that pool decisions
+from multiple classiﬁers
+
+
+\subsection{Overview on Bagging}
+\begin{itemize}
+\item Invented by Leo Breiman: Bootstrap aggregating.
+\item L. Breiman, “Bagging predictors,” Machine Learning,
+24(2):123-140, 1996.
+\item Majority vote from classiﬁers trained on bootstrap samples of
+the training data.
+\item Generate B bootstrap samples of the training data: random
+sampling with replacement.
+\item Train a classiﬁer or a regression function using each bootstrap
+sample.
+\item For classiﬁcation: majority vote on the classiﬁcation results.
+\item For regression: average on the predicted values.
+\item Reduces variation.
+\item Improves performance for unstable classiﬁers which vary signiﬁcantly with small changes in the data set, e.g., CART.
+\item Found to improve CART a lot, but not the nearest neighbor classifier.
+\end{itemize}
+%--------------------------%
+\subsection{Overview on Boosting}
+\begin{itemize}
+\item Iteratively learning weak classiﬁers
+\item  Final result is the weighted sum of the results of weak
+classiﬁers.
+\item  Many diﬀerent kinds of boosting algorithms: Adaboost
+(Adaptive boosting) by Y. Freund and R. Schapire is the first.
+\item  Examples of other boosting algorithms:
+\item  LPBoost: Linear Programming Boosting is a
+margin-maximizing classiﬁcation algorithm with boosting.
+\item  BrownBoost: increase robustness against noisy datasets.
+Discard points that are repeatedly misclassiﬁed.
+\item  LogitBoost: J. Friedman, T. Hastie and R. Tibshirani,
+“Additive logistic regression: a statistical view of boosting,”
+Annals of Statistics, 28(2), 337-407, 2000.
+\end{itemize}
+
+%--------------------------------------------------------%
