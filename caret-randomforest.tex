@@ -1,3 +1,14 @@
+%- http://citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics/#Random_Forests_an_Ensemble_Method
+\subsection{Random Forests, an Ensemble Method}
+
+The random forest (Breiman, 2001) is an ensemble approach that can also be thought of as a form of nearest neighbor predictor.
+
+Ensembles are a divide-and-conquer approach used to improve performance. The main principle behind ensemble methods is that a group of “weak learners” can come together to form a “strong learner”. The figure below (taken from here) provides an example. Each classifier, individually, is a “weak learner,” while all the classifiers taken together are a “strong learner”.
+
+The data to be modeled are the blue circles. We assume that they represent some underlying function plus noise. Each individual learner is shown as a gray curve. Each gray curve (a weak learner) is a fair approximation to the underlying data. The red curve (the ensemble “strong learner”) can be seen to be a much better approximation to the underlying data.
+%--------------------------------------------------------------------------------------%
+\newpage
+
 I'm running a random forest model using R's caret package, and running varImp on the returned object gives me the averaged variable importance across the number of bootstrap iterations. However, I would rather assess variable importance for each iteration. Is this possible using the caret package?
 
 Reproducible example:
