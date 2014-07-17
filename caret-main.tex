@@ -1,0 +1,64 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{epsfig}
+\usepackage{subfigure}
+%\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{subfiles}
+\usepackage{framed}
+\usepackage{amsbsy}
+\usepackage{amsthm, amsmath}
+%\usepackage[dvips]{graphicx}
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\usepackage{vmargin}
+% left top textwidth textheight headheight
+% headsep footheight footskip
+\setmargins{3.0cm}{2.5cm}{15.5 cm}{22cm}{0.5cm}{0cm}{1cm}{1cm}
+\renewcommand{\baselinestretch}{1.5}
+\pagenumbering{arabic}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{ill}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{notation}{Notation}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\renewcommand{\thenotation}{}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\title{Research notes: linear mixed effects models}
+\author{ } \date{ }
+
+
+\begin{document}
+
+
+\subfile{caret-appliedpredictivemodeling.tex}	% Create \subfile{caret-appliedpredictivemodeling.tex}	8 hours ago
+\subfile{caret-bagfunction.tex}	% Update and rename \subfile{caret-bagging.tex} to \subfile{caret-bagfunction.tex}	8 hours ago
+\subfile{caret-baggingboosting.tex}	% Create \subfile{caret-baggingboosting.tex}	a day ago
+\subfile{caret-bostonhousing.tex}	% Create \subfile{caret-bostonhousing.tex}	a day ago
+\subfile{caret-datapartitioning.tex}	% Update \subfile{caret-datapartitioning.tex}	2 days ago
+\subfile{caret-discussion.tex}	% Create \subfile{caret-discussion.tex}	2 days ago
+\subfile{caret-introduction.tex}	% Update \subfile{caret-introduction.tex}	a day ago
+\subfile{caret-irisexample1.tex}	% Create \subfile{caret-irisexample1.tex}	a day ago
+\subfile{caret-kappa.tex}	% Create \subfile{caret-kappa.tex}	a day ago
+\subfile{caret-kernlab.tex}	% Create \subfile{caret-kernlab.tex}	2 days ago
+\subfile{caret-oilexample.tex}	% Create \subfile{caret-oilexample.tex}	a day ago
+\subfile{caret-plsda.tex}	% Create \subfile{caret-plsda.tex}	2 days ago
+\subfile{caret-randomforest.tex}	% Create \subfile{caret-randomforest.tex}	a day ago
+\subfile{caret-roccurves.tex}	% Create \subfile{caret-roccurves.tex}	2 days ago
+\subfile{caret-rulebasedmodels.tex}	% Create \subfile{caret-rulebasedmodels.tex}	a day ago
+\subfile{caret-scheduleexample.tex}	% Create \subfile{caret-scheduleexample.tex}	a day ago
+\subfile{caret-sonardata.tex}	% Create \subfile{caret-sonardata.tex}	2 days ago
+\subfile{caret-summaries.tex}	% Create \subfile{caret-summaries.tex}	2 days ago
+\subfile{caret-traincontrol.tex}	% Create \subfile{caret-traincontrol.tex}	a day ago
+\subfile{caret-trainfunction.tex}
+
+\end{document}
