@@ -35,3 +35,33 @@ Each branch of the tree ends in a terminal node. Each observation falls into one
 A very popular method for predictive analytics is Leo Breiman's Random forests or derived versions of this technique like Random multinomial logit.
 
 %------------------------------------------------------------%
+% http://www.statsoft.com/Textbook/Classification-and-Regression-Trees
+% http://www.mathworks.co.uk/help/stats/classification-trees-and-regression-trees.html
+
+The purpose of the analysis is to learn how we can discriminate between the three types of flowers, based on the four measures of width and length of petals and sepals. Discriminant function analysis will estimate several linear combinations of predictor variables for computing classification scores (or probabilities) that allow the user to determine the predicted classification for each observation. A classification tree will determine a set of logical if-then conditions (instead of linear equations) for predicting or classifying cases instead:
+
+
+
+The interpretation of this tree is straightforward: If the petal width is less than or equal to 0.8, the respective flower would be classified as Setosa; if the petal width is greater than 0.8 and less than or equal to 1.75, then the respective flower would be classified as Virginic; else, it belongs to class Versicol.
+
+
+
+boxplot(iris$Petal.Width~iris$Species,horizontal=T,col=c("lightblue","pink","yellow"),font.lab=2,pch=16)
+abline(v=0.80,col="red",lty=2)
+
+boxplot(iris$Petal.Width~iris$Species,horizontal=T,col=c("lightblue","pink","yellow"),font.lab=2,pch=16)
+abline(v=0.80,col="red",lty=2)
+abline(v=1.75,col="red",lty=2)
+
+Class=numeric(150)
+for (i in 1:150)
+  { 
+  if (iris$Petal.Width[i]<0.80) { 
+     Class[i]=1
+   } else if (iris$Petal.Width[i]>1.75) { 
+     Class[i]=3
+   }else Class[i]=2
+  }
+
+%-----------------------------------------------------------------------------------------%
+
