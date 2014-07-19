@@ -1,3 +1,6 @@
+\documentclass[caret-main.tex]{subfiles}
+\begin{document}
+
 Partial Least Squares Discriminant Analysis
 
 The plsda function is a wrapper for the plsr function in the pls package that does not require a formula interface and can take factor outcomes as arguments. The classes are broken down into dummy variables (one for each class). These 0/1 dummy variables are modeled by partial least squares.
@@ -12,6 +15,9 @@ This creates more realistic probability estimates but the disadvantage is that a
 For the sonar data set, we can fit two PLS models using each technique and predict the class probabilities 
 for the test set.
 
+
+\begin{framed}
+\begin{verbatim}
 plsFit <- plsda(training, trainClass, ncomp = 20)
 plsFit
 Partial least squares classification, fitted with the kernel algorithm.
@@ -47,4 +53,8 @@ predict(plsBayesFit, head(testing), type = "prob")
 16 0.002769 0.99723
 17 0.003715 0.99628
 19 0.023820 0.97618
+
+\end{verbatim}
+\end{framed}
 Similar to plsda, caret also contains a function splsda that allows for classification using sparse PLS. A dummy matrix is created for each class and used with the spls function in the spls package. The same approach to estimating class probabilities is used for plsda and splsda.
+\end{document}
