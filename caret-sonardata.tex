@@ -1,7 +1,18 @@
+\documentclass{caret-main.tex]{subfiles}
+\begin{document}
+
 %---------------------------------------------------------------------%
 \section{Sonar Data Set}
 The Sonar data consist of 208 data points collected on 60 predictors. 
 The goal is to predict the two classes 
+
+%----------------------------%
+The Sonar data consist of 208 data points collected on 60 predictors. The goal is to predict the two
+classes (M for metal cylinder or R for rock).
+
+First, we split the data into two groups: a training set and a test set. 
+To do this, the **createDataPartition** function is used
+
 
 \begin{itemize}
 \item[M] Metal cylinder 
@@ -10,7 +21,10 @@ The goal is to predict the two classes
 %----------------------------%
 \begin{framed}
 \begin{verbatim}
-
+library(caret)
+library(mlbench)
+data(Sonar)
+set.seed(107)
 \end{verbatim}
 \end{framed}
 
