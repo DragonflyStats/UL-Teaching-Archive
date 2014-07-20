@@ -6,6 +6,7 @@ Kuhn M, Johnson K. Applied predictive modeling. 1st edition. New York: Springer.
 
 C5.0 also has an option to winnow or remove predictors: an initial algorithm uncovers which predictors have a relationship with the outcome, and the ﬁnal model is created from only the important predictors. To do this, the training set is randomly split in half and a tree is created for the purpose of evaluating the utility of the predictors (call this the “winnowing tree”). Two procedures characterize the importance of each predictor to the model: 1. Predictors are considered unimportant if they are not in any split in the winnowing tree. 2. The half of the training set samples not included to create the winnowing tree are used to estimate the error rate of the tree. The error rate is also estimated without each predictor and compared to the error rate when all the predictors are used. If the error rate improves without the predictor, it is deemed to be irrelevant and is provisionally removed.
 
+\begin{verbatim}
 c50Grid <- expand.grid(.trials = c(1:9, (1:10)*10),
                        .model = c("tree", "rules"),
                        .winnow = c(TRUE, FALSE))
@@ -34,7 +35,7 @@ Now importance of predictors:
 > predictors(c5Fitvac )
  [1] "IL23R"   "IL12RB2" "IL8"     "IL23A"   "IL6ST"   "IL12A"   "IL12RB1"
  [8] "IL27RA"  "IL12B"   "IL17A"   "EBI3"
-Questions:
+\end{verbatim}Questions:
 
 Why is it in the plot, the accuracy levels of No-winnowing about two times that of the winnowing? Can you please help interpreting this output when it says winnow = FALSE?
 How to visualize the tree output, instead of the computed junk text that appeared in my case? is there any way to behold a tree instead of crowded symbols?

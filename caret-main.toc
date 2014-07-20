@@ -1,20 +1,31 @@
 \contentsline {section}{\numberline {1}The caret Package}{2}
 \contentsline {section}{\numberline {2}The caret package}{5}
-\contentsline {section}{\numberline {3}AppliedPredictiveModeling}{6}
-\contentsline {subsection}{\numberline {3.1}Fuel Economy Data Set}{6}
-\contentsline {subsection}{\numberline {3.2}Hepatic Data Set}{6}
-\contentsline {section}{\numberline {4}Bagging}{7}
-\contentsline {section}{\numberline {5}Bagging and Boosting}{8}
-\contentsline {subsection}{\numberline {5.1}Overview on Bagging}{9}
-\contentsline {subsection}{\numberline {5.2}Overview on Boosting}{9}
-\contentsline {section}{\numberline {6}Partitioning Data}{10}
-\contentsline {subsection}{\numberline {6.1}Classification Example}{11}
-\contentsline {section}{\numberline {7}Kappa Statistic}{12}
-\contentsline {subsection}{\numberline {7.1}Computation}{12}
-\contentsline {section}{\numberline {8}kernlab: Kernel-based Machine Learning Lab}{15}
-\contentsline {section}{\numberline {9}Oil}{16}
-\contentsline {subsection}{\numberline {9.1}Random Forests, an Ensemble Method}{20}
-\contentsline {section}{\numberline {10}ROC Curves}{21}
-\contentsline {section}{\numberline {11}Rule–Based Models}{23}
-\contentsline {section}{\numberline {12}Summary Outputs}{23}
-\contentsline {section}{\numberline {13}The \texttt {train} Function}{24}
+\contentsline {section}{\numberline {3}Other Packages}{6}
+\contentsline {subsection}{\numberline {3.1}Installing Packages}{6}
+\contentsline {subsection}{\numberline {3.2}e1071}{6}
+\contentsline {subsection}{\numberline {3.3}mlbench: Machine Learning Benchmark Problems}{7}
+\contentsline {subsubsection}{\numberline {3.3.1}Sonar Data Set}{7}
+\contentsline {subsection}{\numberline {3.4}AppliedPredictiveModeling}{8}
+\contentsline {subsubsection}{\numberline {3.4.1}Fuel Economy Data Set}{8}
+\contentsline {subsubsection}{\numberline {3.4.2}Hepatic Data Set}{8}
+\contentsline {subsection}{\numberline {3.5}kernlab: Kernel-based Machine Learning Lab}{8}
+\contentsline {section}{\numberline {4}Bagging}{24}
+\contentsline {section}{\numberline {5}Bagging and Boosting}{25}
+\contentsline {subsection}{\numberline {5.1}Overview on Bagging}{26}
+\contentsline {subsection}{\numberline {5.2}Overview on Boosting}{26}
+\contentsline {section}{\numberline {6}Partitioning Data}{27}
+\contentsline {subsection}{\numberline {6.1}Classification Example}{28}
+\contentsline {section}{\numberline {7}Kappa Statistic}{29}
+\contentsline {subsection}{\numberline {7.1}Computation}{29}
+\contentsline {section}{\numberline {8}Oil}{32}
+\contentsline {subsection}{\numberline {8.1}\texttt {createDataPartition}}{35}
+\contentsline {subsection}{\numberline {8.2}Random Forests, an Ensemble Method}{38}
+\contentsline {section}{\numberline {9}ROC Curves}{40}
+\contentsline {section}{\numberline {10}Rule–Based Models}{42}
+\contentsline {section}{\numberline {11}Scheduling Data}{42}
+\contentsline {section}{\numberline {12}Sonar Data Set}{46}
+\contentsline {section}{\numberline {13}Summary Outputs}{47}
+\contentsline {section}{\numberline {14}\texttt {trainControl}}{47}
+\contentsline {section}{\numberline {15}The \texttt {train} Function}{48}
+\contentsline {section}{\numberline {16}Summary Outputs}{52}
+\contentsline {section}{\numberline {17}Pruning the tree}{52}

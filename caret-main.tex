@@ -22,7 +22,7 @@
 \newtheorem{ill}[theorem]{Example}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{conjecture}[theorem]{Conjecture}
+
 \newtheorem{axiom}{Axiom}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -33,36 +33,42 @@
 \renewcommand{\thenotation}{}
 \renewcommand{\thetable}{\thesection.\arabic{table}}
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
-\title{Research notes: linear mixed effects models}
-\author{ } \date{ }
+\voffset=-1.5cm
+\oddsidemargin=1.8cm
+\textwidth = 490pt
 
 
 \begin{document}
 \tableofcontents
 \subfile{caret-discussion.tex}	
 \subfile{caret-introduction.tex}
-\subfile{caret-appliedpredictivemodeling.tex}
+\subfile{caret-otherpackages.tex}
+\subfile{caret-predictionbasics}
 \subfile{caret-bagfunction.tex}	
 \subfile{caret-baggingboosting.tex}	
 \subfile{caret-bostonhousing.tex}	
 \subfile{caret-datapartitioning.tex}	
-
 \subfile{caret-irisexample1.tex}
 \subfile{caret-kappa.tex}	
-\subfile{caret-kernlab.tex}	
+
 \subfile{caret-oilexample.tex}	
 \subfile{caret-plsda.tex}
 \subfile{caret-randomforest.tex}
 \subfile{caret-roccurves.tex}	
-\subfile{caret-rulebasedmodels.tex}	% Create \subfile{caret-rulebasedmodels.tex}	a day ago
-%\subfile{caret-scheduleexample.tex}
-
-%FIX SONAR
-% \subfile{caret-sonardata.tex}	
-
+\subfile{caret-rulebasedmodels.tex}
+\subfile{caret-scheduleexample.tex}
+\subfile{caret-sonar.tex}	
 \subfile{caret-summaries.tex}	
 %--------------------------------- %
-%\subfile{caret-traincontrol.tex}	
+\subfile{caret-traincontrol.tex}	
 \subfile{caret-trainfunction.tex}
+%--------------------------------- %
+\subfile{caret-c50.tex}                 
+\subfile{caret-decisiontreelearning.tex}      
+           
+ \subfile{caret-summaries.tex}           
+      
+ \subfile{caret-treepruning.tex}         
+ \subfile{caret-variableimportance.tex}  
 
 \end{document}

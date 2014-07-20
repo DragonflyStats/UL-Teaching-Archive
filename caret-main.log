@@ -1,21 +1,21 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.13)  19 JUL 2014 17:30
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.2.28)  20 JUL 2014 14:00
 entering extended mode
 **caret-main.tex
-(C:\Users\Computer5\Documents\caret\caret-main.tex
+(C:\Users\kevin.obrien\Documents\caret\caret-main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
 croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo"
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,35 +30,35 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
 ))
@@ -68,8 +68,8 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen105
 \epsfysize=\dimen106
 )
-(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.st
-y
+(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure
+.sty
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip43
 \subfigcapskip=\skip44
@@ -86,31 +86,31 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 * Local config file subfigure.cfg used *
 ****************************************
 
-(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.cf
-g)
+(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure
+.cfg)
 \subfig@top=\skip47
 \subfig@bottom=\skip48
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\latex\subfiles\subfiles.sty
+(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\subfiles\subfiles.s
+ty
 Package: subfiles 2012/05/23 Federico Garcia
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks16
 \verbatim@line=\toks17
 \verbatim@in@stream=\read1
 ))
-(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\latex\framed\framed.sty
+(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip49
 \fb@frw=\dimen109
@@ -118,17 +118,17 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen111
 \FrameSep=\dimen112
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks18
 \ex@=\dimen113
 )
 \pmbraise@=\dimen114
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\classes\amsthm.sty"
 Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks19
 \thm@bodyfont=\toks20
@@ -140,32 +140,32 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip52
 \dth@everypar=\toks24
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
-Package: amsmath 2013/01/14 v2.14 AMS math features
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count92
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 211.
 \uproot@=\count93
 \leftroot@=\count94
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 307.
 \classnum@=\count95
 \DOTSCASE@=\count96
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen115
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count97
 \c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
@@ -186,19 +186,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip54
 \multlinetaggap=\skip55
 \mathdisplay@stack=\toks28
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
 )
-(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
+(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip56
 \bibsep=\skip57
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count104
 )
-(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\latex\ieeepes\vmargin.sty
+(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\ieeepes\vmargin.sty
 Package: vmargin 1999/06/01
-
 Package `vmargin', V2.2, <1999/06/01>
 \PaperWidth=\dimen122
 \PaperHeight=\dimen123
@@ -209,21 +208,22 @@ Package `vmargin', V2.2, <1999/06/01>
 \c@notation=\count108
 \c@remark=\count109
 \c@example=\count110
- (C:\Users\Computer5\Documents\caret\caret-main.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+ (C:\Users\kevin.obrien\Documents\caret\caret-main.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
-(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mki
+i
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
 \scratchdimen=\dimen124
@@ -236,43 +236,43 @@ LaTeX Font Info:    ... okay on input line 40.
 \MPnumerator=\count115
 \makeMPintoPDFobject=\count116
 \everyMPtoPDFconversion=\toks30
-) (C:\Users\Computer5\Documents\caret\caret-main.toc
+) (C:\Users\kevin.obrien\Documents\caret\caret-main.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 Missing character: There is no ‚ in font cmbx12!
 Missing character: There is no Ä in font cmbx12!
 Missing character: There is no ì in font cmbx12!
+ [1
+
+{C:/Users/kevin.obrien/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 20.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 28.
 )
 \tf@toc=\write3
 
-(C:\Users\Computer5\Documents\caret\caret-discussion.tex
+(C:\Users\kevin.obrien\Documents\caret\caret-discussion.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 6.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
- [1
-
-{C:/Users/Computer5/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+ [2]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [2]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -289,14 +289,15 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
+ [4]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [4])
-(C:\Users\Computer5\Documents\caret\caret-introduction.tex
+)
+(C:\Users\kevin.obrien\Documents\caret\caret-introduction.tex
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
@@ -313,7 +314,7 @@ Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
  [5])
-(C:\Users\Computer5\Documents\caret\caret-appliedpredictivemodeling.tex
+(C:\Users\kevin.obrien\Documents\caret\caret-otherpackages.tex [6] [7]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
@@ -326,19 +327,50 @@ Missing character: There is no Å in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
+ [8])
+(C:\Users\kevin.obrien\Documents\caret\caret-predictionbasics.tex [9] [10]
+[11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
+<./DAquiz6q4a.jpeg, id=72, 1445.4pt x 785.93625pt>
+File: ./DAquiz6q4a.jpeg Graphic file (type jpg)
+ <use ./DAquiz6q4a.jpeg>
+Package pdftex.def Info: ./DAquiz6q4a.jpeg used on input line 324.
+(pdftex.def)             Requested size: 465.4985pt x 253.11171pt.
 
-[6]) (C:\Users\Computer5\Documents\caret\caret-bagfunction.tex)
-(C:\Users\Computer5\Documents\caret\caret-baggingboosting.tex [7]
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
+[21 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q4a.jpeg>]
+<./DAquiz6q5a.jpeg, id=76, 1445.4pt x 785.93625pt>
+File: ./DAquiz6q5a.jpeg Graphic file (type jpg)
+ <use ./DAquiz6q5a.jpeg>
+Package pdftex.def Info: ./DAquiz6q5a.jpeg used on input line 347.
+(pdftex.def)             Requested size: 583.1012pt x 317.05522pt.
 
-Overfull \hbox (2.50546pt too wide) in paragraph at lines 25--27
-[]\OT1/cmr/m/n/12 Bagging and boost-ing are meta-algorithms that pool de-ci-sio
-ns from mul-ti-ple classiers 
+Overfull \hbox (93.1012pt too wide) in paragraph at lines 347--348
+ [][] 
  []
 
-[8]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+[22 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q5a.jpeg>]
+<./DAquiz6q5b.jpeg, id=80, 1445.4pt x 785.93625pt>
+File: ./DAquiz6q5b.jpeg Graphic file (type jpg)
+ <use ./DAquiz6q5b.jpeg>
+Package pdftex.def Info: ./DAquiz6q5b.jpeg used on input line 361.
+(pdftex.def)             Requested size: 583.1012pt x 317.05522pt.
+
+Overfull \hbox (93.1012pt too wide) in paragraph at lines 361--362
+ [][] 
+ []
+
+[23 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q5b.jpeg>])
+(C:\Users\kevin.obrien\Documents\caret\caret-bagfunction.tex [24])
+(C:\Users\kevin.obrien\Documents\caret\caret-baggingboosting.tex
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+ [25]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -378,37 +410,28 @@ Missing character: There is no Å in font cmr12!
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
- [9]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-) (C:\Users\Computer5\Documents\caret\caret-bostonhousing.tex)
-(C:\Users\Computer5\Documents\caret\caret-datapartitioning.tex [10])
-(C:\Users\Computer5\Documents\caret\caret-irisexample1.tex [11])
-(C:\Users\Computer5\Documents\caret\caret-kappa.tex [12] [13] [14]
-Overfull \hbox (116.5751pt too wide) in paragraph at lines 64--65
+ [26])
+(C:\Users\kevin.obrien\Documents\caret\caret-bostonhousing.tex)
+(C:\Users\kevin.obrien\Documents\caret\caret-datapartitioning.tex [27])
+(C:\Users\kevin.obrien\Documents\caret\caret-irisexample1.tex [28])
+(C:\Users\kevin.obrien\Documents\caret\caret-kappa.tex [29] [30] [31]
+Overfull \hbox (67.59282pt too wide) in paragraph at lines 64--65
 []\OT1/cmr/m/n/12 Includes a suc-cinct de-scrip-tion of kappa: http://standardw
 isdom.com/softwarejournal/2011/12/confusion-
  []
 
-) (C:\Users\Computer5\Documents\caret\caret-kernlab.tex)
-(C:\Users\Computer5\Documents\caret\caret-oilexample.tex [15] [16])
-(C:\Users\Computer5\Documents\caret\caret-plsda.tex [17]
-Overfull \hbox (16.20749pt too wide) in paragraph at lines 23--23
-[]\OT1/cmtt/m/n/12 Partial least squares classification, fitted with the kernel
- algorithm.[] 
- []
-
-
-Overfull \hbox (16.20749pt too wide) in paragraph at lines 31--31
-[]\OT1/cmtt/m/n/12 Partial least squares classification, fitted with the kernel
- algorithm.[] 
- []
-
-[18]) (C:\Users\Computer5\Documents\caret\caret-randomforest.tex [19]
+) (C:\Users\kevin.obrien\Documents\caret\caret-oilexample.tex [32] [33]
+[34]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 67.
+ [35]) (C:\Users\kevin.obrien\Documents\caret\caret-plsda.tex [36] [37])
+(C:\Users\kevin.obrien\Documents\caret\caret-randomforest.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -439,15 +462,15 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [20])
-(C:\Users\Computer5\Documents\caret\caret-roccurves.tex [21] [22]
-<./ROCcurve.jpg, id=77, 278.03876pt x 182.6825pt>
+ [38] [39])
+(C:\Users\kevin.obrien\Documents\caret\caret-roccurves.tex [40] [41]
+<./ROCcurve.jpg, id=141, 278.03876pt x 182.6825pt>
 File: ./ROCcurve.jpg Graphic file (type jpg)
  <use ./ROCcurve.jpg>
 Package pdftex.def Info: ./ROCcurve.jpg used on input line 22.
-(pdftex.def)             Requested size: 308.71104pt x 202.83849pt.
+(pdftex.def)             Requested size: 342.9985pt x 225.36713pt.
 )
-(C:\Users\Computer5\Documents\caret\caret-rulebasedmodels.tex
+(C:\Users\kevin.obrien\Documents\caret\caret-rulebasedmodels.tex
 Missing character: There is no ‚ in font cmbx12!
 Missing character: There is no Ä in font cmbx12!
 Missing character: There is no ì in font cmbx12!
@@ -455,7 +478,10 @@ Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
 )
-(C:\Users\Computer5\Documents\caret\caret-summaries.tex
+(C:\Users\kevin.obrien\Documents\caret\caret-scheduleexample.tex [42 <C:/Users/
+kevin.obrien/Documents/caret/ROCcurve.jpg>] [43] [44] [45])
+(C:\Users\kevin.obrien\Documents\caret\caret-sonar.tex [46])
+(C:\Users\kevin.obrien\Documents\caret\caret-summaries.tex
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
@@ -466,10 +492,16 @@ Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
 )
-(C:\Users\Computer5\Documents\caret\caret-trainfunction.tex [23 <C:/Users/Compu
-ter5/Documents/caret/ROCcurve.jpg>]
+(C:\Users\kevin.obrien\Documents\caret\caret-traincontrol.tex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
+ [47]
+Overfull \hbox (16.62523pt too wide) in paragraph at lines 23--23
+[]\OT1/cmtt/m/n/12 mod <- train(Sepal.Length~., data=iris, method = "svmLinear"
+, trControl = ctrl)[] 
+ []
+
+) (C:\Users\kevin.obrien\Documents\caret\caret-trainfunction.tex
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -479,26 +511,90 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-) [24]
-(C:\Users\Computer5\Documents\caret\caret-main.aux) ) 
+ [48])
+(C:\Users\kevin.obrien\Documents\caret\caret-c50.tex
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [49]
+Overfull \hbox (2399.90143pt too wide) in paragraph at lines 32--32
+[]\OT1/cmtt/m/n/12 [1] "id=\"See5/C5.0 2.07 GPL Edition 2014-01-22\"\nentries=\
+"70\"\ntype=\"2\" class=\"Q\" freq=\"9,16,60,80\" att=\"IL17A\" forks=\"3\" cut
+=\"0.92485309\"\ntype=\"0\" class=\"Q\"\ntype=\"2\" class=\"Q\" freq=\"0,4,59,8
+0\" att=\"IL23R\" forks=\"3\" cut=\"0.26331303\"\ntype=\"0\" class=\"Q\"\ntype=
+\"2\" class=\"Q\" freq=\"0,4,19,80\" att=\"IL12RB2\" forks=\"3\" cut=\"0.416115
+55\"\ntype=\"0\" class=\"Q\"\ntype=\"2\" class=\"Q\" freq=\"0,4,9,80\" att=\"IL
+23R\" forks=\[] 
+ []
+
+
+LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 38.
+
+) (C:\Users\kevin.obrien\Documents\caret\caret-decisiontreelearning.tex
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+[50] [51]
+Overfull \hbox (69.80365pt too wide) in paragraph at lines 49--51
+[]\OT1/cmr/m/n/12 boxplot(iris$\OML/cmm/m/it/12 Petal:Width []iris$\OT1/cmr/m/n
+/12 Species,horizontal=T,col=c("lightblue","pink","yellow"),font.lab=2,pch=16)
+ []
+
+
+Overfull \hbox (69.80365pt too wide) in paragraph at lines 52--55
+[]\OT1/cmr/m/n/12 boxplot(iris$\OML/cmm/m/it/12 Petal:Width []iris$\OT1/cmr/m/n
+/12 Species,horizontal=T,col=c("lightblue","pink","yellow"),font.lab=2,pch=16)
+ []
+
+
+Overfull \hbox (78.50078pt too wide) in paragraph at lines 56--65
+[]\OT1/cmr/m/n/12 Class=numeric(150) for (i in 1:150)  if (iris$\OML/cmm/m/it/1
+2 Petal:Width\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 ] \OML/cmm/m/it
+/12 < \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 80)[]\OML/cmm/m/it/12 
+elseif\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 iris$\OT1/cmr/m/n/12 Petal.Width[i]>1.7
+5)
+ []
+
+) (C:\Users\kevin.obrien\Documents\caret\caret-summaries.tex
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ì in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+)
+(C:\Users\kevin.obrien\Documents\caret\caret-treepruning.tex [52])
+(C:\Users\kevin.obrien\Documents\caret\caret-variableimportance.tex) [53]
+(C:\Users\kevin.obrien\Documents\caret\caret-main.aux) ) 
 Here is how much of TeX's memory you used:
- 2906 strings out of 493921
- 37989 string characters out of 3147270
- 93135 words of memory out of 3000000
- 6113 multiletter control sequences out of 15000+200000
- 10847 words of font info for 41 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 34i,6n,26p,1870b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt1
-2.pfb>
-Output written on caret-main.pdf (24 pages, 132958 bytes).
+ 2934 strings out of 494045
+ 39720 string characters out of 3145948
+ 91793 words of memory out of 3000000
+ 6112 multiletter control sequences out of 15000+200000
+ 11016 words of font info for 42 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 34i,6n,24p,1870b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on caret-main.pdf (53 pages, 395316 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 205 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
