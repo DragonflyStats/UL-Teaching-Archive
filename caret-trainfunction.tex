@@ -18,4 +18,24 @@ One of the primary tools in the package is the train function which can be used 
 \item estimate model performance from a training set
 \end{itemize}
 
+
+% http://www.jstatsoft.org/v28/i05/paper
+
+The \texttt{train} function has the following arguments:
+\begin{description}
+\item[\texttt{x}:] a matrix or data frame of predictors. Currently, the function only accepts numeric
+values (i.e., no factors or character variables). In some cases, the model.matrix function
+may be needed to generate a data frame or matrix of purely numeric data
+\item[\texttt{y}:] a numeric or factor vector of outcomes. The function determines the type of problem
+(classification or regression) from the type of the response given in this argument.
+\item[\texttt{method}:] a character string specifying the type of model to be used.
+\item[\texttt{metric}:] a character string with values of "\texttt{Accuracy}", "\texttt{Kappa}", "\texttt{RMSE}" or "\texttt{Rsquared}".
+This value determines the objective function used to select the final model. For example,
+selecting "Kappa" makes the function select the tuning parameters with the largest value
+of the mean Kappa statistic computed from the held-out samples.
+\end{description}
+
+
+
+
 \end{document}
