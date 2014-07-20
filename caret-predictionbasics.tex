@@ -1,6 +1,42 @@
 \documentclass[caret-main.tex]{subfiles}
 \begin{document}
+\newpage
 \section{Key Concepts in Predictive Models}
+
+\subsection{Steps in building a prediction}
+\begin{enumerate}
+\item Find the right data
+\item Define your error rate
+\item Split data into:
+\begin{itemize}
+\item Training Set
+\item Testing Set
+\item Validation Set(optional)
+\end{itemize}
+\item On the training set pick features
+\item On the training set pick prediction function
+\item On the training set cross-validate
+
+\item If no validation - apply 1x to test set
+\item If validation - apply to test set and refine
+\item If validation - apply 1x to validation
+\end{enumerate}
+%-------------------------------------------------------%
+\newpage
+\subsection{Type III Errors}
+
+\begin{itemize}
+\item Type III error is related to hypotheses suggested by the data, if tested using the data set that suggested them, are likely to be accepted even when they are not true. 
+
+\item This is because circular reasoning would be involved: something seems true in the limited data set, therefore we hypothesize that it is true in general, therefore we (wrongly) test it on the same limited data set, which seems to confirm that it is true. 
+
+\item Generating hypotheses based on data already observed, in the absence of testing them on new data, is referred to as post hoc theorizing.
+
+
+\item The correct procedure is to test any hypothesis on a data set that was not used to generate the hypothesis.
+\end{itemize}
+%-------------------------------------------------------%
+\newpage
 \subsection{Binary Classification}
 \subsubsection*{Defining true/false positives}
 In general, Positive = identified and negative = rejected. Therefore:
@@ -25,25 +61,7 @@ In general, Positive = identified and negative = rejected. Therefore:
 \item False negative = Sick people incorrectly identified as healthy.
 \end{itemize}
 %-------------------------------------------------- %
-\newpage
-\subsection*{Steps in building a prediction}
-\begin{enumerate}
-\item Find the right data
-\item Define your error rate
-\item Split data into:
-\begin{itemize}
-\item Training Set
-\item Testing Set
-\item Validation Set(optional)
-\end{itemize}
-\item On the training set pick features
-\item On the training set pick prediction function
-\item On the training set cross-validate
 
-\item If no validation - apply 1x to test set
-\item If validation - apply to test set and refine
-\item If validation - apply 1x to validation
-\end{enumerate}
 %-------------------------------------------------------%
 \subsection{Definitions}
 \textbf{Accuracy Rate}\\
@@ -51,6 +69,7 @@ The accuracy rate calculates the proportion ofobservations being allocated to th
 \[ \frac{
 \mbox{Number of Correct Classifications }}{\mbox{Total Number of Classifications }} \]
 
+In the case of Binary Outcomes:
 \[ = \frac{TP + TN}{TP+FP+TN+FN}\]
 
 
@@ -58,127 +77,14 @@ The accuracy rate calculates the proportion ofobservations being allocated to th
 The misclassification rate calculates the proportion ofobservations being allocated to the \textbf{incorrect} group by the predictive model. It is calculated as follows:
 \[ \frac{
 \mbox{Number of Incorrect Classifications }}{\mbox{Total Number of Classifications }} \]
-
+In the case of Binary Outcomes:
 \[ = \frac{FP + FN}{TP+FP+TN+FN}\]
 
-%-------------------------------------------------------%
-\subsection*{Question 2}
-\begin{itemize}
-\item \textbf{Part A} If K is small in a K-fold cross validation is the bias in the estimate of
-out-of-sample (test set) accuracy smaller or bigger? 
-\item \textbf{Part B} If K is small is the
-variance in the estimate of out-of-sample (\textbf{test set}) accuracy smaller or bigger.
-\item \textbf{Part C} Is K large or small in \textbf{leave one out} cross validation?
-\end{itemize}
-\subsubsection*{Options}
-
-\begin{itemize}
-\item[(i)]The bias is larger and the variance is smaller. Under leave one out cross validation K is equal to the sample size.			
-\item[(ii)] (No) The bias is larger and the variance is smaller. Under leave one out cross validation K is \textbf{\textit{equal to one}}.			
-\item[(iii)] (No) The bias is smaller and the variance is bigger. Under leave one out cross validation K is equal to one.
-\item[(iv)] The bias is smaller and the variance is bigger. Under leave one out cross validation K is equal to the sample size,
-%\item The bias is larger and the variance is smaller. Under leave one out cross validation K is equal to the sample size.
-\end{itemize}
-\newpage
-
-%-------------------------------------------------------%
-\newpage
-\subsection{Type III Errors}
-
-\begin{itemize}
-\item Type III error is related to hypotheses suggested by the data, if tested using the data set that suggested them, are likely to be accepted even when they are not true. 
-
-\item This is because circular reasoning would be involved: something seems true in the limited data set, therefore we hypothesize that it is true in general, therefore we (wrongly) test it on the same limited data set, which seems to confirm that it is true. 
-
-\item Generating hypotheses based on data already observed, in the absence of testing them on new data, is referred to as post hoc theorizing.
-
-
-\item The correct procedure is to test any hypothesis on a data set that was not used to generate the hypothesis.
-\end{itemize}
-
-
-\newpage
-%-------------------------------------------------------%
-\subsection*{Question 3}
-
-
-Load the South Africa Heart Disease Data and create training and test sets with
-the following code:
-\begin{framed}
-\begin{verbatim}
-install.packages("ElemStatLearn")
-library(ElemStatLearn)
-data(SAheart)
-
-set.seed(8484)
-train = sample(1:dim(SAheart)[1],
-    size=dim(SAheart)[1]/2,replace=F)
-trainSA = SAheart[train,]
-testSA = SAheart[-train,]
-
-\end{verbatim}
-\end{framed}
-
-\noindent Then fit a logistic regression model with \textit{Coronary Heart Disease} (chd) as the
-outcome and \textit{age at onset, current alcohol consumption, obesity levels,
-cumulative tabacco, type-A behavior}, and \textit{low density lipoprotein cholesterol} as predictors. 
 
 
 
-\noindent Calculate the misclassification rate for your model using this
-function and a prediction on the "response" scale:
-\begin{framed}
-\begin{verbatim}
-
-missClass = function(values,prediction){
-  sum(((prediction > 0.5)*1) != values)/length(values)
-  }
-\end{verbatim}
-\end{framed}
-%--------------------------------------------------------------------%
-\noindent What is the misclassification rate on the training set? What is the
-misclassification rate on the test set?
-\begin{framed}
-\begin{verbatim}
-head(SAheart)
-
-lr1 <- glm(chd ~ age + alcohol + obesity + 
-      tobacco + typea + ldl, data=trainSA, 
-      family="binomial")
-
-lr1.train.predict <- predict(lr1, type="response")
-
-missclass.lr1.train <- missClass(trainSA$chd, 
-    lr1.train.predict)
-
-lr1.test.predict <- predict(lr1, newdata=testSA, 
-   type="response")
-   
-missclass.lr1.test <- missClass(testSA$chd, 
-   lr1.test.predict)
-\end{verbatim}
-\end{framed}
 
 
-\begin{verbatim}
-> table(floor(2*lr1.test.predict),testSA$chd)
-   
-      0   1
-  0 117  34
-  1  38  42
-
-> table(floor(2*lr1.train.predict),trainSA$chd)
-   
-      0   1
-  0 124  40
-  1  23  44
-
-> missclass.lr1.test
-[1] 0.3116883
-> 
-> missclass.lr1.train
-[1] 0.2727273
-\end{verbatim}
 \newpage
 %-------------------------------------------------------%
 \subsection{Olive Oil Example}
@@ -254,7 +160,7 @@ predict(olive.tree, newdata)
 \end{framed}
 \begin{figure}
 \centering
-\includegraphics[width=0.95\linewidth]{./DAquiz6q4a}
+\includegraphics[width=0.70\linewidth]{./DAquiz6q4a}
 \caption{}
 \label{fig:DAquiz6q4a}
 \end{figure}
@@ -283,7 +189,7 @@ plot(olive.tree); text(olive.tree)
 \end{figure}
 
 %----------------------------------------------------------------------------------------------%
-
+\subsubsection{Tree Pruning}
 % Is this revelant to caret?
 The \texttt{prune.tree()} command determines a nested sequence of subtrees of the supplied tree by recursively “snipping” off the least important splits in the regression tree.
 \begin{framed}
