@@ -19,7 +19,7 @@ Computation of the Kappa Statistic bears a resemblence to the computation of the
 The function \texttt{confusionMatrix} can be used to compute various summaries for classification
 mode
 \end{itemize}
-\subsection{Computation}
+\subsubsection{Computation}
 Lets begin with a simple confusion matrix from a simple binary classification of Cats and Dogs:
      Cats Dogs
 Cats| 10 | 7  |
@@ -61,7 +61,7 @@ Total: (51)
 \end{itemize}
 In essence, the kappa statistic is a measure of how closely the instances classified by the machine learning classifier matched the data labeled as ground truth, controlling for the accuracy of a random classifier as measured by the expected accuracy. Not only can this kappa statistic shed light into how the classifier itself performed, the kappa statistic for one model is directly comparable to the kappa statistic for any other model used for the same classification task.
 
-\subsection{Interpretation}
+\subsubsection{Interpretation}
 
 There is not a standardized interpretation of the kappa statistic. According to Wikipedia (citing their paper), Landis and Koch considers 0-0.20 as slight, 0.21-0.40 as fair, 0.41-0.60 as moderate, 0.61-0.80 as substantial, and 0.81-1 as almost perfect. Fleiss considers kappas > 0.75 as excellent, 0.40-0.75 as fair to good, and < 0.40 as poor. It is important to note that both scales are somewhat arbitrary. At least two further considerations should be taken into account when interpreting the kappa statistic. First, the kappa statistic should always be compared with an accompanied confusion matrix if possible to obtain the most accurate interpretation. Consider the following confusion matrix:
 
