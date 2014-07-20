@@ -21,10 +21,15 @@ mode
 \end{itemize}
 \subsubsection{Computation}
 Lets begin with a simple confusion matrix from a simple binary classification of Cats and Dogs:
-     Cats Dogs
-Cats| 10 | 7  |
-Dogs| 5  | 8  |
-\begin{itemize}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+    & Cats &Dogs \\ \hline
+Cats& 10 & 7 \\ \hline
+Dogs& 5  & 8  \\ \hline
+\end{tabular} 
+\end{center}
+
 \item Assume that a model was built using supervised machine learning on labeled data. This doesn't always have to be the case; the kappa statistic is often used as a measure of reliability between two human raters. Regardless, columns correspond to one "rater" while rows correspond to another "rater". 
 
 \item In supervised machine learning, one "rater" reflects ground truth (the actual values of each instance to be classified), obtained from labeled data, and the other "rater" is the machine learning classifier used to perform the classification. Ultimately it doesn't matter which is which to compute the kappa statistic, but for clarity's sake lets say that the columns reflect ground truth and the rows reflect the machine learning classifier classifications.
@@ -47,9 +52,16 @@ So, in our case, the kappa statistic equals: (0.60 - 0.50)/(1 - 0.50) = 0.20.
 
 As another example, here is a less balanced confusion matrix and the corresponding calculations:
 
-     Cats Dogs
-Cats| 22 | 9  |
-Dogs| 7  | 13 |
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+    & Cats &Dogs \\ \hline
+Cats& 22 & 9 \\ \hline
+Dogs& 7  & 13  \\ \hline
+\end{tabular} 
+\end{center}
+
+
 Ground truth: Cats (29), Dogs (22) 
 Machine Learning Classifier: Cats (31), Dogs (20) 
 Total: (51) 
@@ -80,9 +92,10 @@ Classifiers built and evaluated on data sets of different class distributions ca
 
 That's about all I have. If anyone notices anything left out, anything incorrect, or if anything is still unclear, please let me know so I can improve the answer.
 
-References I found helpful:
+%References I found helpful:
 
-Includes a succinct description of kappa: http://standardwisdom.com/softwarejournal/2011/12/confusion-matrix-another-single-value-metric-kappa-statistic/
+% Includes a succinct description of kappa: 
+% http://standardwisdom.com/softwarejournal/2011/12/confusion-matrix-another-single-value-metric-kappa-statistic/
 
 %Includes a description of calculating expected accuracy: http://epiville.ccnmtl.columbia.edu/popup/how_to_calculate_kappa.html
 \newpage
