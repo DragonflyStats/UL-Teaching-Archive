@@ -77,21 +77,29 @@ In essence, the kappa statistic is a measure of how closely the instances classi
 
 There is not a standardized interpretation of the kappa statistic. According to Wikipedia (citing their paper), Landis and Koch considers 0-0.20 as slight, 0.21-0.40 as fair, 0.41-0.60 as moderate, 0.61-0.80 as substantial, and 0.81-1 as almost perfect. Fleiss considers kappas > 0.75 as excellent, 0.40-0.75 as fair to good, and < 0.40 as poor. It is important to note that both scales are somewhat arbitrary. At least two further considerations should be taken into account when interpreting the kappa statistic. First, the kappa statistic should always be compared with an accompanied confusion matrix if possible to obtain the most accurate interpretation. Consider the following confusion matrix:
 
-     Cats Dogs
-Cats| 60 | 125 |
-Dogs| 5  | 5000|
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+    & Cats &Dogs \\ \hline
+Cats& 60 & 125 \\ \hline
+Dogs& 5 & 5000  \\ \hline
+\end{tabular} 
+\end{center} 
+ 
 \newpage
 %-------------------------------------------------------------------------------------------------------------------%
-The kappa statistic is 0.47, well above the threshold for moderate according to Landis and Koch and fair-good for Fleiss. However, notice the hit rate for classifying Cats. Less than a third of all Cats were actually classified as Cats; the rest were all classified as Dogs. If we care more about classifying Cats correctly (say, we are allergic to Cats but not to Dogs, and all we care about is not succumbing to allergies as opposed to maximizing the number of animals we take in), then a classifier with a lower kappa but better rate of classifying Cats might be more ideal.
+\begin{itemize}
+\item The kappa statistic is 0.47, well above the threshold for moderate according to Landis and Koch and fair-good for Fleiss. However, notice the hit rate for classifying Cats. Less than a third of all Cats were actually classified as Cats; the rest were all classified as Dogs. If we care more about classifying Cats correctly (say, we are allergic to Cats but not to Dogs, and all we care about is not succumbing to allergies as opposed to maximizing the number of animals we take in), then a classifier with a lower kappa but better rate of classifying Cats might be more ideal.
 
-Second, acceptable kappa statistic values vary on the context. For instance, in many inter-rater reliability studies with easily observable behaviors, kappa statistic values below 0.70 might be considered low. However, in studies using machine learning to explore unobservable phenomena like cognitive states such as day dreaming, kappa statistic values above 0.40 might be considered exceptional.
+\item Second, acceptable kappa statistic values vary on the context. For instance, in many inter-rater reliability studies with easily observable behaviors, kappa statistic values below 0.70 might be considered low. However, in studies using machine learning to explore unobservable phenomena like cognitive states such as day dreaming, kappa statistic values above 0.40 might be considered exceptional.
 
-So, in answer to your question about a 0.40 kappa, it depends. If nothing else, it means that the classifier achieved a rate of classification 2/5 of the way between whatever the expected accuracy was and 100\% accuracy. If expected accuracy was 80\%, that means that the classifier performed 40\% (because kappa is 0.4) of 20\% (because this is the distance between 80\% and 100\%) above 80\% (because this is a kappa of 0, or random chance), or 88\%. So, in that case, each increase in kappa of 0.10 indicates a 2\% increase in classification accuracy. If accuracy was instead 50\%, a kappa of 0.4 would mean that the classifier performed with an accuracy that is 40\% (kappa of 0.4) of 50\% (distance between 50\% and 100\%) greater than 50\% (because this is a kappa of 0, or random chance), or 70\%. Again, in this case that means that an increase in kappa of 0.1 indicates a 5\% increase in classification accuracy.
+\item So, in answer to your question about a 0.40 kappa, it depends. If nothing else, it means that the classifier achieved a rate of classification 2/5 of the way between whatever the expected accuracy was and 100\% accuracy. If expected accuracy was 80\%, that means that the classifier performed 40\% (because kappa is 0.4) of 20\% (because this is the distance between 80\% and 100\%) above 80\% (because this is a kappa of 0, or random chance), or 88\%. So, in that case, each increase in kappa of 0.10 indicates a 2\% increase in classification accuracy. If accuracy was instead 50\%, a kappa of 0.4 would mean that the classifier performed with an accuracy that is 40\% (kappa of 0.4) of 50\% (distance between 50\% and 100\%) greater than 50\% (because this is a kappa of 0, or random chance), or 70\%. Again, in this case that means that an increase in kappa of 0.1 indicates a 5\% increase in classification accuracy.
 
-Classifiers built and evaluated on data sets of different class distributions can be compared more reliably through the kappa statistic (as opposed to merely using accuracy) because of this scaling in relation to expected accuracy. It gives a better indicator of how the classifier performed across all instances, because a simple accuracy can be skewed if the class distribution is similarly skewed. As mentioned earlier, an accuracy of 80\% is a lot more impressive with an expected accuracy of 50\% versus an expected accuracy of 75\%. Expected accuracy as detailed above is susceptible to skewed class distributions, so by controlling for the expected accuracy through the kappa statistic, we allow models of different class distributions to be more easily compared.
+\item Classifiers built and evaluated on data sets of different class distributions can be compared more reliably through the kappa statistic (as opposed to merely using accuracy) because of this scaling in relation to expected accuracy. It gives a better indicator of how the classifier performed across all instances, because a simple accuracy can be skewed if the class distribution is similarly skewed. As mentioned earlier, an accuracy of 80\% is a lot more impressive with an expected accuracy of 50\% versus an expected accuracy of 75\%. Expected accuracy as detailed above is susceptible to skewed class distributions, so by controlling for the expected accuracy through the kappa statistic, we allow models of different class distributions to be more easily compared.
 
-That's about all I have. If anyone notices anything left out, anything incorrect, or if anything is still unclear, please let me know so I can improve the answer.
-
+\item That's about all I have. If anyone notices anything left out, anything incorrect, or if anything is still unclear, please let me know so I can improve the answer.
+\end{itemize}
 %References I found helpful:
 
 % Includes a succinct description of kappa: 
