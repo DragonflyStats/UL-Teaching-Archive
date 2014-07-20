@@ -1,4 +1,10 @@
-Decision tree learning
+\documentclass[caret-main.tex]{subfiles}
+\begin{document}
+
+\section{Decision tree learning}
+
+
+
 
 Decision tree learning uses a decision tree as a predictive model which maps observations about an item to conclusions about the item's target value. It is one of the predictive modelling approaches used in statistics, data mining and machine learning. More descriptive names for such tree models are classification trees or regression trees. In these tree structures, leaves represent class labels 
 and branches represent conjunctions of features that lead to those class labels.
@@ -22,7 +28,7 @@ Boosted Trees can be used for regression-type and classification-type problems.[
 Rotation forest - in which every decision tree is trained by first applying principal component analysis (PCA) on a random subset of the input features.[7]
 
 %------------------------------------------------------------%
-
+\newpage
 Classification and regression trees (CART) is a non-parametric decision tree learning technique that produces either classification or regression trees, depending on whether the dependent variable is categorical or numeric, respectively.
 
 Decision trees are formed by a collection of rules based on variables in the modeling data set:
@@ -45,7 +51,7 @@ The purpose of the analysis is to learn how we can discriminate between the thre
 The interpretation of this tree is straightforward: If the petal width is less than or equal to 0.8, the respective flower would be classified as Setosa; if the petal width is greater than 0.8 and less than or equal to 1.75, then the respective flower would be classified as Virginic; else, it belongs to class Versicol.
 
 
-
+\begin{verbatim}
 boxplot(iris$Petal.Width~iris$Species,horizontal=T,col=c("lightblue","pink","yellow"),font.lab=2,pch=16)
 abline(v=0.80,col="red",lty=2)
 
@@ -62,6 +68,21 @@ for (i in 1:150)
      Class[i]=3
    }else Class[i]=2
   }
+\end{verbatim}
+
+
+\subsection{Regression Trees}
+%http://www.obgyn.cam.ac.uk/cam-only/statsbook/stcart.html
+The general approach to derive predictions from few simple if-then conditions can be applied to regression problems as well. This example is based on the data file Poverty, which contains 1960 and 1970 Census figures for a random selection of 30 counties. 
+
+The research question (for that example) was to determine the correlates of poverty, that is, the variables that best predict the percent of families below the poverty line in a county. A reanalysis of those data, using the regression tree analysis [and v-fold cross-validation, yields the following results:
+
+
+Again, the interpretation of these results is rather straightforward: Counties where the percent of households with a phone is greater than 72\% have generally a lower poverty rate. The greatest poverty rate is evident in those counties that show less than (or equal to) 72\% of households with a phone, and where the population change (from the 1960 census to the 170 census) is less than -8.3 (minus 8.3). 
+
+These results are straightforward, easily presented, and intuitively clear as well: There are some affluent counties (where most households have a telephone), and those generally have little poverty. Then there are counties that are generally less affluent, and among those the ones that shrunk most showed the greatest poverty rate. 
+
+A quick review of the scatterplot of observed vs. predicted values shows how the discrimination between the latter two groups is particularly well "explained" by the tree model.
 
 %-----------------------------------------------------------------------------------------%
-
+\end{document}

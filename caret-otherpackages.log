@@ -1,33 +1,31 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.2.28)  20 JUL 2014 13:45
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.3.6)  20 JUL 2014 16:51
 entering extended mode
 **caret-otherpackages.tex
-(C:\Users\kevin.obrien\Documents\caret\caret-otherpackages.tex
+(E:\caret-master\caret-otherpackages.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
 croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
-vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
-an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
-romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
-sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
-senglishmax, welsh, loaded.
-
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\subfiles\subfiles.c
-ls
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfiles\subfiles.cls"
 Document Class: subfiles 2012/05/23 Federico Garcia
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks14
 \verbatim@line=\toks15
 \verbatim@in@stream=\read1
 )
 Preamble taken from file `caret-main.tex'
-(C:\Users\kevin.obrien\Documents\caret\caret-main.tex
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+(E:\caret-master\caret-main.tex
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -42,35 +40,35 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
 ))
@@ -80,8 +78,7 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen105
 \epsfysize=\dimen106
 )
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure
-.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip43
 \subfigcapskip=\skip44
@@ -97,15 +94,14 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure
-.cfg)
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
 \subfig@top=\skip47
 \subfig@bottom=\skip48
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \@emptytoks=\toks17
 \symAMSa=\mathgroup4
@@ -113,11 +109,10 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\subfiles\subfiles.s
-ty
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfiles\subfiles.sty"
 Package: subfiles 2012/05/23 Federico Garcia
 )
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\framed\framed.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\framed\framed.sty"
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip49
 \fb@frw=\dimen109
@@ -125,17 +120,17 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen111
 \FrameSep=\dimen112
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks18
 \ex@=\dimen113
 )
 \pmbraise@=\dimen114
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\classes\amsthm.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\classes\amsthm.sty"
 Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks19
 \thm@bodyfont=\toks20
@@ -147,15 +142,15 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip52
 \dth@everypar=\toks24
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count92
@@ -196,15 +191,16 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip56
 \bibsep=\skip57
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count104
 )
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\latex\ieeepes\vmargin.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ieeepes\vmargin.sty"
 Package: vmargin 1999/06/01
+
 Package `vmargin', V2.2, <1999/06/01>
 \PaperWidth=\dimen122
 \PaperHeight=\dimen123
@@ -215,7 +211,8 @@ Package `vmargin', V2.2, <1999/06/01>
 \c@notation=\count108
 \c@remark=\count109
 \c@example=\count110
-)) (C:\Users\kevin.obrien\Documents\caret\caret-otherpackages.aux)
+))
+No file caret-otherpackages.aux.
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 2.
@@ -228,9 +225,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
-
-(C:\Users\kevin.obrien\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mki
-i
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
 \scratchdimen=\dimen124
@@ -245,7 +240,7 @@ i
 \everyMPtoPDFconversion=\toks30
 ) [1
 
-{C:/Users/kevin.obrien/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
@@ -258,22 +253,22 @@ Missing character: There is no Å in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-
-[2] [3] (C:\Users\kevin.obrien\Documents\caret\caret-otherpackages.aux) ) 
+ [2] [3]
+(E:\caret-master\caret-otherpackages.aux) ) 
 Here is how much of TeX's memory you used:
- 2777 strings out of 494045
- 35232 string characters out of 3145948
- 89889 words of memory out of 3000000
- 6058 multiletter control sequences out of 15000+200000
+ 2779 strings out of 493921
+ 34290 string characters out of 3147283
+ 90123 words of memory out of 3000000
+ 6063 multiletter control sequences out of 15000+200000
  5972 words of font info for 22 fonts, out of 3000000 for 9000
- 715 hyphenation exceptions out of 8191
+ 841 hyphenation exceptions out of 8191
  43i,6n,26p,344b,174s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on caret-otherpackages.pdf (3 pages, 59100 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mtt12.pfb>
+Output written on caret-otherpackages.pdf (3 pages, 59212 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

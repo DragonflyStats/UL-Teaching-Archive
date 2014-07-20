@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.2.28)  20 JUL 2014 14:00
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.2.28)  20 JUL 2014 18:51
 entering extended mode
 **caret-main.tex
 (C:\Users\kevin.obrien\Documents\caret\caret-main.tex
@@ -237,36 +237,89 @@ i
 \makeMPintoPDFobject=\count116
 \everyMPtoPDFconversion=\toks30
 ) (C:\Users\kevin.obrien\Documents\caret\caret-main.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+LaTeX Font Info:    Try loading font information for U+msa on input line 3.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Missing character: There is no ‚ in font cmbx12!
-Missing character: There is no Ä in font cmbx12!
-Missing character: There is no ì in font cmbx12!
- [1
+) [1
 
 {C:/Users/kevin.obrien/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 28.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 30.
+Missing character: There is no ‚ in font cmbx12!
+Missing character: There is no Ä in font cmbx12!
+Missing character: There is no ì in font cmbx12!
 )
 \tf@toc=\write3
 
-(C:\Users\kevin.obrien\Documents\caret\caret-discussion.tex
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 6.
+(C:\Users\kevin.obrien\Documents\caret\caret-introduction.tex [2]
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+)
+(C:\Users\kevin.obrien\Documents\caret\caret-predictionbasics.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 9.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
- [2]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
+ [3] [4] [5]
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
+<./DAquiz6q4a.jpeg, id=56, 1445.4pt x 785.93625pt>
+File: ./DAquiz6q4a.jpeg Graphic file (type jpg)
+ <use ./DAquiz6q4a.jpeg>
+Package pdftex.def Info: ./DAquiz6q4a.jpeg used on input line 290.
+(pdftex.def)             Requested size: 465.4985pt x 253.11171pt.
+
+[16 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q4a.jpeg>]
+<./DAquiz6q5a.jpeg, id=60, 1445.4pt x 785.93625pt>
+File: ./DAquiz6q5a.jpeg Graphic file (type jpg)
+ <use ./DAquiz6q5a.jpeg>
+Package pdftex.def Info: ./DAquiz6q5a.jpeg used on input line 313.
+(pdftex.def)             Requested size: 583.1012pt x 317.05522pt.
+
+Overfull \hbox (93.1012pt too wide) in paragraph at lines 313--314
+ [][] 
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+[17 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q5a.jpeg>]
+<./DAquiz6q5b.jpeg, id=64, 1445.4pt x 785.93625pt>
+File: ./DAquiz6q5b.jpeg Graphic file (type jpg)
+ <use ./DAquiz6q5b.jpeg>
+Package pdftex.def Info: ./DAquiz6q5b.jpeg used on input line 331.
+(pdftex.def)             Requested size: 583.1012pt x 317.05522pt.
+
+Overfull \hbox (93.1012pt too wide) in paragraph at lines 331--332
+ [][] 
+ []
+
+[18 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q5b.jpeg>])
+(C:\Users\kevin.obrien\Documents\caret\caret-discussion.tex [19]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -279,7 +332,7 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [3]
+ [20]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no î in font cmr12!
@@ -289,7 +342,7 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [4]
+ [21]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -297,140 +350,148 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
 )
-(C:\Users\kevin.obrien\Documents\caret\caret-introduction.tex
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
- [5])
-(C:\Users\kevin.obrien\Documents\caret\caret-otherpackages.tex [6] [7]
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
- [8])
-(C:\Users\kevin.obrien\Documents\caret\caret-predictionbasics.tex [9] [10]
-[11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
-<./DAquiz6q4a.jpeg, id=72, 1445.4pt x 785.93625pt>
-File: ./DAquiz6q4a.jpeg Graphic file (type jpg)
- <use ./DAquiz6q4a.jpeg>
-Package pdftex.def Info: ./DAquiz6q4a.jpeg used on input line 324.
-(pdftex.def)             Requested size: 465.4985pt x 253.11171pt.
-
-[21 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q4a.jpeg>]
-<./DAquiz6q5a.jpeg, id=76, 1445.4pt x 785.93625pt>
-File: ./DAquiz6q5a.jpeg Graphic file (type jpg)
- <use ./DAquiz6q5a.jpeg>
-Package pdftex.def Info: ./DAquiz6q5a.jpeg used on input line 347.
-(pdftex.def)             Requested size: 583.1012pt x 317.05522pt.
-
-Overfull \hbox (93.1012pt too wide) in paragraph at lines 347--348
- [][] 
- []
-
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-[22 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q5a.jpeg>]
-<./DAquiz6q5b.jpeg, id=80, 1445.4pt x 785.93625pt>
-File: ./DAquiz6q5b.jpeg Graphic file (type jpg)
- <use ./DAquiz6q5b.jpeg>
-Package pdftex.def Info: ./DAquiz6q5b.jpeg used on input line 361.
-(pdftex.def)             Requested size: 583.1012pt x 317.05522pt.
-
-Overfull \hbox (93.1012pt too wide) in paragraph at lines 361--362
- [][] 
- []
-
-[23 <C:/Users/kevin.obrien/Documents/caret/DAquiz6q5b.jpeg>])
-(C:\Users\kevin.obrien\Documents\caret\caret-bagfunction.tex [24])
-(C:\Users\kevin.obrien\Documents\caret\caret-baggingboosting.tex
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
- [25]
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Å in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
- [26])
-(C:\Users\kevin.obrien\Documents\caret\caret-bostonhousing.tex)
-(C:\Users\kevin.obrien\Documents\caret\caret-datapartitioning.tex [27])
-(C:\Users\kevin.obrien\Documents\caret\caret-irisexample1.tex [28])
-(C:\Users\kevin.obrien\Documents\caret\caret-kappa.tex [29] [30] [31]
-Overfull \hbox (67.59282pt too wide) in paragraph at lines 64--65
+(C:\Users\kevin.obrien\Documents\caret\caret-metrics.tex [22] [23] [24]
+[25] [26]
+Overfull \hbox (67.59282pt too wide) in paragraph at lines 85--86
 []\OT1/cmr/m/n/12 Includes a suc-cinct de-scrip-tion of kappa: http://standardw
 isdom.com/softwarejournal/2011/12/confusion-
  []
 
-) (C:\Users\kevin.obrien\Documents\caret\caret-oilexample.tex [32] [33]
-[34]
+[27] [28] <./ROCcurve.jpg, id=101, 278.03876pt x 182.6825pt>
+File: ./ROCcurve.jpg Graphic file (type jpg)
+
+<use ./ROCcurve.jpg>
+Package pdftex.def Info: ./ROCcurve.jpg used on input line 108.
+(pdftex.def)             Requested size: 195.99701pt x 128.78001pt.
+Missing character: There is no ‚ in font cmtt12!
+Missing character: There is no Ä in font cmtt12!
+Missing character: There is no ú in font cmtt12!
+Missing character: There is no ‚ in font cmtt12!
+Missing character: There is no Ä in font cmtt12!
+Missing character: There is no ù in font cmtt12!
+
+Overfull \hbox (707.95059pt too wide) in paragraph at lines 120--120
+[]\OT1/cmtt/m/n/12 Xavier Robin, Natacha Turck, Alexandre Hainard, et al. (2011
+) pROC: an open-source package for R and S+ to analyze and compare ROC curves. 
+BMC Bioinformatics, 7, 77. DOI: 10.1186/1471-2105-12-77[] 
+ []
+
+[29 <C:/Users/kevin.obrien/Documents/caret/ROCcurve.jpg>]
+Overfull \hbox (22.52525pt too wide) in paragraph at lines 154--154
+[]\OT1/cmtt/m/n/12 Data: aSAH$s100b in 72 controls (aSAH$outcome Good) < 41 cas
+es (aSAH$outcome Poor).[] 
+ []
+
+) (C:\Users\kevin.obrien\Documents\caret\caret-otherpackages.tex [30] [31]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+[32]) [33] (C:\Users\kevin.obrien\Documents\caret\caret-datapartitioning.tex)
+(C:\Users\kevin.obrien\Documents\caret\caret-traincontrol.tex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
+
+Overfull \hbox (16.62523pt too wide) in paragraph at lines 23--23
+[]\OT1/cmtt/m/n/12 mod <- train(Sepal.Length~., data=iris, method = "svmLinear"
+, trControl = ctrl)[] 
+ []
+
+) (C:\Users\kevin.obrien\Documents\caret\caret-trainfunction.tex [34]
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+) [35]
+(C:\Users\kevin.obrien\Documents\caret\caret-trees.tex
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [36]
+Overfull \hbox (152.20032pt too wide) in paragraph at lines 55--55
+[]\OT1/cmtt/m/n/12 boxplot(iris$Petal.Width~iris$Species,horizontal=T,col=c("li
+ghtblue","pink","yellow"),font.lab=2,pch=16)[] 
+ []
+
+
+Overfull \hbox (152.20032pt too wide) in paragraph at lines 58--58
+[]\OT1/cmtt/m/n/12 boxplot(iris$Petal.Width~iris$Species,horizontal=T,col=c("li
+ghtblue","pink","yellow"),font.lab=2,pch=16)[] 
+ []
+
+[37] [38]) [39]
+(C:\Users\kevin.obrien\Documents\caret\caret-baggingboosting.tex
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [40]
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [41]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 67.
- [35]) (C:\Users\kevin.obrien\Documents\caret\caret-plsda.tex [36] [37])
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 65.
+)
+(C:\Users\kevin.obrien\Documents\caret\caret-bostonhousing.tex [42])
+(C:\Users\kevin.obrien\Documents\caret\caret-irisexample1.tex [43])
+(C:\Users\kevin.obrien\Documents\caret\caret-oilexample.tex [44] [45] [46]
+[47]) (C:\Users\kevin.obrien\Documents\caret\caret-plsda.tex [48] [49])
 (C:\Users\kevin.obrien\Documents\caret\caret-randomforest.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -462,14 +523,7 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [38] [39])
-(C:\Users\kevin.obrien\Documents\caret\caret-roccurves.tex [40] [41]
-<./ROCcurve.jpg, id=141, 278.03876pt x 182.6825pt>
-File: ./ROCcurve.jpg Graphic file (type jpg)
- <use ./ROCcurve.jpg>
-Package pdftex.def Info: ./ROCcurve.jpg used on input line 22.
-(pdftex.def)             Requested size: 342.9985pt x 225.36713pt.
-)
+ [50] [51])
 (C:\Users\kevin.obrien\Documents\caret\caret-rulebasedmodels.tex
 Missing character: There is no ‚ in font cmbx12!
 Missing character: There is no Ä in font cmbx12!
@@ -477,10 +531,9 @@ Missing character: There is no ì in font cmbx12!
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
-)
-(C:\Users\kevin.obrien\Documents\caret\caret-scheduleexample.tex [42 <C:/Users/
-kevin.obrien/Documents/caret/ROCcurve.jpg>] [43] [44] [45])
-(C:\Users\kevin.obrien\Documents\caret\caret-sonar.tex [46])
+ [52])
+(C:\Users\kevin.obrien\Documents\caret\caret-scheduleexample.tex [53] [54]
+[55]) (C:\Users\kevin.obrien\Documents\caret\caret-sonar.tex [56])
 (C:\Users\kevin.obrien\Documents\caret\caret-summaries.tex
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
@@ -492,26 +545,6 @@ Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
 )
-(C:\Users\kevin.obrien\Documents\caret\caret-traincontrol.tex
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
- [47]
-Overfull \hbox (16.62523pt too wide) in paragraph at lines 23--23
-[]\OT1/cmtt/m/n/12 mod <- train(Sepal.Length~., data=iris, method = "svmLinear"
-, trControl = ctrl)[] 
- []
-
-) (C:\Users\kevin.obrien\Documents\caret\caret-trainfunction.tex
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no ¨ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
- [48])
 (C:\Users\kevin.obrien\Documents\caret\caret-c50.tex
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
@@ -522,7 +555,7 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [49]
+ [57] [58]
 Overfull \hbox (2399.90143pt too wide) in paragraph at lines 32--32
 []\OT1/cmtt/m/n/12 [1] "id=\"See5/C5.0 2.07 GPL Edition 2014-01-22\"\nentries=\
 "70\"\ntype=\"2\" class=\"Q\" freq=\"9,16,60,80\" att=\"IL17A\" forks=\"3\" cut
@@ -536,32 +569,6 @@ Overfull \hbox (2399.90143pt too wide) in paragraph at lines 32--32
 
 LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 38.
 
-) (C:\Users\kevin.obrien\Documents\caret\caret-decisiontreelearning.tex
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-
-[50] [51]
-Overfull \hbox (69.80365pt too wide) in paragraph at lines 49--51
-[]\OT1/cmr/m/n/12 boxplot(iris$\OML/cmm/m/it/12 Petal:Width []iris$\OT1/cmr/m/n
-/12 Species,horizontal=T,col=c("lightblue","pink","yellow"),font.lab=2,pch=16)
- []
-
-
-Overfull \hbox (69.80365pt too wide) in paragraph at lines 52--55
-[]\OT1/cmr/m/n/12 boxplot(iris$\OML/cmm/m/it/12 Petal:Width []iris$\OT1/cmr/m/n
-/12 Species,horizontal=T,col=c("lightblue","pink","yellow"),font.lab=2,pch=16)
- []
-
-
-Overfull \hbox (78.50078pt too wide) in paragraph at lines 56--65
-[]\OT1/cmr/m/n/12 Class=numeric(150) for (i in 1:150)  if (iris$\OML/cmm/m/it/1
-2 Petal:Width\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 ] \OML/cmm/m/it
-/12 < \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 80)[]\OML/cmm/m/it/12 
-elseif\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 iris$\OT1/cmr/m/n/12 Petal.Width[i]>1.7
-5)
- []
-
 ) (C:\Users\kevin.obrien\Documents\caret\caret-summaries.tex
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
@@ -573,28 +580,29 @@ Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
 )
-(C:\Users\kevin.obrien\Documents\caret\caret-treepruning.tex [52])
-(C:\Users\kevin.obrien\Documents\caret\caret-variableimportance.tex) [53]
+(C:\Users\kevin.obrien\Documents\caret\caret-treepruning.tex [59])
+(C:\Users\kevin.obrien\Documents\caret\caret-variableimportance.tex) [60]
 (C:\Users\kevin.obrien\Documents\caret\caret-main.aux) ) 
 Here is how much of TeX's memory you used:
- 2934 strings out of 494045
- 39720 string characters out of 3145948
+ 2928 strings out of 494045
+ 39417 string characters out of 3145948
  91793 words of memory out of 3000000
  6112 multiletter control sequences out of 15000+200000
  11016 words of font info for 42 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 34i,6n,24p,1870b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,6n,24p,997b,315s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on caret-main.pdf (53 pages, 395316 bytes).
+ 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on caret-main.pdf (60 pages, 413177 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
+ 231 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

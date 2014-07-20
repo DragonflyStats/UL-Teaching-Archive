@@ -1,6 +1,7 @@
 \documentclass[caret-main.tex]{subfiles}
 \begin{document}
-\subsection*{Binary Classification}
+\section{Key Concepts in Predictive Models}
+\subsection{Binary Classification}
 \subsubsection*{Defining true/false positives}
 In general, Positive = identified and negative = rejected. Therefore:
 
@@ -44,19 +45,23 @@ In general, Positive = identified and negative = rejected. Therefore:
 \item If validation - apply 1x to validation
 \end{enumerate}
 %-------------------------------------------------------%
-\subsection*{Question 1}
-Which of the following (pick one) is \textbf{NOT} a step in building a prediction model?
-\subsubsection*{Options}
-\begin{itemize}
-\item[(i)] Defining the error rate			
-\item[(ii)] Picking features			
-\item[(iii)] Obtaining the right data			
-%\item Selecting features with the test set.
-\item[(iv)] Estimating test set accuracy with training-set accuracy. 
-\item[(v)] (N0) Selecting features with the test set.
-\end{itemize} 
+\subsection{Definitions}
+\textbf{Accuracy Rate}\\
+The accuracy rate calculates the proportion ofobservations being allocated to the \textbf{correct} group by the predictive model. It is calculated as follows:
+\[ \frac{
+\mbox{Number of Correct Classifications }}{\mbox{Total Number of Classifications }} \]
+
+\[ = \frac{TP + TN}{TP+FP+TN+FN}\]
+
+
+\noindent \textbf{Misclassification Rate}\\
+The misclassification rate calculates the proportion ofobservations being allocated to the \textbf{incorrect} group by the predictive model. It is calculated as follows:
+\[ \frac{
+\mbox{Number of Incorrect Classifications }}{\mbox{Total Number of Classifications }} \]
+
+\[ = \frac{FP + FN}{TP+FP+TN+FN}\]
 \newpage
-\subsection*{Cross Validation}
+\subsection{Cross Validation}
 Bias Variance Trade-off \textit{http://scott.fortmann-roe.com/docs/BiasVariance.html}
 \begin{itemize}
 \item In a prediction problem, a model is usually given a dataset of known data 
@@ -66,21 +71,21 @@ on which training is run (\textit{training dataset}), and a dataset of unknown d
 \item Cross-validation is important in guarding against testing hypotheses suggested by the data (called "Type III errors"), especially where further samples 
 are hazardous, costly or impossible to collect 
 \end{itemize}
-\subsubsection*{K-fold cross validation}
+\subsubsection{K-fold cross validation}
 \begin{itemize}
 \item In k-fold cross-validation, the original data set is randomly partitioned into $k$ equal size subsamples. 
 \item Of the $k$ subsamples, a single subsample is retained as the validation data for testing the model, and the remaining k - 1 subsamples are used as training data. 
 \item The cross-validation process is then repeated k times (the folds), with each of the $k$ subsamples used exactly once as the validation data. \item The $k$ results from the folds can then be averaged (or otherwise combined) to produce a single estimation.
 \item The advantage of this method over repeated random sub-sampling is that all observations are used for both training and validation, and each observation is used for validation exactly once. 
 \end{itemize}
-\subsubsection*{Choosing K - Bias and Variance}
+\subsubsection{Choosing K - Bias and Variance}
 In general, when using k-fold cross validation, it seems to be the case that:
 \begin{itemize}
 \item A larger k will produce an estimate with smaller bias but potentially higher variance (on top of being computationally expensive)
 \item A smaller k will lead to a smaller variance but may lead to a a biased estimate.
 \end{itemize}
 
-\subsubsection*{Leave-One-Out Cross-Validation}
+\subsubsection{Leave-One-Out Cross-Validation}
 \begin{itemize}
 \item As the name suggests, leave-one-out cross-validation (LOOCV) involves using a single observation from the original sample as the validation data, and the remaining observations as the training data. 
 \item This is repeated such that each observation in the sample is used once as the validation data. 
@@ -110,34 +115,8 @@ variance in the estimate of out-of-sample (\textbf{test set}) accuracy smaller o
 \newpage
 
 %-------------------------------------------------------%
-\subsection*{Logistic Regression}
-
-Logistic regression is useful when you are predicting a binary outcome from a set of continuous predictor variables. 
-\begin{framed}
-\begin{verbatim}
-# Logistic Regression
-# where F is a binary factor and 
-# x1-x3 are continuous predictors 
-
-fit <- glm(F~x1+x2+x3,data=mydata,family=binomial())
-
-summary(fit) # display results
-
-confint(fit) # 95% CI for the coefficients
-
-exp(coef(fit)) # exponentiated coefficients
-
-exp(confint(fit)) # 95% CI for exponentiated coefficients
-
-predict(fit, type="response") # predicted values
-
-residuals(fit, type="deviance") # residuals
-
-\end{verbatim}
-\end{framed}
-%-------------------------------------------------------%
 \newpage
-\subsection*{Type III Errors}
+\subsection{Type III Errors}
 
 \begin{itemize}
 \item Type III error is related to hypotheses suggested by the data, if tested using the data set that suggested them, are likely to be accepted even when they are not true. 
@@ -149,21 +128,7 @@ residuals(fit, type="deviance") # residuals
 
 \item The correct procedure is to test any hypothesis on a data set that was not used to generate the hypothesis.
 \end{itemize}
-\subsection*{Definitions}
-\textbf{Accuracy Rate}\\
-The accuracy rate calculates the proportion ofobservations being allocated to the \textbf{correct} group by the predictive model. It is calculated as follows:
-\[ \frac{
-\mbox{Number of Correct Classifications }}{\mbox{Total Number of Classifications }} \]
 
-\[ = \frac{TP + TN}{TP+FP+TN+FN}\]
-
-
-\noindent \textbf{Misclassification Rate}\\
-The misclassification rate calculates the proportion ofobservations being allocated to the \textbf{incorrect} group by the predictive model. It is calculated as follows:
-\[ \frac{
-\mbox{Number of Incorrect Classifications }}{\mbox{Total Number of Classifications }} \]
-
-\[ = \frac{FP + FN}{TP+FP+TN+FN}\]
 
 \newpage
 %-------------------------------------------------------%
@@ -203,6 +168,7 @@ missClass = function(values,prediction){
   }
 \end{verbatim}
 \end{framed}
+%--------------------------------------------------------------------%
 \noindent What is the misclassification rate on the training set? What is the
 misclassification rate on the test set?
 \begin{framed}
@@ -248,7 +214,7 @@ missclass.lr1.test <- missClass(testSA$chd,
 \end{verbatim}
 \newpage
 %-------------------------------------------------------%
-\subsection*{Question 4}
+\subsection{Olive Oil Example}
 
 Load the olive oil data using the commands:
 \begin{framed}
@@ -348,6 +314,10 @@ plot(olive.tree); text(olive.tree)
 \caption{}
 \label{fig:DAquiz6q5a}
 \end{figure}
+
+%----------------------------------------------------------------------------------------------%
+
+% Is this revelant to caret?
 The \texttt{prune.tree()} command determines a nested sequence of subtrees of the supplied tree by recursively “snipping” off the least important splits in the regression tree.
 \begin{framed}
 \begin{verbatim}

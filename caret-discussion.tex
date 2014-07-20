@@ -83,7 +83,8 @@ that there should be no bias in the run order.
 \item The bottom right panel shows
 the speedup which is the sequential time divided by the parallel time. For example,
 a speedup of three indicates that the parallel version was three times
-faster than the sequential version. At best, parallelization can achieve linear
+faster than the sequential version. 
+\item At best, parallelization can achieve linear
 speedups; that is, for M workers, the parallel time is 1/M. For these models,
 the speedup is close to linear until four or five workers are used. After this,
 there is a small improvement in performance. Since LDA is already computationally
@@ -92,6 +93,7 @@ While not linear, the decrease in execution time is helpful—a nearly 10 h
 model fit was decreased to about 90 min.
 \item Note that some models, especially those using the RWeka package, may
 not be able to be run in parallel due to the underlying code structure.
+\item
 One additional “trick” that train exploits to increase computational efficiency
 is to use sub-models; a single model fit can produce predictions formultiple tuning parameters. For example, in most implementations of boosted
 models, a model trained on B boosting iterations can produce predictions for
