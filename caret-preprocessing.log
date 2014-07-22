@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.13)  22 JUL 2014 23:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.13)  23 JUL 2014 00:20
 entering extended mode
-**caret-cart.tex
-(C:\Users\Computer5\Documents\GitHub\caret\caret-cart.tex
+**caret-preprocessing.tex
+(C:\Users\Computer5\Documents\GitHub\caret\caret-preprocessing.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -212,11 +212,7 @@ Package `vmargin', V2.2, <1999/06/01>
 \c@notation=\count108
 \c@remark=\count109
 \c@example=\count110
-)) (C:\Users\Computer5\Documents\GitHub\caret\caret-cart.aux
-
-LaTeX Warning: Label `fig:iristree2' multiply defined.
-
-)
+)) (C:\Users\Computer5\Documents\GitHub\caret\caret-preprocessing.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
@@ -229,7 +225,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
- (C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+
+(C:\Users\Computer5\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
 \scratchdimen=\dimen124
@@ -242,92 +239,48 @@ LaTeX Font Info:    ... okay on input line 3.
 \MPnumerator=\count115
 \makeMPintoPDFobject=\count116
 \everyMPtoPDFconversion=\toks30
-)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
+) [1
+
+{C:/Users/Computer5/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+[2] [3] [4] [5] [6] [7]
+Overfull \hbox (23.69006pt too wide) in paragraph at lines 179--180
+\OT1/cmr/m/n/12 the pre-dic-tors. The func-tion \OT1/cmtt/m/n/12 preProcess \OT
+1/cmr/m/n/12 doesn't ac-tu-ally pre-process the data. \OT1/cmtt/m/n/12 predict.
+preProcess
+ []
+
+[8]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 198.
+
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
- [1
-
-{C:/Users/Computer5/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
- [4]
-<./irispwtree.jpeg, id=19, 1445.4pt x 785.93625pt>
-File: ./irispwtree.jpeg Graphic file (type jpg)
- <use ./irispwtree.jpeg>
-Package pdftex.def Info: ./irispwtree.jpeg used on input line 70.
-(pdftex.def)             Requested size: 485.10269pt x 263.77296pt.
-
-[5 <C:/Users/Computer5/Documents/GitHub/caret/irispwtree.jpeg>]
-<./iristree1.jpeg, id=23, 1445.4pt x 785.93625pt>
-File: ./iristree1.jpeg Graphic file (type jpg)
- <use ./iristree1.jpeg>
-Package pdftex.def Info: ./iristree1.jpeg used on input line 94.
-(pdftex.def)             Requested size: 392.0015pt x 213.15302pt.
-
-[6 <C:/Users/Computer5/Documents/GitHub/caret/iristree1.jpeg>]
-<./iristree2.jpeg, id=27, 1445.4pt x 785.93625pt>
-File: ./iristree2.jpeg Graphic file (type jpg)
- <use ./iristree2.jpeg>
-Package pdftex.def Info: ./iristree2.jpeg used on input line 121.
-(pdftex.def)             Requested size: 392.0015pt x 213.15302pt.
-
-[7 <C:/Users/Computer5/Documents/GitHub/caret/iristree2.jpeg>]
-<./iristree3.jpeg, id=32, 1445.4pt x 785.93625pt>
-File: ./iristree3.jpeg Graphic file (type jpg)
- <use ./iristree3.jpeg>
-Package pdftex.def Info: ./iristree3.jpeg used on input line 148.
-(pdftex.def)             Requested size: 392.0015pt x 213.15302pt.
-
-[8 <C:/Users/Computer5/Documents/GitHub/caret/iristree3.jpeg>] [9]
-<./irispruned1.jpeg, id=39, 1445.4pt x 785.93625pt>
-File: ./irispruned1.jpeg Graphic file (type jpg)
- <use ./irispruned1.jpeg>
-Package pdftex.def Info: ./irispruned1.jpeg used on input line 196.
-(pdftex.def)             Requested size: 440.99701pt x 239.78815pt.
-
-[10 <C:/Users/Computer5/Documents/GitHub/caret/irispruned1.jpeg>]
-Overfull \hbox (176.90033pt too wide) in paragraph at lines 221--221
-[] \OT1/cmtt/m/n/12 randomForest(formula = Species ~ Sepal.Length + Sepal.Width
- +      Petal.Length + Petal.Width, data = iris)[] 
- []
-
-[11] [12] [13] [14] <./regresstree1.jpeg, id=56, 1445.4pt x 785.93625pt>
-File: ./regresstree1.jpeg Graphic file (type jpg)
-
-<use ./regresstree1.jpeg>
-Package pdftex.def Info: ./regresstree1.jpeg used on input line 322.
-(pdftex.def)             Requested size: 485.10269pt x 263.77296pt.
- [15 <C:/Users/Computer5/Documents/GitHub/caret/regresstree1.jpeg>] [16]
-Overfull \hbox (5.1211pt too wide) in paragraph at lines 343--343
-[]\OT1/cmr/bx/n/14.4 Advantages of Clas-si-fi-ca-tion and Re-gres-sion Trees (C
-aRT) Meth-
- []
-
-[17] [18] [19] [20] [21] [22]
-(C:\Users\Computer5\Documents\GitHub\caret\caret-cart.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 198.
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no “ in font cmr12!
+ [9]
+(C:\Users\Computer5\Documents\GitHub\caret\caret-preprocessing.aux) ) 
 Here is how much of TeX's memory you used:
- 2848 strings out of 493921
- 36037 string characters out of 3147270
- 91254 words of memory out of 3000000
- 6116 multiletter control sequences out of 15000+200000
- 6588 words of font info for 24 fonts, out of 3000000 for 9000
+ 2810 strings out of 493921
+ 35440 string characters out of 3147270
+ 93163 words of memory out of 3000000
+ 6087 multiletter control sequences out of 15000+200000
+ 6756 words of font info for 25 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 43i,6n,28p,908b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmtt12.pfb>
-Output written on caret-cart.pdf (22 pages, 472193 bytes).
+ 43i,6n,28p,496b,251s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmtt12.pfb>
+Output written on caret-preprocessing.pdf (9 pages, 96762 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
