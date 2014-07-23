@@ -6,13 +6,14 @@ The goal is to predict the two classes
 %----------------------------%
 The Sonar data consist of 208 data points collected on 60 predictors. 
 The goal is to predict the two classes (M for metal cylinder or R for rock).
-
-First, we split the data into two groups: a training set and a test set. To do this, the \texttt{createDataPartition} function is used
-
 \begin{itemize}
 \item[\textbf{M}] Metal cylinder 
 \item[\textbf{R}] Rock
 \end{itemize}
+
+First, we split the data into two groups: a training set and a test set. To do this, the \texttt{createDataPartition} function is used
+
+
 
 \begin{framed}
 \begin{verbatim}
@@ -33,6 +34,8 @@ set.seed(107)
 5 0.0762 0.0666 0.0481 0.0394 0.0590 0.0649 0.1209 0.2467
 6 0.0286 0.0453 0.0277 0.0174 0.0384 0.0990 0.1201 0.1833
 \end{verbatim}
+\subsection{Partial least squares}
+Partial least squares regression (PLS regression) is a statistical method that bears some relation to principal components regression; instead of finding hyperplanes of minimum variance between the response and independent variables, it finds a linear regression model by projecting the predicted variables and the observable variables to a new space. Because both the X and Y data are projected to new spaces, the PLS family of methods are known as bilinear factor models. Partial least squares Discriminant Analysis (PLS-DA) is a variant used when the Y is categorical.
 
 \begin{framed}
 \begin{verbatim}
