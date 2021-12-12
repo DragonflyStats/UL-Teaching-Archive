@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 7 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 1}
+Here we have $X \sim \text{Binomial}(n=20, p=0.1)$.\\[0.5cm]
+$\Rightarrow$ The \emph{probability function} is $\Pr(X=x) = \binom{n}{x}\,p^x\,(1-p)^{n-x} = \binom{20}{x}\,\,0.1^x\,\,0.9^{20-x}$.\\[-0.1cm]
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X=2) = \binom{20}{2}\,\,0.1^2\,\,0.9^{20-2} = \binom{20}{2}\,\,0.1^2\,\,0.9^{18} = 190(0.01)(0.1501) = 0.2852.\\[-0.2cm]
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X=0) = \binom{20}{0}\,\,0.1^0\,\,0.9^{20-0} = \binom{20}{0}\,\,0.1^0\,\,0.9^{20} = 1(1)(0.1216) = 0.1216.\\[-0.2cm]
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X<4) &= \Pr(X\le3) = p(0) + p(1) +p(2) + p(3) \\[0.3cm]
+&= \binom{20}{0}\,\,0.1^0\,\,0.9^{20} + \binom{20}{1}\,\,0.1^1\,\,0.9^{19} + \binom{20}{2}\,\,0.1^2\,\,0.9^{18} + \binom{20}{3}\,\,0.1^3\,\,0.9^{17} \\[0.3cm]
+&= 0.1216 + 0.2702 + 0.2852 + 0.1901 \\
+&= 0.8671.\\[-0.2cm]
+\end{align*}
+\item Note that $\Pr(X\ge2) = p(2) + p(3) + p(4) + \ldots + p(20)$ but there is less work using the complement rule:
+\begin{align*}
+\Pr(X\ge2) = 1 - \Pr(X < 2) &= 1 - \Pr(X \le 1) \\
+&= 1 - [p(0) + p(1)] \\
+&= 1 - (0.1216 + 0.2702)\\
+&= 1 - 0.3918\\
+&= 0.6082.\\[-0.2cm]
+\end{align*}
+\item $E(X) = n\,p = 20(0.1) = 2$ defective resistors on average.
+\item $Sd(X) = \sqrt{Var(X)} = \sqrt{n\,p\,(1-p)} = \sqrt{20(0.1)(0.9)} = \sqrt{1.8} = 1.34$ defective resistors.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+Same as above but now using the binomial tables. We must rework the questions in terms of \emph{greater than or equal to} probabilities.
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X=2) &= \Pr(X\ge2) - \Pr(X\ge3) \\
+&= 0.6083 - 0.3231 \\
+&= 0.2852.\\[-0.2cm]
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X=0) &= \Pr(X\ge0) - \Pr(X\ge1) \\
+&= 1.0000 - 0.8784 \\
+&= 0.1216.\\[-0.2cm]
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[c)] \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X<4) &= 1 - \Pr(X\ge4) \\
+&= 1 - 0.1330 \\
+&= 0.8670.\\[-0.2cm]
+\end{align*}
+\item[d)] \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X\ge2) &= 0.6083.\\
+\end{align*}
+We can see that these are the same as above apart from small differences due to rounding.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\end{document} 
+
+
+

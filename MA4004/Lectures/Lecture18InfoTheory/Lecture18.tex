@@ -1,0 +1,1112 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    %\insertframenumber{} / \insertpresentationendpage
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+{ % only on titlepage
+
+
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{multirow}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{enumerate}
+%\usepackage{pgfpages}
+\usepackage[gen]{eurosym}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage{etex}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1}[border shrink=1mm]
+
+
+
+
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\definecolor{green2}{RGB}{51,204,51}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcgr}{\textcolor{green2}}
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\tcw}{\textcolor{white}}
+\newcommand{\m}{\phantom{-}}
+\newcommand{\bp}{\tcbb{$\bullet$}\:}
+
+
+\title{{\huge Statistics for Computing\\[0.1cm]MA4413}}
+\author[Kevin Burke]{{\bf\\[0.5cm]{\huge Lecture 18}\\[0.2cm]\emph{Information Theory and File Compression}\\[1.4cm]Kevin Burke}\\[0.3cm]\tcb{kevin.burke@ul.ie}}
+
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+%\TPGrid[5mm,5mm]{1}{1}
+
+\begin{document}
+
+
+\begin{frame}[t]
+\titlepage
+\end{frame}
+
+
+\section{Introduction}
+\subsection{Base-2}
+\begin{frame}{\bf \tcb{Base-2}}
+
+As \emph{information} is stored using {\bf bits}, i.e., binary numbers $\{0,1\}$, working in {\bf base-2} is central to {\bf information theory}.\\[0.2cm]
+
+Example: to store the two symbols ``a'' and ``b'' $\Rightarrow$ use codes 0 and 1.\\[0.2cm]
+Note: {\bf code length} here is 1 bit and we are storing $2 = 2^1$ symbols.
+
+
+\begin{center}
+\begin{tabular}{|rcc|}
+\hline
+&&\\[-0.4cm]
+Symbols & Codes for Storage & Code Length \\[0.1cm]
+\hline
+&&\\[-0.4cm]
+$2 = 2^1$ & $\{0, 1\}$  & 1 \\[0.3cm]
+$4 = 2^2$ & $\{00, 10, 01, 11\}$  & 2 \\[0.3cm]
+$8 = 2^3$ & $\{000, 100, 010, 110, \ldots, 111\}$  & 3 \\[0.3cm]
+$16 = 2^4$ & $\{0000, 1000, 0100, 1100, \ldots, 1111\}$  & 4 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\subsection{Notation}
+\begin{frame}{\bf \tcb{Notation}}
+
+\begin{itemize}\itemsep0.7cm
+\item {\boldmath$N$} is the {\bf number of symbols} that we need to store.
+\item {\boldmath$\ell$} is the {\bf code length} used, i.e., the number of bits.\\[0.8cm]
+\end{itemize}
+
+Clearly $\ell$ bits \emph{can be} used to store $2^\ell = N$ symbols (see previous slide).\\[0.5cm]
+
+This {\bf fixed length} coding scheme maps each symbol to an $\ell$-bit code.\\[0.5cm]
+
+We are giving each symbol equal weight. In a sense we are assuming that each symbol is \emph{equally likely} to occur: $p(x_i) = \frac{1}{N}$.\\[0.8cm]
+{\footnotesize(if symbol frequencies vary, we can do better - in terms of file size - by \emph{varying} the individual code lengths)}
+
+\end{frame}
+
+
+
+
+\subsection{$\log$ base-2}
+\begin{frame}{\bf \tcb{$\log$ base-2}}
+
+If we know $N$ and wish to calculate $\ell$, how do we go about this?\\[0.4cm]
+\begin{center}
+``What power $\ell$ makes $2^\ell$ equal to $N$\,?''\\[-0.1cm]
+\end{center}
+i.e., we wish to solve $2^{\ell} = N$ for $\ell$.\\[0.8cm]
+
+The solution is $\ell = \log_2 N$ but, using the rules of $\log$s, we can rewrite this as:\\[-0.5cm]
+\begin{align*}
+\ell =  - \log_2 \tfrac{1}{N}.\\[-0.3cm]
+\end{align*}
+
+Although this might seem slightly redundant here, it emphasises the assumption that each symbol is equally likely.
+
+\end{frame}
+
+
+
+
+
+
+\subsection{Fixed Code Length}
+\begin{frame}{\bf \tcb{Fixed Code Length}}
+
+$N=4$ equally likely symbols $\Rightarrow$ $\ell =  - \log_2 \tfrac{1}{4} = \log_2 4 = 2$ bits.\\[0.6cm]
+$\Rightarrow$ the binary codes are $\{00,10,01,11\}$.\\[1.4cm]
+
+
+$N=6$  equally likely  symbols $\Rightarrow$ $\ell =  - \log_2 \tfrac{1}{6} = \log_2 6 =  2.585$ bits. We cannot have $2.585$ bits so we must use 3 bits.\\[0.6cm]
+$\Rightarrow$ use any 6 codes from  $\{000,100,010,110,001,101,011,111\}$.
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+\subsection{Using Your Calculator}
+\begin{frame}{\bf \tcb{Using Your Calculator}}
+
+It is essential that you can calculate $\log_2 N$ on your calculator.\\[0.4cm]
+
+Modern calculators will all have the button $\boxed{\log_{[\,\,\,]} [\,\,\,]}$.
+\begin{align*}
+\Rightarrow \boxed{\log_2 N = \log_{[\,2\,]} [\,N\,]}
+\end{align*}
+
+If your calculator does not have this button, you will use either
+\begin{align*}
+\log_2 N &= \boxed{\log N} \,\, \boxed{\div} \,\, \boxed{\log 2}\\[0.2cm]
+&\qquad\text{or} \\[0.2cm]
+\log_2 N &= \boxed{\ln N} \,\, \boxed{\div} \,\, \boxed{\ln 2}
+\end{align*}
+which comes from the fact that $\log_2 N = \frac{\log_{10} N}{\log_{10} 2} = \frac{\ln N}{\ln 2}$.
+
+
+\end{frame}
+
+
+
+
+\section{Information Content}
+\subsection{Information Content}
+\begin{frame}{\bf \tcb{Information Content}}
+
+The {\bf information content}, $h(x_i)$, is a measure (in bits) of the amount of information contained in the occurrence of the event $x_i$.\\[0.6cm]
+It is defined as:
+\begin{align*}
+\boxed{h(x_i) = - \log_2 p(x_i)}\\
+\end{align*}
+where $p(x_i)$ is the probability of $x_i$ occurring.\\[0.6cm]
+
+Note: If there are $N$ equally likely events then $h(x_i) = - \log_2 \frac{1}{N}$.
+
+\end{frame}
+
+
+
+\subsection{Information Content}
+\begin{frame}{\bf \tcb{Information Content}}
+
+It is easy to confirm that\\[0.5cm]
+\begin{itemize}\itemsep0.8cm
+\item Common occurrences \quad $\Rightarrow$  \quad $h(x_i) \approx 0$ \qquad (since $p(x_i) \approx 1$)
+\item Rare occurrences  \quad  $\Rightarrow$ \quad  $h(x_i) \approx \infty$ \qquad (since $p(x_i) \approx 0$) \\[1cm]
+\end{itemize}
+
+In words, commonly occurring events provide little new information whereas rare events provide high information.
+
+
+\end{frame}
+
+
+
+\subsection{Example: Student Attendance}
+\begin{frame}{\bf \tcb{Example: Student Attendance}}
+
+Assume that the attendance probabilities and, hence, information content for 2 students are:
+\begin{align*}
+\Pr(A) &= 1.00 & \Rightarrow \qquad h(A) &= - \log_2 1.00 = 0 \text{ bits}\\[0.6cm]
+\Pr(B) &= 0.02 & \Rightarrow \qquad h(B) &= - \log_2 0.02 =  5.644 \text{ bits} \\[-0.2cm]
+\end{align*}
+
+We know nothing about the lecture if told that student A is present since he/she always attends $\Rightarrow$ information content is zero.\\[0.6cm]
+
+Student $B$ attending is a rare event which contains higher information about the nature of the lecture, i.e., it is likely to be a midterm exam.
+
+\end{frame}
+
+
+
+
+\subsection{Example: English Words}
+\begin{frame}{\bf \tcb{Example: English Words}}
+
+A word is picked out of the dictionary and you are told the first few letters are:\\[0.3cm]
+\begin{itemize}\itemsep0.8cm
+\item ``Th'' $\Rightarrow$ not much information is contained in this since many words begin with ``th''.
+\item ``Zeb'' $\Rightarrow$ this contains high information about the word: it is either ``zebra'' or ``zebu'' (a South-Asian ox).
+\item ``Xyl'' $\Rightarrow$ the only word in the dictionary that this could be is ``xylophone''.\\[0.6cm]
+\end{itemize}
+
+$\Rightarrow$ $h(\text{``th''})$ is small whereas $h(\text{``zeb''})$ and $h(\text{``xyl''})$ are large.
+
+\end{frame}
+
+
+
+\subsection{Additivity of Information}
+\begin{frame}{\bf \tcb{Additivity of Information}}
+
+We may also define the {\bf joint information content} for two events:\\[-0.2cm]
+\begin{align*}
+h(x_i,y_i) = - \log_2 p(x_i,y_i).\\[0.2cm]
+\end{align*}
+
+From the multiplication rule of probability and the properties of $\log$s, it is straightforward to show that\\[-0.2cm]
+\begin{align*}
+\boxed{h(x_i,y_i) = h(x_i) + h(y_i\,|\,x_i)}.\\[-0.2cm]
+\end{align*}
+
+$\Rightarrow$ Joint information content is the information contained in $x_i$ plus the \emph{extra} information contained in $y_i$ given that we already know $x_i$.
+
+\end{frame}
+
+
+
+
+
+\subsection{Example: Finding the Prize}
+\begin{frame}{\bf \tcb{Example: Finding the Prize}}
+
+Assume that there are 4 boxes; we must guess which contains a prize.\\[0.3cm]
+
+Let $G_1$, $G_2$, $G_3$ be the events of finding the prize on guess 1, 2 or 3.\\[0.3cm]
+\begin{small}
+\begin{itemize}\itemsep0.4cm
+\item $h(G_1) = - \log_2 \frac{1}{4} = 2$ bits of information $\Rightarrow$ we know where it is.
+\item $h(G_1^c) = - \log_2 \frac{3}{4} = 0.415$ bits $\Rightarrow$ we only know that it is \emph{not} in the chosen box.
+\item $h(G_1^c,G_2) = h(G_1^c) - \log_2 \frac{1}{3} = 0.415+1.585 = 2$ bits $\Rightarrow$ we know where it is.
+\item $h(G_1^c,G_2^c) = h(G_1^c) - \log_2 \frac{2}{3} = 0.415+0.585 = 1$ bit $\Rightarrow$ we have ruled out two of the boxes.
+\item $h(G_1^c,G_2^c,G_3^c) = h(G_1^c,G_2^c) - \log_2 \frac{1}{2} = 1 + 1 = 2$ bits $\Rightarrow$ ruled out three boxes $\Rightarrow$ know where it is now.
+\end{itemize}
+\end{small}
+
+\end{frame}
+
+
+
+
+\section{Entropy}
+\subsection{Expected Value}
+\begin{frame}{\bf \tcb{Expected Value}}
+
+We briefly review {\bf expected value} which we met previously (Lecture6).\\[0.6cm]
+
+For some probability distribution, its expected value is\\
+\begin{align*}
+\boxed{E(X) = \sum x_i \, p(x_i)}.\\
+\end{align*}
+
+
+In words: multiply each possible value of $X$ by its probability value and then sum the results.\\[0.8cm]
+
+This is the value we would \emph{expect} to get on average.
+
+
+\end{frame}
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+Consider the probability distribution:\\[0.6cm]
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\hline
+&&&&\\[-0.3cm]
+$x_i$ & 0 & 3 & 5 & 7 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$p(x_i)$ & $0.1$ & $0.3$ & $0.4$ & $0.2$ \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{align*}
+\Rightarrow E(X) &= 0(0.1)+3(0.3)+5(0.4)+7(0.2) \\[0.4cm]
+&= 0 + 0.9 + 2.0 + 1.4 \\[0.4cm]
+&= 4.3.
+\end{align*}
+
+On average the value of $X$ we observe will be 4.3.
+
+\end{frame}
+
+
+
+
+\subsection{Entropy}
+\begin{frame}{\bf \tcb{Entropy}}
+
+We have seen that information content, $h(x_i)$ is a measure of the information contained in a particular outcome, $x_i$.\\[0.8cm]
+
+{\bf Entropy} is the \emph{expected information content} for a distribution of values:\\[-0.2cm]
+\begin{align*}
+\boxed{H(X) = E[h(X)] = \sum h(x_i) \, p(x_i)},\\[-0.2cm]
+\end{align*}
+i.e., the average amount of information from a particular source.\\[0.8cm]
+
+$H(X)$ is an overall measure of \emph{uncertainty} or \emph{disorder} associated to the value of $X$. {\footnotesize(recall that standard deviation is another measure of uncertainty)}
+
+
+
+\end{frame}
+
+
+
+\subsection{Entropy}
+\begin{frame}{\bf \tcb{Entropy}}
+
+It is relatively easy to show that $\boxed{0 \le H(X) \le \log N}$.\\[0.8cm]
+
+\begin{itemize}\itemsep0.8cm
+\item Minimum entropy: $0$ $\Rightarrow$ there is only one outcome which is certain to occur $\Rightarrow$ no uncertainty.
+\item Maximum entropy: $\log N$ $\Rightarrow$ each value is equally likely, i.e., $p(x_i) = \frac{1}{N}$ $\Rightarrow$ maximum uncertainty.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\hline
+&&&&\\[-0.3cm]
+$x_i$ & 0 & 3 & 5 & 7 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$p(x_i)$ & $0.1$ & $0.3$ & $0.4$ & $0.2$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$h(x_i) = -\log_2 p(x_i)$ & $3.322$ & $1.737$ & $1.322$ & $2.322$ \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{align*}
+H(X) = E[h(X)] &= 3.322(0.1)+1.737(0.3)+1.322(0.4)+2.322(0.2) \\[0.2cm]
+&= 0.3322 + 0.5211 + 0.5288 + 0.4644 \\[0.2cm]
+&= 1.85 \text{ bits}.
+\end{align*}
+
+On average, 1.85 bits of information are gained.\\[0.4cm]
+
+{\footnotesize(Note: Unlike the calculation of expected value, $E(X)$, the individual $x_i$ values are not required in calculating $H(X)$; we only need the probabilities)}
+
+\end{frame}
+
+
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+
+Consider two text files which contain only four symbols with the following probabilities:
+
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\hline
+&&&&\\[-0.3cm]
+$x_i$ & a & b & c & d \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+File 1: \quad $p(x_i)$ & $0.5$ & $0.25$ & $0.2$ & $0.05$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+File 2: \quad $p(x_i)$ & $0.1$ & $0.8$ & $0.05$ & $0.05$ \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]\itemsep0.3cm
+\item What is the maximum possible entropy here? How would this come about?
+\item Calculate the entropy for file 1.
+\item Calculate the entropy for file 2.
+\item Comment on these values.
+\end{enumerate}
+
+
+
+
+\end{frame}
+
+
+
+
+\section{File Compression\hspace{0.8cm}}
+\subsection{Symbol Codes}
+\begin{frame}{\bf \tcb{Symbol Codes}}
+
+A {\bf symbol code} maps a set of symbols to a set of codes.\\[0.4cm]
+
+Example:
+\begin{center}
+\begin{tabular}{|cccc|}
+\hline
+&&&\\[-0.4cm]
+$x_i$ & $p(x_i)$ & $c(x_i)$ & $\ell(x_i)$ \\[0.1cm]
+\hline
+&&&\\[-0.4cm]
+a     & 0.1      &  00  &  2     \\[0.1cm]
+b     & 0.8      &  10  &  2     \\[0.1cm]
+c     & 0.05     &  01  &  2     \\[0.1cm]
+d     & 0.05     &  11  &  2     \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{itemize}\itemsep0.4cm
+\item $c(x_i)$ denotes the code for symbol $x_i$.
+\item $\ell(x_i)$ denotes the length of code $c(x_i)$.
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{Expected Code Length}
+\begin{frame}{\bf \tcb{Expected Code Length}}
+
+The {\bf expected code length} is given by
+
+\begin{align*}
+\boxed{E(L) = E[\ell(X)] = \sum \ell(x_i)\,p(x_i)}\\
+\end{align*}
+
+Thus, for the example on the previous slide, we have:
+\begin{align*}
+E(L) &= 2(0.1) + 2(0.8) + 2(0.05) + 2(0.05) \\[0.2cm]
+&= 2(0.1 + 0.8 + 0.05 + 0.05) \\[0.2cm]
+&= 2(1) = 2 \text{ bits}.
+\end{align*}
+
+Of course we would have known this without any probability calculation in this case.
+
+\end{frame}
+
+
+
+
+\subsection{File Compression}
+\begin{frame}{\bf \tcb{File Compression}}
+
+In the previous example, we see that the symbol ``b'' appears 80\% of the time in the file.\\[0.6cm]
+
+However, by assigning each symbol a code of length 2, we have not accounted for the frequency of occurrence in any way.\\[0.6cm]
+
+It is possible to take these probabilities into account so that we can {\bf compress} the file, i.e., reduce the average code length, $E(L)$.\\[0.6cm]
+
+There are two compression types:\\
+\begin{enumerate}[1.]\itemsep0.3cm
+\item {\bf Lossy:} reduces $E(L)$ but loses information.
+\item {\bf Lossless:} reduces $E(L)$ without loss of information.
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+\subsection{Example: Lossy Compression}
+\begin{frame}{\bf \tcb{Example: Lossy Compression\\[-0.9cm]}}
+\begin{center}
+\begin{tabular}{|cc|cc|cc|cc|}
+\hline
+&&&&&&&\\[-0.4cm]
+&& \multicolumn{2}{c|}{Code 1} & \multicolumn{2}{c|}{Code 2} & \multicolumn{2}{|c|}{Code 3} \\[0.1cm]
+$x_i$ & $p(x_i)$ & $c(x_i)$ & $\ell(x_i)$ & $c(x_i)$ & $\ell(x_i)$  & $c(x_i)$ & $\ell(x_i)$ \\[0.1cm]
+\hline
+&&&&&&&\\[-0.4cm]
+a     & 0.1     &  00  &  2  &  0   &  1  &  0   &  1  \\[0.1cm]
+b     & 0.8     &  10  &  2  &  1   &  1  &  1   &  1  \\[0.1cm]
+c     & 0.05    &  01  &  2  &  --  &  0  &  1   &  1  \\[0.1cm]
+d     & 0.05    &  11  &  2  &  --  &  0  &  1   &  1  \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+Code 1 has $E(L) = 2$ bits. We can reduce this via \emph{lossy} compression:\\[0.2cm]
+\begin{itemize}\itemsep0.5cm
+\item Code 2 (no code for ``c'' or ``d'') \\[0.2cm]
+$\Rightarrow$ $E(L) = 1(0.1)+1(0.8)+0(0.05)+0(0.05) = 0.9$ bits.
+\item Code 3 (``c'' and ``d'' assigned the same code as ``b'') \\[0.2cm] $\Rightarrow$ $E(L) = 1(0.1)+1(0.8)+1(0.05)+1(0.05) = 1$ bit.
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{Example: Lossy Compression}
+\begin{frame}{\bf \tcb{Example: Lossy Compression}}
+
+Consider encoding the message: ``abbbbcbabd''.
+
+\begin{center}
+\begin{tabular}{|c|@{\quad}c@{$|$}c@{$|$}c@{$|$}c@{$|$}c@{$|$}c@{$|$}c@{$|$}c@{$|$}c@{$|$}c@{\quad}|c|c|}
+\hline
+&\multicolumn{10}{c|}{}&&\\[-0.3cm]
+Code   & \multicolumn{10}{c|}{Encoding}  & Length  & Decoded As \\[0.1cm]
+\hline
+&\multicolumn{10}{c|}{}&&\\[-0.2cm]
+Code 1 & 00&10&10&10&10&01&10&00&10&11&  20     & abbbbcbabd \\[0.4cm]
+Code 2 & 0&1&1&1&1&&1&0&1 &&  8     & abbbb\phantom{c}bab\phantom{d} \\[0.4cm]
+Code 3 & 0&1&1&1&1&1&1&0&1&1 &  10     & abbbbbbabb \\[0.2cm]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{itemize}\itemsep0.4cm
+\item Code 1: No compression and the message is fully decoded.
+\item Code 2: Compressed by eliminating ``c'' and ``d''.
+\item Code 3: Compressed by replacing ``c'' and ``d'' with ``b''.
+\end{itemize}
+
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+\subsection{Note on Lossy Compression}
+\begin{frame}{\bf \tcb{Note on Lossy Compression}}
+We saw two forms of lossy compression in the previous example:\\[0.4cm]
+\begin{itemize}\itemsep0.7cm
+\item Eliminating data:\\[0.1cm]
+\begin{itemize}\itemsep0.4cm
+\item Data missing after decoding.
+\item Useful for music files where, in this case, ``c'' and ``d'' are not letters but frequencies inaudible to the human ear.
+\end{itemize}
+\item Replacing data:\\[0.1cm]
+\begin{itemize}\itemsep0.4cm
+\item Data replaced with other data after decoding.
+\item Useful for image files where, in this case, ``c'' and ``d'' may may be colours virtually indistinguishable from ``b''.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\subsection{Lossless Compression}
+\begin{frame}{\bf \tcb{Lossless Compression}}
+
+We have seen that trying to maintain \emph{fixed} code lengths while achieving compression leads to \emph{lossy} compression.\\[0.8cm]
+
+We now consider {\bf lossless compression}, i.e., no loss of information.\\[0.8cm]
+
+Lossless compression can be achieved using {\bf variable-length codes}, for example, $\{a,b,c\} \mapsto \{0,10,11\}$.\\[0.8cm]
+
+The idea is to assign shorter codes to frequently occurring symbols and longer codes to less frequently occurring symbols.
+\end{frame}
+
+
+
+\subsection{Important Properties}
+\begin{frame}{\bf \tcb{Important Properties}}
+
+Three important properties of variable length codes are:\\[0.5cm]
+\begin{enumerate}[1.]\itemsep0.8cm
+\item {\bf Uniquely decodable:} each encoded message has only \emph{one} possible interpretation, i.e., it cannot be decoded in multiple ways.
+\item {\bf Easy to decode.}
+\item {\bf High compression:} as much as possible but {\bf cannot} compress below entropy without information loss.\\[0.8cm]%, i.e., $E(L) = H(X)$ is the lowest possible.\\[0.8cm]
+\end{enumerate}
+
+Note: {\bf Prefix codes} are both \emph{uniquely decodable and easy to decode}.
+
+\end{frame}
+
+
+
+
+\subsection{Unique Decodability}
+\begin{frame}{\bf \tcb{Unique Decodability}}
+
+A symbol code is {\bf uniquely decodable} if an encoding can be interpreted in only \emph{one} possible way.\\[0.4cm]
+
+
+\begin{itemize}\itemsep0.8cm
+\item Uniquely decodable\\[0.2cm]
+\begin{itemize}\itemsep0.4cm
+\item $\{a,b,c\} \mapsto \{0,10,11\}$.
+\item $\{a,b,c,d\} \mapsto \{00,10,01,11\}$.
+\end{itemize}
+\item \emph{Not} uniquely decodable\\[0.2cm]
+\begin{itemize}\itemsep0.4cm
+\item $\{a,b,c\} \mapsto \{0,1,11\}$: \quad ``bb'' $=11=$ ``c''.
+\item $\{a,b,c,d\} \mapsto \{0,10,01,11\}$: \quad ``ada'' $=0110=$ ``cb''.
+\end{itemize}
+\end{itemize}
+
+
+
+\end{frame}
+
+
+\subsection{Prefix Code}
+\begin{frame}{\bf \tcb{Prefix Code}}
+
+A {\bf prefix code} is a code where no codeword is a prefix (i.e., the initial segment) of another codeword.\\[0.3cm]
+
+Prefix codes are {\bf uniquely decodable}.\\[0.3cm]
+
+
+\begin{itemize}\itemsep0.8cm
+\item Prefix code\\[0.2cm]
+\begin{itemize}\itemsep0.4cm
+\item $\{a,b,c,d\} \mapsto \{00,10,01,11\}$.
+\item $\{a,b,c,d\} \mapsto \{0,10,110,111\}$.
+\end{itemize}
+\item \emph{Not} a prefix code\\[0.2cm]
+\begin{itemize}\itemsep0.4cm
+\item $\{a,b,c,d\} \mapsto \{0,10,01,11\}$: since 0 is a prefix of 01.
+\item $\{a,b,c,d\} \mapsto \{0,01,011,111\}$ since 0 is a prefix of both 01 and 011. Also, 01 is a prefix of 011.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{Prefix Code}
+\begin{frame}{\bf \tcb{Prefix Code}}
+
+Prefix codes are {\bf easy to decode}; each codeword is identified as soon as it arrives $\Rightarrow$ also known as {\bf instantaneous codes}.\\[0.5cm]
+
+Example: $\{a,b,c,d\} \mapsto \{0,10,110,111\}$: consider receiving the message ``adb''$=$ 0-111-10 $=$ 011110 one bit at a time:\\[0.1cm]
+\begin{enumerate}[1.]\itemsep0.25cm
+\item 0 \quad$\Rightarrow$\quad \tcr{a}
+\item 0-1 \quad$\Rightarrow$\quad \tcr{a}\,b,\quad \tcr{a}\,c,\quad \tcr{a}\,d \ldots?
+\item 0-11 \quad$\Rightarrow$\quad \tcr{a}\,c,\quad \tcr{a}\,d \ldots?
+\item 0-111 \quad$\Rightarrow$\quad \tcr{ad}
+\item 0-111-1 \quad$\Rightarrow$\quad \tcr{ad}\,b,\quad \tcr{ad}\,c,\quad \tcr{ad}\,d \ldots?
+\item 0-111-10 \quad$\Rightarrow$\quad \tcr{adb}
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+\subsection{Non-Prefix Code}
+\begin{frame}{\bf \tcb{Non-Prefix Code}}
+
+Some \emph{non}-prefix codes may be uniquely decodable - \emph{just not as easily}.\\[0.4cm]
+
+Example: $\{a,b,c,d\} \mapsto \{0,01,011,111\}$: consider receiving the message ``adb''$=$ 0-111-01 $=$ 011101 one bit at a time:\\[0.1cm]
+\begin{enumerate}[1.]\itemsep0.25cm
+\item 0 \quad$\Rightarrow$\quad a,\quad b,\quad c \ldots?
+\item 01 \quad$\Rightarrow$\quad ad, \quad b,\quad c \ldots?
+\item 011 \quad$\Rightarrow$\quad ad, \quad bd,\quad c \ldots?
+\item 0111 \quad$\Rightarrow$\quad ad, \quad bd,\quad cd \ldots?
+\item 0-111-0 \quad$\Rightarrow$\quad \tcr{ad}\,a, \quad \tcr{ad}\,b,\quad \tcr{ad}\,c \ldots?
+\item[6.A] 0-111-01 \quad$\Rightarrow$\quad \tcr{adb} \qquad {\footnotesize\emph{(if we know this is the end of message)}}
+\item[6.B] 0-111-01 \quad$\Rightarrow$\quad \tcr{ad}\,ad, \quad \tcr{ad}\,b,\quad \tcr{ad}\,c \ldots? \qquad {\footnotesize\emph{(if we do not know)}}
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+\subsection{Kraft Inequality}
+\begin{frame}{\bf \tcb{Kraft Inequality}}
+
+We may wish to know if a \emph{non}-prefix code is uniquely decodable.\\[0.7cm]
+In order for a symbol code to be uniquely decodable, the individual code-lengths \emph{must} satisfy the {\bf Kraft inequality:}\\[0.1cm]
+\begin{align*}
+\boxed{\sum 2^{-\ell(x_i)} \le 1}\\[-0.1cm]
+\end{align*}
+where $\ell(x_i)$ is the length of a codeword.
+
+\end{frame}
+
+
+
+\subsection{Kraft Inequality}
+\begin{frame}{\bf \tcb{Kraft Inequality}}
+
+The Kraft inequality can only tell us if a code is \emph{not} uniquely decodable.\\[0.7cm]
+Once we calculate the Kraft value, $K=\sum 2^{-\ell(x_i)}$, we have:\\[0.4cm]
+\begin{itemize}\itemsep0.6cm
+\item $K > 1$ $\Rightarrow$ code is \emph{not} uniquely decodable.
+\item $K \le 1$  $\Rightarrow$ code may or may not be uniquely decodable.\\[0.9cm]
+\end{itemize}
+
+The \emph{Sardinas-Patterson algorithm} can be used to determine if a code is uniquely decodable - not covered on this course.
+
+
+\end{frame}
+
+
+
+
+
+\subsection{Kraft Inequality: Example 1}
+\begin{frame}{\bf \tcb{Kraft Inequality: Example 1}}
+Consider the symbol code $\{a,b,c,d\} \mapsto \{0,10,01,11\}$ whose code-lengths are $\{1,2,2,2\}$. The Kraft value is:\\
+\begin{align*}
+K &= \frac{1}{2^1}+\frac{1}{2^2}+\frac{1}{2^2}+\frac{1}{2^2} \\[0.5cm]
+&= \frac{1}{2} + \frac{3}{4} = 1.25 \quad > 1.\\[-0.2cm]
+\end{align*}
+$\Rightarrow$ Symbol code with lengths $\{1,2,2,2\}$ \emph{cannot} be uniquely decodable.\\[0.6cm]
+
+$\Rightarrow$ The code $\{0,10,01,11\}$ is not uniquely decodable; this is easy to verify since ``ada'' $= 0110 =$ ``cb''.
+
+\end{frame}
+
+
+
+
+
+\subsection{Kraft Inequality: Example 2}
+\begin{frame}{\bf \tcb{Kraft Inequality: Example 2}}
+Now consider the codes $\{0,10,110,111\}$ and $\{0,00,110,111\}$ which have the same code lengths: $\{1,2,3,3\}$. The Kraft value is:\\
+\begin{align*}
+K &= \frac{1}{2^1}+\frac{1}{2^2}+\frac{1}{2^3}+\frac{1}{2^3} \\[0.5cm]
+&= \frac{1}{2} + \frac{1}{4} + \frac{2}{8}= 1 \quad \le 1.\\[-0.2cm]
+\end{align*}
+$\Rightarrow$ A uniquely decodable symbol code with lengths $\{1,2,3,3\}$ exists.\\[0.0cm]
+{\footnotesize(note: this doesn't mean that either of the codes above are uniquely decodable)}\\[0.3cm]
+
+\begin{itemize}\itemsep0.4cm
+\item $\{0,10,110,111\}$ is uniquely decodable since it is a prefix code.
+\item $\{0,00,110,111\}$ is \emph{not} uniquely decodable since ``aa'' $=00=$ ``b''.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+
+
+
+\subsection{Question 2}
+\begin{frame}{\bf \tcb{Question 2}}
+
+\begin{center}
+\begin{tabular}{|cc|l|l|l|l|l|l|}
+\hline
+&&&&&&&\\[-0.4cm]
+$x_i$ & $p(x_i)$ & $C_1$ & $C_2$ & $C_3$ & $C_4$ & $C_5$ & $C_6$ \\[0.1cm]
+\hline
+&&&&&&&\\[-0.4cm]
+a     & 0.5    &  00  &  0   &  0    &  0   &  0    &  10  \\[0.1cm]
+b     & 0.3    &  10  &  1   &  10   &  10  &  10   &  110 \\[0.1cm]
+c     & 0.1    &  01  &  01  &  11   &  110 &  010  &  0   \\[0.1cm]
+d     & 0.1    &  11  &  11  &  001  &  111 &  111  &  111 \\[0.1cm]
+\hline
+\multicolumn{8}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]\itemsep0.4cm
+\item Identify which codes are prefix codes - these are uniquely decodable.
+\item For the non-prefix codes, calculate their Kraft value, $K=\sum 2^{-\ell(x_i)}$. Which codes are definitely not uniquely decodable?
+\item For any remaining codes, see if you can figure out whether or not they are uniquely decodable.
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+\subsection{Shannon's Source Coding Theorem}
+\begin{frame}{\bf \tcb{Shannon's Source Coding Theorem}}
+
+{\bf Shannon's source coding theorem:} \emph{no source can be compressed below its entropy without information loss.}\\[0.5cm]
+
+$\Rightarrow$ For lossless compression, the average code length will \emph{always} be greater than the entropy:\\[-0.4cm]
+\begin{align*}
+\boxed{E(L) \ge H(X)}.\\[-0.0cm]
+\end{align*}
+
+$\Rightarrow$ We can define the {\bf efficiency} of a symbol code:\\[-0.1cm]
+\begin{align*}
+\boxed{e = \frac{H(X)}{E(L)}}.\\[-0.3cm]
+\end{align*}
+Maximum efficiency is 100\% which occurs when $E(L) = H(X)$.
+
+\end{frame}
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+We established in Q2 that $C_1$, $C_4$ and $C_6$ are uniquely decodable.\\[0.6cm]
+
+To calculate efficiencies, we need the entropy, $H(X) = E[h(X)]$:\\[-0.4cm]
+\begin{align*}
+H(X) = 1.000(0.5)+1.737(0.3)+3.322(0.1)+3.322(0.1) = 1.6855.\\[-0.3cm]
+\end{align*}
+\begin{center}
+\begin{tabular}{|ccc|l|l|l|l|l|l|}
+\hline
+&&&&&&&&\\[-0.4cm]
+$x_i$ & $p(x_i)$ & $h(x_i)$ & $C_1$ & \tcg{$C_2$} & \tcg{$C_3$} & $C_4$ & \tcg{$C_5$} & $C_6$ \\[0.1cm]
+\hline
+&&&&&&&&\\[-0.4cm]
+a & 0.5 & 1.000  &  00  &  \tcg{0}   &  \tcg{0}    &  0   &  \tcg{0}    &  10  \\[0.1cm]
+b & 0.3 & 1.737  &  10  &  \tcg{1}   &  \tcg{10}   &  10  &  \tcg{10}   &  110 \\[0.1cm]
+c & 0.1 & 3.322  &  01  &  \tcg{01}  &  \tcg{11}   &  110 &  \tcg{010}  &  0   \\[0.1cm]
+d & 0.1 & 3.322  &  11  &  \tcg{11}  &  \tcg{001}  &  111 &  \tcg{111}  &  111 \\[0.1cm]
+\hline
+&&&&&&&&\\[-0.4cm]
+\multicolumn{3}{|r|}{$E(L) = E[\ell(X)]$} & 2 & \tcg{1.2} & \tcg{1.6} & 1.7 & \tcg{1.7} & 2.3 \\[0.2cm]
+\multicolumn{3}{|r|}{$\Rightarrow e = \frac{H(X)}{E(L)}$} & 0.84 & \tcg{1.4} & \tcg{1.05} & 0.99 & \tcg{0.99} & 0.73 \\[0.1cm]
+\hline
+\multicolumn{8}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+$C_4$ is the most efficient; it is almost at the entropy limit with $e_4 = 99\%$.\\[0.1cm]
+{\footnotesize(note: $C_4$ is a \emph{Huffman code} - see next section)}\\[1.3cm]
+
+
+$C_2$ and $C_3$ compress below entropy $\Rightarrow$ $e_2=140\%$, $e_3=105\%$.\\[0.8cm]
+
+It is not possible to compress below entropy without information loss; we already know these codes are not uniquely decodable.
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+\section{Huffman Coding}
+\subsection{Huffman Coding}
+\begin{frame}{\bf \tcb{Huffman Coding}}
+
+Clearly a prefix codes with optimal efficiency is desirable.\\[0.4cm]
+
+The {\bf Huffman coding algorithm} achieves this by building a binary tree from the leaves up:\\
+\begin{enumerate}[1.]\itemsep0.6cm
+\item Sort the symbol probabilities from highest to lowest.
+\item Repeat the following steps until the tree root is reached:\\
+\begin{enumerate}[(i)]\itemsep0.2cm
+\item Select the two lowest probabilities and add them.
+\item Combine these two nodes by extending branches to a new node.
+\end{enumerate}
+\item Left branches are labelled ``0''; right branches are labelled ``1''.
+\item Create codewords by traversing the tree from its root to its leaves.
+\end{enumerate}
+
+\end{frame}
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+The Huffman coding algorithm is most easily understood by example.\\[0.4cm]
+
+Thus, consider again the symbols from the previous example:
+
+\begin{center}
+\begin{tabular}{|cc|}
+\hline
+&\\[-0.4cm]
+$x_i$ & $p(x_i)$ \\[0.1cm]
+\hline
+&\\[-0.4cm]
+a & 0.5 \\[0.1cm]
+b & 0.3 \\[0.1cm]
+c & 0.1 \\[0.1cm]
+d & 0.1 \\[0.1cm]
+\hline
+\multicolumn{2}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+Note that these are already in order from highest to lowest probability.
+
+\end{frame}
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+\begin{align*}
+%\xymatrixcolsep{1.5cm}
+%\xymatrixrowsep{2cm}
+    \xymatrix{
+     \text{\phantom{Step}} & & & & \\
+     \text{\phantom{Step}} & & & & \\
+     \text{Step 1} & 0.5 & 0.3 & \tcr{0.2} & \\
+     {\begin{tabular}{c} $p(x_i)$ \\[0.2cm] $x_i$ \end{tabular}} &
+     {\begin{tabular}{c} 0.5 \\[0.2cm] a \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{c} 0.3 \\[0.2cm] b \end{tabular}} \ar@{-}[u] & {\begin{tabular}{c} 0.1 \\[0.2cm] c \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{@{}c} 0.1 \\[0.2cm] d \end{tabular}} \ar@{-}[ul]}
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+\begin{align*}
+%\xymatrixcolsep{1.5cm}
+%\xymatrixrowsep{2cm}
+    \xymatrix{
+     \text{\phantom{Step}} & & & & \\
+     \text{Step 2} & 0.5 & \tcr{0.5} & & \\
+     \text{Step 1} & 0.5 \ar@{-}[u] & 0.3 \ar@{-}[u] & \tcr{0.2} \ar@{-}[ul] & \\
+     {\begin{tabular}{c} $p(x_i)$ \\[0.2cm] $x_i$ \end{tabular}} &
+     {\begin{tabular}{c} 0.5 \\[0.2cm] a \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{c} 0.3 \\[0.2cm] b \end{tabular}} \ar@{-}[u] & {\begin{tabular}{c} 0.1 \\[0.2cm] c \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{@{}c} 0.1 \\[0.2cm] d \end{tabular}} \ar@{-}[ul]}
+\end{align*}
+
+\end{frame}
+
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+\begin{align*}
+%\xymatrixcolsep{1.5cm}
+%\xymatrixrowsep{2cm}
+    \xymatrix{
+     \text{Step 3} & \tcr{1.0} & & & \\
+     \text{Step 2} & 0.5 \ar@{-}[u] & \tcr{0.5} \ar@{-}[ul] & & \\
+     \text{Step 1} & 0.5 \ar@{-}[u] & 0.3 \ar@{-}[u] & \tcr{0.2} \ar@{-}[ul] & \\
+     {\begin{tabular}{c} $p(x_i)$ \\[0.2cm] $x_i$ \end{tabular}} &
+     {\begin{tabular}{c} 0.5 \\[0.2cm] a \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{c} 0.3 \\[0.2cm] b \end{tabular}} \ar@{-}[u] & {\begin{tabular}{c} 0.1 \\[0.2cm] c \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{@{}c} 0.1 \\[0.2cm] d \end{tabular}} \ar@{-}[ul]}
+\end{align*}
+
+\end{frame}
+
+
+
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+\begin{align*}
+%\xymatrixcolsep{1.5cm}
+%\xymatrixrowsep{2cm}
+    \xymatrix{
+     \text{Step 3} & \tcr{1.0} & & & \\
+     \text{Step 2} & 0.5 \ar@{-}[u]^{\tcb{\bf0}} & \tcr{0.5} \ar@{-}[ul]_{\tcb{\bf1}} & & \\
+     \text{Step 1} & 0.5 \ar@{-}[u] & 0.3 \ar@{-}[u]^{\tcb{\bf0}} & \tcr{0.2} \ar@{-}[ul]_{\tcb{\bf1}} & \\
+     {\begin{tabular}{c} $p(x_i)$ \\[0.2cm] $x_i$ \end{tabular}} &
+     {\begin{tabular}{c} 0.5 \\[0.2cm] a: \tcb{\bf0} \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{c} 0.3 \\[0.2cm] b: \tcb{\bf10} \end{tabular}} \ar@{-}[u] & {\begin{tabular}{c} 0.1 \\[0.2cm] c: \tcb{\bf110} \end{tabular}} \ar@{-}[u]^{\tcb{\bf0}} &
+     {\begin{tabular}{@{\hspace{-0.3cm}}c} 0.1 \\[0.2cm] d: \tcb{\bf111} \end{tabular}} \ar@{-}[ul]_{\tcb{\bf1}}}
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Question 3}
+\begin{frame}{\bf \tcb{Question 3}}
+
+A file contains the following characters:\\
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&& \\[-0.4cm]
+$x_i$     & a & b & c & d & e \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$p(x_i)$  & 0.2 & 0.1 & 0.15 & 0.2 & 0.35 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]\itemsep0.4cm
+\item Calculate the entropy for this file.
+\item Construct a Huffman code.
+\item Calculate the expected length of the code.
+\item Calculate the efficiency of the code.
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+\end{document} 

@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 10 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(Z > 0.83) = 0.2033.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(Z < 1.05) &= 1 - \Pr(Z > 1.05) \\
+&= 1 - 0.1469\\
+&=0.8531.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(1 < Z < 2) &= \Pr(Z > 1) - \Pr(Z > 2)\\
+&= 0.1587 - 0.02275\\
+&= 0.13595.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(Z < -1.8) &= \Pr(Z > 1.8) \\
+&= 0.0359.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(-1 < Z < 1) &= \Pr(Z > -1) - \Pr(Z > 1) \\
+&= \Pr(Z < 1) - \Pr(Z > 1) \\
+&= 1 - \Pr(Z > 1) - \Pr(Z > 1) \\
+&= 1 - 2 \, \Pr(Z > 1) \\
+&= 1 - 2 \, (0.1587) \\
+&= 0.6826.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[f)] For this we look in the body of the table and then find the $z$ value corresponding to $\Pr(Z > z) = 0.1$. We see that:\\[-0.6cm]
+\begin{align*}
+\Pr(Z > 1.28) &= 0.1003\\
+\text{and}&\\
+\Pr(Z > 1.29) &= 0.0985\\
+\end{align*}
+Thus, since $0.1003$ is close to $0.1$, we may say that $z = 1.28$ leads to $\Pr(Z > z) = 0.1$.\\[0.4cm]
+Alternatively we may say that the value lies between 1.28 and 1.29 and so choose the midpoint: $\frac{1.28+1.29}{2} = 1.285$.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+For this we will need to convert to a $Z$ score using the formula $Z = \frac{X-\mu}{\sigma} = \frac{X - 12}{0.1}$
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(X > 12.15) &= \Pr(Z > \tfrac{12.15-12}{0.1}) \\
+&= \Pr(Z > 1.5) \\
+&= 0.0668.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(X < 12.38) &= \Pr(Z < \tfrac{12.38-12}{0.1}) \\
+&= \Pr(Z < 3.8) \\
+&= 1-\Pr(Z > 3.8) \\
+&= 1-0.000072 \\
+&=0.999928.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(11.85 < &\,X < 12.15) \\&= \Pr(X > 11.85) - \Pr(X > 12.15) \\
+&= \Pr(Z > \tfrac{11.85-12}{0.1}) - 0.0668 \\
+&= \Pr(Z > -1.5) - 0.0668 \\
+&= \Pr(Z < 1.5) - 0.0668 \\
+&= 1 - \Pr(Z > 1.5) - 0.0668 \\
+&= 1 - 0.0668 - 0.0668 \\
+&= 0.8664.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[d)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(X < x) &= 0.9 \\
+\Pr(Z < \tfrac{x-12}{0.1}) &= 0.9 \\
+1 - \Pr(Z < \tfrac{x-12}{0.1}) &= 1 - 0.9 \\
+\Pr(Z > \tfrac{x-12}{0.1}) &= 0.1.
+\end{align*}
+From the tables we see $\Pr(Z > 1.28) = 0.1003$.
+\begin{align*}
+\Rightarrow \tfrac{x-12}{0.1} &= 1.28 \\
+x-12 &= 1.28(0.1) \\
+x &= 1.28(0.1) + 12\\
+x &= 12.128.
+\end{align*}
+\item[e)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(X < x) &= 0.1 \\
+\Pr(Z < \tfrac{x-12}{0.1}) &= 0.1 \\
+\Pr(Z > - \tfrac{x-12}{0.1}) &= 0.1.
+\end{align*}
+Since $\Pr(Z > 1.28) = 0.1003$, we have
+\begin{align*}
+-\tfrac{x-12}{0.1} &= 1.28 \\
+\tfrac{x-12}{0.1} &= -1.28 \\
+x-12 &= -1.28(0.1) \\
+x &= -1.28(0.1) + 12\\
+x &=  11.872.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+\end{document}
+
+
+

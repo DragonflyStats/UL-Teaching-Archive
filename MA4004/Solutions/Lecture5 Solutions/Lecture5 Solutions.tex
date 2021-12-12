@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 5 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+In all of the multiplications below: the first position corresponds to the shirt, the second position is the jacket and the third is the trousers.
+\begin{enumerate}[a)]
+\item Altogether there are $4(2)(2) = 16$ outfits.
+\item If the shirt \emph{must} be red then we only have one option for the shirt $\Rightarrow 1(2)(2) = 4$ outfits.
+\item Shirt can be green \emph{or} black so we have two options for the shirt $\Rightarrow 2(2)(2) = 8$ outfits.
+\item Both the shirt and jacket are specified so we only have one option for both of these $\Rightarrow 1(1)(2) = 2$ outfits.
+\item We have 3 non-black shirts, 1 non-black jacket and 1 non-black pair of trousers $\Rightarrow 3(1)(1) = 3$ outfits.
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[f)] There are 3 outfits with no black item and 16 outfits altogether $\Rightarrow 16 - 3 = 13$ outfits where there is at least one black item of clothing.
+\item[g)] The key thing here is that the trousers must be a different colour to \emph{both} the jacket and the shirt (but the jacket and shirt can be the same colour).\\[0.2cm]
+If we choose brown trousers, we have 3 shirt options (green, red, black) and 2 jacket options (blue, black) $\Rightarrow 3(2)(1) = 6$.\\[0.2cm]
+If we choose black trousers, we have 3 shirt options (green, red, brown) and 1 jacket option (blue) $\Rightarrow 3(1)(1) = 3$.\\[0.2cm]
+In total there are $6+3 = 9$ outfits.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item No repetitions $\Rightarrow 10(9)(8)(7) = 5040.$
+\item  We decide the position for the full stop. We then have 9 choices for the other 3 positions since we cannot use the full stop again.\\[0.2cm]
+Full stop in position 2 $\Rightarrow 9(1)(9)(9) = 729.$\\
+Full stop in position 3 $\Rightarrow 9(9)(1)(9) = 729.$\\
+Full stop in position 4 $\Rightarrow 9(9)(9)(1) = 729.$\\[0.2cm]
+In total: $729 + 729 + 729 = 2187$ passwords with one full stop but not in position 1.
+\item No upper case so we only have 7 characters to choose from $\Rightarrow 7(7)(7)(7) = 2401.$
+\item In total there are $10(10)(10)(10) = 10000$ passwords. We have just found that $2401$ of these have no upper case letters.\\[0.2cm]
+    $\Rightarrow 10000 - 2401 = 7599$ passwords have at least one upper case letter.
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[e)] Using only lower case and numbers, there are 6 characters to choose from $\Rightarrow 6(6)(6)(6) = 1296.$
+\item[f)] The hacker knows that there are 2 possibilities for the first character, $\{a, A\}$, and 3 possibilities for the last, $\{1, 2, 3\}$. The middle two characters may be any of the 10.\\[0.2cm]
+    $\Rightarrow$ The hacker can narrow it down to $2(10)(10)(3) = 600$ possibilities.
+\item[f)] In addition to the above constraints, the hacker now also knows that either:\\[0.2cm]
+the second character is a full stop  $\Rightarrow 2(1)(10)(3) = 60$ or\\
+the third character is a full stop  $\Rightarrow 2(10)(1)(3) = 60$.\\[0.3cm]
+$\Rightarrow$ The hacker can narrow it down to $60 + 60 = 120$ possibilities.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3}
+\begin{align*}
+\binom{8}{6} = \frac{8!}{6! \, 2!}  = \frac{8\times7\times\not6!}{\not6!\,2!} = \frac{8\times7}{2\times1} &= \frac{\not8\,\,^4\times7}{\not2\times1}\\& = 28 \text{ choices.}
+\end{align*}
+There are 28 possible groups of 6 objects chosen from a total of 8.
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{align*}
+\binom{8}{2} = \frac{8!}{2! \, 6!}  = \frac{8\times7\times\not6!}{2!\,\not6!} = \frac{8\times7}{2\times1} = 28.
+\end{align*}
+There are 28 possible groups of 2 objects chosen from a total of 8.
+\\[0.2cm]
+Notice that this is the same as $\binom{8}{6}$ since choosing 6 objects from 8 is the same as choosing 2 to leave behind.
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3 continued}
+\begin{align*}
+\binom{n}{1} = \frac{n!}{1! \, (n-1)!}  = \frac{n\times(n-1)!}{1! \, (n-1)!} = \frac{n}{1} = n.
+\end{align*}
+There are $n$ groups of 1 object chosen from a total of $n$ objects.
+\begin{align*}
+\binom{n}{n} = \frac{n!}{n! \, 0!}  = \frac{n!}{n! \times 1} = \frac{n!}{n!} = 1.
+\end{align*}
+There is only 1 group of $n$ objects chosen from a total of $n$ objects, i.e., we choose all of them.
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{align*}
+\binom{n}{0} = \frac{n!}{0! \, n!}  = \frac{n!}{1 \times n!} = \frac{n!}{n!} = 1.
+\end{align*}
+There is only 1 group of $0$ objects chosen from a total of $n$ objects, i.e., we choose none of them.\\[0.6cm]
+
+$\binom{8}{11}$ is the number of groups of 11 objects chosen from a total of 8. Clearly there are no such groups. We should set $\binom{8}{11} = 0$.
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 4}
+\begin{enumerate}[a)]
+\item There are 10 people from which we must choose 5 people $\Rightarrow \binom{10}{5}= 252.$
+\item We must select one of the men. Thus, we need 4 more people to form our team and we have 9 people to choose from $\Rightarrow \binom{9}{4}= 126.$
+\item The easiest way to do this is to first consider the teams which contain \emph{both} of these individuals. If these two \emph{are} on our team then we need to choose 3 more people from the remaining 8 people $\Rightarrow \binom{8}{3} = 56.$\\[0.3cm]
+    Since there are 252 possible teams altogether there are $252 - 56 = 196$ teams where these two individuals are not present at the same time.
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[d)] We must choose 3 women from 7 and 2 men from 3.\\
+$\Rightarrow \binom{7}{3}\binom{3}{2} = 35(3) = 105.$
+\item[e)] 3 women and 2 men: $\binom{7}{3}\binom{3}{2} = 35(3) = 105.$\\[0.1cm]
+4 women and 1 man: $\binom{7}{4}\binom{3}{1} = 35(3) = 105.$\\[0.1cm]
+5 women and 0 men: $\binom{7}{5}\binom{3}{0} = 21(1) = 21.$\\[0.2cm]
+Total: $105 + 105 + 21 = 231$ teams with more women than men.
+\item[f)] 3 men and 2 women: $\binom{3}{3}\binom{7}{2} = 1(21) = 21.$\\[0.3cm]
+    Note that we can't have teams with 4 or 5 men since there are only 3 men to choose from.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\end{document} 

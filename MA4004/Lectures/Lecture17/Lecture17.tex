@@ -1,0 +1,1104 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    %\insertframenumber{} / \insertpresentationendpage
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+{ % only on titlepage
+
+
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{multirow}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{enumerate}
+%\usepackage{pgfpages}
+\usepackage[gen]{eurosym}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage{etex}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1}[border shrink=1mm]
+
+
+
+
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\definecolor{green2}{RGB}{51,204,51}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcgr}{\textcolor{green2}}
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\tcw}{\textcolor{white}}
+\newcommand{\m}{\phantom{-}}
+\newcommand{\bp}{\tcbb{$\bullet$}\:}
+
+
+\title{{\huge Statistics for Computing\\[0.1cm]MA4413}}
+\author[Kevin Burke]{{\bf\\[0.5cm]{\huge Lecture 17}\\[0.2cm]\emph{The Chi-Squared Test}\\[1.4cm]Kevin Burke}\\[0.3cm]\tcb{kevin.burke@ul.ie}}
+
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+%\TPGrid[5mm,5mm]{1}{1}
+
+\begin{document}
+
+
+\begin{frame}[t]
+\titlepage
+\end{frame}
+
+
+\section{Introduction}
+\subsection{Introduction}
+\begin{frame}{\bf \tcb{Introduction}}
+
+We have looked at tests involving the mean and the variance.\\[1.2cm]
+
+The chi-squared test is based on the {\bf whole distribution} of values.\\[1.2cm]
+
+In particular, the test is used to compare the {\bf observed} distribution (i.e., the data) to some {\bf theoretical} distribution (i.e., a mathematical model).\\[1.2cm]
+
+Note: chi (pronounced ``kye'') is a Greek letter: $\chi$.
+
+
+
+
+\end{frame}
+
+
+
+
+\subsection{Example: Rolling a Die}
+\begin{frame}{\bf \tcb{Example: Rolling a Die}}
+
+
+We roll a die 60 times and observe the following frequencies:\\
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+&&&&&&\\[-0.3cm]
+Value on Die      & \emph{1} & \emph{2} & \emph{3} & \emph{4} & \emph{5} & \emph{6} \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+Observed Frequency & 14 & 9 & 13 & 5 & 12 & 7 \\[0.1cm]
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{\phantom{10}} & \multicolumn{1}{c}{\phantom{10}} & \multicolumn{1}{c}{\phantom{10}} & \multicolumn{1}{c}{\phantom{10}} & \multicolumn{1}{c}{\phantom{10}} & \multicolumn{1}{c}{\phantom{10}} \\[-0.48cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+The question that arises is: \emph{Does this die appear to be fair?}\\[0.6cm]
+
+In other words, we wish to check whether the \emph{observed distribution} differs significantly from the \emph{theoretical distribution:}\\
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+&&&&&&\\[-0.3cm]
+Value on Die      & \emph{1} & \emph{2} & \emph{3} & \emph{4} & \emph{5} & \emph{6} \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+Expected Frequency & 10 & 10 & 10 & 10 & 10 & 10 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+Note: $\frac{1}{6}\times60 = 10$.
+
+\end{frame}
+
+
+\subsection{Observed Vs Expected}
+\begin{frame}{\bf \tcb{Observed Vs Expected}}
+
+In constructing the chi-squared test, we have:\\[0.3cm]
+\begin{itemize}\itemsep0.8cm
+\item {\bf Observed:} The number of times we \emph{observe} a particular value in the data.
+\item {\bf Expected:} The number of times we would \emph{expect} to observe this value if the theoretical distribution fits the data.\\[0.8cm]
+\end{itemize}
+
+The test is based on the fact that the observed minus expected ($o-e$) will be small if the two are roughly in agreement.\\[0.4cm]
+
+We actually don't use $o-e$ as the \emph{distance measure}, but rather:
+\begin{align*}
+\frac{(o-e)^2}{e}.
+\end{align*}
+
+
+\end{frame}
+
+
+\subsection{Hypotheses}
+\begin{frame}{\bf \tcb{Hypotheses}}
+
+For the chi-square test, the null and alternative hypotheses are:
+
+\begin{center}
+\begin{tabular}{c@{\,\,}c}
+$H_0: \quad D$ & $= 0$\\[0.2cm]
+$H_a: \quad D$ &  $> 0$ \\[0.1cm]
+\end{tabular}
+\end{center}
+where ``$D$'' represents the true, but unknown, scaled-squared-distance between the distributions.\\[0.4cm]
+
+In words, $H_0$ says that ``what we observe is what we would expect'',\\ i.e., the distance is approximately zero.\\[0.4cm]
+
+The above hypotheses are usually written as:
+
+\begin{center}
+\begin{tabular}{|c@{\,\,}c|}
+\hline
+&\\[-0.4cm]
+$H_0: \quad$ & the model \emph{fits} the data\\[0.2cm]
+$H_a: \quad$ & the model \emph{does not fit} the data\\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+{\footnotesize(note: ``model'' here means the theoretical distribution)}
+\end{frame}
+
+
+\subsection{The Chi-Squared Test}
+\begin{frame}{\bf \tcb{The Chi-Squared Test}}
+
+\begin{itemize}\itemsep0.9cm
+\item This test is {\bf always one-tailed} $\Rightarrow$ {\bf never} divide $\alpha$ by two.\\[0.1cm]{\footnotesize(being a squared distance measure, $\chi^2$ \emph{cannot} be negative $\Rightarrow$ upper tail only)}
+\item Test statistic:\\[-1.2cm]
+\begin{align*}
+\boxed{\chi^2 = \sum \frac{(o_i-e_i)^2}{e_i}}
+\end{align*}
+\item Critical value: The $\chi^2_{\,\nu,\,\alpha}$ value from the {\bf chi-squared tables}, e.g., $\chi^2_{\,5,\,0.05} = 11.070$,\,\,\, $\chi^2_{\,8,\,0.05} = 15.507$,\,\,\, $\chi^2_{\,11,\,0.01} = 24.725$.
+\item Decision: Reject $H_0$ if $\chi^2 > \chi^2_{\,\nu,\,\alpha}$\,, i.e., if the test statistic is greater than the critical value.
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Degrees of Freedom}
+\begin{frame}{\bf \tcb{Degrees of Freedom}}
+
+The degrees of freedom for the chi-squared test are:\\
+\begin{align*}
+\boxed{\nu = n_{f} - 1 - k}
+\end{align*}
+where\\[0.4cm]
+\begin{itemize}\itemsep0.5cm
+\item $n_{f}$ is the number of observed frequencies in the frequency table.
+\item $k$ is the number of \emph{estimated parameters} for the theoretical model.\\[0.6cm]
+\end{itemize}
+
+This will become clearer when we look at some examples.
+
+\end{frame}
+
+
+
+
+\subsection{Warning}
+\begin{frame}{\bf \tcb{Warning}}
+
+
+The chi-squared test does {\bf not} work well if any expected frequencies are less than 5.\\[0.8cm]
+
+We can get around this by combining cells in the frequency table (more on this later).
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+\section{Goodness-of-Fit Test}
+\subsection{Goodness-of-Fit Test}
+\begin{frame}{\bf \tcb{Goodness-of-Fit Test}}
+
+The chi-squared test is called a {\bf goodness-of-fit} test because it tells us how well the theoretical model \emph{fits} the observed data.\\[1.2cm]
+
+``The fit is good'' means that theory agrees with what we observe.\\[1.2cm]
+
+The better the fit, the more useful the mathematical model will be for describing the phenomenon under study.
+
+
+
+\end{frame}
+
+
+\subsection{Example: Rolling a Die}
+\begin{frame}{\bf \tcb{Example: Rolling a Die}}
+
+
+\begin{center}
+\begin{tabular}{|c|cccccc|c|}
+\hline
+&&&&&&&\\[-0.3cm]
+Value on Die      & \emph{1} & \emph{2} & \emph{3} & \emph{4} & \emph{5} & \emph{6} & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+Observed: $o_i$ & 14 & 9 & 13 & 5 & 12 & 7 & 60 \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+Expected: $e_i$ & 10 & 10 & 10 & 10 & 10 & 10 & 60 \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$o_i-e_i$ & 4 & -1 & 3 & -5 & 2 & -3 &  \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$(o_i-e_i)^2$ & 16 & 1 & 9 & 25 & 4 & 9 &  \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$\frac{(o_i-e_i)^2}{e_i}$ & 1.6 & 0.1 & 0.9 & 2.5 & 0.4 & 0.9 & 6.4 \\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+$\Rightarrow \chi^2 = \sum \frac{(o_i-e_i)^2}{e_i} = 6.4$ is the test statistic.
+
+
+\end{frame}
+
+
+
+\subsection{Example: Rolling a Die}
+\begin{frame}{\bf \tcb{Example: Rolling a Die}}
+
+If testing at the 5\% level $\Rightarrow$ $\alpha = 0.05$ (do not divide by two here).\\[0.7cm]
+
+There are 6 frequencies ($n_f=6$) and no estimated parameters ($k=0$) $\Rightarrow$ degrees of freedom: $\nu = n_f - 1 - k = 6 - 1 - 0 =5$.\\[0.7cm]
+
+Thus, the critical value is $\chi^2_{\,5,\,0.05} = 11.070$ (the rejection region lies above this value).\\[0.7cm]
+
+Since $6.4 < 11.07$, we accept the null hypothesis that there is no difference between what has been observed and what we expect if the die is fair.\\[0.7cm]
+
+Conclusion: the evidence suggests that the die is fair.
+
+\end{frame}
+
+
+
+
+\subsection{Example: Random Number Generator}
+\begin{frame}{\bf \tcb{Example: Random Number Generator}}
+
+Let's assume that we wish to generate random numbers according to the following distribution:
+
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&&\\[-0.3cm]
+$x_i$      & \emph{0} & \emph{2} & \emph{4} & \emph{6} & \emph{8} \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$p(x_i)$ & 0.2 & 0.2 & 0.5 & 0.05 & 0.05 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+We generate 80 numbers and we observe the following frequencies:
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&&\\[-0.3cm]
+$x_i$      & \emph{0} & \emph{2} & \emph{4} & \emph{6} & \emph{8} \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$o_i$ & 16 & 16 & 40 & 4 & 4 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+Does this evidence suggest that we have programmed the generator correctly?
+
+
+\end{frame}
+
+
+
+
+
+\subsection{Example: Random Number Generator}
+\begin{frame}{\bf \tcb{Example: Random Number Generator}}
+
+Expected frequencies are calculated by multiplying the overall total, 80, by the theoretical probabilities:
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&&\\[-0.3cm]
+$x_i$      & \emph{0} & \emph{2} & \emph{4} & \emph{6} & \emph{8} \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$o_i$ & 10 & 11 & 42 &  11 &  6 \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+\tcg{$p(x_i)$} & \tcg{0.2} & \tcg{0.2} & \tcg{0.5} & \tcg{0.05} & \tcg{0.05} \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$80\times p(x_i) = e_i$ & 16 & 16 & 40 & 4 & 4 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+All $e_i$ values must be greater than 5 $\Rightarrow$ combine cells:
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\hline
+&&&&\\[-0.3cm]
+$x_i$      & \emph{0} & \emph{2} & \emph{4} & \emph{6 or 8} \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$o_i$ & 10 & 11 & 42 &  17 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$e_i$ & 16 & 16 & 40 & 8 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\subsection{Example: Random Number Generator}
+\begin{frame}{\bf \tcb{Example: Random Number Generator}}\label{rannum}
+
+\begin{center}
+\begin{tabular}{|c|cccc|c|}
+\hline
+&&&&&\\[-0.3cm]
+$x_i$      & \emph{0} & \emph{2} & \emph{4} & \emph{6 or 8} & $\sum$ \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$o_i$ & 10 & 11 & 42 &  17 & 80\\[0.1cm]
+&&&&&\\[-0.3cm]
+\hline
+&&&&&\\[-0.3cm]
+$e_i$ & 16 & 16 & 40 & 8 & 80\\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$\frac{(o_i-e_i)^2}{e_i}$ & 2.250 & 1.562 & 0.100 & 10.125  & 14.037
+\\[0.1cm]
+\hline
+%\multicolumn{6}{c}{}
+\end{tabular}
+\end{center}
+
+If testing at the 5\% level $\Rightarrow$ $\alpha = 0.05$ (do not divide by two).\\[0.5cm]
+
+There are 4 frequencies (after combining cells) and no estimated parameters $\Rightarrow$ degrees of freedom: $\nu = n_{f} - 1 - k = 4 - 1 - 0 =3$.\\[0.5cm]
+
+Thus, the critical value is $\chi^2_{\,4,\,0.05} = 7.815$ (the rejection region lies above this value).
+
+\end{frame}
+
+
+
+\subsection{Example: Random Number Generator}
+\begin{frame}{\bf \tcb{Example: Random Number Generator}}
+
+The test statistic $\chi^2 = 14.037$ is above the critical value $\chi^2_{\,4,\,0.05} = 7.815$ and, hence, we reject the null hypothesis at the 5\% level.\\[1.2cm]
+
+$\Rightarrow$ The observed data does not match what we would expect if the theoretical distribution was true.\\[1.2cm]
+
+Conclusion: The random numbers are not being generated according to the intended distribution, i.e., there must be a mistake in our code.
+
+
+\end{frame}
+
+
+
+
+
+\subsection{Example: Poisson Road Accidents}
+\begin{frame}{\bf \tcb{Example: Poisson Road Accidents}}
+
+A busy section of road was monitored over a one-year period. Each day the number of accidents was recorded and the results were:\\[0.6cm]
+\begin{center}
+\begin{tabular}{|c|ccccc|c|}
+\hline
+&&&&&&\\[-0.3cm]
+$x_i$      & \emph{0} & \emph{1} & \emph{2} & \emph{3} & \emph{4+} & $\sum$ \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+$o_i$ & 187 & 71 & 73 & 24 & 10 & 365\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}
+\end{tabular}
+\end{center}
+and the average number of accidents in the sample was $\bar x = 0.904$.\\[0.4cm]
+
+
+We wish to test the hypothesis that the above results are in line with a Poisson distribution at the 1\% level:\\[-0.2cm]
+\begin{align*}
+H_0: \quad & \text{Poisson model \emph{fits} the data}\\[0.2cm]
+H_a: \quad & \text{Poisson model \emph{does not fit} the data}\\[0.1cm]
+\end{align*}
+
+\end{frame}
+
+
+
+
+
+
+
+\subsection{Example: Poisson Road Accidents}
+\begin{frame}{\bf \tcb{Example: Poisson Road Accidents}}
+
+Since $E(X) = \lambda$ for the Poisson distribution, we can use $\bar x = 0.904$ as the \emph{estimated} $\lambda$ value here.\\[1cm]
+
+The question is as follows:\\[0.2cm]
+Does the data appear to follow a Poisson$(\lambda = 0.904)$ distribution?\\[1cm]
+
+We can work out the theoretical probabilities using:
+\begin{align*}
+\Pr(X=x) = \frac{\lambda^x}{x\,!}e^{-\lambda} = \frac{0.904^x}{x\,!}e^{-0.904}.
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Example: Poisson Road Accidents}
+\begin{frame}{\bf \tcb{Example: Poisson Road Accidents\\[-1.3cm]}}
+\begin{align*}
+& \text{theoretical probability: } p_i  & \Rightarrow & \quad \text{total}\times p_i \,\,= \,\,e_i\\[0.2cm]
+\Pr(X=0) &= \frac{0.904^0}{0\,!}e^{-0.904} = 0.405 \quad &\Rightarrow&  \quad 365(0.405) = 147.83  \\[0.5cm]
+\Pr(X=1) &= \frac{0.904^1}{1\,!}e^{-0.904} = 0.366 \quad &\Rightarrow&  \quad 365(0.366) = 133.59  \\[0.5cm]
+\Pr(X=2) &= \frac{0.904^2}{2\,!}e^{-0.904} = 0.165 \quad &\Rightarrow&  \quad 365(0.165) =  60.23 \\[0.5cm]
+\Pr(X=3) &= \frac{0.904^3}{3\,!}e^{-0.904} = 0.050 \quad &\Rightarrow&  \quad 365(0.050) =  18.25\\[0.5cm]
+\Pr(X \ge 4) &= 1 - \Pr(X < 4) = 0.014 \quad &\Rightarrow&  \quad 365(0.014) =   5.11
+\end{align*}
+
+
+
+
+\end{frame}
+
+
+
+
+
+\subsection{Example: Poisson Road Accidents}
+\begin{frame}{\bf \tcb{Example: Poisson Road Accidents}}\label{road}
+
+\begin{center}
+\begin{tabular}{|c|ccccc|c|}
+\hline
+&&&&&&\\[-0.3cm]
+$x_i$      & \emph{0} & \emph{1} & \emph{2} & \emph{3} & \emph{4+} & $\sum$ \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+$o_i$ & 187 & 71 & 73 & 24 & 10 & 365\\[0.1cm]
+%\hline
+%&&&&&&\\[-0.3cm]
+%$p_i$ & 0.394 & 0.367 & 0.171 & 0.053 & 0.015 & 1.00\\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+$e_i$ &  147.83 & 133.59 &  60.23 &  18.25 & 5.11 & 365\\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+$\frac{(o_i-e_i)^2}{e_i}$ & 10.38 & 29.32 &  2.71 &  1.81 &  4.68 & 48.9
+\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+%Recall that we are testing at the 1\% level $\Rightarrow$ $\alpha=0.01$.\\[0.4cm]
+
+There are 5 frequencies, $\{0,1,2,3,4+\}$, and we estimated one parameter, $\lambda = 0.904$. Thus, $\nu = n_{f} - 1 - k = 5 - 1 - 1 =3$.\\[0.4cm]
+
+Thus, the critical value is $\chi^2_{\,3,\,0.01} = 11.345$ (for the 1\% level).\\[0.4cm]
+
+Since $48.9 > 11.345$, we reject $H_0$ $\Rightarrow$ the Poisson model is not appropriate for this data.
+
+\end{frame}
+
+
+
+
+
+
+\subsection{Example: Exponential Battery Life}
+\begin{frame}{\bf \tcb{Example: Exponential Battery Life}}
+
+A sample of 100 laptops was selected. Each one was fully charged and the time (in hours) until the laptop reached a critical battery level was recorded.\\[0.8cm]
+
+The data was stored as a frequency table:\\[0.1cm]
+{\footnotesize(recall how to construct frequency tables from Lecture1)}
+\begin{center}
+\begin{tabular}{|c|cccccc|c|}
+\hline
+&&&&&&&\\[-0.3cm]
+Class & $<$\,3 & 3\,-\,6 & 6\,-\,9 & 9\,-\,12 & 12\,-\,15 & $>$15 & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+Frequency & 56 & 24 & 12 &  6 &  1 &  1 & 100\\[0.1cm]
+\hline
+\multicolumn{8}{c}{}
+\end{tabular}
+\end{center}
+
+The average battery life for the sample was found to be $3.485$ hours.
+
+\end{frame}
+
+
+
+\subsection{Example: Exponential Battery Life}
+\begin{frame}{\bf \tcb{Example: Exponential Battery Life}}
+
+Let's assume that we want to test the hypothesis that an exponential model can be used for this data.\\[0.4cm]
+
+For the exponential distribution $E(T) = \frac{1}{\lambda}$ $\Rightarrow$ $\lambda = \frac{1}{E(T)}$. Thus, we can use $0.287$\, (i.e., $\frac{1}{3.485}$) as the \emph{estimated} $\lambda$ value.\\[1cm]
+
+Using $\Pr(T>t) = e^{-\lambda\,t} = e^{-0.287\,t}$, it is easy to calculate the following:\\[-0.4cm]
+\begin{align*}
+\Pr(T < 3) &= 0.577  & \Pr(9 < T < 12) &= 0.044 \\[0.4cm]
+\Pr(3 < T < 6) &= 0.244  & \Pr(12 < T < 15) &= 0.018 \\[0.4cm]
+\Pr(6 < T < 9) &= 0.103  & \Pr(T > 15) &= 0.014
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+
+The information from the previous slides is as follows:
+\begin{center}
+\begin{tabular}{|c|cccccc|c|}
+\hline
+&&&&&&&\\[-0.3cm]
+Class & $<$\,3 & 3\,-\,6 & 6\,-\,9 & 9\,-\,12 & 12\,-\,15 & $>$15 & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$o_i$ & 56 & 24 & 12 &  6 &  1 &  1 & 100\\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$p_i$ & 0.577 & 0.244 & 0.103 & 0.044 & 0.018 & 0.014 & \\[0.1cm]
+\hline
+%\multicolumn{8}{c}{}
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]\itemsep0.3cm
+\item State the null and alternative hypotheses.
+\item Calculate the expected frequencies, $e_i$.
+\item If necessary, combine classes if any $e_i$ values are less than 5.
+\item What is the critical value for the chi-squared test if we are testing at the 5\% level?
+\item Is the exponential model appropriate for this data?
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+\section{Independence Test}
+\subsection{Example: Defective Units}
+\begin{frame}{\bf \tcb{Example: Defective Units}}
+
+Often we wish to explore the relationship between two categorical variables in the form of a {\bf contingency table}:
+\begin{center}
+\begin{tabular}{|c|ccc|c|}
+\hline
+&&&&\\[-0.3cm]
+                    & Factory 1 & Factory 2 & Factory 3 & $\sum$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+Defective Units     &  8        &  21       &  14       & 43 \\[0.2cm]
+Non-Defective Units &  73       &  66       &  85       & 224 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$\sum$              &  81       &  87       &  99       & 267 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{align*}
+\text{Note that} \qquad \Pr(D\,|\,F_1) &= \tfrac{8}{81} = 0.099\\[0.4cm]
+\Pr(D\,|\,F_2) &= \tfrac{21}{87} = 0.241\\[0.4cm]
+\Pr(D\,|\,F_3) &= \tfrac{14}{99} = 0.141
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Defective Units}
+\begin{frame}{\bf \tcb{Example: Defective Units}}
+
+The two variables of interest are ``Factory'' and ``Defective Status''.\\[1cm]
+
+
+Based on the conditional probabilities on the previous slide, it appears that Defective Status varies with Factory, i.e., they are \emph{dependent}\\[1cm]
+
+
+However, these results could have come about by \emph{random chance} when in fact the variables are independent.\\[1cm]
+
+We wish to test the hypothesis that the variables are independent\\ (i.e., no relationship between them).
+
+\end{frame}
+
+
+
+\subsection{Independence Test}
+\begin{frame}{\bf \tcb{Independence Test}}
+
+In order to test whether two variables are independent, we use the chi-squared test to check if an {\bf independence model} fits the data.\\[0.8cm]
+
+Thus we have:
+
+\begin{center}
+\begin{tabular}{c@{\,\,}c}
+$H_0: \quad$ & independence model fits the data\\[0.2cm]
+$H_a: \quad$ & independence does not fit the data\\[0.6cm]
+\end{tabular}
+\end{center}
+
+It is more common to write these hypotheses as:
+
+\begin{center}
+\begin{tabular}{|c@{\,\,}c|}
+\hline
+&\\[-0.4cm]
+$H_0: \quad$ &  the variables are \emph{independent} \\[0.2cm]
+$H_a: \quad$ & the variables are \emph{dependent} \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+
+\subsection{Marginal Probabilities}
+\begin{frame}{\bf \tcb{Marginal Probabilities}}
+
+Note that the {\bf marginal probabilities} are:\\[-0.1cm]
+\begin{align*}
+&\text{\bf rows}                      &          & \text{\bf columns} \\[0.1cm]
+\Pr(D) &= \tfrac{43}{267} = 0.161 & \Pr(F_1) &= \tfrac{81}{267} = 0.303\\[0.3cm]
+\Pr(D^c) &= \tfrac{224}{267} = 0.839 & \Pr(F_2) &= \tfrac{87}{267} = 0.326 \\[0.3cm]
+&&\Pr(F_3) &= \tfrac{99}{267} = 0.371
+\\[-0.3cm]
+\end{align*}
+
+These are the marginal distributions of Defective Status and Factory.\\[0.3cm]
+
+{\footnotesize(so-called because they correspond to the margins of the contingency table)}
+\end{frame}
+
+
+
+
+
+\subsection{Independence Model}
+\begin{frame}{\bf \tcb{Independence Model}}\label{indep}
+
+If variables are independent, multiplying marginal probabilities gives the joint probabilities (see Lecture6).\\[0.6cm]
+
+If this is the case then the joint distribution for our data would be:\\[0.1cm]
+\begin{center}
+\begin{tabular}{|c|ccc|c|}
+\hline
+&&&&\\[-0.3cm]
+                    & Factory 1 & Factory 2 & Factory 3 &  \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+Defective Units     &  0.049        &  0.052       &  0.060       & 0.161 \\[0.2cm]
+Non-Defective Units &  0.254        &  0.274       &  0.311       & 0.839 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+                    &  0.303       &  0.326       &  0.371       & 1.000 \\[0.1cm]
+\hline
+\multicolumn{5}{c}{}\\[-0.4cm]
+\multicolumn{5}{l}{{\footnotesize(note, for example, that $0.161\times0.303 = 0.049$)}}
+\end{tabular}
+\end{center}
+
+
+This is the independence model for our data. We can use the chi-squared test to check if it fits.
+
+\end{frame}
+
+
+
+\subsection{Expected Frequencies}
+\begin{frame}{\bf \tcb{Expected Frequencies}}
+
+As before, $e_i = \text{total} \times p_i = 267 \times p_i$.\\[0.7cm]
+
+$\Rightarrow$ The expected frequency for \,$D \cap F_1$\, is $267(0.049) = 13.083$.\\[0.7cm]
+
+Note that:
+\begin{align*}
+267(0.049) = 267(0.161)(0.303) &= 267 \,\, \frac{43}{267} \,\, \frac{81}{267} \\[0.2cm]
+&= \frac{43(81)}{267} = 13.045.\\
+\end{align*}
+
+{\footnotesize(the answers differ slightly due to rounding error)}
+
+\end{frame}
+
+
+
+
+\subsection{Expected Frequencies}
+\begin{frame}{\bf \tcb{Expected Frequencies}}
+
+Clearly $\frac{43\times81}{267} = \frac{\text{row total}\times\text{column total}}{\text{total}}$.\\[0.2cm]
+{\footnotesize(it is easy to confirm that this pattern continues for the rest of the table)}\\[0.9cm]
+
+
+$\Rightarrow$ To calculate expected frequencies in contingency tables use:\\[-0.1cm]
+\begin{align*}
+\boxed{e_{ij} = \frac{r_i\times c_j}{\text{total}}}\\[-0.2cm]
+\end{align*}
+where $r_i$ and $c_j$ are the relevant row and column totals.\\[0.9cm]
+
+In other words, we don't have to calculate the independence model probabilities as was done on slide \pageref{indep}.
+
+\end{frame}
+
+
+
+
+\subsection{Degrees of Freedom}
+\begin{frame}{\bf \tcb{Degrees of Freedom}}
+
+The degrees of freedom are $\nu = n_f - 1 - k$. We have used the data to estimate probabilities for the independence model $\Rightarrow$ $k \ne 0$.\\[1cm]
+
+How many probabilities have we estimated?\\[0.3cm]
+Answer: \emph{one} row probability, and \emph{two} column probabilities.\\[1cm]
+
+The remaining probabilities are given by subtraction:\\[0.5cm]
+
+Rows: $\{0.161\}$ and $\{0.839 = 1 - 0.161\}$.\\[0.4cm]
+Columns: $\{0.303\}$, $\{0.326\}$ and $\{0.371 = 1 - (0.303+0.326)\}$.
+
+\end{frame}
+
+
+
+
+
+\subsection{Degrees of Freedom}
+\begin{frame}{\bf \tcb{Degrees of Freedom}}
+
+The number of estimates is $k = (n_r-1) + (n_c - 1)$.\\[0.1cm]
+{\footnotesize(i.e., one less than the number of rows $+$ one less than the number of columns)}\\[1cm]
+
+Thus, the degrees of freedom are $\nu = n_f - 1 - [(n_r-1) + (n_c - 1)]$.\\[1cm]
+
+Since, the number of observed frequencies is $n_f = n_r \times n_c$, it is straightforward to show that the above can be written as:\\
+\begin{align*}
+\boxed{\nu = (n_r - 1) \times (n_c - 1)}
+\end{align*}
+
+\end{frame}
+
+
+
+
+\subsection{Example: Defective Units}
+\begin{frame}{\bf \tcb{Example: Defective Units}}
+
+\begin{center}
+\begin{tabular}{|c|ccc|c|}
+\hline
+&&&&\\[-0.3cm]
+ {\bf Observed}                 & Factory 1 & Factory 2 & Factory 3 & $\sum$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+Defective      &  8        &  21       &  14       & 43 \\[0.2cm]
+Non-Defective  &  73       &  66       &  85       & 224 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$\sum$              &  81       &  87       &  99       & 267 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+\begin{adjustwidth}{-0.3cm}{0cm}
+\begin{tabular}{|c|ccc|c|}
+\hline
+&&&&\\[-0.3cm]
+ {\bf Expected}                 & Factory 1 & Factory 2 & Factory 3 & $\sum$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+Defective      &  $\tcg{\frac{43(81)}{267}=} 13.04$        &  $\tcg{\frac{43(87)}{267}=}14.01$       &  $\tcg{\frac{43(99)}{267}=}15.94$       & 43 \\[0.2cm]
+Non-Defective  & $\tcg{\frac{224(81)}{267}=}67.96$       &  $\tcg{\frac{224(87)}{267}=}72.99$  &  $\tcg{\frac{224(99)}{267}=}83.07$       & 224 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$\sum$              &  81       &  87       &  99       & 267 \\[0.1cm]
+\hline
+\end{tabular}
+\end{adjustwidth}
+
+\end{frame}
+
+
+
+
+\subsection{Example: Defective Units}
+\begin{frame}{\bf \tcb{Example: Defective Units}}\label{indep}
+
+\begin{center}
+\begin{tabular}{|c|ccc|}
+\hline
+&&&\\[-0.3cm]
+${\displaystyle\frac{(o_i-e_i)^2}{e_i}}$      & Factory 1 & Factory 2 & Factory 3 \\[0.4cm]
+\hline
+&&&\\[-0.3cm]
+Defective      &  1.95 & 3.49 & 0.24 \\[0.2cm]
+Non-Defective  &  0.37 & 0.67 & 0.05 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+Adding these numbers gives: $\chi^2 = \sum \frac{(o_i-e_i)^2}{e_i} = 6.76$.\\[0.6cm]
+
+Degrees of freedom: $\nu = (n_r-1)\times(n_c-1) = (2-1)(3-1) = 2$ \\ $\Rightarrow$ critical value is $\chi^2_{\,2,\,0.05} = 5.991$ (for the 5\% level).\\[0.6cm]
+
+
+Since $6.76 > 5.991$ we reject the null hypothesis that there is no relationship between defects and factory.\\[0.2cm]
+
+Conclusion: The proportion of defects varies across factories.
+
+\end{frame}
+
+
+
+\subsection{Example: Defective Units}
+\begin{frame}{\bf \tcb{Example: Defective Units}}
+
+We must now describe the nature of the dependence.\\[1cm]
+
+Recall that we calculated:\\[-0.3cm]
+\begin{align*}
+\Pr(D\,|\,F_1) = 0.099,\quad \Pr(D\,|\,F_2) = 0.241,\quad \Pr(D\,|\,F_3) = 0.141.\\
+\end{align*}
+$\Rightarrow$ Factory 1 appears to be the best (lowest defective rate), followed by Factory 3 and then Factory 2.
+
+\end{frame}
+
+
+
+
+\subsection{Example: Defective Units}
+\begin{frame}{\bf \tcb{Example: Defective Units}}
+
+We can also describe the nature of the dependence by inspecting the values of the {\bf raw difference scores}, $o_i - e_i$:\\[0.5cm]
+\begin{center}
+\begin{tabular}{|c|ccc|}
+\hline
+&&&\\[-0.3cm]
+$o_i-e_i$      & Factory 1 & Factory 2 & Factory 3 \\[0.4cm]
+\hline
+&&&\\[-0.3cm]
+Defective      &  $-5.04$ & $\m6.99$ &  $-1.94$ \\[0.2cm]
+Non-Defective  & $\m5.04$ &  $-6.99$ & $\m1.94$ \\[0.1cm]
+\hline
+\multicolumn{4}{c}{}
+\end{tabular}
+\end{center}
+
+Factory 1 has less defects than we would expect - so does Factory 3 (but the difference is not as large).\\[0.4cm]
+Factory 2 has more defects than we expect.
+
+
+\end{frame}
+
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+The different grades given by 3 different examiners marking an exam were as follows:
+\begin{center}
+\begin{tabular}{|c|ccc|c|}
+\hline
+&&&&\\[-0.3cm]
+                    & Examiner 1 & Examiner 2 & Examiner 3 & $\sum$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+Grade A     &   9       &   6       &  10       &  25 \\[0.2cm]
+Grade B     &  11       &  20       &  26       &  57 \\[0.2cm]
+Grade C     &  25       &  19       &  74       & 118 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$\sum$        & 45 & 45 & 110 & 200  \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]\itemsep0.3cm
+\item Show that there is a significant relationship between the examiner and the grade awarded (at the 5\% level).
+\item Using the raw difference scores, comment on nature of the dependence.
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+\section{R Code}
+\subsection{R Code: Goodness-of-fit}
+\begin{frame}{\bf \tcb{R Code: Goodness-of-fit}}
+
+To run the chi-squared test in \texttt{R}, the \texttt{chisq.test} function is used:\\[0.5cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{oi = c(10, 11, 42, 17)}\\[0.2cm]
+\texttt{pi = c(0.2,0.2,0.5,0.1)}\\[0.2cm]
+\texttt{chisq.test(oi, p=pi)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+Compare this with slide \pageref{rannum}.\\[0.5cm]
+
+Note: since we have combined the frequencies for $X=6$ and $X=8$, we also combine the theoretical probabilities $0.05 + 0.05 = 0.1$.
+
+\end{frame}
+
+
+
+\subsection{R Code: Goodness-of-fit (Estimated Parameters)}
+\begin{frame}{\bf \tcb{R Code: Goodness-of-fit (Estimated Parameters)}}
+
+For the road accident data we have:\\[0.5cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{oi = c(187, 71, 73, 24, 10)}\\[0.2cm]
+\texttt{pi = c(0.405,0.366,0.165,0.050,0.014)}\\[0.2cm]
+\texttt{chisq.test(oi, p=pi)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+Compare this with slide \pageref{road}.\\[0.5cm]
+
+Note: \texttt{R} has no way of knowing that we estimated a $\lambda$ parameter to calculate the theoretical probabilities $\Rightarrow$ the degrees of freedom are {\bf wrong} and, hence, the p-value is wrong.
+
+
+\end{frame}
+
+
+
+
+\subsection{R Code: Goodness-of-fit (Estimated Parameters)}
+\begin{frame}{\bf \tcb{R Code: Goodness-of-fit (Estimated Parameters)}}
+
+The following code can be used to calculate the correct p-value in the case where parameters have been estimated:\\[0.5cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{oi = c(187, 71, 73, 24, 10)}\\[0.2cm]
+\texttt{pi = c(0.405,0.366,0.165,0.050,0.014)}\\[0.2cm]
+\texttt{chi = chisq.test(oi, p=pi)}\\[0.2cm]
+\texttt{k = 1 \qquad \# the number of estimated parameters}\\[0.2cm]
+\texttt{pchisq(chi\$stat, df=(chi\$par-k), lower=F)[[1]]}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+Note: In this particular case, adjusting the degrees of freedom doesn't alter our conclusion (the p-value is tiny either way).
+
+\end{frame}
+
+
+
+
+\subsection{R Code: Independence Test}
+\begin{frame}{\bf \tcb{R Code: Independence Test}}
+
+For the independence test, we provide the contingency table as a \texttt{matrix}.\\[0.3cm]
+We do not provide theoretical probabilities in this case; they are automatically calculated.\\[0.5cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{oi = matrix(c(8,21,14,73,66,85), nrow=2,}\\
+\hspace{6cm}\texttt{ncol=3, byrow=T)}\\[0.2cm]
+\texttt{oi\qquad\# look at the structure of oi here}\\[0.2cm]
+\texttt{chisq.test(oi)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+Compare this with slide \pageref{indep}.\\[0.5cm]
+
+\end{frame}
+
+
+
+
+\end{document} 

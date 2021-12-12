@@ -1,0 +1,996 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    %\insertframenumber{} / \insertpresentationendpage
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+{ % only on titlepage
+
+
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{multirow}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{enumerate}
+%\usepackage{pgfpages}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage{etex}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1}[border shrink=1mm]
+
+
+
+
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\definecolor{green2}{RGB}{51,204,51}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcgr}{\textcolor{green2}}
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\tcw}{\textcolor{white}}
+\newcommand{\m}{\phantom{-}}
+\newcommand{\bp}{\tcbb{$\bullet$}\:}
+
+
+\title{{\huge Statistics for Computing\\[0.1cm]MA4413}}
+\author[Kevin Burke]{{\bf\\[0.5cm]{\huge Lecture 14}\\[0.2cm]\emph{Smaller Samples: The T Distribution}\\[1.4cm]Kevin Burke}\\[0.3cm]\tcb{kevin.burke@ul.ie}}
+
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+%\TPGrid[5mm,5mm]{1}{1}
+
+\begin{document}
+
+
+\begin{frame}[t]
+\titlepage
+\end{frame}
+
+
+
+\section{Small Samples}
+\subsection{The Central Limit Theorem}
+\begin{frame}{\bf \tcb{The Central Limit Theorem\\[-1.2cm]}}
+\begin{align*}
+\text{Let\quad} X_1,X_2,\ldots,X_n \sim \text{\emph{any} distribution with: } &\,\bullet\, \mu = E(X)\\
+&\,\bullet\, \sigma = Sd(X)\\[-0.2cm]
+\end{align*}
+
+The power of the \emph{central limit theorem} is that $\,\overline{\!X}$ is approximately normally distributed regardless of the distribution of the individual values, $X_1,X_2,\ldots,X_n$, i.e.,
+\begin{align*}
+\,\overline{\!X} \sim \text{Normal}\left(\mu,\,\,\sigma(\,\overline{\!X}) = \frac{\sigma}{\sqrt{n}}\right).\\[-0.2cm]
+\end{align*}
+
+This works for large samples $(n > 30)$ and, furthermore, in these large samples, we can also replace $\sigma$ with $s$.
+\begin{align*}
+\sigma(\,\overline{\!X}) \approx s(\,\overline{\!X}) = \frac{s}{\sqrt{n}}.
+\end{align*}
+
+\end{frame}
+
+\subsection{Large Samples}
+\begin{frame}{\bf \tcb{Large Samples}}
+
+Replacing $\sigma$ with $s$ is okay in large samples since $s$ will be close to the true value $\sigma$ in this case:\\[-0.1cm]
+\begin{align*}
+\Rightarrow \frac{\,\overline{\!X} - \mu}{S/\sqrt{n}} \approx \frac{\,\overline{\!X} - \mu}{\sigma/\sqrt{n}} = Z \sim \text{Normal}(0,1).\\[-0.1cm]
+\end{align*}
+
+
+Based on the above, we develop a confidence interval for $\mu$ via
+\begin{align*}
+\bar x \pm z_{\,\alpha/2} \frac{s}{\sqrt{n}}
+\end{align*}
+which we know has probability $1-\alpha$ of containing $\mu$ and probability $\alpha$ (the error probability) of not containing $\mu$.%\\[0.7cm]
+
+%{\footnotesize(we also developed confidence intervals for the difference between means ($\mu_1 - \mu_2$), for proportions $(p)$ and for the difference between proportions ($p_1 - p_2$))}
+
+\end{frame}
+
+
+\subsection{Small Samples}
+\begin{frame}{\bf \tcb{Small Samples}}
+
+For {\bf smaller samples} ($n\le30$), $s$ varies more from sample to sample; we must account for this extra level of uncertainty.\\[0.8cm]
+
+In particular, it turns out that
+\begin{align*}
+\frac{\,\overline{\!X} - \mu}{S/\sqrt{n}} \sim \text{\bf t distribution}, \\[-0.3cm]
+\end{align*}
+i.e., \emph{not} a $\text{Normal}(0,1)$ distribution.\\[0.8cm]
+
+
+The t distribution is symmetric like the Normal distribution but has longer tails (leading to wider confidence intervals) which reflects the extra uncertainty.
+
+\end{frame}
+
+
+\subsection{Use of the T Distribution}
+\begin{frame}{\bf \tcb{Use of the T Distribution}}
+
+
+Unlike the central limit theorem, the result on the previous slide {\bf does not hold} for $\,\overline{\!X}$ calculated from \emph{any} sample, $X_1,X_2,\ldots,X_n$.\\[0.8cm]
+
+It relies on the {\bf assumption} that the individual data values are {\bf normally distributed}, i.e.,  $X_1,X_2,\ldots,X_n \sim \text{Normal}(\mu,\sigma).$\\[0.8cm]
+
+In practice we must \emph{check} that our small sample of data looks approximately normal (using a histogram and a Q-Q plot).\\[0.8cm]
+
+As long as the data looks reasonably normally distributed, we can apply the theory of the t distribution.\\[0.2cm]
+{\footnotesize(note: for highly non-normal data there are so-called ``non-parametric'' methods)}
+
+\end{frame}
+
+
+
+\subsection{Note on Normality}
+\begin{frame}{\bf \tcb{Note on Normality}}
+
+In order for the data to be normally distributed, it must be numeric.\\[0.2cm]
+\begin{itemize}\itemsep0.3cm
+\item Technically continuous, but in practice we are not so strict.
+\item Often discrete data can still look reasonably normal.\\[1.2cm]
+\end{itemize}
+
+On the other hand, {\bf categorical data cannot be normally distributed}.\\[0.2cm]
+\begin{itemize}\itemsep0.3cm
+\item $\{\text{Yes}, \text{No}\} = \{1,0\}$ $\Rightarrow$ frequencies of 1s and 0s could never look like a symmetric bell-shape.
+\item We \emph{always} require large samples ($n>30$) for categorical data to produce confidence intervals for $p$ and $p_1-p_2$.\\[0.2cm]
+{\footnotesize(in fact, it turns out that samples \emph{much} larger than 30 may be required if the true proportion is near 0 or 1)}
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+\section{One Mean}
+\subsection{One Mean}
+\begin{frame}{\bf \tcb{One Mean}}
+\begin{align*}
+\text{If\quad} X_1,X_2,\ldots,X_n \sim \text{Normal}(\mu, \sigma) \text{\quad and\quad}& n \le 30\\[-0.2cm]
+\end{align*}
+\begin{align*}
+\Rightarrow\quad & \boxed{T = \frac{\,\overline{\!X} - \mu}{S/\sqrt{n}} \sim \text{T}(\nu)}\,, \\[-0.1cm]
+\end{align*}
+where $\text{T}(\nu)$ denotes a t distribution with $\nu$ \emph{``degrees of freedom''}.\\
+{\footnotesize(note that $\nu$ is the Greek letter ``nu'')}\\[0.8cm]
+
+The value of $\nu$ is the sample size minus one, i.e.,
+\begin{align*}
+\boxed{\nu = n - 1}.
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{One Mean: Confidence Interval}
+\begin{frame}{\bf \tcb{One Mean: Confidence Interval}}
+
+We calculate the confidence interval in the same way as before, except that a t value is used:\\
+\begin{align*}
+\boxed{\bar x \pm t_{\,\nu,\,\alpha/2} \, \frac{s}{\sqrt{n}}}\\
+\end{align*}
+
+where, as before, $\alpha/2$ corresponds to a $(1-\alpha)\%$ confidence interval and $\nu = n-1$ are the degrees of freedom for the t distribution.\\[0.8cm]
+
+The $t_{\,\nu,\,\alpha/2}$ values are always larger than the $z_{\,\alpha/2}$ values used previously. Hence, confidence intervals are wider and account for the extra uncertainty caused by using $s$ in place of $\sigma$.
+\end{frame}
+
+
+
+\subsection{Using T Tables}
+\begin{frame}{\bf \tcb{Using T Tables}}
+
+Just as we must look up z values in the normal tables, we find t values in the {\bf t tables}.\\[0.6cm]
+
+The t tables differ from the normal tables in that probabilities appear in the column headings and t values appear in the body of the table.\\[0.6cm]
+
+We look up the appropriate t value via:\\[0.1cm]
+\begin{itemize}\itemsep0.4cm
+\item {\bf Row} $\Rightarrow$ degrees of freedom ($\nu =n-1$ for one mean).
+\item {\bf Column} $\Rightarrow$ probability ($\alpha/2$ for confidence intervals).\\[0.6cm]
+\end{itemize}
+
+Examples: $t_{\,3,\,0.025}=3.182$,\,\, $t_{\,10,\,0.025}=2.228$,\,\, $t_{\,14,\,0.005}=2.977$\, etc.
+
+\end{frame}
+
+
+\subsection{Note on T Tables}
+\begin{frame}{\bf \tcb{Note on T Tables}}\label{tapproachz}
+
+\begin{minipage}{0.49\textwidth}
+Recall that:\\[-0.2cm]
+\begin{itemize}\itemsep0.4cm
+\item $z_{\,0.1} = 1.64$
+\item $z_{\,0.025} = 1.96$
+\item $z_{\,0.005} = 2.58$\\[0.4cm]
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+Note bottom row of t tables:\\[-0.2cm]
+\begin{itemize}\itemsep0.4cm
+\item $t_{\,\infty,\,0.1} = 1.645$
+\item $t_{\,\infty,\,\,0.025} = 1.96$
+\item $t_{\,\infty,\,\,0.005} = 2.576$\\[0.4cm]
+\end{itemize}
+\end{minipage}
+\vspace{1cm}
+
+This highlights the fact that when $n$ is large, we proceed as before using z values {\footnotesize(and don't require the individual data values to be normally distributed in this case)}. \\[0.4cm]
+
+\begin{textblock}{1}(6.2,3.9)
+\xymatrixcolsep{0.8cm}
+\rule{1pt}{3.2cm}
+\end{textblock}
+
+%In this case we do not require the distribution of the individual values to be normal.
+
+%Thus, we always use the \texttt{t.test} function in \texttt{R}. When the sample is small this gives us the correct results, and when the sample is large it just produces a z value.
+
+\end{frame}
+
+
+
+
+\subsection{Example: Life Time of Mechanical Components}
+\begin{frame}{\bf \tcb{Example: Life Time of Mechanical Components}}
+
+Let's assume that a sample of 5 mechanical components were used until they failed. It was found that the average lifetime in the sample was 2.18 years and the standard deviation was 0.67 years.\\[0.8cm]
+
+Here we have $n=5$, $\bar x = 2.18$ and $s = 0.67$.\\[0.5cm]
+
+We wish to produce a 95\% confidence interval. As before there is 5\% remaining $\Rightarrow$ $\alpha=0.05$ $\Rightarrow$ $\alpha/2 = 0.025$.\\[0.4cm]
+
+Since the sample is small, we use the t tables (assuming the data is reasonably normally distributed).\\[0.5cm]
+
+The t distribution we require has $\nu \, = \, n - 1 \,=\, 5 - 1 \,=\, 4$.
+
+\end{frame}
+
+
+\subsection{Example: Life Time of Mechanical Components}
+\begin{frame}{\bf \tcb{Example: Life Time of Mechanical Components}}
+
+The 95\% confidence interval is then
+
+\begin{align*}
+\bar x &\pm t_{\,4,\,0.025} \, \frac{s}{\sqrt{n}}\\[0.3cm]
+2.18 &\pm  \, 2.776 \left(\frac{0.67}{\sqrt{5}}\right)\\[0.3cm]
+2.18 &\pm  \, 2.776 \, (0.2996)\\[0.3cm]
+2.18 &\pm  \, 0.8317\\[0.3cm]
+&[1.35,\,3.01]
+\end{align*}
+
+We are 95\% confident that the true mean lies in the above interval.
+
+\end{frame}
+
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+
+A manufacturer of CPUs wishes to investigate the temperature of a type of CPU under certain conditions. A sample of 6 CPUs were randomly selected and left to run an intensive task for one hour. The temperature of each was then measured and the results are as follows:
+\begin{center}
+\begin{tabular}{|cccccc|}
+\hline
+&&&&&\\[-0.4cm]
+38.3 & 38.9 & 39.2 & 39.2 & 39.6 & 41.0\\[0.1cm]
+\hline
+\multicolumn{6}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]\itemsep0.3cm
+\item Calculate $\bar x$ and $s$.
+\item Calculate a 99\% confidence interval for $\mu$.
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+\section{Difference Between Two Means}
+\subsection{Difference Between Two Means}
+\begin{frame}{\bf \tcb{Difference Between Two Means}}
+
+Previously we saw that for, $n_1>30$ and $n_2 >30$, a confidence interval for the difference between two means, $\mu_1 - \mu_2$, is given by
+
+\begin{align*}
+%(\bar x_1 - \bar x_2) \, &\pm z_{\,\alpha/2}\,s(\,\overline{\!X}_1-\,\overline{\!X}_2) \\[0.5cm]
+(\bar x_1 - \bar x_2) \, &\pm z_{\,\alpha/2}\,\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}.\\[-0.3cm]
+\end{align*}
+
+As with the confidence interval for one mean, we must replace the z value with a t value if one or both samples are small.\\[0.1cm]
+{\footnotesize(note: both samples must be reasonably normally distributed)}\\[0.6cm]
+
+There are two commonly used approaches:\\[-0.1cm]
+\begin{itemize}\itemsep0.2cm
+\item Unequal variances: no assumption about variances.
+\item Equal variances: assume $\sigma_1^2 = \sigma_2^2$ (must be checked).
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Unequal Variances}
+\begin{frame}{\bf \tcb{Unequal Variances}}
+
+For the {\bf unequal variance} approach use the formula\\
+\begin{align*}
+\boxed{(\bar x_1 - \bar x_2) \, \pm t_{\,\nu,\,\alpha/2}\,\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}\,},\\[-0.1cm]
+\end{align*}
+with degrees of freedom given by\\
+\begin{align*}
+\boxed{\nu = \frac{(a+b)^2}{\frac{a\,^2}{n_1-1}+\frac{b\,^2}{n_2-1}}},\\[-0.5cm]
+\end{align*}
+where $a = \frac{s_1^2}{n_1}$ and $b = \frac{s_2^2}{n_2}$.
+%\begin{align*}
+%\boxed{\nu = \frac{[\,s(\,\overline{\!X}_1-\,\overline{\!X}_2)\,]^4}{\frac{[\,s(\,\overline{\!X}_1)\,]^4}{n_1-1}+\frac{[\,s(\,\overline{\!X}_2)\,]^4}{n_2-1}}} \quad \Rightarrow \text{ {\bf round up}}
+%\end{align*}
+%where $s(\,\overline{\!X}_1-\,\overline{\!X}_2) = \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$,\, $s(\,\overline{\!X}_1) = \frac{s_1}{\sqrt{n_1}}$ and $s(\,\overline{\!X}_2) = \frac{s_2}{\sqrt{n_2}}$.
+\end{frame}
+
+
+\subsection{Equal Variances Assumed}
+\begin{frame}{\bf \tcb{Equal Variances Assumed}}
+
+An alternative (classical) approach is to assume that the true variances are equal, i.e., $\sigma_1^2 = \sigma_2^2$.\\[0.4cm]
+
+For the {\bf equal variance} approach use the formula
+\begin{align*}
+\boxed{(\bar x_1 - \bar x_2) \, \pm t_{\,\nu,\,\alpha/2}\,\sqrt{\frac{s_p^2}{n_1}+\frac{s_p^2}{n_2}}\,},\\[-0.3cm]
+\end{align*}
+where the {\bf pooled variance} is
+\begin{align*}
+\boxed{s_p^2 = \frac{(n_1-1)\,s_1^2+(n_2-1)\,s_2^2}{n_1+n_2-2}},\\[-0.3cm]
+\end{align*}
+and the degrees of freedom are
+\begin{align*}
+\boxed{\nu = n_1+n_2-2}.
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Unequal Vs Equal Variances}
+\begin{frame}{\bf \tcb{Unequal Vs Equal Variances}}
+
+
+\begin{itemize}\itemsep0.5cm
+\item Unequal variance approach:\\[0.1cm]
+\begin{itemize}\itemsep0.2cm
+\item Referred to as \emph{Welch's t test}.
+\item The default method in R.
+\item This method is preferable since it does not make the extra assumption of equal variances.
+\end{itemize}
+\item Equal variance approach:\\[0.1cm]
+\begin{itemize}\itemsep0.2cm
+\item A more classical method.
+\item Typically found in textbooks.
+\item Equal variance assumption must be checked \emph{first} using the {\bf F test}.\\[0.5cm]
+\end{itemize}
+\end{itemize}
+
+Note: both methods assume that the two samples are approximately normally distributed.
+
+\end{frame}
+
+
+
+\subsection{Example: Salary}
+\begin{frame}{\bf \tcb{Example: Salary}}
+
+The salaries (in thousands) of graduates from two universities are as follows:\\
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&&\\[-0.4cm]
+University 1 & 32.1 & 32.4 & 33.2 & 33.3 & 33.6\\[0.1cm]
+\hline
+&&&&&\\[-0.4cm]
+University 2 & 35.7 & 36.3 & 39.4 & 40.5 &\\[0.1cm]
+\hline
+\multicolumn{6}{c}{}\\[-0.1cm]
+\end{tabular}
+\end{center}
+
+Here $n_1 = 5$ and $n_2 = 4$. Hence, we need to apply the small sample theory.\\[0.8cm]
+
+Whether we assume equal variances or not, we first need to calculate $\bar x_1$, $s_1$, $\bar x_2$ and $s_2$.
+
+\end{frame}
+
+
+
+\subsection{Example: Salary (University 1)}
+\begin{frame}{\bf \tcb{Example: Salary (University 1)}}
+
+\begin{center}
+\begin{tabular}{|c|ccccc|c|}
+\multicolumn{2}{c}{}&&&& \multicolumn{1}{c}{} & \multicolumn{1}{c}{$\sum$} \\[0.1cm]
+\hline
+&&&&&&\\[-0.4cm]
+$x_1$ & 32.1 & 32.4 & 33.2 & 33.3 & 33.6 & 164.6 \\[0.2cm]
+$x_1^2$ & 1030.41 & 1049.76 & 1102.24 & 1108.89 & 1128.96 & 5420.26 \\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.1cm]
+\end{tabular}
+\end{center}
+
+
+\begin{align*}
+\bar x_1 &= \frac{\sum x_1}{n_1} = \frac{164.6}{5} = 32.92. \\[0.6cm]
+s_1^2 &= \frac{\sum x_1^2 - n_1 \, \bar x_1^2 }{n_1-1} = \frac{5420.26 - 5(32.92^2)}{4} = 0.407. \\[0.6cm]
+s_1 &= \sqrt{0.407} = 0.638.
+\end{align*}
+
+
+\end{frame}
+
+
+
+
+\subsection{Example: Salary (University 2)}
+\begin{frame}{\bf \tcb{Example: Salary (University 2)}}
+
+\begin{center}
+\begin{tabular}{|c|ccccc|c|}
+\multicolumn{2}{c}{}&&&& \multicolumn{1}{c}{} & \multicolumn{1}{c}{$\sum$} \\[0.1cm]
+\hline
+&&&&&&\\[-0.4cm]
+$x_2$ & 35.7 & 36.3 & 39.4 & 40.5 & & 151.9 \\[0.2cm]
+$x_2^2$ & 1274.49 & 1317.69 & 1552.36 & 1640.25 & & 5784.79 \\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.1cm]
+\end{tabular}
+\end{center}
+
+\begin{align*}
+\bar x_2 &= \frac{\sum x_2}{n_2} = \frac{151.9}{4} = 37.975. \\[0.6cm]
+s_2^2 &= \frac{\sum x_2^2 - n_2 \, \bar x_2^2 }{n_2-1} = \frac{5784.79 - 4(37.975^2)}{3} = 5.4625. \\[0.6cm]
+s_2 &= \sqrt{5.4625} = 2.337.
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Example: Salary (Unequal Variances)}
+\begin{frame}{\bf \tcb{Example: Salary (Unequal Variances)}}
+
+For the {\bf unequal variances} approach we need to calculate:
+\begin{align*}
+a &= \frac{s_1^2}{n_1} = \frac{0.407}{5} = 0.0814, &
+b &= \frac{s_2^2}{n_2} = \frac{5.4625}{4} = 1.3656.\\[-0.5cm]
+\end{align*}
+\begin{align*}
+\Rightarrow \nu = \frac{(a+b)^2}{\frac{a\,^2}{n_1-1}+\frac{b\,^2}{n_2-1}} = \frac{(0.0814+1.3656)^2}{\frac{0.0814\,^2}{5-1}+\frac{1.3656\,^2}{4-1}}
+&= \frac{1.447^2}{\frac{0.0814\,^2}{4}+\frac{1.3656\,^2}{3}}\\[0.3cm]
+&= \frac{2.0938}{0.6233}\\[0.3cm]
+&= 3.36.
+\end{align*}
+Since only whole number $\nu$ values appear in the tables, we round this to $\nu = 3$.
+
+\end{frame}
+
+
+
+\subsection{Example: Salary (Unequal Variances)}
+\begin{frame}{\bf \tcb{Example: Salary (Unequal Variances)}}\label{uneqvar}
+
+A 95\% confidence interval for $\mu_1-\mu_2$ is:
+\begin{align*}
+(\bar x_1 - \bar x_2) \, &\pm t_{\,3,\,0.025}\,\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}\\[0.3cm]
+(32.92 - 37.975) \, &\pm 3.182\,\sqrt{\frac{0.407}{5}+\frac{5.4625}{4}}\\[0.3cm]
+-5.055 \, &\pm 3.182\,\sqrt{0.0814+1.3656}\\[0.2cm]
+-5.055 \, &\pm 3.182\,\sqrt{1.447}\\[0.2cm]
+-5.055 \, &\pm 3.182\,(1.203)\\[0.2cm]
+-5.055 \, &\pm 3.828 \\[0.2cm]
+[-8.883,&\, -1.227]
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Salary (Equal Variances)}
+\begin{frame}{\bf \tcb{Example: Salary (Equal Variances)}}
+
+For the {\bf equal variances} approach we should first apply the F test.\\[0.3cm]
+
+We will defer this for the moment and carry on as if the assumption $\sigma_1^2 = \sigma_2^2$ is reasonable here (shortly we will see that it isn't).\\[0.0cm]
+\begin{align*}
+s_p^2 = \frac{(n_1-1)\,s_1^2+(n_2-1)\,s_2^2}{n_1+n_2-2}
+&= \frac{(5-1)\,0.407+(4-1)\,5.4625}{5+4-2} \\[0.2cm]
+&= \frac{4\,(0.407)+3\,(5.4625)}{7} \\[0.2cm]
+&= \frac{18.0155}{7} = 2.574.\\[-0.1cm]
+\end{align*}
+In this case the degrees of freedom are
+\begin{align*}
+\nu = n_1+n_2-2 = 5+4-2=7.
+\end{align*}
+
+
+\end{frame}
+
+
+
+\subsection{Example: Salary (Equal Variances)}
+\begin{frame}{\bf \tcb{Example: Salary (Equal Variances)}}
+
+A 95\% confidence interval for $\mu_1-\mu_2$ is:
+\begin{align*}
+(\bar x_1 - \bar x_2) \, &\pm t_{\,7,\,0.025}\,\sqrt{\frac{s_p^2}{n_1}+\frac{s_p^2}{n_2}}\\[0.3cm]
+(32.92 - 37.975) \, &\pm 2.365\,\sqrt{\frac{2.574}{5}+\frac{2.574}{4}}\\[0.3cm]
+-5.055 \, &\pm 2.365\,\sqrt{0.5148+0.6435}\\[0.2cm]
+-5.055 \, &\pm 2.365\,\sqrt{1.1583}\\[0.2cm]
+-5.055 \, &\pm 2.365\,(1.076)\\[0.2cm]
+-5.055 \, &\pm 2.545 \\[0.2cm]
+[-7.60,&\, -2.51]
+\end{align*}
+
+\end{frame}
+
+
+
+
+\section{F Test}
+\subsection{Equal Variance Assumption}
+\begin{frame}{\bf \tcb{Equal Variance Assumption}}
+
+In the example just covered, note that $s_1^2 = 0.407$ and $s_2^2 = 5.4635$.\\[0.9cm]
+
+Consider the ratio
+\begin{align*}
+F = \frac{\text{larger variance}}{\text{smaller variance}} = \frac{5.4635}{0.407} = 13.42\\[-0.2cm]
+\end{align*}
+
+which shows that $s_2^2$ is 13.42 times larger than $s_1^2$.\\[0.9cm]
+
+It seems unlikely that the true variances ($\sigma_1^2$ and $\sigma_2^2$) are equal. If this was the case then we would expect $F \approx 1$.
+
+\end{frame}
+
+
+\subsection{F Test}
+\begin{frame}{\bf \tcb{F Test}}
+
+We can formally {\bf test the hypothesis}\\
+\begin{align*}
+\boxed{\sigma_1^2 = \sigma_2^2}\\[-0.3cm]
+\end{align*}
+using the {\bf F test}.\\[1cm]
+
+Although we have not yet covered hypothesis testing, it is necessary to introduce the F test at this point.\\[0.6cm]
+
+Hence, we will only mention the basic details now.
+
+\end{frame}
+
+\subsection{F Test Procedure}
+\begin{frame}{\bf \tcb{F Test Procedure}}
+
+\begin{enumerate}[1.]\itemsep1.4cm
+\item Calculate \\[-1.6cm]
+\begin{align*}
+\boxed{F  = \frac{\text{larger variance}}{\text{smaller variance}} = \frac{s^2_{\text{larger}}}{s^2_{\text{smaller}}}}.
+\end{align*}
+\item Find \emph{critical value} $F_{\,\nu_1,\,\nu_2}$ in the {\bf F tables} where $\nu_1=n_1-1$ and $\nu_2=n_2-1$ correspond to $s^2_{\text{larger}}$ and $s^2_{\text{smaller}}$ respectively.
+\item If $F > F_{\,\nu_1,\,\nu_2}$ then we \emph{reject the hypothesis} that $\sigma_1^2 = \sigma_2^2$.
+\end{enumerate}
+
+\end{frame}
+
+
+\subsection{F Tables}
+\begin{frame}{\bf \tcb{F Tables}}
+To find the critical value, $F_{\,\nu_1,\,\nu_2}$, go to:\\[0.2cm]
+\begin{itemize}\itemsep0.6cm
+\item {\bf Column} $\Rightarrow$ $\nu_1=n_1-1$ corresponding to $s^2_{\text{larger}}$.
+\item {\bf Row} $\Rightarrow$ $\nu_2=n_2-1$ corresponding to $s^2_{\text{smaller}}$.\\[0.8cm]
+\end{itemize}
+
+You will see \emph{four} critical values for each $\nu_1$\,-\,$\nu_2$ combination;\\[0.1cm] $\Rightarrow$ {\bf select the value in brackets}.\\[0.8cm]
+
+Examples: $F_{\,1,\,3}=17.4$,\,\, $F_{\,6,\,4}=9.20$,\,\, $F_{\,5,\,7}=5.29$ \, etc.
+
+
+\end{frame}
+
+
+\subsection{Example: Salary}
+\begin{frame}{\bf \tcb{Example: Salary}}
+Going back to the salary example, we had
+\begin{align*}
+F = \frac{s^2_{\text{larger}}}{s^2_{\text{smaller}}} = \frac{5.4635}{0.407} = 13.42.\\[-0.7cm]
+\end{align*}
+\begin{align*}\left.
+\begin{array}{l}
+s^2_{\text{larger}} = 5.4635 \quad \Rightarrow \quad \nu_1 = 4-1=3 \\[0.3cm]
+s^2_{\text{smaller}} = 0.407 \quad \Rightarrow \quad \nu_2 = 5-1=4
+\end{array}\right\} \Rightarrow F_{\,3,\,4}=9.98.\\[-0.7cm]
+\end{align*}
+{\footnotesize(note: index ``1'' denotes the sample corresponding to $s^2_{\text{larger}}$)}\\[0.6cm]
+
+Since $13.42 > 9.98$, we reject the hypothesis that $\sigma_1^2 = \sigma_2^2$.\\[0.4cm]
+In other words, the equal variance assumption is \emph{not} appropriate here.
+
+
+\end{frame}
+
+
+
+
+
+
+
+\section{Paired Samples}
+\subsection{Paired Samples}
+\begin{frame}{\bf \tcb{Paired Samples}}
+
+We have dealt with the case of two \emph{independent} groups where the difference between the means is estimated.\\[1cm]
+
+We now consider {\bf paired} samples, i.e., \emph{dependent} groups.\\[1cm]
+
+Each data value in group one has a unique match in group two\\ $\Rightarrow$ the measurements come in \emph{pairs}.\\[1cm]
+
+Most commonly, these are \emph{before and after} measurements.
+
+\end{frame}
+
+
+
+\subsection{Example: Training Program}
+\begin{frame}{\bf \tcb{Example: Training Program}}
+
+Five individuals were subjected to a variety of fitness tests and given an overall fitness score. These individuals then followed a 6-week training program and their fitness levels were tested again. The results are as follows:\\[0.8cm]
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&&\\[-0.4cm]
+Individual & Before Program & After Program \\
+\hline
+&&\\[-0.4cm]
+1 & 68 & 75 \\
+2 & 45 & 50 \\
+3 & 83 & 78 \\
+4 & 77 & 85 \\
+5 & 60 & 57 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+
+\end{frame}
+
+
+\subsection{Calculating Differences}
+\begin{frame}{\bf \tcb{Calculating Differences}}
+
+``Before'' and ``After'' pairs are dependent (i.e., relate to the same individual) $\Rightarrow$ \emph{cannot} use the approach for independent samples.\\[1cm]
+
+In fact, the case of paired samples is very easy to deal with. We simply define a new variable:\\[-0.2cm]
+\begin{align*}
+\boxed{\text{Difference} = \text{After} - \text{Before}}\\[-0.2cm]
+\end{align*}
+and apply the single mean formula.\\[1cm]
+
+Note: The calculated differences need to be approximately normal to use the t distribution (but Before and After do not need to be).
+
+\end{frame}
+
+
+
+
+\subsection{Example: Training Program}
+\begin{frame}{\bf \tcb{Example: Training Program\\[-1cm]}}
+\begin{adjustwidth}{-0.1cm}{0cm}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+&&&&\\[-0.4cm]
+Individual & Before Program & After Program & Difference & \phantom{Difference} \\
+&& & $x$ & $x^2$\\
+\hline
+&&&&\\[-0.4cm]
+1 & 68 & 75 & \phantom{-}7 & 49 \\
+2 & 45 & 50 & \phantom{-}5 & 25 \\
+3 & 83 & 78 & -5           & 25 \\
+4 & 77 & 85 & \phantom{-}8 & 64 \\
+5 & 60 & 57 & -3           & 9 \\[0.1cm]
+\hline
+\multicolumn{3}{c|}{} && \\[-0.4cm]
+\multicolumn{2}{c}{} & $\sum$ & 12           & 172 \\[0.1cm]
+\cline{4-5}
+\end{tabular}
+\end{adjustwidth}
+\begin{align*}
+\bar x &= \frac{\sum x}{n} = \frac{12}{5} = 2.4. \\[0.6cm]
+s^2 &= \frac{\sum x^2 - n \, \bar x^2 }{n-1} = \frac{172 - 5(2.4^2)}{4} = 35.8 \quad \Rightarrow s = \sqrt{35.8} = 5.98.
+\end{align*}
+\end{frame}
+
+
+
+\subsection{Example: Training Program}
+\begin{frame}{\bf \tcb{Example: Training Program}}
+
+Note that $\nu = n - 1 = 4$ for the t value. Thus, the 95\% confidence interval is \\[-0.5cm]
+\begin{align*}
+\bar x \pm t_{\,4,\,0.025} \, \frac{s}{\sqrt{n}} \qquad \Rightarrow \qquad
+2.4 &\pm  \, 2.776 \left(\frac{5.98}{\sqrt{5}}\right)\\[0.3cm]
+2.4 &\pm  \, 2.776 \, ( 2.6743)\\[0.3cm]
+2.4 &\pm  \, 7.4239\\[0.3cm]
+&[-5.02,\,9.82]
+\end{align*}
+
+We are 95\% confident that the true mean (of the differences) lies in the above interval which includes $\mu = 0$. Thus, the training program is not successful, i.e., it does not improve fitness.
+
+\end{frame}
+
+
+
+
+
+\section{R Code\,\,}
+\subsection{R Code: One Mean}
+\begin{frame}{\bf \tcb{R Code: One Mean}}
+
+Confidence intervals for means are calculated using \texttt{t.test} in \texttt{R}.\\[0.2cm]
+
+By default a 95\% confidence interval is calculated.\\[0.2cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{x = c(38.3, 38.9, 39.2, 39.2, 39.6, 41.0)}\\[0.2cm]
+\texttt{t.test(x)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+For other confidence levels, use the \texttt{conf.level} option.\\[0.2cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{t.test(x,conf.level=0.99)}\\
+\texttt{t.test(x,conf.level=0.9)}\\
+\texttt{t.test(x,conf.level=0.8)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+Note: The output includes a \emph{hypothesis test} in addition to the confidence interval. This topic will be covered in the next lecture.
+
+\end{frame}
+
+
+\subsection{R Code: Two Means}
+\begin{frame}{\bf \tcb{R Code: Two Means}}
+
+We can also compare means in two independent samples.\\[0.2cm]
+
+By default the unequal variance approach is used (i.e., Welch's t test).\\[0.2cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{x1 = c(32.1, 32.4, 33.2, 33.3, 33.6)}\\[0.2cm]
+\texttt{x2 = c(35.7, 36.3, 39.4, 40.5)}\\[0.2cm]
+\texttt{t.test(x1,x2,conf.level=0.95)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.0cm]
+\end{tabular}
+
+Note: The confidence interval is slightly different to that of slide \pageref{uneqvar} since we rounded $\nu$ to 3 whereas \texttt{R} can use the exact value $\nu=3.36$.\\[0.8cm]
+
+
+For the equal variance approach set \texttt{var.equal = TRUE}.\\[0.2cm]
+\begin{tabular}{|l|}
+\hline
+\texttt{t.test(x1,x2,conf.level=0.95,var.equal=TRUE)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+
+\end{frame}
+
+
+
+\subsection{R Code: F Test}
+\begin{frame}{\bf \tcb{R Code: F Test}}
+
+To test equality of variances, we use the F test. In \texttt{R}, this is achieved via the \texttt{var.test} function.\\[0.2cm]
+
+\begin{tabular}{|l|}
+\hline
+\texttt{var.test(x1,x2,conf.level=0.95)}\\
+\hline
+\multicolumn{1}{c}{}\\[-0.2cm]
+\end{tabular}
+
+A 95\% confidence interval for the \emph{ratio} of true variances, $\sigma_1^2 \, / \, \sigma_2^2$, is calculated. If this interval includes the value 1, then the hypothesis $\sigma_1^2 \, / \, \sigma_2^2=1$ is supported, i.e., $\sigma_1^2 = \sigma_2^2$.\\[0.8cm]
+
+Note: When we carry out the F test by hand, we put the larger sample variance on top. Recall that $s_2^2$ was the bigger variance for this data. Thus, we can swap \texttt{x1} and \texttt{x2} to match our previous work.\\[0.2cm]
+
+\begin{tabular}{|l|}
+\hline
+\texttt{var.test(x2,x1,conf.level=0.95)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+\end{frame}
+
+
+\subsection{R Code: Paired Samples}
+\begin{frame}{\bf \tcb{R Code: Paired Samples}}
+
+We can deal with paired samples using the option \texttt{paired = TRUE}.\\[0.2cm]
+
+\begin{tabular}{|l|}
+\hline
+\texttt{x1 = c(68,45,83,77,60)}\\[0.2cm]
+\texttt{x2 = c(75,50,78,85,57)}\\[0.2cm]
+\texttt{t.test(x1,x2,conf.level=0.95,paired=TRUE)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+For ``After'' $-$ ``Before'', swap \texttt{x1} and \texttt{x2}.\\[0.2cm]
+
+\begin{tabular}{|l|}
+\hline
+\texttt{t.test(x2,x1,conf.level=0.95,paired=TRUE)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+Of course we can also manually define the difference variable.\\[0.2cm]
+
+\begin{tabular}{|l|}
+\hline
+\texttt{x = x2 - x1}\\[0.2cm]
+\texttt{t.test(x,conf.level=0.95)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.0cm]
+\end{tabular}
+
+
+\end{frame}
+
+
+
+
+\subsection{R Code: Large Samples}
+\begin{frame}{\bf \tcb{R Code: Large Samples}}
+
+Recall that when samples are large, $t_{\,\nu,\,\alpha/2} \approx z_{\,\alpha/2}$. (see slide \pageref{tapproachz})\\[0.8cm]
+
+Thus, the \texttt{t.test} function can be used for samples of \emph{all sizes}.\\[0.1cm]
+\begin{itemize}\itemsep0.5cm
+\item If samples are small then the appropriate t value will be used. In this case the samples should be approximately normal.
+\item If samples are large then the t value will automatically become a z value. In this case the samples do not need to be normal.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\subsection{R Code: One Proportion}
+\begin{frame}{\bf \tcb{R Code: One Proportion}}
+
+Confidence intervals for proportions are calculated using \texttt{prop.test}.\\[0.2cm]
+
+\begin{tabular}{|l|}
+\hline
+\texttt{x = 359}\\
+\texttt{n = 500}\\[0.2cm]
+\texttt{prop.test(x,n,conf.level=0.95)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+The above relates to 359 individuals who use Android devices out of a sample of 500 (see Q1 of Tutorial7).\\[0.8cm]
+
+Note: \texttt{R} uses a slightly different method for calculating confidence intervals for proportions to what we use in this course - so the results will be different.
+
+\end{frame}
+
+
+
+
+\subsection{R Code: Two Proportions}
+\begin{frame}{\bf \tcb{R Code: Two Proportions}}
+
+We can also compare proportions in two independent samples.\\[0.2cm]
+
+\begin{tabular}{|l|}
+\hline
+\texttt{x = c(95,103)}\\
+\texttt{n = c(130,150)}\\[0.2cm]
+\texttt{prop.test(x,n,conf.level=0.95)}\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+The above relates to 95 out of 130 individuals compared with 103 out of 150 individuals (see slide 20 of Lecture13).\\[0.8cm]
+
+
+\end{frame}
+
+
+
+
+
+
+
+\end{document} 

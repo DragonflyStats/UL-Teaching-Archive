@@ -1,0 +1,238 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Tutorial 3 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+The information we are given is as follows:\\[-0.8cm]
+\begin{align*}
+\Pr(R_1) &= 0.75 & \Pr(T\,|\,R_1) &= 0.9\\[0.2cm]
+\Pr(R_2) &= 0.2 & \Pr(T\,|\,R_2) &= 0.5\\[0.2cm]
+\Pr(R_3) &= 0.05 & \Pr(T\,|\,R_3) &= 0.7
+\end{align*}
+We can also calculate (multiplication rule):\\[-0.8cm]
+\begin{align*}
+\Pr(T \cap R_1) &= \Pr(R_1) \Pr(T\,|\,R_1) \\ &= 0.75 (0.9) = 0.675.\\[0.4cm]
+\Pr(T \cap R_2) &= \Pr(R_2) \Pr(T\,|\,R_2) \\ &= 0.2 (0.5) = 0.1.\\[0.4cm]
+\Pr(T \cap R_3) &= \Pr(R_3) \Pr(T\,|\,R_3) \\ &= 0.05(0.7) = 0.035.
+\end{align*}
+\begin{enumerate}[a)]
+\item $T^c =$ ``not on time'', i.e., ``late''.
+\item You cannot simultaneously travel two different routes. These events are \emph{mutually exclusive}\\[0.1cm] $\Rightarrow$ $\Pr(R_1 \cap R_2) = 0$.
+\item Using the law of total probability:\\[-0.8cm]
+\begin{align*}
+\Pr(T) &= \Pr(T \cap R_1) + \Pr(T \cap R_2) + \Pr(T \cap R_3)\\[0.2cm]
+&= 0.675 + 0.1 + 0.035\\
+&= 0.81.
+\end{align*}
+In words, the individual is on time on 81\% of occasions.
+\item We know the individual is on time,\\ i.e., \emph{given} the individual is on time:\\[-0.7cm]
+\begin{align*}
+\Pr(R_1\,|\,T) &= \frac{\Pr(T \cap R_1)}{\Pr(T)} \\
+               &= \frac{0.675}{0.81} = 0.833.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[] \qquad\\[-1.3cm]
+\begin{align*}
+\Pr(R_2\,|\,T) &= \frac{\Pr(T \cap R_2)}{\Pr(T)} \\
+               &= \frac{0.1}{0.81} = 0.123.\\[0.4cm]
+\Pr(R_3\,|\,T) &= \frac{\Pr(T \cap R_3)}{\Pr(T)} \\
+               &= \frac{0.035}{0.81} = 0.043.
+\end{align*}
+$\Rightarrow$ Given that the individual is on time, it is most likely that he/she came via $R_1$.
+\item[e)] We require:\\[-0.8cm]
+\begin{align*}
+\Pr(R_1\,|\,T^c) &= \frac{\Pr(T^c \cap R_1)}{\Pr(T^c)} \\
+               &= \frac{\Pr(R_1) \Pr(T^c\,|\,R_1)}{\Pr(T^c)}.
+\end{align*}
+Thus, in order to make progress we first need to calculate:
+\begin{align*}
+\Pr(T^c\,|\,R_1) &= 1 - \Pr(T\,|\,R_1) \\ &= 1 - 0.9 = 0.1.\\[0.1cm]
+\text{and also}\\[0.2cm]
+\Pr(T^c) &= 1 - \Pr(T) \\ &= 1 - 0.81 = 0.19.
+\end{align*}
+\begin{align*}
+\Rightarrow \Pr(R_1\,|\,T^c) &= \frac{\Pr(R_1) \Pr(T^c\,|\,R_1)}{\Pr(T^c)} \\
+&= \frac{0.75(0.1)}{0.19} = 0.395.
+\end{align*}
+If the individual is late, there is a 39.5\% chance that he/she travelled via $R_1$.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item Let $S =$ ``the email is spam'' and, therefore,\\ $S^c$ = ``the email is not spam''.\\[0.2cm]
+    Also, let $F_S =$ ``folder: spam''.\\[0.2cm]
+Using the above notation, the information given in the question is as follows:\\[-0.8cm]
+\begin{align*}
+\Pr(S) &= 0.4 & \Pr(F_S\,|\,S) &= 0.9\\[0.2cm]
+\Pr(S^c) &= 0.6 & \Pr(F_S\,|\,S^c) &= 0.01
+\end{align*}
+We can also calculate (multiplication rule):\\[-0.8cm]
+\begin{align*}
+\Pr(F_S \cap S) &= \Pr(S) \Pr(F_S\,|\,S) \\ &= 0.4 (0.9) = 0.36.\\[0.4cm]
+\Pr(F_S \cap S^c) &= \Pr(S^c) \Pr(F_S\,|\,S^c) \\ &= 0.6 (0.01) = 0.006.
+\end{align*}
+\item Using the law of total probability:\\[-0.8cm]
+\begin{align*}
+\Pr(F_S) &= \Pr(F_S \cap S) + \Pr(F_S \cap S^c)\\[0.2cm]
+&= 0.36 + 0.006\\
+&= 0.366.
+\end{align*}
+In words, 36.6\% of all emails are put into the spam folder
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[c)] We know the email is in the spam folder,\\ i.e., this is \emph{given}:\\[-0.7cm]
+\begin{align*}
+\Pr(S\,|\,F_S) &= \frac{\Pr(S \cap F_S)}{\Pr(F_S)} \\
+               &= \frac{0.36}{0.366} = 0.984.
+\end{align*}
+$\Rightarrow$ If the email is in the spam folder, we are quite sure that it is spam.
+\item[d)] We require:\\[-0.8cm]
+\begin{align*}
+\Pr(S\,|\,F_S^c) &= \frac{\Pr(F_S^c \cap S)}{\Pr(F_S^c)} \\[0.2cm]
+               &= \frac{\Pr(S) \Pr(F_S^c\,|\,S)}{\Pr(F_S^c)} \\[0.2cm]
+               &= \frac{\Pr(S) [1- \Pr(F_S\,|\,S)]}{1 - \Pr(F_S)} \\[0.2cm]
+               &= \frac{0.4 (1- 0.9)}{1 - 0.366} \\[0.2cm]
+               &= \frac{0.4 (0.1)}{0.634} \\[0.2cm]
+               &= \frac{0.04}{0.634} = 0.063.
+\end{align*}
+In words, 6.3\% of emails in our inbox (i.e., the non-spam folder) are spam emails.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 3}
+The solution to this question is in Lecture5 solutions (i.e., Q1 of Lecture5).
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 4}
+There are 8 characters in total and the password is of length 5.\\[0.2cm]
+In the multiplications below, the first position corresponds to the first character in the password, the second position corresponds to the second character etc.
+\begin{enumerate}[a)]
+\item $8(8)(8)(8)(8) = 8^5 = 32768$.
+\item Using letters only, there are 4 options for each character of the password \\$\Rightarrow 4(4)(4)(4)(4) = 4^5 = 1024.$
+\item We have only 4 options for the first character as it cannot be a number \\$\Rightarrow 4(8)(8)(8)(8) = 16384$.
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[d)] In part (a) we calculated all possible passwords. In part (b) we calculated those with no numbers $\Rightarrow$ $32768 - 16384 = 31744$ passwords have at least one number.
+\item[e)] We have 8 options for the first character, then 7 for the second (as we've chosen one), 6 for the third (as we've chosen two), etc.\\ $\Rightarrow 8(7)(6)(5)(4) = 6720.$
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 5}
+In the multiplications below: the first position corresponds to the character class, the second corresponds to gender and the third corresponds to the difficulty level.
+\begin{enumerate}[a)]
+\item $5(2)(3) = 30$.
+\item Only one choice for the character class \\$\Rightarrow 1(2)(3) = 6$.
+\item Only one choice for the gender \\$\Rightarrow 5(1)(3) = 15$.
+\item Only one choice for the difficulty level \\$\Rightarrow 5(2)(1) = 10$.
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+For the following multiplications we have additionally: the fourth position which corresponds to the character class of the second player and the fifth corresponds to the gender of the second character.\\[0.2cm]
+Note how we do not have a sixth position for the difficulty level for player two since both player one and player two are within the same game.
+\begin{enumerate}[a)]
+\item[e)] $5(2)(3)(5)(2) = 300$.
+\item[f)] Here player two only has 4 options for the character class since player one has chosen 1 already $\Rightarrow 5(2)(3)(4)(2) = 240.$
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 6}
+\begin{enumerate}[a)]
+\item Arranging 6 objects. Thus, we have 6 objects we can put in the first position, 5 in the second, 4 in the third etc. \\$\Rightarrow 6(5)(4)(3)(2)(1) = 6! = 720$.
+\item We must choose 3 items from 6 $\Rightarrow \binom{6}{3}$.
+\begin{align*}
+\binom{6}{3} = \frac{6!}{3!\,3!} = \frac{6(5)(4)(\not3!)}{3!\,\not3!} = \frac{\not6(5)(4)}{\not3(\not2)(1)} = 20.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[c)] We must bring the pen. Thus, we only need to choose 2 more items from the remaining 5 $\Rightarrow \binom{5}{2}$.
+\begin{align*}
+\binom{5}{2} = \frac{5!}{2!\,3!} = \frac{5(4)(\not3!)}{2!\,\not3!} = \frac{5(\not4\,\,^2)}{\not2(1)} = 10.
+\end{align*}
+\item[d)] We must bring the pen. Thus, we must choose 2 more items from the 3 remaining options (since the pen is gone and we won't choose an apple or a laptop) $\Rightarrow \binom{3}{2}$.
+\begin{align*}
+\binom{3}{2} = \frac{3!}{2!\,1!} = \frac{3(\not2!)}{\not2!\,1!} = \frac{3}{1} = 3.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 7}
+The solution to this question is in Lecture5 solutions (i.e., Q4 of Lecture5).
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\end{document} 

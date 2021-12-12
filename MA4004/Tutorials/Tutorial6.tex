@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------ Tutorial 6 --------------------------- Questions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{17cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\subsection*{Question 1}
+Jobs are sent to a supercomputer at a rate of 10 per hour and take the supercomputer on average 4 minutes to process. We will assume that the number of arrivals is $X_a \sim \text{Poisson}(\lambda_a)$ and the processing (i.e., service) time is $T_s \sim \text{Exponential}(\lambda_s)$. This leads to an $M/M/1$ system.\\[-0.2cm]
+
+{\bf(a)} Let $T$ be the total time in the system - what distribution has $T$? \quad {\bf(b)} What is the average time spent in the system? Calculate $Sd(T)$ also. \quad {\bf(c)} How many jobs are in the system on average? (hint: Little's law)  \quad {\bf(d)} From the time the job is sent, what is the probability that it takes more than 15 minutes to complete?  \quad {\bf(e)} From the time the job enters the processor (i.e., service component), what is the probability that it takes more than 15 minutes to complete? \quad {\bf(f)} What is the average number of jobs completed in a 3 hour period of operation? (hint: Burke's theorem) \quad {\bf(g)} What is the probability that more than 40 jobs are completed in a 3 hour period? (hint: Burke's theorem again)
+
+
+\subsection*{Question 2}
+Consider an $M/M/1$ system with arrivals $X_a \sim \text{Poisson}(\lambda_a=3 \text{ / minute})$ and service time \\$T_s \sim \text{Exponential}(\lambda_s=4 \text{ / minute})$. Calculate the following:\\[-0.2cm]
+
+{\bf(a)} The expected time spent in the system. \quad {\bf(b)} The expected time spent in the queue component. \quad {\bf(c)} The expected number of individuals in the system.  \quad {\bf(d)} The expected number of individuals in the queue component. \quad {\bf(e)} The utilisation factor. \quad {\bf(f)} The probability that an individual spends more than 2 minutes in the system. \quad {\bf(g)} The probability that less than 3 individuals exit the system in a 1 minute period.
+
+
+
+\subsection*{Question 3}
+Customers arrive to a deli counter at a rate of 12 per hour. On average it takes 3 minutes to serve a customer at this counter. Customers then exit and head to another counter to pay. It takes 1 minute to deal with a customer at this counter. We will assume that arrivals have a Poisson$(\lambda_a)$ distribution and service times have Exponential$(\lambda_{s1})$ and Exponential$(\lambda_{s2})$ distributions respectively (hint: this is a sequence of two $M/M/1$ systems).\\[-0.2cm]
+
+{\bf(a)} What is the average time spent in each sub-system? \quad {\bf(b)} What is the average total time spent in the system? \quad {\bf(c)} How many customers are there (on average) in the system?  \quad \\{\bf(d)} Calculate the utilisation factor for each sub-system. \quad {\bf(e)} What is the average total queueing time? (i.e., total time excluding service time) \quad {\bf(f)} Calculate the probability that at least 20 people exit the shop (i.e., the whole system) in one hour.
+
+
+\subsection*{Question 4}
+{\footnotesize({\bf Note}: this is not a queueing theory question. It is a generalisation of a question which appears on Tutorial2)}\\[0.1cm]
+There are two possible routes to a particular location. You take $R_1$ 80\% of the time and $R_2$ 20\% of the time. We assume that travel time has an exponential distribution and, furthermore, the average travel time is 0.25 hours if you take $R_1$ and 0.5 hours if you take $R_2$.\\[-0.2cm]
+
+{\bf(a)} Calculate the probability that the journey takes more than 0.5 hours for each of the routes, i.e., $\Pr(T > 0.5\,|\,R_1)$ and $\Pr(T > 0.5\,|\,R_2)$ respectively. \quad {\bf(b)} Calculate $\Pr(T > 0.5)$. (hint: law of total probability) \quad {\bf(c)} Given that $T>0.5$ hours, what is the probability that you used $R_1$? (i.e., calculate $\Pr(R_1\,|\,T>0.5)$) \quad {\bf(d)} Derive a general expression for $\Pr(R_1\,|\,T>t)$ and evaluate it at $t=0.25$, $t = 1$ and $t = 2$ respectively. Interpret the results.
+
+
+
+\subsection*{Question 5}
+Let $X \sim \text{Normal}(\mu=10,\sigma=2)$. Calculate the following:\\[-0.2cm]
+
+{\bf(a)} $\Pr(X>10)$. \quad {\bf(b)} $\Pr(X<3)$. \quad {\bf(c)} $\Pr(X>8.4)$. \quad {\bf(d)} $\Pr(6<X<14)$. \quad {\bf(e)} The value of $x$ such that $\Pr(X>x)$ = 0.3. \quad {\bf(f)} The value of $x$ such that $\Pr(X>x)$ = 0.8.
+
+
+\subsection*{Question 6}
+Assume that speeds of cars on a motorway have a normal distribution with mean 115km/hr and standard deviation 4km/hr.\\[-0.2cm]
+
+{\bf(a)} Draw a rough sketch of the distribution. \quad {\bf(b)} $\Pr(X>120)=$ ? \quad {\bf(c)} $\Pr(X<100)=$ ? \quad {\bf(d)} $\Pr(100<X<110)=$ ? \quad {\bf(e)} 1\% of drivers travel above what speed?
+
+
+\subsection*{Question 7}
+For \emph{any} normal variable $X \sim \text{Normal}(\mu,\sigma)$:\\[-0.2cm]
+
+{\bf(a)} Show that $\Pr(\mu-3\,\sigma<X<\mu+3\,\sigma) = 0.997$. \quad {\bf(b)} Find a value for $k$ such that $\Pr(\mu-k\,\sigma<X<\mu+k\,\sigma) = 0.95$. \quad {\bf(c)} Find $k$ such that $\Pr(\mu-k\,\sigma<X<\mu+k\,\sigma) = 0.99$. \quad {\bf(d)} Show that $\Pr(X>\mu+1.64\,\sigma) = 0.05.$
+
+
+
+
+
+
+
+
+\end{document} 

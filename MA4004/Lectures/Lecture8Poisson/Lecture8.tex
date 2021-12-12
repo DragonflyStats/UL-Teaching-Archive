@@ -1,0 +1,557 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    %\insertframenumber{} / \insertpresentationendpage
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+{ % only on titlepage
+
+
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{multirow}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{enumerate}
+%\usepackage{pgfpages}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage{etex}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1}[border shrink=1mm]
+
+
+
+
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\definecolor{green2}{RGB}{51,204,51}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcgr}{\textcolor{green2}}
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\tcw}{\textcolor{white}}
+\newcommand{\m}{\phantom{-}}
+\newcommand{\bp}{\tcbb{$\bullet$}\:}
+
+
+\title{{\huge Statistics for Computing\\[0.1cm]MA4413}}
+\author[Kevin Burke]{{\bf\\[0.5cm]{\huge Lecture 8}\\[0.2cm]\emph{The Poisson Distribution}\\[1.4cm]Kevin Burke}\\[0.3cm]\tcb{kevin.burke@ul.ie}}
+
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+%\TPGrid[5mm,5mm]{1}{1}
+
+\begin{document}
+
+
+\begin{frame}[t]
+\titlepage
+\end{frame}
+
+
+
+
+\section{Poisson Approximation}
+\subsection{Poisson Approximation}
+\begin{frame}{\bf \tcb{Poisson Approximation}}
+We saw in the previous lecture that the binomial probability function is $\Pr(X=x) = \binom{n}{x}\,p^x\,(1-p)^{n-x}$.\\[0.4cm]
+
+However, {\bf when {\boldmath$n$} is large and {\boldmath$p$} is small}, this formula can present computational difficulties.\\[0.4cm]
+
+In this case we can use the {\bf Poisson approximation}. Letting $\lambda = n\,p$:
+\begin{align*}
+\boxed{\Pr(X=x) = \binom{n}{x}\,p^x\,(1-p)^{n-x} \approx \frac{\lambda^x}{x\,!}\, e^{-\lambda}}.
+\end{align*}
+This approximation works well when $n > 20$ and $p < 0.1$.\\[0.5cm]
+
+Note: $\lambda$ is the Greek letter ``lambda''.
+
+\end{frame}
+
+
+\subsection{Example: Rare Disease}
+\begin{frame}{\bf \tcb{Example: Rare Disease}}
+Let's assume that a rare disease affects 0.1\% of all individuals. What is the probability that 10 individuals in a group of 5000 have this disease?\\[0.4cm]
+
+Let $X =$ ``the number of individuals who have the disease''. Clearly this has a binomial distribution: $X \sim \text{Binomial}(n=5000, p=0.001)$
+\begin{align*}
+\Rightarrow \Pr(X = 10) = \binom{5000}{10} \, 0.001^{10} \, 0.999^{4990} = 0.018.\\
+\end{align*}
+
+
+Since $n > 20$ and $p < 0.1$, we can use the \emph{Poisson approximation} with $\lambda = n\,p = 5000(0.001) = 5$
+\begin{align*}
+\Rightarrow \Pr(X = 10) \approx \frac{5^{10}}{10\,!}\, e^{-5} = 0.018.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Rolling Two Dice}
+\begin{frame}{\bf \tcb{Example: Rolling Two Dice}}
+Consider the experiment of rolling two dice and adding the numbers showing. If repeated 30 times, what is the probability that on 2 occasions the sum is equal to 3?\\[0.4cm]
+
+You should be able to calculate the probability of getting a sum of 3 in one trial: $p = \frac{2}{36} = \frac{1}{18}$.\\[0.4cm]
+
+Repeating 30 times leads to $X \sim \text{Binomial}(n=30, p=\frac{1}{18})$
+\begin{align*}
+\Rightarrow \Pr(X = 2) = \binom{30}{2} \, \left(\frac{1}{18}\right)^{2} \, \left(\frac{17}{18}\right)^{28} = 0.2709.
+\end{align*}
+
+Using the \emph{Poisson approximation} with $\lambda = n\,p = 30\times\frac{1}{18} = \frac{30}{18} = \frac{5}{3}$
+\begin{align*}
+\Rightarrow \Pr(X = 2) \approx \frac{(\frac{5}{3})^{2}}{2\,!}\, e^{-\frac{5}{3}} = 0.2623.
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+Using both the binomial probability function, $p(x) = \binom{n}{x} \, p^x\,(1-p)^{n-x}$, and the Poisson approximation, $p(x) \approx \frac{\lambda^x}{x\,!} e^{-\lambda}$ where $\lambda = n\,p$, evaluate each of the following:\\[0.3cm]
+\begin{enumerate}[a)]\itemsep0.5cm
+\item $\Pr(X=2)$ when $X \sim \text{Binomial}(n=20,p=0.1)$.
+\item $\Pr(X=5)$ when $X \sim \text{Binomial}(n=100,p=0.02)$.
+\item $\Pr(X=3)$ when $X \sim \text{Binomial}(n=1000,p=0.005)$.
+\item $\Pr(X=1)$ when $X \sim \text{Binomial}(n=10000,p=0.0001)$.
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+\section{Poisson Distribution}
+\subsection{Poisson Distribution}
+\begin{frame}{\bf \tcb{Poisson Distribution}}
+
+The Poisson approximation is useful. However, the {\bf Poisson distribution} is an important probability distribution in its own right.\\[0.3cm]
+
+It is the probability distribution for \emph{the number of events occurring within an interval} of time / area / volume etc.\\[0.3cm]
+
+For example, the number of:\\[0.0cm]
+\begin{itemize}\itemsep0.2cm
+\item System crashes per year.
+\item Text messages received per hour.
+\item Tasks processed by a CPU per hour.
+\item Flaws in a sheet of metal per m$^2$.
+\item Typographical errors per page.\\[0.3cm]
+\end{itemize}
+Note: the events \emph{must occur independently within the interval}, i.e., the occurrence of one event has no effect on another.
+
+
+\end{frame}
+
+
+
+\subsection{Why the Poisson Distribution Arises}
+\begin{frame}{\bf \tcb{Why the Poisson Distribution Arises}}
+Assume that a system crashes on average $\lambda$ times per year.\\[0.8cm]
+Think about the \emph{precise moment in time} of one such crash.\\[0.0cm]
+\begin{itemize}
+\item This is the result of a Bernoulli trial with $\{1= \text{crash}, 0= \text{work}\}$ which has generated the outcome $1=$ crash.\\[0.8cm]
+\end{itemize}
+
+Now think of the \emph{whole year}.\\
+\begin{itemize}
+\item Throughout the year we observe the results of a \emph{sequence of identical Bernoulli trials} where $p =\Pr(\text{crash})$.\\[0.4cm]
+\item Let $n$ be the total number of Bernoulli trials during this period, i.e., there is a trial for \emph{every single} precise moment in time.
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Why the Poisson Distribution Arises}
+\begin{frame}{\bf \tcb{Why the Poisson Distribution Arises}}
+Assuming that these Bernoulli trials are \emph{independent}, we know that the number of crashes, $X$, has a binomial distribution (see Lecture7):\\
+\begin{align*}
+X \sim \text{Binomial}(n,p).\\
+\end{align*}
+
+What can we say about the value of $n$? Think - how many precise moments in time are there in the year (or any period of time)?\\[0.8cm]
+
+What about $p$? Think - if we pick some moment in time, what is the likelihood that the system crashes at \emph{exactly} that moment in time?
+
+\end{frame}
+
+
+
+\subsection{Why the Poisson Distribution Arises}
+\begin{frame}{\bf \tcb{Why the Poisson Distribution Arises}}
+
+Since time is a \emph{continuous} quantity, there are an \emph{infinite} number of possible times that the system can crash, i.e., $n = \infty$.\\[0.6cm]
+For any moment in time, the probability that the system crashes at \emph{exactly} that moment is very low, i.e., $p \approx 0$.\\[0.6cm]
+
+Since {\bf{\boldmath$n$} is large and {\boldmath$p$} is small} we know from earlier that
+\begin{align*}
+\text{Binomial}(n,p) \rightarrow \text{Poisson}(\lambda).
+\end{align*}
+Here the \emph{average number of events per interval} is $\lambda = n\,p$.\\[0.6cm]
+
+The same arguments hold for intervals of area / volume etc. Thus, the Poisson distribution arises naturally in a variety of situations.
+\end{frame}
+
+\subsection{Poisson Distribution}
+\begin{frame}{\bf \tcb{Poisson Distribution}}
+The {\bf Poisson distribution} is used for calculating the probability of $x$ events within an interval of time / area / volume etc.:
+\begin{align*}
+\boxed{X \sim \text{Poisson}(\lambda)}
+\end{align*}
+\begin{align*}
+\boxed{\Pr(X = x) = \frac{\lambda^x}{x\,!}\,e^{-\lambda}}\\[-1cm]
+\end{align*}
+\begin{align*}
+\text{where } \boxed{x \in \{0,1,2,\ldots,\infty\}}
+\end{align*}
+\begin{align*}
+\boxed{E(X) = \lambda}
+\end{align*}
+\begin{align*}
+\boxed{Var(X) = \lambda}\\[-0.5cm]
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: System Crashes}
+\begin{frame}{\bf \tcb{Example: System Crashes}}\label{poisexample}
+Let's assume that a system crashes on average three times per year $\Rightarrow$ $\lambda = 3$ and $\Pr(X = x) = \frac{\lambda^x}{x\,!}\,e^{-\lambda} = \frac{3^x}{x\,!}\,e^{-3}$.\\[0.4cm]
+
+What is the probability that:\\[0.6cm]
+
+\ldots there are no crashes in a year?
+\begin{align*}
+\Pr(X=0) = \frac{3^0}{0\,!}\,e^{-3} = \frac{1}{1}\,e^{-3} = 0.0498.
+\end{align*}
+
+\ldots at least one crash in a year?
+\begin{align*}
+\Pr(X\ge1) = 1 - \Pr(X=0) = 1-0.0498 = 0.9502.
+\end{align*}
+
+
+\end{frame}
+
+
+
+
+\subsection{Example: System Crashes}
+\begin{frame}{\bf \tcb{Example: System Crashes}}\label{poisranexample}
+
+\ldots less than 2 crashes in a year? {\footnotesize(since $X$ is discrete ``$< 2\,$'' means ``$\le 1\,$'')}
+\begin{align*}
+\Pr(X<2) = \Pr(X\le1) &= p(0) + p(1) \\[0.2cm]
+&= \frac{3^0}{0\,!}\,e^{-3} + \frac{3^1}{1\,!}\,e^{-3} \\[0.2cm]
+& = 0.0498 + 0.1494 = 0.1992.\\
+\end{align*}
+
+
+\ldots between 4 and 6 crashes in a year?
+\begin{align*}
+\Pr(4\le X \le 6) &= p(4) + p(5) + p(6) \\[0.2cm]
+&= \frac{3^4}{4\,!}\,e^{-3} + \frac{3^5}{5\,!}\,e^{-3} + \frac{3^6}{6\,!}\,e^{-3} \\[0.2cm]
+&= 0.1680 +0.1008 + 0.0504 = 0.3192.
+\end{align*}
+
+\end{frame}
+
+\subsection{Poisson vs Binomial}
+\begin{frame}{\bf \tcb{Poisson vs Binomial}}
+\begin{itemize}\itemsep0.4cm
+\item Binomial$(n, p)$
+\begin{itemize}\itemsep0.2cm
+\item You have the total number of Bernoulli trials, $n$, and the probability of an event in each trial, $p$.
+\item $X \in \{0,1,2,\ldots, n\}$, i.e., the maximum number of events is $n$ since there are $n$ trials.
+\item Usage: probability of 1 event in 4 trials, less than 2 events in 6 trials, no events in 3 trials etc.
+\end{itemize}
+\item Poisson$(\lambda)$
+\begin{itemize}\itemsep0.2cm
+\item You have the average number of events, $\lambda$, within a fixed interval of time / area / volume etc.
+\item $X \in \{0,1,2,\ldots, \infty\}$, i.e., there is no upper limit for $X$ since there are an infinite number of Bernoulli trials throughout the interval.
+\item Usage: probability of 1 event per interval, less than 2 events per interval, no events per interval etc.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\subsection{Different Time-frame}
+\begin{frame}{\bf \tcb{Different Time-frame}}
+Note the following:\\
+\begin{itemize}\itemsep0.2cm
+\item $\lambda$ is the average number of events per 1 interval.
+\item $\lambda \times 2$ is the average number of events per 2 intervals.
+\item $\lambda \times 3$ is the average number of events per 3 intervals.
+\item $\lambda \times 0.25$ is the average number of events per 0.25 intervals.
+\item \ldots etc.\\[0.5cm]
+\end{itemize}
+
+In general:
+\begin{itemize}
+\item $\boxed{\lambda t \text{ is the average number of events per } t \text{ intervals}}$.\\[0.5cm]
+\end{itemize}
+
+$\Rightarrow$ {\bf the number of events per {\boldmath$t$} intervals has a Poisson{\boldmath$(\lambda t)$} distribution.}
+
+\end{frame}
+
+
+
+
+\subsection{Example: System Crashes}
+\begin{frame}{\bf \tcb{Example: System Crashes}}
+We said that there are $\lambda = 3$ crashes per year.\\[0.4cm]
+
+What is the probability of no crashes in 2 years? $\Rightarrow$ $\lambda t = 3(2) = 6$ crashes on average per 2 years.
+\begin{align*}
+\Pr(X=0) = \frac{6^0}{0\,!}\,e^{-6} = \frac{1}{1}\,e^{-6} = 0.0025.\\[-0.2cm]
+\end{align*}
+
+What is the probability of more than 2 crashes in 6 months (i.e., 0.5 years)? $\Rightarrow$ $\lambda t = 3(0.5) = 1.5$ crashes on average per 0.5 years.\vspace{-0.3cm}
+\begin{adjustwidth}{-0.1cm}{0cm}
+\begin{align*}
+\Pr(X > 2) = 1 - \Pr(X\le2) &= 1-[p(0) + p(1) + p(2)]\\
+&=  1 - \left(\frac{1.5^0}{0\,!}\,e^{-1.5} + \frac{1.5^1}{1\,!}\,e^{-1.5} + \frac{1.5^2}{2\,!}\,e^{-1.5}\right)\\
+&= 1 - (0.2231 + 0.3347 + 0.2510) \\
+&= 1 - 0.8088 = 0.1912.
+\end{align*}
+\end{adjustwidth}
+
+\end{frame}
+
+
+\subsection{Question 2}
+\begin{frame}{\bf \tcb{Question 2}}
+
+You receive emails at an average rate of 2 per hour. What is the probability of receiving:\\[0.2cm]
+
+\begin{enumerate}[a)]\itemsep0.2cm
+\item Six emails in one hour.
+\item Less than three emails in an hour.
+\item No emails in two hours.
+\item More than four emails in two hours.
+\item At least one email in half an hour.
+\item What is the value of the mean number of emails received in one hour? What is the corresponding standard deviation?
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+\section{Poisson Tables}
+\subsection{Poisson Tables}
+\begin{frame}{\bf \tcb{Poisson Tables}}
+
+The {\bf Poisson tables} are used in the same way as the binomial tables.\\[1cm]
+
+In particular, {\bf ``greater than or equal to''} probabilities are tabulated:
+\begin{align*}
+\boxed{\Pr(X \ge r)}
+\end{align*}
+where $r$ is the value in question.\\[1cm]
+
+We select the appropriate Poisson distribution by finding the $\lambda$ value in the column headings (note: the tables use the symbol $m$ rather than $\lambda$).
+\end{frame}
+
+
+\subsection{Example: System Crashes}
+\begin{frame}{\bf \tcb{Example: System Crashes}}\label{poisexampletab}
+With $X \sim \text{Poisson}(\lambda=3 \text{ / year})$, what is the probability that:\\[0.4cm]
+
+\ldots there are no crashes in a year?
+\begin{align*}
+\Pr(X=0) = \Pr(X \ge 0) - \Pr(X \ge 1) = 1.0000 - 0.9502 = 0.0498.\\[-0.1cm]
+\end{align*}
+
+\ldots at least one crash in a year?
+\begin{align*}
+\Pr(X\ge1) = 0.9502.\\[-0.1cm]
+\end{align*}
+
+\ldots less than 2 crashes in a year?
+\begin{align*}
+\Pr(X<2) = 1 - \Pr(X\ge2) &= 1 - 0.8009 = 0.1991.\\[-0.1cm]
+\end{align*}
+
+\ldots between 4 and 6 crashes in a year?
+\begin{align*}
+\Pr(4\le X \le 6) &= \Pr(X \ge 4) - \Pr(X \ge 7) = 0.3528 - 0.0335 = 0.3193.
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Example: System Crashes}
+\begin{frame}{\bf \tcb{Example: System Crashes}}
+
+What is the probability of no crashes in 2 years? $\Rightarrow$ $\lambda t = 3(2) = 6 = m$ in the tables.
+\begin{align*}
+\Pr(X=0) = \Pr(X \ge 0) - \Pr(X \ge 1) = 1.0000 - 0.9975 = 0.0025.\\[0.2cm]
+\end{align*}
+
+What is the probability of more than 2 crashes in 6 months (i.e., 0.5 years)? $\Rightarrow$ $\lambda t = 3(0.5) = 1.5 = m$ in the tables.
+\begin{align*}
+\Pr(X > 2) = \Pr(X\ge3) &= 0.1912.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Question 3}
+\begin{frame}{\bf \tcb{Question 3}}
+
+
+You receive emails at an average rate of 2 per hour. What is the probability of receiving:\\[0.2cm]
+
+\begin{enumerate}[a)]\itemsep0.2cm
+\item Six emails in one hour.
+\item Less than three emails in an hour.
+\item No emails in two hours.
+\item More than four emails in two hours.
+\item At least one email in half an hour.\\[0.8cm]
+\end{enumerate}
+
+Note: you calculated these in Question 1 using the \emph{formula} for the probability function.
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\section{R Code}
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+As with the binomial distribution, we can calculate probabilities for the Poisson distribution also:\\[0.3cm]
+
+\begin{tabular}{|l|}
+\hline
+Examples: \\[0.2cm]
+\texttt{dpois(0,lambda=3)} \\
+gives \texttt{0.04978707}, \\[0.2cm]
+\texttt{dpois(4:6,lambda=3)} \\
+gives \texttt{0.16803136 0.10081881 0.05040941}\\[0.2cm]
+and\\[0.2cm]
+\texttt{sum(dpois(4:6,lambda=3))} \\
+gives \texttt{0.3192596}\\
+\hline
+\multicolumn{1}{c}{}\\[0.1cm]
+\end{tabular}
+
+Compare the above with slides \pageref{poisexample} and \pageref{poisranexample}
+\end{frame}
+
+
+
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+\emph{Greater than} probabilities, i.e., $\Pr(X > x)$, can also be calculated.\\[0.4cm]
+It is important to note that this differs from the Poisson tables which (as we saw) provide \emph{greater than or equal to} probabilities.\\[0.4cm]
+
+\begin{tabular}{|l|}
+\hline
+Examples: \\[0.2cm]
+\texttt{ppois(0,lambda=3,lower=F)} \\
+gives \texttt{0.9502129} which is $\Pr(X > 0) = \Pr(X \ge 1)$.\\[0.2cm]
+\texttt{ppois(3,lambda=3,lower=F)} \\
+gives \texttt{0.3527681} which is $\Pr(X > 3) = \Pr(X \ge 4)$.\\[0.2cm]
+\texttt{ppois(6,lambda=3,lower=F)} \\
+gives \texttt{0.03350854} which is $\Pr(X > 6) = \Pr(X \ge 7)$.\\
+\hline
+\multicolumn{1}{c}{}\\[0.0cm]
+\end{tabular}
+
+Compare this with slide \pageref{poisexampletab}.
+\end{frame}
+
+
+
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+We can \emph{generate} Poisson random variables as follows:\\[0.5cm]
+
+\begin{tabular}{|l|}
+\hline
+Example: \\[0.2cm]
+\texttt{rpois(100,lambda=3)} \\
+generates 100 Poisson$(\lambda=3)$ variables.\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+
+\end{frame}
+
+
+
+
+
+
+\end{document} 

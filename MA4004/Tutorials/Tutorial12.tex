@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------ Tutorial 12 --------------------------- Questions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{17cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\subsection*{Question 1}
+
+A file contains the following characters:\\[-0.1cm]
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&& \\[-0.4cm]
+$x_i$     & a & b & c & d & e \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$p(x_i)$  & 0.5 & 0.15 & 0.2 & 0.05 & 0.1 \\[0.1cm]
+\hline
+\multicolumn{6}{c}{}\\[-0.2cm]
+\end{tabular}
+\end{center}
+
+{\bf(a)} Calculate the entropy for this file. \quad {\bf(b)} Construct a Huffman code. \quad \\{\bf(c)} Calculate the expected length of the code. \quad {\bf(d)} Calculate the efficiency of the code.
+
+
+
+\subsection*{Question 2}
+
+A file contains the following characters:\\[-0.1cm]
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+&&&&&& \\[-0.4cm]
+$x_i$     & a & b & c & d & e & f\\[0.1cm]
+\hline
+&&&&&& \\[-0.4cm]
+$p(x_i)$  & 0.3 & 0.25 & 0.2 & 0.12 & 0.08 & 0.05 \\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.2cm]
+\end{tabular}
+\end{center}
+
+{\bf(a)} Calculate the entropy for this file. \quad {\bf(b)} Construct a Huffman code. \quad \\{\bf(c)} Calculate the expected length of the code. \quad {\bf(d)} Calculate the efficiency of the code.
+
+
+\subsection*{Question 3}
+
+A file contains the following characters:\\[-0.1cm]
+\begin{center}
+\begin{tabular}{|c|ccccccc|}
+\hline
+&&&&&&& \\[-0.4cm]
+$x_i$     & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & $x_7$ \\[0.1cm]
+\hline
+&&&&&&& \\[-0.4cm]
+$p(x_i)$  & 0.3 & 0.2 & 0.2 & 0.1 & 0.1 & 0.05 & 0.05 \\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.2cm]
+\end{tabular}
+\end{center}
+
+{\bf(a)} Calculate the entropy for this file. \quad {\bf(b)} Construct a Huffman code. \quad \\{\bf(c)} Calculate the expected length of the code. \quad {\bf(d)} Calculate the efficiency of the code.
+
+
+
+
+\subsection*{Question 4}
+
+A file contains the following characters:\\[-0.1cm]
+\begin{center}
+\begin{tabular}{|c|ccccccccccc|}
+\hline
+&&&&&&&&&&& \\[-0.4cm]
+$x_i$     & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & $x_7$  & $x_8$ & $x_9$  & $x_{10}$ & $x_{11}$ \\[0.1cm]
+\hline
+&&&&&&&&&&& \\[-0.4cm]
+$p(x_i)$  & 0.3 & 0.15 & 0.15 & 0.1 & 0.05 & 0.05 & 0.05 & 0.05 & 0.04 & 0.04 & 0.02 \\[0.1cm]
+\hline
+\multicolumn{12}{c}{}\\[-0.2cm]
+\end{tabular}
+\end{center}
+
+{\bf(a)} Construct a Huffman code.
+
+
+
+
+
+\end{document} 

@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{changepage}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+
+\setlength{\voffset}{-3cm}
+%\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{26cm}
+%\setlength{\textwidth}{14cm}
+
+
+\begin{document}
+
+\section*{MA4413 Assignment \qquad{\small(10\% of Module)}}
+\noindent\rule{\linewidth}{1pt}
+\subsection*{Overview}
+\begin{itemize}
+\item This assignment must be your own work. Evidence of copying will result in a score of zero.
+\item The deadline is Monday, November 30th (during lecture):
+\begin{itemize}
+\item Hard copy of report to be submitted during the lecture time.
+\item Electronic copy of report and \texttt{R} script file containing all code to be submitted using the ``Assignments'' section on Sulis.
+\item Only submit one assignment per group; make sure all group members are named on the report.
+\end{itemize}
+\item The \texttt{R} script file must be organised so that the code can exactly replicate all results in the order in which they appear in your report.
+\item The report must be a word document with 11pt text. The main font may be arial, calibri or times new roman. However, the font for \texttt{R} output must be \texttt{courier}.
+\end{itemize}
+\noindent\rule{\linewidth}{1pt}
+
+\subsection*{Project {\normalsize(complete in the order shown below)}\hfill{\scriptsize \bf (60 marks)}}
+\begin{enumerate}[1)]
+\item {\bf Analysis of Midterm Scores} \hfill{\scriptsize \bf (35 marks)} \\
+The (fictional) dataset, \texttt{midscores.csv}, contains midterm scores for students with high Sulis activity and students with low Sulis activity. You have been assigned the task of analysing the \texttt{midscores.csv}  data. Based on the analysis, you will decide whether or not there is a difference between midterm scores of students with high / low  Sulis activity.
+\begin{enumerate}[i)]
+\item {\bf Loading Data and Drawing Random Samples}
+\begin{itemize}
+\item Save the \texttt{midscores.csv} to your computer.
+\item Load the dataset into \texttt{R} using the following code:
+    \begin{verbatim}
+    setwd("C:\\Users\\John Smith\\Documents")
+    midscores = read.csv("midscores.csv", header=T)
+    \end{verbatim}
+    \noindent\\[-1cm]
+    where you will replace \verb"C:\\Users\\John Smith\\Documents" with the location of the \texttt{midscores.csv} file on your computer.
+\item Draw a random sample of 20 individuals with a high midterm score and 20 individuals with a low midterm score as follows:
+    \begin{verbatim}
+    set.seed(123456789)
+    midhigh = sample(midscores$high, size=20)
+    midlow  = sample(midscores$low , size=20)
+    \end{verbatim}
+    \noindent\\[-1cm]
+    where you will replace \texttt{123456789} with one of the student ID numbers of your group members.\\[0.3cm] {\bf Important:} You will analyse the random samples \texttt{midhigh} and \texttt{midlow}, {\bf not} the full dataset.
+\end{itemize}
+\item {\bf Graphical and Numerical Summaries} (Lecs 1 and 2)\hfill{\scriptsize \bf (10 marks)}
+\begin{itemize}
+\item Plot histograms for both groups.
+\item Plot the boxplots for both groups on the same graph.
+\item Calculate the mean, standard deviation, quartiles, IQR, minimum and maximum midterm score for both groups. In your report, present these summaries in a table with two columns (one for each group, rounding all numbers to two decimal places).
+\item Comment on all of the above output with reference to the shape of the distributions, centre and spread etc. {\bf This must be concise and to the point.}
+\end{itemize}
+\item {\bf Check for Normality of Data} (Lec 10) \hfill{\scriptsize \bf (5 marks)}
+\begin{itemize}
+\item Use Q-Q plots to determine whether or not the two data vectors are approximately normally distributed (also refer back to the histograms and boxplots).
+%\item There also exists a hypothesis test of normality called the Shapiro-Wilk test (this does not appear in lectures). Carry out this test in \texttt{R}.
+\end{itemize}
+\item {\bf Confidence Intervals and Hypothesis Testing} (Lecs 13,14,15,16)\\\phantom{a} \hfill{\scriptsize \bf (15 marks)}\\
+While the summaries from part (ii) above are useful for describing a \emph{sample} of data, we cannot make statements about the \emph{whole population} without constructing confidence intervals and performing hypothesis tests.\\[0.3cm]For all of the hypothesis tests in this section you must do the following: copy the \texttt{R} output into your report using \texttt{courier} font, clearly state (mathematically) the null and alternative hypotheses and provide your conclusion based on the p-values and confidence intervals in both statistical and non-statistical language.
+\begin{itemize}
+\item Test the hypothesis that the overall average midterm score is equal to 7.5. Note: this is a one-sample test, i.e., you must combine the two samples into one vector here.
+\item Test the hypothesis that there is no difference between the variances in each group.
+\item Test the hypothesis that there is no difference between the means in each group. Note: your decision on whether or not equal variances can be assumed must be based on the previous hypothesis test.
+\end{itemize}
+\item {\bf Brief Summary of Analysis} \hfill{\scriptsize \bf (5 marks)}
+\begin{itemize}
+\item Briefly summarise the main results of your analysis. Also, provide your final conclusion in non-statistical language. Be clear and concise. A few key sentences is sufficient - {\bf no more than half a page}.\\
+\end{itemize}
+\end{enumerate}
+\item {\bf Simulation Study (Central Limit Theorem)} (Lec 12) \hfill{\scriptsize \bf (10 marks)}
+\begin{itemize}
+\item We have seen in a simulation study at the end of Lecture 12, for exponential data, that the sample mean, $\bar x$, is approximately normally distributed when the sample size is large.
+\item You are required to carry out a similar simulation study but for Bernoulli data, i.e., to show that the sample proportion, $\hat p$, is also approximately normally distributed when the sample size is large. Note that Bernoulli data can be generated using \texttt{rbinom(n=50, size=1, prob=0.5)}, i.e., the sample size is $n=50$ and the true proportion is $p=0.5$.
+\item Carry out another study where $p = 0.05$ but keep the sample size at $n=50$. You should find that $\hat p$ is \emph{not} approximately normal in this case. Note: you can try larger sample sizes to investigate how large this needs to be so that $\hat p$ is approximately normally distributed.
+\item For both scenarios (i.e., $p=0.5$ and $p=0.05$) you have to set the ``simulation seed''. Use \texttt{set.seed(123456789)} where you will replace \texttt{123456789} with one of the student ID numbers of your group members.\\
+\end{itemize}
+\item {\bf Probability Questions} (Lecs 7,8,9,10)  \hfill{\scriptsize \bf (10 marks)}\\
+Answer the questions below using \texttt{R} functions \texttt{dbinom}, \texttt{dpois} and \texttt{pnorm}: \\[0.2cm]Note: Round your answers to {\bf four decimal places}:
+\begin{enumerate}[i)]\itemsep0.3cm
+\item $\Pr(X \ge 6)$ where $X \sim \text{Binomial}(n=10,~p=0.65)$
+\item $\Pr(X < 30)$ where $X \sim \text{Binomial}(n=100,~p=0.2)$
+\item $\Pr(15 \le X \le 30)$ where $X \sim \text{Binomial}(n=50,~p=0.32)$\\[-0.1cm]
+\item $\Pr(X = 8)$ where $X \sim \text{Poisson}(\lambda=6)$
+\item $\Pr(X > 35)$ where $X \sim \text{Poisson}(\lambda=41)$
+\item $\Pr(2 \le X \le 5)$ where $X \sim \text{Poisson}(\lambda=1)$\\[-0.1cm]
+\item $\Pr(X > 12)$ where $X \sim N(\mu=7,~\sigma=2.5)$
+\item $\Pr(X > 9.8)$ where $X \sim N(\mu=10,~\sigma=1)$
+\item $\Pr(X < 38)$ where $X \sim N(\mu=50,~\sigma=5)$
+\item $\Pr(4 < X < 8)$ where $X \sim N(\mu=5,~\sigma=3.6)$\\
+\end{enumerate}
+\item {\bf Report Layout} \hfill{\scriptsize \bf (5 marks)}
+\begin{itemize}
+\item There are 5 marks going for overall layout/presentation of the report.
+\end{itemize}
+\end{enumerate}
+
+
+\noindent\rule{\linewidth}{1pt}
+
+
+%\noindent\rule{\linewidth}{1pt}
+%\quad\\[-0.5cm]
+%
+%
+%
+%\begin{enumerate}[1)]
+%\item {\bf Graphical and Numerical Summaries} (Lecs 1 and 2) \hfill{\scriptsize \bf (8 marks)}
+%\begin{itemize}
+%\item Copy the data into an \texttt{R} script file and name the data vectors \texttt{cpu1} and \text{cpu2} respectively.
+%\end{itemize}
+%\end{enumerate}
+
+
+
+\end{document} 

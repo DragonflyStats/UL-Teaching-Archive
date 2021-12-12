@@ -1,0 +1,336 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage[all]{xy}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Tutorial 7 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]%Here $X \sim \text{Normal}(\mu=40,\sigma=3)$ so we use
+%\begin{align*}
+%Z = \frac{X-\mu}{\sigma} = \frac{X-40}{3}
+%\end{align*}
+%to convert to a z score (for the tables).\\
+\begin{align*}
+\Pr(X > 45) = \Pr(Z > \tfrac{45-40}{3}) &= \Pr(Z > 1.67) \\
+&= 0.0475.
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+\Pr(32 < &\,X < 42) = \Pr(X > 32) - \Pr(X > 42)\\
+&=\Pr(Z > \tfrac{32-40}{3}) - \Pr(Z > \tfrac{42-40}{3}) \\
+&=\Pr(Z > -2.67) - \Pr(Z > 0.67) \\
+&=\Pr(Z < 2.67) - \Pr(Z > 0.67) \\
+&= 1 - \Pr(Z > 2.67) - \Pr(Z > 0.67) \\
+&= 1 - 0.00379-0.2514\\
+&= 1 -0.24761
+ =0.74481.
+\end{align*}
+\item The sum of two normal variables:
+\begin{align*}
+Y=X_1+X_2&\sim \text{Normal}\left(\mu_1+\mu_2,\sqrt{\sigma_1^2+\sigma_2^2}\right)\\
+&\sim \text{Normal}\left(40+40,\sqrt{9+9}\right)\\
+&\sim \text{Normal}\left(80,\sqrt{18}\right)\\
+&\sim \text{Normal}\left(\mu_Y=80,\sigma_Y=4.2426\right)
+\end{align*}
+%\begin{align*}
+%\Rightarrow Z = \frac{Y-80}{4.2426}
+%\end{align*}
+\begin{align*}
+\Pr(Y > 85) &= \Pr(Z > \tfrac{85-80}{4.2426}) \\
+&= \Pr(Z > 1.18) \\
+&= 0.1190.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1cm]
+\begin{enumerate}
+\item[d)] 99\% limits $\Rightarrow$ 1\% left over, i.e., $\alpha=0.01$ and $\alpha/2=0.005$ probability in each tail.
+\begin{align*}
+\mu_Y \,\,  &\pm \,\, z_{\,0.005}\,\, \sigma_Y \\[0.2cm]
+80 \,\,  &\pm \,\, 2.58\,\, (4.2426)\\[0.2cm]
+80 \,\,  &\pm \,\,  10.9459\\[0.2cm]
+\Rightarrow [69.05,&\,\,90.95]
+\end{align*}
+95\% of the time, the sum of the two attacks will be in the interval $[69.05,90.95]$.
+\item[e)] The difference between two normal variables:
+\begin{align*}
+D=X_1-X_2&\sim \text{Normal}\left(\mu_1-\mu_2,\sqrt{\sigma_1^2+\sigma_2^2}\right)\\
+&\sim \text{Normal}\left(\mu_D=0,\sigma_D=4.2426\right)
+\end{align*}
+%\begin{align*}
+%\Rightarrow Z = \frac{Y-0}{4.2426}
+%\end{align*}
+\begin{align*}
+\Pr(|D|>5) &= \Pr(D < -5) + \Pr(D>5)\\
+&= \Pr(D < \tfrac{-5-0}{4.2426}) + \Pr(D>\tfrac{5-0}{4.2426})\\
+&= \Pr(D < -1.18) + \Pr(D>1.18)\\
+&= \Pr(D > 1.18) + \Pr(D>1.18)\\
+&= 2\Pr(D > 1.18)\\
+&=2(0.1190) =0.238.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item This is the sum of a Normal$(40,3)$ variable and a Normal$(5,1)$ variable:
+\begin{align*}
+X\,|\,S^c &\sim \text{Normal}(40+5,\sqrt{3^2+1^2})\\
+ &\sim \text{Normal}(45,\sqrt{10})\\
+ &\sim \text{Normal}(45,\,\,3.1623)
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+\Pr(X<43\,|\,S) &= \Pr(Z<\tfrac{43-40}{3}) \\
+&= \Pr(Z<1) \\
+&= 1 - \Pr(Z>1) \\
+&= 1 - 0.1587 =  0.8413.\\[0.4cm]
+\Pr(X<43\,|\,S^c) &= \Pr(Z<\tfrac{43-45}{3.1623}) \\
+&= \Pr(Z<-0.63) \\
+&= \Pr(Z>0.63) \\
+&= 0.2643.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1cm]
+\begin{enumerate}
+\item[c)]\quad\\[-1.45cm]
+\begin{align*}
+\Pr(S) &= 0.75 & \Pr(X<43\,|\,S) &= 0.8413\\[0.2cm]
+\Pr(S^c) &= 0.25 & \Pr(X<43\,|\,S^c) &= 0.2643
+\end{align*}
+Using the law of total probability:
+\begin{align*}
+\Pr(X<43) &= \Pr(X<43\cap S) \\&\qquad+ \Pr(X<43\cap S^c)\\[0.2cm]
+&=\Pr(S)\Pr(X<43\,|\,S)\\&\qquad+ \Pr(S^c)\Pr(X<43\,|\,S^c)\\[0.2cm]
+&=0.75(0.8413)+0.25(0.2643)\\
+&=  0.6310 + 0.0661\\
+&= 0.6971.
+\end{align*}
+\item[d)]\quad\\[-1.45cm]
+\begin{align*}
+\Pr(S^c\,|\,X<43) &= \frac{\Pr(S^c\,\cap\,X<43)}{\Pr(X<43)}\\[0.2cm]
+ &= \frac{0.0661}{0.6971}\\[0.2cm]
+ &=0.0948.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item This is the probability that $X_1-X_2 < 0$, i.e., $X_1 < X_2$.
+    First note the difference between two normal variables:
+\begin{align*}
+X_1-X_2&\sim \text{Normal}\left(\mu_1-\mu_2,\sqrt{\sigma_1^2+\sigma_2^2}\right)\\
+&\sim \text{Normal}\left(30-40,\sqrt{(2)^2+(3.5)^2}\right)\\
+&\sim \text{Normal}\left(-10,\sqrt{4+12.25}\right)\\
+&\sim \text{Normal}\left(-10,\sqrt{16.25}\right)\\
+&\sim \text{Normal}\left(-10,\,\,4.031\right)
+\end{align*}
+\begin{align*}
+\Pr(X_1-X_2 < 0) &= \Pr(Z < \tfrac{0-(-10)}{4.031}) \\
+&= \Pr(Z < \tfrac{10}{4.031}) \\
+&= \Pr(Z < 2.48) \\
+&= 1 - \Pr(Z > 2.48) \\
+&= 1 - 0.00657 = 0.99343.
+\end{align*}
+\item 90\% limits $\Rightarrow$ 10\% left over, i.e., $\alpha=0.1$ and $\alpha/2=0.05$ probability in each tail.
+\begin{align*}
+(\mu_1-\mu_2) \,\,  &\pm \,\, z_{\,0.05}\,\, \sqrt{\sigma_1^2+\sigma_2^2} \\[0.2cm]
+-10 \,\,  &\pm \,\, 1.64\,\, (4.031)\\[0.2cm]
+-10 \,\,  &\pm \,\,  6.6108\\[0.2cm]
+\Rightarrow [-16.61,&\,-3.39]
+\end{align*}
+90\% of the time, engineers earn  between $3,390$ and $16,610$ more than technicians.
+\item This pertains to the sample mean of $n=25$ technicians $\Rightarrow$ \emph{central limit theorem}.
+\begin{align*}
+\,\overline{\!X}_1&\sim \text{Normal}\left(\mu_1,\frac{\sigma_1}{\sqrt{n}}\right)\\
+&\sim \text{Normal}\left(30,\frac{2}{\sqrt{25}}\right)\\
+&\sim \text{Normal}\left(\mu_1=30,\sigma(\,\overline{\!X}_1) =0.4\right)
+\end{align*}
+\begin{align*}
+\Pr(\overline{\!X}_1 < 30.5) &= \Pr(Z < \tfrac{30.5-30}{0.4}) \\
+&= \Pr(Z < 1.25) \\
+&= 1 - \Pr(Z > 1.25) \\
+&= 1 - 0.1056 = 0.8944.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1cm]
+\begin{enumerate}
+\item[d)] For one engineer:
+\begin{align*}
+\Pr(X_2 > 45) &= \Pr(Z > \tfrac{45-40}{3.5}) \\
+&= \Pr(Z > 1.43) = 0.0764.
+\end{align*}
+Now, consider the number of engineers who earn more than 45,000 in a group of 10. This is $X \sim \text{Binomial}(n=10, p =0.0764)$
+\begin{align*}
+\Pr(X \ge 2) &= 1 - \Pr(X < 2) \\
+&= 1 - (p(0) + p(1)) \\
+&= 1 - \left(\,\binom{10}{0}\,0.0764^0\,0.9236^{10}\right.\\
+&\qquad\quad+ \left.\binom{10}{1}\,0.0764^1\,0.9236^{9}\right)\\
+&= 1 - (0.4517+0.3736)\\
+&= 1 - 0.8253= 0.1747.
+\end{align*}
+\item[e)] The difference between sample means:
+\begin{align*}
+&\,\overline{\!X}_1 - \,\overline{\!X}_2 \\
+\quad&\sim \text{Normal}\left(\mu_1-\mu_2,\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right)\\
+\quad&\sim \text{Normal}\left(30-40,\sqrt{\frac{(2)^2}{30}+\frac{(3.5)^2}{35}}\right)\\
+\quad&\sim \text{Normal}\left(-10,\,\,0.6952\right)
+\end{align*}
+80\% limits $\Rightarrow$ 20\% left over, i.e., $\alpha=0.2$ and $\alpha/2=0.1$ probability in each tail.
+\begin{align*}
+(\mu_1-\mu_2) \,\,  &\pm \,\, z_{\,0.1}\,\, \sigma(\,\overline{\!X}_1-\,\overline{\!X}_2) \\[0.2cm]
+-10 \,\,  &\pm \,\, 1.28\,\, (0.6952)\\[0.2cm]
+-10 \,\,  &\pm \,\,  0.8899\\[0.2cm]
+\Rightarrow [-10.89,&\, -9.11]
+\end{align*}
+In 80\% of samples, the difference $\,\overline{\!X}_1 - \,\overline{\!X}_2$ will lie in the above range.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 4}
+For an exponential variable we have that
+\begin{align*}
+\mu = E(X) &= \frac{1}{\lambda} = \frac{1}{0.02} = 50.\\[0.3cm]
+\sigma = Sd(X) &= \sqrt{\frac{1}{\lambda^2}} = \frac{1}{\lambda} = 50.\\
+\end{align*}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+\,\overline{\!X}&\sim \text{Normal}\left(\mu,\frac{\sigma}{\sqrt{n}}\right)\\
+&\sim \text{Normal}\left(50,\frac{50}{\sqrt{100}}\right)\\
+&\sim \text{Normal}\left(50,\,\,\sigma(\,\overline{\!X}) =5\right)
+\end{align*}
+\begin{align*}
+\Pr(\,\overline{\!X}>55) &= \Pr(Z > \tfrac{55-50}{5})\\
+&= \Pr(Z > 1) \\
+&= 0.1587.\\
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+\,\overline{\!X}&\sim \text{Normal}\left(\mu,\frac{\sigma}{\sqrt{n}}\right)\\
+&\sim \text{Normal}\left(50,\frac{50}{\sqrt{40}}\right)\\
+&\sim \text{Normal}\left(50,\,\,\sigma(\,\overline{\!X}) =7.906\right)
+\end{align*}
+\begin{align*}
+\Pr(\,\overline{\!X}<53) &= \Pr(Z < \tfrac{53-50}{7.906})\\
+&= \Pr(Z < 0.38) \\
+&= 1-\Pr(Z > 0.38)\\
+&= 1-0.3520 = 0.6480.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1cm]
+\begin{enumerate}
+\item[c)] \quad\\[-1.45cm]
+\begin{align*}
+\,\overline{\!X}&\sim \text{Normal}\left(\mu,\frac{\sigma}{\sqrt{n}}\right)\\
+&\sim \text{Normal}\left(50,\frac{50}{\sqrt{65}}\right)\\
+&\sim \text{Normal}\left(50,\,\,\sigma(\,\overline{\!X}) =6.202\right)
+\end{align*}
+\begin{align*}
+\Pr(\,\overline{\!X}>\bar x) &= 0.1\\
+\Pr(Z > \tfrac{\bar x -50}{6.202}) &= 0.1.\\[0.4cm]
+\text{But from} & \text{\,tables:}\\
+\Pr(Z > 1.28) &= 0.1003 \approx 0.1.\\[0.4cm]
+\Rightarrow \frac{\bar x -50}{6.202} &= 1.28\\
+\bar x -50 &= 1.28(6.202)\\
+\bar x  &= 50 +  1.28(6.202)\\
+&=57.94.
+\end{align*}
+\item[d)] \quad\\[-1.45cm]
+\begin{align*}
+\Pr(\,\overline{\!X} < 49) &= 0.1\\
+\Pr(Z < \tfrac{49 -50}{50/\sqrt{n}}) &= 0.1\\
+\Pr(Z < -\tfrac{1}{50/\sqrt{n}}) &= 0.1\\
+\Pr(Z > \tfrac{1}{50/\sqrt{n}}) &= 0.1\\[0.4cm]
+\text{But from} & \text{\,tables:}\\
+\Pr(Z > 1.28) &= 0.1003 \approx 0.1.\\[0.4cm]
+\Rightarrow \tfrac{1}{50/\sqrt{n}} &= 1.28\\
+1 &= 1.28\left(\frac{50}{\sqrt{n}}\right)\\
+\sqrt{n} &= 1.28(50)\\
+&= 64.\\[0.3cm]
+\Rightarrow n &= 64^2 = 4096.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+
+
+
+
+
+\end{document} 

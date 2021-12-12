@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage[all]{xy}
+\usepackage{color}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 18 ------------------------------------------ Solutions} }}
+
+\newcommand{\tcb}{\textcolor{blue}}
+\newcommand{\tcr}{\textcolor{red}}
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item The maximum possible entropy for 4 symbols is $\log_2 4 = 2$ bits. This occurs if each symbol is equally likely, i.e., the file is not predictable.
+\item \quad \\[-1.5cm]
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\multicolumn{1}{c}{}&\multicolumn{4}{c}{File 1}\\
+\hline
+&&&&\\[-0.3cm]
+$x_i$ & a & b & c & d \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$p(x_i)$ & $0.5$ & $0.25$ & $0.2$ & $0.05$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$h(x_i) = -\log_2 p(x_i)$ & 1.000 & 2.000 & 2.322 & 4.322 \\[0.1cm]
+\hline
+\multicolumn{5}{c}{}\\[-0.8cm]
+\end{tabular}
+\end{center}
+\begin{align*}
+H(X) = E[h(X)] = \sum h(x_i)\,p(x_i) &=  1.000(0.5) + 2.000(0.25) + 2.322(0.2) + 4.322(0.05) \\[0.1cm]
+&=   0.500 + 0.500 + 0.464 + 0.216 \\[0.1cm]
+&= 1.68 \text{ bits}
+\end{align*}
+\item \quad\\[-1.5cm]
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\multicolumn{1}{c}{}&\multicolumn{4}{c}{File 2}\\
+\hline
+&&&&\\[-0.3cm]
+$x_i$ & a & b & c & d \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$p(x_i)$ & $0.1$ & $0.8$ & $0.05$ & $0.05$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$h(x_i) = -\log_2 p(x_i)$ &  3.322 & 0.322 & 4.322 & 4.322 \\[0.1cm]
+\hline
+\multicolumn{5}{c}{}\\[-0.8cm]
+\end{tabular}
+\end{center}
+\begin{align*}
+H(X) = E[h(X)] = \sum h(x_i)\,p(x_i) &=  3.322(0.1) + 0.322(0.8) + 4.322(0.05) + 4.322(0.05) \\[0.1cm]
+&=  0.332 + 0.258 + 0.216 + 0.216 \\[0.1cm]
+&= 1.02 \text{ bits}
+\end{align*}
+\item The entropy for File 2 is lower since the symbols are more predictable, i.e., there is an 80\% chance that the symbol will be ``a''.\\[0.3cm]
+    The entropy for File 1 is higher since it is less predictable. However, there is still predictability since we know ``d'' is unlikely.\\[0.3cm]
+    Both entropies are below the maximum of 2 bits due to the inherent predictability in both files.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item $C_2 = \{0,1,01,11\}$ is \emph{not} a prefix code: 0 is a prefix of 01 and, also, 1 is a prefix of 11.\\[0.3cm]
+    $C_3 = \{0,10,11,001\}$ is \emph{not} a prefix code: 0 is a prefix of 001.\\[0.3cm]
+    $C_5 = \{0,10,010,111\}$ is \emph{not} a prefix code: 0 is a prefix of 010.\\[0.3cm]
+    The remaining codes $C_1$, $C_4$ and $C_6$ are prefix codes and, hence, they are uniquely decodable.
+\item \quad\\[-1.45cm]
+\begin{align*}
+\ell(C_2) = (1,1,2,2)
+\Rightarrow K_2 &= \frac{1}{2^1} + \frac{1}{2^1} + \frac{1}{2^2} + \frac{1}{2^2} \\[0.2cm]
+&= \frac{2}{2} + \frac{2}{4} = 1.5 > 1
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.00\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.2cm]
+\begin{enumerate}
+\item[] \quad\\[-1.45cm]
+\begin{align*}
+\ell(C_3) = (1,2,2,3) \Rightarrow K_3 &= \frac{1}{2^1} + \frac{1}{2^2} + \frac{1}{2^2} + \frac{1}{2^3} \\[0.2cm]
+&= \frac{1}{2} + \frac{2}{4} + \frac{1}{8} = 1.125 > 1\\[0.3cm]
+\ell(C_5) = (1,2,3,3) \Rightarrow K_5 &= \frac{1}{2^1} + \frac{1}{2^2} + \frac{1}{2^3} + \frac{1}{2^3} \\[0.2cm]
+&= \frac{1}{2} + \frac{1}{4} + \frac{2}{8} = 1 \le 1
+\end{align*}
+$\Rightarrow$ $C_2$ and $C_3$ are not uniquely decodable.\\[0.3cm]
+This is easy to show by a manual approach:\\[0.2cm]
+$\bullet$  $C_2$: ab $= 01 =$ c \quad\, $\bullet$ $C_3$: da $= 0010 =$ aab
+\item[c)] $C_5$ is not uniquely decodable:  ab $= 010$ = c.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item First we must calculate the information contents: $h_(x_i) = - \log_2 p(x_i)$. Note: the table has been reordered for the purpose of constructing the Huffman code.\\
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&& \\[-0.4cm]
+$x_i$     & e & a & d & c & b \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$p(x_i)$  & 0.35 & 0.2 & 0.2 & 0.15 & 0.1 \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$h(x_i)$  & 1.515 & 2.322 & 2.322 & 2.737 & 3.322 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+\begin{align*}
+H(X) = E[h(X)] = \sum h(x_i)\,p(x_i) &= 1.515(0.35) + 2.322(0.2) + 2.322(0.2) + 2.737(0.15) + 3.322(0.1) \\
+&= 0.530 + 0.464 + 0.464 + 0.411 + 0.332 = 2.201 \text{ bits}.\\
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+%\xymatrixcolsep{1.5cm}
+%\xymatrixrowsep{2cm}
+    \xymatrix{
+     \text{Step 4} & \tcr{1.00}  &  &     &   & \\
+     \text{Step 3} & \tcr{0.6}\ar@{-}[u]^{\tcb{\bf0}}  & 0.4\ar@{-}[ul]^{\tcb{\bf1}} &     &   & \\
+     \text{Step 2} & 0.35\ar@{-}[u]^{\tcb{\bf0}}  & \tcr{0.4}\ar@{-}[u] &     &  0.25\ar@{-}[ulll]_{\tcb{\bf1}} & \\
+     \text{Step 1} & 0.35\ar@{-}[u]  & 0.2\ar@{-}[u]^{\tcb{\bf0}} & 0.2\ar@{-}[ul]_{\tcb{\bf1}} &  \tcr{0.25}\ar@{-}[u] & \\
+     {\begin{tabular}{c} $p(x_i)$ \\[0.2cm] $x_i$ \end{tabular}} &
+     {\begin{tabular}{c} 0.35 \\[0.2cm] e: \tcb{\bf00} \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{c} 0.2 \\[0.2cm] a: \tcb{\bf10} \end{tabular}} \ar@{-}[u] & {\begin{tabular}{c} 0.2 \\[0.2cm] d: \tcb{\bf11} \end{tabular}} \ar@{-}[u] &
+     {\begin{tabular}{c} 0.15 \\[0.2cm] c: \tcb{\bf010} \end{tabular}} \ar@{-}[u]^{\tcb{\bf0}} &
+     {\begin{tabular}{@{\hspace{-0.3cm}}c} 0.1 \\[0.2cm] b: \tcb{\bf011} \end{tabular}} \ar@{-}[ul]_{\tcb{\bf1}} }
+\end{align*}
+\item \quad\\[-1.3cm]
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+&&&&& \\[-0.4cm]
+$x_i$     & e & a & d & c & b \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$p(x_i)$  & 0.35 & 0.2 & 0.2 & 0.15 & 0.1 \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$h(x_i)$  & 1.515 & 2.322 & 2.322 & 2.737 & 3.322 \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$c(x_i)$  & 00 & 10 & 11 & 010 & 011 \\[0.1cm]
+\hline
+&&&&& \\[-0.4cm]
+$\ell(x_i)$  & 2 & 2 & 2 & 3 & 3 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+\begin{align*}
+E(L) = E[\ell(X)] = \sum \ell(x_i)\,p(x_i) &= 2(0.35) + 2(0.2) + 2(0.2) + 3(0.15) + 3(0.1) \\
+&= 0.70 + 0.40 + 0.40 + 0.45 + 0.30 = 2.25  \text{ bits}.\\
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+e = \frac{H(X)}{E(L)} = \frac{2.201}{2.25} = 0.978.
+\end{align*}
+$\Rightarrow$ This Huffman code is $97.8\%$ efficient.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\end{document}
+
+
+

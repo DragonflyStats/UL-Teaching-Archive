@@ -1,0 +1,415 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage[all]{xy}
+\usepackage{color}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\m}{\phantom{-}}
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Tutorial 11 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad \mu_1-\mu_2 = 0 \\[0.1cm]
+H_a: \quad \mu_1 - \mu_2 \ne 0
+\end{align*}
+\item \quad\\[-1.45cm]
+\begin{align*}
+z=\frac{(\bar x_1 - \bar x_2) - (\mu_{01} - \mu_{02})}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}} &= \frac{(7.1-5.2) - 0}{\sqrt{\frac{10.1}{42}+\frac{16.1}{50}}}\\[0.2cm]
+&= \frac{1.9}{0.75} = 2.53.
+\end{align*}
+\item Two tailed test:
+\begin{align*}
+\Rightarrow \text{p-value} &= 2\cdot\Pr(Z > |2.54|) \\
+&= 2\cdot\Pr(Z > 2.54) \\
+&= 2\cdot(0.0057) = 0.0114.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.4cm]
+\begin{enumerate}
+\item[d)] The evidence against $H_0$ is strong (almost at the 1\% level). Thus, we reject the null hypothesis that there is no difference between population means.\\[0.4cm]
+    Conclusion: There is a difference in the diet plans and, in particular, weight loss is greater with diet plan 1.\\[0.4cm]
+    (Note: we have not said anything about how healthy the plans are).
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item For the F test the hypotheses are:
+\begin{align*}
+H_0: \quad \sigma_1^2 = \sigma_2^2 \\[0.1cm]
+H_a: \quad \sigma_1^2 \ne \sigma_2^2
+\end{align*}
+A p-value of 0.7297 means that there is no evidence to reject $H_0$, i.e., we accept the hypothesis that the population variances are equal.
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad \mu_1-\mu_2 = 0 \\[0.1cm]
+H_a: \quad \mu_1 - \mu_2 \ne 0
+\end{align*}
+\item As it is a two tailed test and the samples are small the critical values are $\pm t_{\,\nu,\,\alpha/2}$.\\[0.3cm]
+    $\alpha = 0.1 \Rightarrow \alpha/2 = 0.05$ in each tail.\\[0.3cm]
+    Since we can assume equal variances,\\ $\nu = n_1 + n_2 - 2 = 5+3-2=6$.\\[0.3cm]
+    Thus, the rejection region is outside of $\pm t_{\,6,\,0.05} = \pm1.943$.\\[0.3cm]
+\end{enumerate}
+\end{minipage}\hspace{0.03\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.1cm]
+\begin{enumerate}
+\item[d)] We have standard deviations and require variances: \\[0.2cm] $s_1^2 = (1.7)^2= 2.89$ and $s_1^2 = (1.9)^2= 3.61$.\\[0.2cm]
+    We need the pooled variance:
+    \begin{align*}
+s_p^2 &= \frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1+n_2-2} \\
+&= \frac{(5 - 1) (2.89) + (3 - 1) (3.61)}{5+3-2}\\
+&= 3.7317.
+\end{align*}
+Thus, the test statistic is
+\begin{align*}
+t= \frac{(\bar x_1 - \bar x_2) - (\mu_{01} - \mu_{02})}{\sqrt{\frac{s_p^2}{n_1}+\frac{s_p^2}{n_2}}} &= \frac{(30.2-28.4) - 0}{\sqrt{\frac{3.7317}{5}+\frac{3.7317}{3}}}\\[0.2cm]
+&= \frac{1.8}{1.411} = 1.276.
+\end{align*}
+The test statistic is within the acceptance region (i.e., within $\pm1.943$) $\Rightarrow$ we accept the hypothesis that there is no difference in the average salaries.\\[0.3cm]
+Conclusion: There is no evidence of gender inequality.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad \mu_1-\mu_2 = 0 \\[0.1cm]
+H_a: \quad \mu_1 - \mu_2 \ne 0
+\end{align*}
+\item Two tailed test and the samples are small $\Rightarrow$ the critical values are $\pm t_{\,\nu,\,\alpha/2}$.\\[0.3cm]
+    $\alpha = 0.05 \Rightarrow \alpha/2 = 0.025$ in each tail.\\[0.3cm]
+    As we are not assuming equal variances we have to calculate:
+    \begin{align*}
+    a = \frac{s_1^2}{n_1} = \frac{3}{15} = 0.2& \qquad b = \frac{s_2^2}{n_2} = \frac{1.5}{15} = 0.1.\\[0.4cm]
+    \Rightarrow \nu = \frac{(a+b)^2}{\frac{a^2}{n_1-1}+\frac{b^2}{n_2-1}} &= \frac{(0.2+0.1)^2}{\frac{(0.2)^2}{15-1}+\frac{(0.1)^2}{15-1}} \\[0.2cm]
+    &= \frac{0.09}{\frac{0.04}{14}+\frac{0.01}{14}} \\[0.2cm]
+    &= \frac{0.09}{\frac{0.05}{14}} \\[0.2cm]
+    &= \frac{0.09}{0.05} \times \frac{14}{1} = 25.2.
+    \end{align*}
+    Need integer value for tables $\Rightarrow \nu = 25$.\\[0.3cm]
+    The critical values are $\pm t_{\,25,\,0.025} = \pm2.06$.\\[0.3cm]
+\end{enumerate}
+\end{minipage}\hspace{0.03\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.1cm]
+\begin{enumerate}
+\item[c)] The test statistic is
+\begin{align*}
+t= \frac{(\bar x_1 - \bar x_2) - (\mu_{01} - \mu_{02})}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}} &= \frac{(12.5-11.1) - 0}{\sqrt{\frac{3}{15}+\frac{1.5}{15}}}\\[0.2cm]
+&= \frac{1.4}{0.5477} = 2.556.
+\end{align*}
+The test statistic is outside of $\pm2.06$ $\Rightarrow$ we reject $H_0$ at the 5\% level.\\[0.3cm]
+Conclusion: There is a difference in the average time and, in particular, the students of University B are quicker at completing the task.
+\item[d)] Two-tailed test:
+\begin{align*}
+\Rightarrow \text{p-value} &= 2\cdot\Pr(T_{25} > |2.556|) \\&= 2\cdot\Pr(T_{25} > 2.556).
+\end{align*}
+From the t-tables we have
+\begin{align*}
+2\cdot\Pr(T_{25} > 2.485) &= 2(0.01) = 0.02. \\[0.2cm]
+2\cdot\Pr(T_{25} > 2.787) &= 2(0.005) = 0.01.
+\end{align*}
+Thus, the p-value is between $0.01$ and $0.02$, i.e., there is strong evidence against the null hypothesis.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 4}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad p_1-p_2 = 0 \\[0.1cm]
+H_a: \quad p_1 - p_2 \ne 0
+\end{align*}
+Two tailed test and $\alpha = 0.05$
+$\Rightarrow$ the critical values are $\pm z_{\,0.025} = \pm 1.96$.\\[0.3cm]
+From the data we have
+\begin{align*}
+\hat p_1 &= \frac{20}{38} = 0.5263, \\[0.2cm]
+\hat p_2 &= \frac{70}{116} = 0.6034.
+\end{align*}
+We also need to calculate the overall combined proportion for the standard error:
+\begin{align*}
+\hat p_c &= \frac{20+70}{38+116} = \frac{90}{154} = 0.5844.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.03\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.1cm]
+\begin{enumerate}
+\item[] The test statistic is
+\begin{align*}
+z &= \frac{(\hat p_1 - \hat p_2) - (p_{01} - p_{02})}{\sqrt{\frac{\hat p_c\,(1-\hat p_c)}{n_1}+\frac{\hat p_c\,(1-\hat p_c)}{n_2}}} \\[0.2cm]
+&= \frac{(0.5263-0.6034) - 0}{\sqrt{\frac{0.5844\,(0.4156)}{38}+\frac{0.5844\,(0.4156)}{116}}}\\[0.2cm]
+&= \frac{-0.0771}{0.0921} = -0.837.
+\end{align*}
+The test statistic is within $\pm1.96$ $\Rightarrow$ we accept $H_0$.\\[0.3cm]
+Conclusion: There is no difference in the level of support of this policy in rural and urban areas.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 5}
+\begin{enumerate}[a)]
+\item If there was no difference between the products then the probability of an individual preferring one of the 5 products would be $\frac{1}{5}$, i.e., an individual is equally likely to prefer any of the 5.\\[0.4cm]
+    The expected frequencies are all the same:
+    \begin{align*}
+    e_i = \text{total}\times \frac{1}{5} = 100\times \frac{1}{5} = 20
+    \end{align*}
+\begin{center}
+\begin{tabular}{|c|ccccc|c|}
+\hline
+&&&&&&\\[-0.4cm]
+& \multicolumn{5}{c|}{Product} & \\
+ & \#1 & \#2 & \#3 & \#4 & \#5 & $\sum$ \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+$o_i$ & 19 & 24 & 24 & 14 & 19 & 100\\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+$e_i$ & 20 & 20 & 20 & 20 & 20 & 100\\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+$\frac{(o_i-e_i)^2}{e_i}$ & 0.05 & 0.80 & 0.80 & 1.80 & 0.05  & 3.5\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{minipage}\hspace{0.03\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.1cm]
+\begin{enumerate}
+\item[b)]\quad\\[-1.45cm]
+\begin{align*}
+H_0:& \quad \text{preference equally likely}\\[0.1cm]
+H_a:& \quad \text{preference not equally likely}
+\end{align*}
+We have that $\alpha = 0.05$ and $\nu = n_f - 1 - k$.\\[0.2cm]
+As no parameters have been estimated $k=0$.\\[0.2cm]
+$\Rightarrow \nu = 5 - 1 - 0 = 4$.
+The critical value is therefore $\chi^2_{\,4,\,0.05} = 9.488$.\\[0.8cm]
+Since the test statistic, $\chi^2 = 3.5$, is below the critical value, we cannot reject $H_0$.\\[0.6cm]
+Conclusion: There appears to be no difference between these products.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 6}
+\begin{enumerate}[a)]
+\item To obtain the expected frequencies, multiply each theoretical probability by the overall total (160).\\[0.1cm]
+    {\footnotesize(these are the frequencies we would expect to see if the data came from a normal distribution)}
+\begin{center}
+\begin{tabular}{|c|cccccccc|c|}
+\hline
+&&&&&&&&&\\[-0.3cm]
+$x$ & $ < 5$ & $5\!-\!7$ & $7\!-\!9$ & $9\!-\!11$ & $11\!-\!13$ & $13\!-\!15$ &  $15\!-\!17$ & $> 17$ & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&&&\\[-0.3cm]
+$160 \times p_i = e_i$ & 2.40 & 11.52 & 32.16 & 49.12 & 40.96 & 18.56 & 4.64 & 0.64 & 160\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+Due to $e_i$ values less than 5, we combine the $<5$ and $5\!-\!7$ classes and also the $15\!-\!17$ and $> 17$ classes:
+\begin{center}
+\begin{tabular}{|c|cccccc|c|}
+\hline
+&&&&&&&\\[-0.3cm]
+$x$ & $ < 7$ & $7\!-\!9$ & $9\!-\!11$ & $11\!-\!13$ & $13\!-\!15$ &  $> 15$ & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$o_i$ &  13 & 23 & 62 & 39 & 14 & 9 & 160\\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$e_i$ & 13.92 & 32.16 & 49.12 & 40.96 & 18.56 & 5.28 & 160\\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$\frac{(o_i-e_i)^2}{e_i}$ & 0.061 & 2.609 & 3.377 & 0.094 & 1.120 & 2.621 & 9.882\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+\item The test statistic is $\chi^2 = \sum \frac{(o_i-e_i)^2}{e_i} = 9.882$.
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0:& \quad \text{The normal distribution fits the data}\\[0.1cm]
+H_a:& \quad \text{The normal distribution does not fit the data}
+\end{align*}
+Note that $k=2$ parameters ($\mu$ and $\sigma$) were estimated in order to calculate the theoretical probabilities and there are $n_f = 6$ frequencies in the above table $\Rightarrow$ $\nu = n_f - 1 -k = 6 - 1 - 2 = 3$.\\[0.2cm]
+    Thus, the critical value for the 5\% level is $\chi^2_{\,3,\,0.05} = 7.815$. Since $9.882 > 7.815$ we can reject $H_0$ at the 5\% level $\Rightarrow$ the evidence suggests that the data does not come from a normal distribution.
+\item From the chi-squared tables we see that $\Pr(\chi^2_3 > 9.837) = 0.02$ and  $\Pr(\chi^2_3 > 11.345) = 0.01$.\\[0.2cm]
+     Hence $\text{p-value } = \Pr(\chi^2_3 > 9.882)$ is between 0.01 and 0.02 $\Rightarrow$ strong evidence against $H_0$.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 7}
+\begin{enumerate}[a)]
+\item The observed frequencies are:
+\begin{center}
+\begin{tabular}{|cc|cccc|c|}
+\hline
+&&&&&&\\[-0.3cm]
+Observed && \multicolumn{4}{c|}{Languages} & $\sum$ \\
+                    && 1 & 2 & 3 & 4+ & \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+\multirow{3}{*}{University}
+& A     &   16 & 38 & 39 &  7 & 100 \\[0.2cm]
+& B     &   18 & 29 & 41 & 12 & 100 \\[0.2cm]
+& C     &   28 & 31 & 38 &  3 & 100 \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+& $\sum$&   62 & 98 & 118& 22 & 300  \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+Hence, using the formula $e_{ij} = \frac{r_i\times c_j}{\text{total}}$, the expected frequencies are:
+\begin{center}
+\begin{tabular}{|cc|cccc|c|}
+\hline
+&&&&&&\\[-0.3cm]
+Expected && \multicolumn{4}{c|}{Languages} & $\sum$ \\
+                    && 1 & 2 & 3 & 4+ & \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+\multirow{3}{*}{University}
+& A     &   $\tcg{\frac{100(62)}{300}=} 20.67$ & $\tcg{\frac{100(98)}{300}=} 32.67$ & $\tcg{\frac{100(118)}{300}=} 39.33$ &  $\tcg{\frac{100(22)}{300}=} 7.33$ & 100 \\[0.2cm]
+& B     &   $\tcg{\frac{100(62)}{300}=} 20.67$ & $\tcg{\frac{100(98)}{300}=} 32.67$ & $\tcg{\frac{100(118)}{300}=} 39.33$ & $\tcg{\frac{100(22)}{300}=} 7.33$ & 100 \\[0.2cm]
+& C     &   $\tcg{\frac{100(62)}{300}=} 20.67$ & $\tcg{\frac{100(98)}{300}=} 32.67$ & $\tcg{\frac{100(118)}{300}=} 39.33$ &  $\tcg{\frac{100(22)}{300}=} 7.33$ & 100 \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+& $\sum$&   62 & 98 & 118& 22 & 300  \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|cc|cccc|}
+\hline
+&&&&&\\[-0.3cm]
+\multirow{2}{*}{${\displaystyle\frac{(o_i-e_i)^2}{e_i}}$} && \multicolumn{4}{c|}{Languages} \\
+                    && 1 & 2 & 3 & 4+ \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+\multirow{3}{*}{University}
+& A     &   1.055 & 0.870 & 0.003 & 0.015 \\[0.2cm]
+& B     &   0.345 & 0.412 & 0.071 & 2.975 \\[0.2cm]
+& C     &   2.599 & 0.085 & 0.045 & 2.558 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+\item The test statistic is $\chi^2 = \sum \frac{(o_i-e_i)^2}{e_i} =  11.033$.
+\item Since $\nu = (n_r-1)(n_c-1) = (3-1)(4-1) = (2)(3) = 6$, the p-value $= \Pr(\chi^2_6 > 11.033)$.\\ From the chi-squared tables we see that $\Pr(\chi^2_6 > 10.645) = 0.1$ and $\Pr(\chi^2_6 > 12.592) = 0.05$.\\[0.4cm]
+Therefore, p-value $= \Pr(\chi^2_6 > 11.033)$ is between 0.05 and 0.1 which suggests that there is some evidence against $H_0$ but it is not strong (i.e., we would not reject at the 5\% level).\\[0.4cm]
+Conclusion: The number of programming languages that a graduate is competent in \emph{may} depend on the university (see comments below but bear in mind that the evidence is not strong).
+\item The raw difference scores are:\\
+\begin{minipage}[t]{0.3\textwidth}
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\hline
+&&&&\\[-0.3cm]
+$o_i-e_i$ & \multicolumn{4}{c|}{Languages} \\
+                    & 1 & 2 & 3 & 4+ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+ A     &   -4.67 & \m5.33 &  -0.33 &  -0.33 \\[0.2cm]
+ B     &   -2.67 &  -3.67 & \m1.67 & \m4.67 \\[0.2cm]
+ C     &  \m7.33 &  -1.67 &  -1.33 &  -4.33 \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+\end{minipage}\hspace{0.1\textwidth}
+\begin{minipage}[t]{0.52\textwidth}
+\vspace{-0.01\textwidth}
+Compared with what we would expect:
+\begin{itemize}
+\item Uni-A has less students with only 1 language but more with 2 languages.
+\item Uni-B has are more students with a better skill-base.
+\item Uni-C has more students with a limited skill-base.
+\end{itemize}
+\end{minipage}
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+
+
+\end{document} 

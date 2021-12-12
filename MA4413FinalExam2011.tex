@@ -1,0 +1,445 @@
+
+
+\subsection*{Question 1. (20 marks)}
+\begin{itemize}
+\item[(a)] An IT consultant is responsible for three software engineering projects X, Y and Z.
+He knows that the probability of completing project X in time is 0.99, for project Y this probability is 0.95
+and for project Z it is 0.80.
+
+\begin{itemize}
+\item[i] (2 marks) What assumption do you need to make in order to calculate the probability
+of completing all three projects in time, from the information given?
+\item[ii] (3 marks) Calculate the probability of completing all three projects in time.
+\item[iii] (3 marks) Calculate the probability that only projects X and Y will be completed on time.
+\end{itemize}
+
+
+\item[(b)]The following contingency table illustrates the number of 400 students in different
+departments according to gender.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+   & Computer Science & Statistics & Equine Science \\\hline
+  Males & 140 & 100 & 20  \\  \hline
+  Females & 30 & 80 & 30  \\ \hline
+
+  \hline
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item[i] (2 marks) What is the probability that a randomly chosen person from the sample is a
+computer science student?
+\item[ii] (2 marks) What is the probability that a randomly chosen person from the sample is both female and studying statistics?
+\item[iii] (2 marks) What is the probability that a randomly chosen person from the sample is male?
+\item[iv] (2 marks) Given that a student studies statistics, what is the probability that the student is female?
+\item[v] (2 marks) What is the probability that a randomly chosen person from the sample is a
+male or a statistics student?
+\item[vi] (2 marks) Given that the student is female, what is the probability that she is an
+equine science student?
+\end{itemize}
+\end{itemize}
+%\bigskip
+
+%\subsection*{Question 1. (20 marks) }
+
+
+%--------------------------------------------------------%
+\newpage
+\subsection*{Question 2. (20 marks) }
+\begin{itemize}
+\item[(a)]
+
+For a digital communication channel, the probability of a bit being received in error is $10\%$. Consider the case where 100 bits are transmitted. Answer the following questions.
+
+\begin{itemize}
+\item[i] (3 marks)	What is the probability that the number of bits received in error is 10?
+\item[ii] (3 marks) What is the probability that the number of bits received in error is greater than 10?
+\item[iii] (3 marks)	What is the probability that the number of bits received in error does not exceed 20?
+\end{itemize}
+\begin{framed}
+\begin{verbatim}
+> dpois(5:15,lambda=10)
+ [1] 0.03783327 0.06305546 0.09007923 0.11259903 0.12511004 0.12511004
+ [7] 0.11373640 0.09478033 0.07290795 0.05207710 0.03471807
+>
+> ppois(5:15,lambda=10)
+ [1] 0.06708596 0.13014142 0.22022065 0.33281968 0.45792971 0.58303975
+ [7] 0.69677615 0.79155648 0.86446442 0.91654153 0.95125960
+>
+> pbinom(5:15,size=100,prob=0.10)
+ [1] 0.05757689 0.11715562 0.20605086 0.32087389 0.45129017 0.58315551
+ [7] 0.70303310 0.80182111 0.87612321 0.92742703 0.96010947
+>
+> dbinom(5:15,size=100,prob=0.10)
+ [1] 0.03386580 0.05957873 0.08889525 0.11482303 0.13041628 0.13186535
+ [7] 0.11987759 0.09878801 0.07430209 0.05130383 0.03268244
+
+\end{verbatim}
+\end{framed}
+\newpage
+\item[(b)]
+A computer software company which specializes in database systems sells 2 software licences every day, on average. Answer the following questions.
+    \begin{itemize}
+    \item[i] (3 marks) What is the probability that the software company sells at least one licence in one particular day?
+    \item[ii] (4 marks) What is the probability that the software company will sell exactly one licence in one particular day?
+    \item[iii] (3 marks) What is the probability that the software company will sell sixteen licences or more in a five day working week?
+    \end{itemize}
+\end{itemize}
+\bigskip
+
+
+\begin{framed}
+\begin{verbatim}
+> 0:5
+[1] 0 1 2 3 4 5
+>
+> ppois(0:5,lambda=2)
+[1] 0.1353353 0.4060058 0.6766764 0.8571235 0.9473470 0.9834364
+>
+> ppois(0:5,lambda=(1/2))
+[1] 0.6065307 0.9097960 0.9856123 0.9982484 0.9998279 0.9999858
+>
+> dpois(0:5,lambda=2)
+[1] 0.13533528 0.27067057 0.27067057 0.18044704 0.09022352 0.03608941
+>
+> dpois(0:5,lambda=(1/2))
+[1] 0.6065306597 0.3032653299 0.0758163325 0.0126360554 0.0015795069
+[6] 0.0001579507
+>
+> pbinom(0:5,size=2,prob=0.05)
+[1] 0.9025 0.9975 1.0000 1.0000 1.0000 1.0000
+
+\end{verbatim}
+\end{framed}
+\newpage
+\subsection*{Question 3. (20 marks) }
+\begin{itemize}
+\item[(a)]
+ The probability distribution of discrete random variable $X$ is tabulated below. There are 6 possible outcome of $X$, i.e. 1, 2, 3, 4 ,5 and 6.
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|}
+\hline
+$x_i$  & 1 & 2 & 3 & 4 & 5 & 6 \\\hline
+$P(x_i)$ & 0.16 & 0.14 & \mbox{   k   } & 0.17 & 0.21 & 0.19\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item[i] (1 marks) Compute the value for $k$.
+\item[ii] (3 marks) Determine the expected value $E(X)$.
+\item[iii] (3 marks) Evaluate $E(X^2)$.
+\item[iv] (3 marks) Compute the variance of random variable $X$.
+\end{itemize}
+
+\item[(b)] The design of an on—line database gives a mean time to process a query from a central server of 250 milliseconds with a standard deviation of 50 milliseconds. It can be assumed that
+the query times are normally distributed
+\begin{itemize}
+\item[i] (2 Mark) What proportion of query times will be greater than 325
+milliseconds?
+\item[ii] (2 Mark) What proportion of query times will be less than 300
+milliseconds?
+\item[iii] (3 Mark) What proportion of query times will be between 150
+milliseconds and 250 milliseconds?
+\item[iv] (3 Mark) What is the query time above which 10\% of query times
+will be?
+\end{itemize}
+\end{itemize}
+
+\begin{framed}
+\begin{verbatim}
+> Zs
+ [1] -2.25 -2.00 -1.75 -1.50
+ [5] -1.25 -1.00 -0.75 -0.50
+ [9] -0.25  0.00  0.25  0.50
+[13]  0.75  1.00  1.25  1.50
+[17]  1.75  2.00  2.25
+>
+> pnorm(Zs)
+ [1] 0.01222447 0.02275013 0.04005916 0.06680720
+ [5] 0.10564977 0.15865525 0.22662735 0.30853754
+ [9] 0.40129367 0.50000000 0.59870633 0.69146246
+[13] 0.77337265 0.84134475 0.89435023 0.93319280
+[17] 0.95994084 0.97724987 0.98777553
+\end{verbatim}
+\end{framed}
+\newpage
+%--------------------------------------------------------%
+\subsection*{Question 4. (20 marks) }
+
+\begin{itemize}
+\item[(a)] Answer the following questions on the theory of statistical inference.
+\begin{itemize}
+\item[i] (3 marks) Briefly describe the central limit theorem.
+\item[ii] (1 marks) Provide a brief description of the standard error.
+\item[iii] (3 marks) In the context of hypothesis testing, explain what a p-value is, and how it is used. Support your answer with a simple example.
+\item[iv] (4 marks) What is meant by Type I error and Type II error?
+\end{itemize}
+
+\bigskip
+
+\item[(b)] In a computer hardware manufacturing plant, machine X and machine Y produce identical components. The management investigate whether or not there is a difference in the mean diameter of the components from both machines.
+
+A random sample of 144 components from machine X had a mean of 36.38 mm and a standard deviation of 3.0 mm.
+A random sample of 225 components from machine Y had a mean of 36.88 mm and a standard deviation of 2.8 mm.
+
+A hypothesis test was used to determine whether or not the means are significantly different.
+A $5\%$ significance level was used.
+
+\begin{itemize}
+\item[i] (2 marks) What is the null and alternative hypothesis?
+\item[ii] (3 marks) Compute the test statistic.
+\item[iii] (2 marks) For the test statistic, determine the corresponding p-value.
+\item[iv] (2 marks) What is your conclusion for this procedure? Justify your answer.
+\end{itemize}
+\begin{framed}
+\begin{verbatim}
+        Two Sample t-test
+
+data:  X and Y
+t = -1.576, df = 367, p-value = 0.1159
+alternative hypothesis: true difference in means is not 0
+95 percent confidence interval:
+ -1.1073443  0.1220474
+sample estimates:
+mean of x mean of y
+ 36.38613  36.87877
+\end{verbatim}
+\end{framed}
+\end{itemize}
+
+
+
+
+
+%--------------------------------------------------------%
+\newpage
+\subsection*{Question 5. (20 marks) }
+
+
+
+\begin{itemize}
+\item[(a)] The typing speeds for one group of eight computer science students were recorded both at the beginning of year l of their studies and at the end of year 4. The results (in words per minute) are given below:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Subject& A& B& C& D& E &F &G &H \\ \hline
+Before & 170& 180& 184& 183& 186& 184 &169 & 130\\ \hline
+After & 190 & 194 & 200 & 199 & 197 & 200 & 185& 145\\ \hline
+
+\hline
+\end{tabular}
+\end{center}
+
+A study was carried out to determine whether students improve in terms of typing speed over the four years of their university studies? A significance level of 5\% is used.
+
+\begin{itemize}
+\item[i] (3 marks) Compute the case-wise differences, the mean of the case-wise differences, and the standard deviation of the case-wise differences
+\item[ii] (2 marks) Formally state the null and alternative hypothesis.
+\item[iii] (3 marks) Compute the test statistic.
+\item[iv] (3 marks) What is your conclusion for this procedure? Justify your answer.
+\end{itemize}
+\begin{framed}
+\begin{verbatim}
+        Paired t-test
+
+data:  After and Before
+t = -17.4864, df = 7, p-value = 4.924e-07
+alternative hypothesis: true difference in means is not 0
+95 percent confidence interval:
+ -17.59602 -13.40398
+sample estimates:
+mean of the differences
+                  -15.5
+\end{verbatim}
+\end{framed}
+\newpage
+\item[(b)] A study finds that a percentage of $40\%$ of IT users out of a random sample of 400 in a large
+community preferred one web browser to all others. In another large community, $30\%$ of IT users out of a random sample of 300 prefer the same web browser.
+
+\begin{itemize}
+\item[i] (2 marks) Compute the point estimate for the difference in proportions of IT users who prefer this particular web browser.
+\item[ii] (3 marks) Compute a 95\% confidence interval for this difference in proportions.
+\item[iii] (3 marks) Based on this confidence interval, test the hypothesis that the proportion of IT users using this web browser is the same for both communities. State your null and alternative hypothesis clearly.
+
+\end{itemize}
+\end{itemize}
+
+\begin{framed}
+\begin{verbatim}
+> prop.test(90,300,0.4)
+
+        1-sample proportions test
+
+data:  90 out of 300, null probability 0.4
+X-squared = 12.0868, df = 1, p-value = 0.0005078
+alternative hypothesis: true p is not equal to 0.4
+95 percent confidence interval:
+ 0.2493751 0.3558434
+sample estimates:
+  p
+0.3
+\end{verbatim}
+\end{framed}
+\begin{framed}
+\begin{verbatim}
+> prop.test(160,400,0.3)
+
+        1-sample proportions test
+
+data:  160 out of 400, null probability 0.3
+X-squared = 18.5744, df = 1, p-value = 1.634e-05
+alternative hypothesis: true p is not equal to 0.3
+95 percent confidence interval:
+ 0.3519482 0.4500035
+sample estimates:
+  p
+0.4
+\end{verbatim}
+\end{framed}
+\newpage
+\begin{framed}
+\begin{verbatim}
+> prop.test(c(90,160),c(300,400))
+
+        2-sample test for equality of proportions
+
+data:  c(90, 160) out of c(300, 400)
+X-squared = 7.0375, df = 1, p-value = 0.007982
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.17358417 -0.02641583
+sample estimates:
+prop 1 prop 2
+   0.3    0.4
+
+\end{verbatim}
+\end{framed}
+%--------------------------------------------------------%
+%\newpage
+
+%--------------------------------------------------------%
+
+\subsection*{Question 6. (20 marks) }
+\begin{itemize}
+\item[(a)]
+The input source to a noisy communication channel is a random variable X over the
+four symbols $\{a, b, c, d\}$. The output from this channel is a random variable Y over these same
+four symbols. The joint distribution of these two random variables is as follows:\\ \bigskip
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+&x=a& x=b & x=c & x=d \\ \hline
+y=b &1/8 &1/8 &0 &1/4 \\ \hline
+y=b &0 & 0& 1/8& 0 \\ \hline
+y=c & 0&1/8 & 1/8 & 0\\ \hline
+y=d & 1/8& 0& 0 & 0\\ \hline
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item[i] (2 marks) Write down the marginal distribution for $X$ and compute the marginal entropy $H(X)$.
+\item[ii] (2 marks) Write down the marginal distribution for $Y$ and compute the marginal entropy $H(Y )$.
+\item[iii] (4 marks) What is the joint entropy $H(X, Y ) $ of the two random variables?
+\item[iv] (4 marks) What is the conditional entropy $H(Y|X)$?
+\item[v] (4 marks) What is the conditional entropy $H(X|Y)$?
+\item[vi] (4 marks) What is the mutual information $I(X;Y)$ between the two random variables?
+\end{itemize}
+
+\end{itemize}
+\newpage
+
+
+
+
+\newpage
+\section*{Formulae}
+\subsection*{Probability}
+\begin{itemize}
+
+\item Conditional probability:
+\begin{equation*}
+P(B|A)=\frac{P\left( A\text{ and }B\right) }{P\left( A\right) }.
+\end{equation*}
+
+
+\item Bayes' Theorem:
+\begin{equation*}
+P(B|A)=\frac{P\left(A|B\right) \times P(B) }{P\left( A\right) }.
+\end{equation*}
+
+
+\item Binomial probability distribution:
+\begin{equation*}
+P(X = k) = ^{n}C_{k} \times p^{k} \times \left( 1-p\right) ^{n-k}\qquad \left( \text{where}\qquad
+^{n}C_{k} =\frac{n!}{k!\left(n-k\right) !}. \right)
+\end{equation*}
+
+\item Poisson probability distribution:
+\begin{equation*}
+P(X = k) =\frac{m^{k}\mathrm{e}^{-m}}{k!}.
+\end{equation*}
+\end{itemize}
+
+
+\begin{itemize}
+\item $I(p) = - log_{2}(p) = log_{2}(1/p)$\\
+
+\item $I(pq) = I(p) + I(q)$\\
+
+\item $H = - \sum_{i=1}^{m}p_{i}\; log_{2}(p_{i})$\\
+
+\item $E(L) = \sum_{i=1}^{m} l_{i} p_{i}$\\
+
+\item $\mbox{Efficiency} = H / E(L)$\\
+
+\item $I(X;Y) = H(X) - H(X|Y)$\\
+
+\item $P(C[r]) = \sum_{j=1}^{m}P(C[r]|Y=d_{j} )P(Y=d_{j} )$
+
+\end{itemize}
+
+
+\subsection*{Confidence Intervals}
+{\bf One sample}
+\begin{eqnarray*} S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+S.E.(\hat{P})&=&\sqrt{\frac{\hat{p}\times(100-\hat{p})}{n}}.\\
+\end{eqnarray*}
+{\bf Two samples}
+\begin{eqnarray*}
+S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\frac{\hat{p}_1\times(100-\hat{p}_1)}{n_1}+\frac{\hat{p}_2\times(100-\hat{p}_2)}{n_2}}.\\\\
+\end{eqnarray*}
+\subsection*{Hypothesis tests}
+{\bf One sample}
+\begin{eqnarray*}
+S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+S.E.(\pi)&=&\sqrt{\frac{\pi\times(100-\pi)}{n}}
+\end{eqnarray*}
+{\bf Two large independent samples}
+\begin{eqnarray*}
+S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\left(\bar{p}\times(100-\bar{p})\right)\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\
+\end{eqnarray*}
+{\bf Two small independent samples}
+\begin{eqnarray*}
+S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{s_p^2\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\\\
+s_p^2&=&\frac{s_1^2(n_1-1)+s_2^2(n_2-1)}{n_1+n_2-2}.\\
+\end{eqnarray*}
+{\bf Paired sample}
+\begin{eqnarray*}
+S.E.(\bar{d})&=&\frac{s_d}{\sqrt{n}}.\\\\
+\end{eqnarray*}
+{\bf Standard deviation of case-wise differences}
+\begin{eqnarray*}
+s_d = \sqrt{ {\sum d_i^2 - n\bar{d}^2 \over n-1}}.\\\\
+\end{eqnarray*}
+
+\end{document}
+
+

@@ -1,0 +1,405 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Tutorial 5 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item ``The number of heads in 35 flips'' is\\ $X \sim \text{Binomial}(n=4,p=0.5)$ where \\
+    $x \in \{0,1,2,3,4\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \binom{n}{x} \, p^x \, (1-p)^{n-x}\\ &= \binom{4}{x} \, 0.5^x \, 0.5^{4-x} \\[0.2cm]
+\bullet\,E(X) &= n\,p = 4(0.5) = 2 \text{ heads}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{n\,p\,(1-p)} \\&= \sqrt{4(0.5)(0.5)} = 1 \text{ head}
+\end{align*}
+\item ``The number of individuals with the disease per square mile'' is $X \sim \text{Poisson}(\lambda=3)$ where \\
+    $x \in \{0,1,2,\ldots,\infty\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \frac{\lambda^x}{x\,!}e^{-\lambda} = \frac{3^x}{x\,!}e^{-3} \\[0.2cm]
+\bullet\,E(X) &= \lambda = 3 \text{ individuals}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{\lambda} = \sqrt{3} = 1.73 \text{ individuals}
+\end{align*}
+\item ``The number of defective bulbs in a group of 100'' is $X \sim \text{Binomial}(n=100,p=0.03)$ where \\
+    $x \in \{0,1,2,\ldots,100\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \binom{100}{x} \, 0.03^x \, 0.97^{100-x} \\[0.2cm]
+\bullet\,E(X) &= 100(0.03) = 3 \text{ bulbs}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{100(0.03)(0.97)} = 1.71 \text{ bulbs}
+\end{align*}
+\item We are given $E(T) = \frac{1}{\lambda} = 15$ minutes $\Rightarrow$ $\lambda = \frac{1}{E(T)} = \frac{1}{15}$ customers per minute. We may prefer to work in hours $\Rightarrow$ $\lambda = \frac{1}{15}\times60 = 4$ customers per hour.\\[0.3cm]
+    ``The time (in hours) between customers'' is \\$T \sim \text{Exponential}(\lambda=4)$ where $t \in [0,\infty)$.
+\begin{align*}
+\bullet\,\Pr(T > t) &= e^{-\lambda \,t} = e^{-4 \,t}\\
+\bullet\,E(T) &= \frac{1}{\lambda} = \frac{1}{4} =0.25 \text{ hours}\\
+\text{(i.e., 15}& \text{\,minutes)} \\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{\frac{1}{\lambda^2}} = \frac{1}{\lambda} = \frac{1}{4} = 0.25 \text{ hours}
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[e)] ``The number of individuals with the disease in a group of 35'' is\\
+ $X \sim \text{Binomial}(n=35,p=0.05)$ where \\
+    $x \in \{0,1,2,\ldots,35\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \binom{35}{x} \, 0.05^x \, 0.95^{35-x} \\[0.2cm]
+\bullet\,E(X) &= 35(0.05) = 1.75 \text{ individuals}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{35(0.05)(0.95)} = 1.29\\&\hspace{4cm}\text{ individuals}
+\end{align*}
+\item[f)] We are given the average time between cars passing. This is the exponential average, i.e., $E(T) = \frac{1}{\lambda} = 2$ minutes $\Rightarrow$ $\lambda = \frac{1}{E(T)} = \frac{1}{2} = 0.5$ cars per minute.\\[0.2cm]
+    Thus, for one hour $\lambda = 0.5(60) = 30$ cars per hour.\\[0.2cm]
+ ``The number of cars per hour'' is\\ $X \sim \text{Poisson}(\lambda=30)$ where\\
+    $x \in \{0,1,2,\ldots,\infty\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \frac{30^x}{x\,!}e^{-30} \\[0.2cm]
+\bullet\,E(X) &= 30 \text{ cars}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{30} = 5.48 \text{ cars}
+\end{align*}
+\item[g)] Flaws occur at a rate of $\lambda = 0.1$ per square metre $\Rightarrow$ $\lambda = 0.1(20) = 2$ flaws per 20 square metres.\\[0.2cm]
+ ``The number of flaws per 20 square metres'' is $X \sim \text{Poisson}(\lambda=2)$ where \\
+    $x \in \{0,1,2,\ldots,\infty\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \frac{2^x}{x\,!}e^{-2} \\[0.2cm]
+\bullet\,E(X) &= 2 \text{ flaws}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{2} = 1.41 \text{ flaws}
+\end{align*}
+\item[h)] ``The time (in hours) between texts'' is \\$T \sim \text{Exponential}(\lambda=4)$ where $t \in [0,\infty)$.
+\begin{align*}
+\bullet\,\Pr(T > t) &= e^{-4 \,t}\\[0.2cm]
+\bullet\,E(T) &= \frac{1}{4} = 0.25 \text{ hours}\\
+\bullet\,Sd(X) &= \frac{1}{4} = 0.25 \text{ hours}
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1 continued}
+\begin{enumerate}[a)]
+\item[i)] ``The number of correctly guessed answers in 15 questions'' is $X \sim \text{Binomial}(n=15,p=0.25)$ where
+    $x \in \{0,1,2,\ldots,15\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \binom{15}{x} \, 0.25^x \, 0.75^{15-x} \\[0.2cm]
+\bullet\,E(X) &= 15(0.25) = 3.75 \text{ answers}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{15(0.25)(0.75)} = 1.68\\&\hspace{4cm}\text{ answers}
+\end{align*}
+\item[j)] ``The time (in years) between failures'' is \\$T \sim \text{Exponential}(\lambda=6)$ where $t \in [0,\infty)$.
+\begin{align*}
+\bullet\,\Pr(T > t) &= e^{-6 \,t}\\[0.2cm]
+\bullet\,E(T) &= \frac{1}{6} \text{ years}\\
+\bullet\,Sd(X) &= \frac{1}{6} \text{ years}
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[k)] Failures occur at a rate of $\lambda = 6$ per year $\Rightarrow$ $\lambda = \frac{6}{12} = 0.5$ failures per month.\\[0.2cm]
+ ``The number of failures per month'' is\\ $X \sim \text{Poisson}(\lambda=0.5)$ where \\
+    $x \in \{0,1,2,\ldots,\infty\}$.
+\begin{align*}
+\bullet\,\Pr(X = x) &= \frac{0.5^x}{x\,!}e^{-0.5} \\[0.2cm]
+\bullet\,E(X) &= 0.5 \text{ failures}\\[0.2cm]
+\bullet\,Sd(X) &= \sqrt{0.5} = 0.71 \text{ failures}
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item $\lambda = \frac{1}{300}$ per metre $\Rightarrow$  $\lambda = \frac{1000}{300} = \frac{10}{3}$ per 1km.
+    \begin{align*}
+    \Pr(X=0) = \frac{(\frac{10}{3})^0}{0\,!} e^{-\frac{10}{3}} = 0.0357.
+    \end{align*}
+\item $\lambda = \frac{6000}{300} = 20$ per 6km.
+    \begin{align*}
+    \Pr(X\ge15) = 0.8951 \text{ (using tables)}.
+    \end{align*}
+\item $\lambda = \frac{3000}{300} = 10$ per 3km.
+    \begin{align*}
+    \Pr(10\ge&\, X \ge12) = p(10)+p(11)+p(12)\\
+    &= \frac{10^{10}}{10\,!} e^{-10} + \frac{10^{11}}{11\,!} e^{-10} + \frac{12^{10}}{12\,!} e^{-10} \\
+    &= 0.1251 + 0.1137 + 0.0948\\
+    &= 0.3336.
+    \end{align*}
+This can be done using tables also:
+\begin{align*}
+\Pr(10\ge X \ge12) &= \Pr(X \ge 10) - \Pr(X \ge 13)\\
+&= 0.5421 - 0.2084 = 0.3337.
+\end{align*}
+     \end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[d)] We are given the probability and have to work out the $x$ value, i.e., using the tables in reverse. We find that:
+    \begin{align*}
+    \bullet\,\Pr(X \ge 15) &= 0.0835
+    \end{align*}
+    is the closest probability to $0.1$ $\Rightarrow$ $x = 15$, i.e., there is an 8.35\% chance of seeing 15 or more potholes on a 3km stretch.
+\item[e)] $T$ represents the distance between potholes. \\[-0.45cm]
+\begin{align*}
+\Pr(T < 100) &= 1 - \Pr(T > 100) \\
+&= 1 - e^{-\frac{1}{300}(100)} \\
+&= 1 - 0.7165 = 0.2835.
+\end{align*}
+\item[f)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(T > 1000) &= e^{-\frac{1}{300}(1000)} \\
+&= 0.0357.
+\end{align*}
+\item[g)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(300 < &\,T < 1200)\\ &= \Pr(T >300) - \Pr(T > 1200)\\
+&=  e^{-\frac{1}{300}(300)} - e^{-\frac{1}{300}(1200)} \\
+&= 0.3679 - 0.0183 = 0.3496.
+\end{align*}
+\item[h)] \quad \\[-1.45cm]
+\begin{align*}
+E(T) &= \frac{1}{\lambda} = \frac{1}{\frac{1}{300}} = 300 \text{ \,metres}\\
+Sd(T) &= \sqrt{\frac{1}{\lambda^2}} = E(T) = 300 \text{ \,metres}
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item $E(T) = 2$ years $\Rightarrow$ $\lambda = \frac{1}{2} = 0.5$ failures\,/\,year.
+\item $Sd(T) = \sqrt{\frac{1}{\lambda^2}} = E(T) = 2$ years.
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(T > 1) &= e^{-0.5(1)} = 0.6065.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(T < 5) &= 1 - \Pr(T > 5) \\
+&= 1- e^{-0.5(5)}\\
+&= 1- 0.0821 \\
+&= 0.9179.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[e)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(2 < T < 5) &= \Pr(T >2) - \Pr(T>5)\\
+&= e^{-0.5(2)} - e^{-0.5(5)} \\
+&= 0.3679 - 0.0821\\
+&= 0.2858.
+\end{align*}
+\item[f)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(T >t) &= 0.2\\
+e^{-0.5\,t} &= 0.2\\
+\ln e^{-0.5\,t} &= \ln 0.2\\
+-0.5\,t &= \ln 0.2\\
+t &= \frac{1}{-0.5}\,\ln 0.2\\
+&= 3.22 \text{ years},
+\end{align*}
+i.e., 20 \% of hard disks last longer than 3.22 years or, similarly, 80\% fail before this time.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 4}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(H) = \Pr(T > 1) = e^{-0.5(1)} = 0.6065.\\[0.2cm]
+\Pr(H^c) = \Pr(T < 1) = 1 - 0.6065 = 0.3935.
+\end{align*}
+{\bf Note:} As $H_1$ and $H_2$ are \emph{independent} we can calculate the joint probabilities via\\[0.1cm]
+$\Pr(H_1 \cap H_2) = \Pr(H_1) \Pr(H_2)$ and\\[0.1cm]
+$\Pr(H_1^c \cap H_2^c) = \Pr(H_1^c) \Pr(H_2^c)$.
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(\text{R-0 fails within 1yr}) &= \Pr(\text{at least one fails}) \\
+&= \Pr(H_1^c \cup H_2^c) \\
+&= 1 - \Pr(H_1 \cap H_2) \\
+&= 1 - \Pr(H_1) \Pr(H_2) \\
+&= 1 - (0.6065)^2 \\
+&= 0.6322.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(\text{R-1 fails within 1yr}) &= \Pr(\text{both fail}) \\
+&= \Pr(H_1^c \cap H_2^c) \\
+&= \Pr(H_1^c) \Pr(H_2^c) \\
+&= (0.3935)^2 \\
+&= 0.1548.
+\end{align*}
+\item We want $\Pr(\text{R-1 fails within 1yr})=0.05$.\\Note that:
+\begin{align*}
+\Pr(\text{R-1 fails within 1yr}) &= \Pr(H_1^c) \Pr(H_2^c) \\
+&= (1 - e^{-\lambda\,(1)})^2 \\
+&= (1 - e^{-\lambda})^2
+\end{align*}
+Thus, we set the above equal to 0.05 and solve for $\lambda$ (from which we can calculate $E(T)$).
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[] \quad\\[-1.3cm]
+\begin{align*}
+\Rightarrow (1 - e^{-\lambda})^2 &= 0.05 \\
+1- e^{-\lambda} &= \sqrt{0.05} \\
+ - e^{-\lambda} &= -1+\sqrt{0.05} \\
+  e^{-\lambda} &= 1-\sqrt{0.05} \\
+  \ln e^{-\lambda} &= \ln ( 1-\sqrt{0.05} ) \\
+-\lambda &= \ln ( 1-\sqrt{0.05} ) \\
+\lambda &= -\ln ( 1-\sqrt{0.05} ) \\
+&= 0.253.
+\end{align*}
+$\Rightarrow$ $E(T) = \frac{1}{0.253} = 3.95$ years, i.e., if the two hard disks have an average life of 3.95 years then the RAID-1 system has a 5\% chance of failing within 1 year.
+\item[e)] Another option is to use $k$ of the original hard disks where $\Pr(H^c) = 0.3935$:
+    \begin{align*}
+\Pr(\text{R-1 fails}&\text{\, within 1yr}) \\
+&= \Pr(H_1^c)\Pr(H_2^c)\cdots\Pr(H_k^c)\\
+&=(0.3935)^k.\\[-1cm]
+\end{align*}
+\begin{align*}
+\Rightarrow (0.3935)^k &= 0.05 \\
+\ln (0.3935)^k &= \ln 0.05 \\
+k \, \ln (0.3935) &= \ln 0.05 \\
+k  &= \frac{\ln 0.05}{\ln (0.3935)} \\
+&= 3.21 \text{ hard disks}.
+\end{align*}
+$\Rightarrow$ In practice we can use 3 or 4 hard disks: 3 gives a probability above 0.05 and 4 gives a probability below 0.05.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 5}
+The solution to this question is in Lecture9 solutions (i.e., Q1 of Lecture9).
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 6}
+\begin{enumerate}[a)]
+\item $E(T) = 5$ minutes and $\lambda_a = 2$ per minute.
+\begin{align*}
+\Pr(N) &= \lambda_a \, E(T) \\
+&= 2(5)\\
+&= 10 \text{ cars on the road.}
+\end{align*}
+\item $\lambda_a = 4$ per hour and $E(T) = 30$ minutes, i.e., $ E(T) = 0.5$ hours.
+\begin{align*}
+\Pr(N) &= \lambda_a \, E(T) \\
+&= 4(0.5)\\
+&= 2 \text{ jobs in the system.}
+\end{align*}
+\item $\lambda_a = 20$ per hour and $E(N) = 10$ people.
+\begin{align*}
+\Pr(N) &= \lambda_a \, E(T) \\
+10 &= 20\,E(T) \\
+\frac{10}{20} &= E(T) \\[0.2cm]
+\Rightarrow E(T) &= 0.5 \text{ hours} \\
+&= 30 \text{ minutes}.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 7}
+\begin{enumerate}[a)]
+\item $\lambda_a = 40$ per hour and $E(T) = 0.5$ hours.
+\begin{align*}
+\Pr(N) &= \lambda_a \, E(T) \\
+&= 40(0.5)\\
+&= 20 \text{ people.}
+\end{align*}
+\item $\lambda_a = 60$ per hour.
+\begin{align*}
+\Pr(N) &= \lambda_a \, E(T) \\
+&= 60(0.5)\\
+&= 30 \text{ people.}
+\end{align*}
+\item We want $E(N) = 20$ people while still maintaining $\lambda_a = 60$ per hour.
+\begin{align*}
+ \Pr(N) &= \lambda_a \, E(T) \\
+20 &= 60\,E(T) \\
+\frac{20}{60} &= E(T) \\[0.2cm]
+\Rightarrow E(T) &= \frac{1}{3} \text{ hours} \\
+&= 20 \text{ minutes}.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document} 

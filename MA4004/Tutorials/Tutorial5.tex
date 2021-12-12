@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------ Tutorial 5 --------------------------- Questions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{17cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\subsection*{Question 1}
+Suggest an appropriate distribution (Binomial, Poisson or Exponential) for each of the following variables. Write down its probability function, mean and standard deviation. Also specify the range of values that the variable can attain (in theory).\\[-0.2cm]
+
+{\bf(a)} The number of heads in 4 flips of a coin. \quad {\bf(b)} The number of individuals with a non-contagious disease in a square mile; on average 3 people per square mile have the disease. %\quad {\bf(c)} The number of sixes in 10 rolls of a die.
+\quad {\bf(c)} The number of defective light bulbs in a sample of 100 where each has a 3\% chance of being defective.  \quad {\bf(d)} The time until the next customer arrives to a shop; the average time is 15 minutes. \quad {\bf(e)} The number of individuals with a non-contagious disease in a group of 35 people; the probability of contracting the disease is 0.05. \quad {\bf(f)} The number of cars passing a particular point in a given hour; the average time between cars passing is 2 minutes. \quad {\bf(g)} The number of flaws in 20 square metres of metal; flaws occur at a rate of 0.1 per square metre. \quad {\bf(h)} The time until the next text message; texts typically arrive at a rate of 4 per hour. \quad {\bf(i)} The number of correctly guessed answers in a multiple choice exam assuming that all answers are guessed; there are 4 possible solutions to each question and 15 questions in total.  \quad {\bf(j)} The time until the next system failure; the failure rate is 6 per year. \quad{\bf(k)} The number of system failures in a given month; the failure rate is 6 per year. %\quad{\bf(m)} The distance travelled until the next pothole on a minor road; the average distance bewteen potholes is 300 metres.
+
+
+\subsection*{Question 2}
+Assume that potholes arise on a road at a rate of  $\frac{1}{300}$ per metre according to a Poisson distribution. Calculate the following:\\[-0.2cm]
+
+{\bf(a)} The probability that there are no potholes in 1km. \quad {\bf(b)} The probability that there are at least 15 potholes in 6km. \quad {\bf(c)} The probability that there are between 10 and 12 potholes in 3km.  \quad {\bf(d)} The value of $x$ such that $x$ or more potholes in 3km is approximately 10\%, i.e., $\Pr(X \ge x) \approx 0.1$.   \quad {\bf(e)} The probability that the next pothole appears within 100 metres. \quad {\bf(f)} The probability that the next pothole is more than 1km away. \quad {\bf(g)} The probability that the next pothole is between 300 and 1200 metres from here.  \quad {\bf(h)} The average distance between potholes and the corresponding standard deviation.
+
+
+
+\subsection*{Question 3}
+A particular brand of hard disk is designed to last an average of 2 years. Assume that its lifetime is $T \sim \text{Exponential}(\lambda)$.\\[-0.2cm]
+
+{\bf(a)} What is the value of $\lambda$? \quad {\bf(b)} What is $Sd(T)$? \quad {\bf(c)} Calculate $\Pr(T > 1)$.  \quad {\bf(d)} Calculate $\Pr(T < 5)$. \quad {\bf(e)} Calculate $\Pr(2 < T < 5)$. \quad {\bf(f)} Calculate the value of $t$ such that 80\% of hard disks fail before this time, i.e., $\Pr(T > t) = 0.2$.
+
+\subsection*{Question 4}
+Consider a RAID (redundant array of inexpensive disks) system constructed using the hard disks described in Question 3. Specifically, we will assme that the system is made up of \emph{two} of these hard disks which work/fail \emph{independently} of each other.\\[-0.2cm]
+
+{\bf(a)} Let $H =$  ``hard disk works for more than a year''. Calculate $\Pr(H) = \Pr(T > 1)$. \quad \\{\bf(b)} Calculate $\Pr(\text{RAID-0 fails within a year})$. \quad {\bf(c)} Calculate $\Pr(\text{RAID-1 fails within a year})$.  \quad {\bf(d)} What would $E(T)$ need to be so that $\Pr(\text{RAID-1 fails within a year}) \approx 0.05$. \quad {\bf(e)} Rather than increasing the \emph{quality} of hard disk, we can increase the \emph{number} of hard disks. How many of the original hard disks are needed to achieve $\Pr(\text{RAID-1 fails within a year}) \approx 0.05$.
+
+
+
+\subsection*{Question 5}
+The \emph{average time} between customers arriving to a shop is 5 minutes. We will assume that the time, $T$, has an exponential distribution. Calculate the following:\\[-0.2cm]
+
+{\bf(a)} The average arrival \emph{rate}, i.e., $\lambda$ customers per minute. \quad {\bf(b)} The probability that we wait more than 15 minutes for the next customer. \quad {\bf(c)} The probability that the next customer arrives within 1 minute. \quad {\bf(d)} The average \emph{number of customers} in a 1 hour period. What is the standard deviation that goes with this average? \quad {\bf(e)} The probability that \emph{15 or more} customers arrive in a 1 hour period.
+
+
+\subsection*{Question 6}
+By applying \emph{Little's Law}, answer the following questions:\\[-0.2cm]
+
+{\bf(a)} A section of road takes on average 5 minutes to negotiate. Cars arrive to this section at a rate of 2 per minute. On average, how many cars are on the road?  \quad {\bf(b)} Jobs are sent to a supercomputer at a rate of 4 per hour. On average we wait 30 minutes from the time of sending to the time of completion. How many jobs are in the system on average? \quad {\bf(c)} On average 20 customers arrive to a cafe per hour. If there are 10 people in the cafe on average, how long do they spend there?
+
+
+
+\subsection*{Question 7}
+Customers arrive to a shop at a rate of 40 per hour and typically stay 30 minutes. \\[-0.2cm]
+
+{\bf(a)} How many customers are in the shop on average? \quad {\bf(b)} Through advertising, the shop can increase the arrival rate to 60 per hour. How many customers are in the shop now (assuming they still spend 30 minutes)? \quad {\bf(c)} The shop is small and is now too full. However, by streamlining the layout we can reduce the average time spent in the shop (without compromising profits). How much would the average time need to drop to in order that with 60 customers arriving per hour, there are still the same number of customers in the shop as in part (a).
+
+
+
+
+
+
+
+
+\end{document} 

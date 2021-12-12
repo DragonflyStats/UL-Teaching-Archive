@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 14 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{center}
+\begin{tabular}{|c|cccccc|c|}
+\multicolumn{2}{c}{}&&&&& \multicolumn{1}{c}{} & \multicolumn{1}{c}{$\sum$} \\[0.1cm]
+\hline
+&&&&&&&\\[-0.4cm]
+$x$ & 38.3 & 38.9 & 39.2 & 39.2 & 39.6 & 41.0 & 236.2 \\[0.2cm]
+$x^2$ & 1466.89 & 1513.21 & 1536.64 & 1536.64 & 1568.16 & 1681.00 & 9302.54 \\[0.1cm]
+\hline
+\multicolumn{8}{c}{}\\[-0.1cm]
+\end{tabular}
+\end{center}
+\begin{align*}
+\bar x &= \frac{\sum x}{n} = \frac{236.2}{6} = 39.366667. \\[0.6cm]
+s^2 &= \frac{\sum x^2 - n \, \bar x^2 }{n-1} = \frac{9302.54 - 6(39.366667^2)}{5} = 0.8266. \\[0.6cm]
+s &= \sqrt{0.8266} = 0.9092.
+\end{align*}
+\item 99\% $\Rightarrow$ $\alpha=0.01$ remaining $\Rightarrow$ $\alpha/2=0.005$ in each tail.\\[0.2cm]
+    Small sample $\Rightarrow$ $t_{\,\nu,\,\alpha/2}$ required where $\nu = n - 1 = 6 - 1 = 5$.
+    \begin{align*}
+    \bar x &\pm t_{\,5,\,0.005} \frac{s}{\sqrt{n}} \\[0.3cm]
+    39.3667 &\pm 4.032 \frac{0.9092}{\sqrt{6}} \\[0.3cm]
+    39.3667 &\pm 4.032 (0.3712) \\[0.3cm]
+    39.3667 &\pm 1.4967 \\[0.5cm]
+    &[37.87, 40.86]
+    \end{align*}
+    We are 99\% confident that the true temperature for this type of CPU is between 37.87$^\circ$C and 40.86$^\circ$C when performing this particular intensive task.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+ 
+
+
+\end{document}
+
+
+

@@ -1,0 +1,217 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 4 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+$\Pr(A) = \frac{3}{12}$, $\Pr(B) = \frac{6}{12}$ and
+$\Pr(C) = \frac{2}{12}$.\\[0.2cm]
+$\Pr(A \cap B) = \frac{3}{12}$, $\Pr(A \cap C) = \frac{0}{12}$ and
+$\Pr(B \cap C) = \frac{1}{12}$.\\
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(B \,|\, A) &= \frac{\Pr(A \cap B)}{\Pr(A)} \\[0.1cm]
+&= \frac{\frac{3}{12}}{\frac{3}{12}} \\[0.1cm]
+&= \frac{12}{3} \times \frac{3}{12} = 1.\\[0.3cm]
+\Pr(C \,|\, A) &= \frac{\Pr(A \cap C)}{\Pr(A)} \\[0.1cm]
+&= \frac{\frac{0}{12}}{\frac{3}{12}} \\[0.1cm]
+&= \frac{12}{3} \times \frac{0}{12} = 0.\\[0.3cm]
+\Pr(B \,|\, C) &= \frac{\Pr(B \cap C)}{\Pr(C)} \\[0.1cm]
+&= \frac{\frac{1}{12}}{\frac{2}{12}} \\[0.1cm]
+&= \frac{12}{2} \times \frac{1}{12} = \frac{1}{2}.\\[0.3cm]
+\Pr(C \,|\, B) &= \frac{\Pr(B \cap C)}{\Pr(C)} \\[0.1cm]
+&= \frac{\frac{1}{12}}{\frac{6}{12}} \\[0.1cm]
+&= \frac{12}{6} \times \frac{1}{12} = \frac{1}{6}.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[]
+\item[b)] $\Pr(B\,|\,A) = 1$.\\
+    We \emph{know} we have $A = $ ``head \& even'' $\Rightarrow$ we are certain that we have $B = $ ``coin shows head''.\\[0.3cm]
+    $\Pr(C\,|\,A) = 0$.\\
+    We \emph{know} we have $A = $ ``head \& even'' $\Rightarrow$  $C = $ ``die show five'' is \emph{impossible}.\\[0.3cm]
+    $\Pr(B\,|\,C) = \frac{1}{2} = \Pr(B)$.\\
+    Knowing that the die shows five does not alter our prior probability for $B = $ ``coin shows head''. The die cannot inform us about the coin.\\[0.3cm]
+    $\Pr(C\,|\,B) = \frac{1}{6} = \Pr(C)$.\\
+    Knowing that the coin shows a head does not alter our prior probability for $C = $ ``die shows a five''. The coin cannot inform us about the die.
+\item[c)] $\Pr(B\,|\,A) =  1 \ne \Pr(B) = \frac{1}{2}$\\
+$\Rightarrow$ $A$ and $B$ are \emph{dependent}.\\[0.2cm]
+$\Pr(C\,|\,A) =  0 \ne \Pr(C) = \frac{1}{6}$\\
+$\Rightarrow$ $A$ and $C$ are \emph{dependent}.\\[0.2cm]
+$\Pr(B\,|\,C) =  \frac{1}{2} = \Pr(B) = \frac{1}{2}$\\
+$\Rightarrow$ $B$ and $C$ are \emph{independent}.
+\item[d)] The events $A$ and $C$ are \emph{mutually exclusive} since $\Pr(A \cap C) = 0$.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item
+\begin{enumerate}[i)]
+\item $\Pr(S_H) = \frac{145}{955} \approx 0.152.$
+\item $\Pr(S_A) = \frac{670}{955} \approx 0.702.$
+\item $\Pr(S_L) = \frac{140}{955} \approx 0.147.$
+\end{enumerate}
+\item $\Pr(B) = \frac{115}{955} \approx 0.12.$
+\item $\Pr(S_H \cap B) = \frac{5}{955} \approx 0.005$, $\Pr(S_A \cap B) = \frac{70}{955} \approx 0.073$ and $\Pr(S_L \cap B) = \frac{40}{955} \approx  0.042$.\\[-0.5cm]
+\begin{enumerate}[i)]
+\item $\Pr(B\,|\,S_H) = \frac{\Pr(S_H \cap B)}{\Pr(S_H)} = \frac{0.005}{0.152} = 0.033$.
+\item $\Pr(B\,|\,S_A) = \frac{\Pr(S_A \cap B)}{\Pr(S_A)} = \frac{0.073}{0.702} = 0.104$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[]
+\item[]
+\begin{enumerate}
+\item[(iii)] $\Pr(B\,|\,S_L) = \frac{\Pr(S_L \cap B)}{\Pr(S_L)} = \frac{0.042}{0.147} = 0.286$.
+\end{enumerate}
+\item[d)] The \emph{prior} probability of a bug is $\Pr(B) = 0.12.$ The presence of bugs is \emph{not} independent of skill level as it changes for different skill levels. In Particular $\Pr(B\,|\,S_H) < \Pr(B\,|\,S_A) < \Pr(B\,|\,S_L)$. As we might expect more skill $\Rightarrow$ less bugs.
+\item[e)] $\Pr(S_A\,|\,B) = \frac{\Pr(S_A \cap B)}{\Pr(B)} = \frac{0.073}{0.12} =  0.609$.\\[0.2cm]
+    $\Pr(S_L\,|\,B) = \frac{\Pr(S_L \cap B)}{\Pr(B)} = \frac{0.042}{0.12} = 0.35$.\\[0.2cm]
+    \emph{Given that} a bug is present, it is more likely to have been the work of a programmer who has average skill simply because \emph{most of the code} is written by these individuals, i.e., $\Pr(S_A) = 0.702.$
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item  \quad \\[-1.45cm]
+\begin{align*}
+\Pr(B) &= \Pr(B \cap S_H) + \Pr(B \cap S_A) + \Pr(B \cap S_L)\\
+&= 0.005 + 0.073 + 0.042 \\
+&= 0.12.\\[-0.8cm]
+\end{align*}
+(as we had before from the table)
+\item  For this we need\\[-0.8cm]
+\begin{align*}
+\Pr(S_H \cap B^c) &= \frac{140}{955} = 0.147.\\[0.4cm]
+\Pr(S_A \cap B^c) &= \frac{600}{955} = 0.628. \\[0.4cm]
+\Pr(S_L \cap B^c) &= \frac{100}{955} = 0.105.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[] Now we can calculate\\[-0.8cm]
+\begin{align*}
+\Pr(S_H) &= \Pr(S_H \cap B) + \Pr(S_H \cap B^c) \\
+ &= 0.005 + 0.147.\\
+ &= 0.152.\\[0.4cm]
+\Pr(S_A) &= \Pr(S_A \cap B) + \Pr(S_A \cap B^c) \\
+ &= 0.073 + 0.628\\
+ &= 0.701.\\[0.4cm]
+ \Pr(S_L) &= \Pr(S_L \cap B) + \Pr(S_L \cap B^c) \\
+ &= 0.042 + 0.105\\
+ &= 0.147.\\[-0.8cm]
+\end{align*}
+(as we had before from the table)
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 4}
+Define the event $A_1 =$ ``processor comes from $A_1$'' and similarly $A_2$ and $A_3$. We also let $D =$ ``defective processor''.\\[0.1cm]
+    The information we are given is as follows:\\[-0.8cm]
+\begin{align*}
+\Pr(A_1) &= 0.2 & \Pr(D\,|\,A_1) &= 0.1\\[0.2cm]
+\Pr(A_2) &= 0.55 & \Pr(D\,|\,A_2) &= 0.04\\[0.2cm]
+\Pr(A_3) &= 0.25 & \Pr(D\,|\,A_3) &= 0.01
+\end{align*}
+We can also calculate:\\[-0.8cm]
+\begin{align*}
+\Pr(D \cap A_1) &= \Pr(A_1) \Pr(D\,|\,A_1) \\ &= 0.2 (0.1) = 0.02.\\[0.4cm]
+\Pr(D \cap A_2) &= \Pr(A_2) \Pr(D\,|\,A_2) \\ &= 0.55 (0.04) = 0.022.\\[0.4cm]
+\Pr(D \cap A_3) &= \Pr(A_3) \Pr(D\,|\,A_3) \\ &= 0.25(0.01) = 0.0025.
+\end{align*}
+\begin{enumerate}[a)]
+\item  \quad\\[-1.45cm]
+\begin{align*}
+\Pr(D) &= \Pr(D \cap A_1) + \Pr(D \cap A_2) + \Pr(D \cap A_3)\\[0.2cm]
+&= 0.02 + 0.022 + 0.0025\\
+&= 0.0445.
+\end{align*}
+\item We know the processor is defective,\\ i.e., \emph{given} it is defective:\\[-0.7cm]
+\begin{align*}
+\Pr(A_1\,|\,D) &= \frac{\Pr(D \cap A_1)}{\Pr(D)} \\
+               &= \frac{0.02}{0.0445} = 0.449.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[] \qquad\\[-1.3cm]
+\begin{align*}
+\Pr(A_2\,|\,D) &= \frac{\Pr(D \cap A_2)}{\Pr(D)} \\
+               &= \frac{0.022}{0.0445} = 0.494.\\[0.4cm]
+\Pr(A_3\,|\,D) &= \frac{\Pr(D \cap A_3)}{\Pr(D)} \\
+               &= \frac{0.0025}{0.0445} = 0.056.
+\end{align*}
+$\Rightarrow$ It most likely came from $A_2$.
+\item[c)] \quad\\[-1.4cm]
+\begin{align*}
+\Pr(D^c\,|\,A_1) &= 1 - \Pr(D\,|\,A_1) \\ &= 1 - 0.1 = 0.9.
+\end{align*}
+\item[d)] We will need\\[-0.8cm]
+\begin{align*}
+\Pr(D^c) &= 1 - \Pr(D) \\ &= 1 - 0.0445 = 0.9555.
+\end{align*}
+\begin{align*}
+\Rightarrow \Pr(A_1\,|\,D^c) &= \frac{\Pr(D^c \cap A_1)}{\Pr(D^c)} \\
+               &= \frac{\Pr(A_1) \Pr(D^c\,|\,A_1)}{\Pr(D^c)} \\
+               &= \frac{0.2(0.9)}{0.9555} = 0.188.
+\end{align*}
+\item[e)] If all stock came from $A_3$ then\\$\Pr(D) = \Pr(D\,|\,A_3) = 0.01$.\\[0.3cm]
+    As all stock comes from $A_3$,\\$\Pr(A_3\,|\,D) = 1$.\\[0.3cm]
+        As no stock comes from $A_1$,\\$\Pr(A_1\,|\,D) = 0$.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+
+
+\end{document} 

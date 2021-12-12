@@ -1,0 +1,621 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    %\insertframenumber{} / \insertpresentationendpage
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+{ % only on titlepage
+
+
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{multirow}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{enumerate}
+%\usepackage{pgfpages}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage{etex}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1}[border shrink=1mm]
+
+
+
+
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\definecolor{green2}{RGB}{51,204,51}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcgr}{\textcolor{green2}}
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\tcw}{\textcolor{white}}
+\newcommand{\m}{\phantom{-}}
+\newcommand{\bp}{\tcbb{$\bullet$}\:}
+
+
+\title{{\huge Statistics for Computing\\[0.1cm]MA4413}}
+\author[Kevin Burke]{{\bf\\[0.5cm]{\huge Lecture 5}\\[0.2cm]\emph{Counting Techniques:\\Basics, Permutations and Combinations}\\[1.4cm]Kevin Burke}\\[0.3cm]\tcb{kevin.burke@ul.ie}}
+
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+%\TPGrid[5mm,5mm]{1}{1}
+
+\begin{document}
+
+
+\begin{frame}[t]
+\titlepage
+\end{frame}
+
+\section{Introduction}
+\subsection{Introduction}
+\begin{frame}{\bf \tcb{Introduction}}
+
+In this lecture, we are concerned with counting the number of ways of selecting objects.\\[0.4cm]
+
+\begin{itemize}\itemsep0.4cm
+\item Basics of counting.
+\item Factorial operator.
+\item Permutations.
+\item Combinations.\\[0.6cm]
+\end{itemize}
+
+This content is most easily understood by considering various examples.
+
+\end{frame}
+
+\subsection{Example: Fast Food Stall}
+\begin{frame}{\bf \tcb{Example: Fast Food Stall}}
+
+A fast food stall serves two types of drink and three types of food.\\[0.2cm]
+How many meal options are there in total?\\[0.2cm]
+\begin{itemize}\itemsep0.2cm
+\item Let $D_1$ and $D_2$ represent the two drinks.
+\item Let $F_1$, $F_2$ and $F_3$ represent the three meals.\\[0.5cm]
+\end{itemize}
+Thus, the total \emph{set} of options is
+\begin{align*}
+\{(D_1, F_1), (D_1, F_2), (D_1, F_3), (D_2, F_1), (D_2, F_2), (D_2, F_3)\}
+\end{align*}
+$\Rightarrow$ 6 options altogether. {\bf Note that {\boldmath$6 = 2\text{ drinks} \times 3 \text{ foods}$}}.\\[0.5cm]
+
+The purpose of this section is to learn how to count \emph{without} listing the whole set of choices.
+
+\end{frame}
+
+
+\subsection{Example: Fast Food Stall}
+\begin{frame}{\bf \tcb{Example: Fast Food Stall}}
+
+What if we plan to get \emph{two} of the food options?\\[0.3cm]
+
+\begin{tabular}{l|c|c|c|c}
+\cline{2-4}
+&&&&\\[-0.4cm]
+&Drink & 1st Food & 2nd Food &\\
+\cline{2-4}
+&&&&\\[-0.4cm]
+Choices: & 2 & 3 & 3 & $= 2(3)(3) = 18$. \\
+\cline{2-4}
+\end{tabular}\\[1cm]
+
+
+What if our second food choice \emph{must be different} to the first?\\[0.3cm]
+
+In this case we have three choices for the first food, but for the second food we only have two choices since we have already chosen one food type.\\[0.3cm]
+
+\begin{tabular}{l|c|c|c|c}
+\cline{2-4}
+&&&&\\[-0.4cm]
+&Drink & 1st Food & 2nd Food &\\
+\cline{2-4}
+&&&&\\[-0.4cm]
+Choices: & 2 & 3 & 2 & $= 2(3)(2) = 12$. \\
+\cline{2-4}
+\end{tabular}
+
+\end{frame}
+
+\subsection{Example: Fast Food Stall}
+\begin{frame}{\bf \tcb{Example: Fast Food Stall}}
+
+Let's assume there are also five types of dessert and we plan to get a drink, food and dessert. How many choices have we?\\[0.3cm]
+
+\begin{tabular}{l|c|c|c|c}
+\cline{2-4}
+&&&&\\[-0.4cm]
+&Drink & Food & Dessert & \\
+\cline{2-4}
+&&&&\\[-0.4cm]
+Choices: & 2 & 3 & 5 & $= 2(3)(5) = 30$. \\
+\cline{2-4}
+\end{tabular}\\[1cm]
+
+
+What if there is a possibility that we don't get dessert?\\[0.3cm]
+
+In this case there are \emph{six} dessert options - the five options on the menu \emph{plus} the option of \emph{not getting} dessert.\\[0.3cm]
+
+$\Rightarrow$ $2(3)(6) = 36$.
+
+\end{frame}
+
+
+\subsection{Example: Fast Food Stall}
+\begin{frame}{\bf \tcb{Example: Fast Food Stall}}
+
+What if we will \emph{either} get a drink \& food \emph{or} a drink \& dessert?\\[0.3cm]
+
+Drink \& food: $2(3) = 6$.\\
+Drink \& dessert: $2(5) = 10$.\\[0.2cm]
+In total there are $6 + 10 = 16$ possible options.\\[1cm]
+
+Let's assume we will get a drink \& food. However, there is only \emph{one} drink that we like. If the stall has it, we will get it. If the stall doesn't have it, we won't get a drink.\\[0.3cm]
+
+Drink \& food: $1(3) = 3$.\\
+No drink \& food: $1(3) = 3$.\\[0.2cm]
+In total there are $3 + 3 = 6$ possible options.\\[0.3cm]
+
+%Note that in either case we only have one option for the drink. If the stall has our drink we get it - one choice - whereas, if the stall doesn't have it, we get no drink - also one choice.
+
+\end{frame}
+
+
+\subsection{Example: Outcomes in a Sample Space}
+\begin{frame}{\bf \tcb{Example: Outcomes in a Sample Space}}
+Previously we enumerated all possible outcomes in a \emph{sample space}, $S$, using a manual approach.\\[0.4cm]
+
+Now, consider the following experiments:\\[0.2cm]
+\begin{enumerate}[i)]\itemsep0.3cm
+\item Flipping three coins $\Rightarrow$ $\#(S) = 2 (2)(2) = 8$.
+\item Flipping four coins $\Rightarrow$ $\#(S) = 2(2)(2)(2) = 16$.
+\item Flipping a coin and a rolling a die $\Rightarrow$ $\#(S) = 2 (6) = 12$.
+\item Rolling two dice $\Rightarrow$ $\#(S) = 6(6) = 36$.
+\item Flipping a coin and rolling two dice $\Rightarrow$ $\#(S) = 2(6)(6) = 72$.
+\item Rolling three dice $\Rightarrow$ $\#(S) = 6(6)(6) = 216$.
+\end{enumerate}
+
+\end{frame}
+
+
+\subsection{Example: Probabilities}
+\begin{frame}{\bf \tcb{Example: Probabilities}}\label{probslide}
+
+Experiment (i): Flipping three coins.\\[0.1cm]
+Let $A =$ ``one tail'' $= \{HHT, HTH, THH\}$\\[0.1cm]
+$\Rightarrow$ $\Pr(A) = \frac{\#(A)}{\#(S)} = \frac{3}{8} = 0.375$.\\[0.4cm]
+
+Experiment (ii): Flipping four coins.\\[0.1cm]
+Let $A =$ ``two heads'' $= \{HHTT, HTHT, HTTH, THHT, THTH, TTHH\}$\\[0.1cm]
+$\Rightarrow$ $\Pr(A) = \frac{\#(A)}{\#(S)} = \frac{6}{16} = 0.375$.\\[0.4cm]
+
+
+Experiment (vi): Rolling three dice.\\[0.1cm]
+Let $A =$ ``the sum of the no.s is five'' $= \{221, 212, 122,311,131,113\}$\\[0.1cm]
+$\Rightarrow$ $\Pr(A) = \frac{\#(A)}{\#(S)} = \frac{6}{216} \approx 0.0278$.\\[0.4cm]
+
+{\footnotesize Note: The only difficulty is calculating $\#(A)$. Sometimes this can be simplified using \emph{permutation / combination} \,theory - more on this later.}
+\end{frame}
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+Let's assume you have four shirts (green, red, brown, black), two jackets (blue, black) and two pairs of trousers (brown, black).\\[0.3cm]
+\begin{enumerate}[a)]\itemsep0.3cm
+\item How many outfits have you got altogether?
+\item What if the shirt must be red?
+\item What if the shirt must be green or black?
+\item What if the shirt must be green and the jacket must be blue?
+\item What if no item is to be black?
+\item What if at least one item must be black?
+\item What if the shirt and jacket can be the same colour but the trousers must be a different colour?
+\end{enumerate}
+
+\end{frame}
+
+
+
+\section{Factorial Operator}
+\subsection{Factorial Operator}
+\begin{frame}{\bf \tcb{Factorial Operator}}
+The {\bf factorial} operation is given by:\\
+\begin{align*}
+\boxed{n\,! = n \times (n - 1) \times (n - 2) \cdots \times 3 \times 2 \times 1}.\\[-0.3cm]
+\end{align*}
+
+The above is pronounced ``$n$-factorial''.\\[0.5cm]
+
+\begin{minipage}[t]{0.45\textwidth}
+Examples
+\begin{itemize}
+\item $1! = 1$.
+\item $2! = 2(1) = 2$.
+\item $3! = 3(2)(1) = 6$.
+\item $4! = 4(3)(2)(1) = 24$.
+\item $5! = 5(4)(3)(2)(1) = 120$.
+\end{itemize}
+\end{minipage}\hspace{0.08\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
+We can see that
+\begin{align*}
+5! &= 5 \times 4!\\[0.3cm]
+&= 5 \times 4 \times 3!\\[0.3cm]
+&\quad\ldots \text{ etc}.
+\end{align*}
+\end{minipage}
+\vspace{0.2cm}
+\begin{center}
+{\bf Note:} \emph{by definition} we have that $\boxed{0\,! = 1}.$
+\end{center}
+
+\end{frame}
+
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example}}
+
+Sometimes we get expressions such as\\[-0.1cm]
+\begin{align*}
+\frac{10!}{6!} = \frac{10\times9\times8\times7\times6!}{6!} &= \frac{10\times9\times8\times7\times \not6!}{\not6!} \\
+&= \frac{10\times9\times8\times7\times 1}{1} \\
+&= 10\times9\times8\times7 = 5040.\\[-0.3cm]
+\end{align*}
+We could just plug $\frac{10!}{6!}$ into a calculator but the above manipulation is often very useful.\\[0.6cm]
+
+Example: $\frac{100!}{98!}$ may lead to an error on your calculator (model dependent) but it is easy to show that $\frac{100!}{98!} = 100(99) = 9900$.
+
+
+\end{frame}
+
+
+
+
+
+
+
+\section{Permutations}
+\subsection{Permutations}
+\begin{frame}{\bf \tcb{Permutations}}
+
+A {\bf permutation} is an \emph{arrangement} of objects $\Rightarrow$ \emph{order matters}.\\[1cm]
+
+For example, consider the PIN code 7162. This is obviously \emph{not} the same as 6172.\\[1cm]
+
+As another example, consider three paintings on a wall labelled 1, 2 and 3. The arrangement 123 does \emph{not} look the same as 213.\\
+{\footnotesize\phantom{w}}
+
+\end{frame}
+
+
+\subsection{Permutations: Repetition}
+\begin{frame}{\bf \tcb{Permutations: Repetition}}
+
+\emph{Repetition} of objects may or may not be allowed.\\[1cm]
+
+In the PIN code example, clearly we can have repeated digits, e.g., codes such as 7718, 3633 and 1111 are allowed.\\[0.5cm]
+
+Since there are 10 numbers to choose from, $\{0,1,\ldots,9\}$, there are $10000 = 10(10)(10)(10) = 10^4$ possible four digit PIN codes.\\[1cm]
+
+With $n$ objects and repetitions allowed, there are $\boxed{n^k}$ permutations of length $k$.
+
+\end{frame}
+
+\subsection{Permutations: No Repetition}
+\begin{frame}{\bf \tcb{Permutations: No Repetition}}
+
+Now consider the task of arranging three paintings on a wall. If we only have one of each then 221 is \emph{not} allowed {\footnotesize(unless we scan copies!).}\\[0.5cm]
+
+Since repetitions are not allowed, we have 3 choices for the first position, 2 for the second and 1 for the third $\Rightarrow$ $6 = 3(2)(1) = 3!$.\\[0.5cm]
+
+If we were arranging five paintings then there are $5!$ possibilities. Six paintings $\Rightarrow$ $6!$ possibilities.\\[1cm]
+
+Thus, we see that $\boxed{n\,!}$ is the number of arrangements of $n$ objects.
+
+\end{frame}
+
+
+
+
+
+
+\subsection{Permutations: Constraints}
+\begin{frame}{\bf \tcb{Permutations: Constraints}}
+Often there are other \emph{constraints} - we must deal with these on a case-by-case basis.\\[0.8cm]
+
+For example, consider four digit PIN codes with the following constraint: the first digit cannot be zero.\\[0.8cm]
+
+In this case we have 9 choices for the first digit, i.e., $\{1,\ldots,9\}$, and 10 choices for the remaining three digits , i.e., $\{0,1,\ldots,9\}$.\\[0.4cm]
+
+$\Rightarrow$ There are $9(10)(10)(10) = 9000$ PIN codes that satisfy this constraint.
+
+
+\end{frame}
+
+
+
+\subsection{Example: Password}
+\begin{frame}{\bf \tcb{Example: Password}}
+
+Let's assume that you have to create a password of length 4 using the following set of characters:
+\begin{align*}
+\{\,a\,,\,b\,,\,c\,,\,A\,,\,B\,,\,C\,,\,1\,,\,2\,,\,3\,,\,.\,\}\\
+\end{align*}
+
+How many possible passwords are there?\\[0.2cm]
+
+There are 10 character choices for each of four positions \\$\Rightarrow$ $10(10)(10)(10) = 10,\!000$.\\[0.5cm]
+
+What if the first character \emph{cannot} be a full stop?\\[0.2cm]
+
+In this case we only have 9 choices for the first position \\$\Rightarrow$ $9(10)(10)(10) = 9,\!000$.
+
+\end{frame}
+
+
+
+\subsection{Question 2}
+\begin{frame}{\bf \tcb{Question 2}}
+
+Continuing with the example of creating a 4 character password using:
+\begin{align*}
+\{\,a\,,\,b\,,\,c\,,\,A\,,\,B\,,\,C\,,\,1\,,\,2\,,\,3\,,\,.\,\}
+\end{align*}
+
+How many passwords are there with:\\[0.2cm]
+\begin{enumerate}[a)]\itemsep0.2cm
+\item No repetitions.
+\item Exactly one full stop - \emph{not in the first position}.
+\item No upper case letters.
+\item At least one upper case letter.
+\item Using lower case letters and numbers only.
+\item Assuming a hacker knows that your first character is either ``a'' or ``A'' and that your last is a number, how many possibilities are there?
+\item In addition to the above, now assume that the hacker also knows that the password contains a full stop.
+%\item How many passwords are there if they can be 4 - 6 characters in length?
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+\section{Combinations}
+\subsection{Combinations}
+\begin{frame}{\bf \tcb{Combinations}}
+
+A {\bf combination} is a \emph{selection} of objects $\Rightarrow$ \emph{order does not matter}.\\[1cm]
+
+For example, you say you have a pen, a packet of sweets and a euro in your pocket.\\[0.4cm]
+It does not matter if you say ``pen, sweets, euro'', ``euro, pen, sweets'', ``sweets, euro, pen'' etc. - in any case it is the same selection of objects.
+
+\end{frame}
+
+
+
+\subsection{Examples}
+\begin{frame}{\bf \tcb{Examples}}
+
+You have a group assignment and need to choose 3 others to form a team. You have 6 friends who you would choose to be on your team.\\[0.2cm]
+$\Rightarrow$ From a group of 6 friends, you must \emph{choose} 3.\\[0.8cm]
+
+You are packing a bag for your holidays, you only have enough room for 4 t-shirts and you own 10 altogether.\\[0.2cm]
+$\Rightarrow$  From a group of 10 t-shirts, you must \emph{choose} 4.\\[0.8cm]
+
+There are 5 computer games that you want but you only have enough money with you to purchase 2 of them.\\[0.2cm]
+$\Rightarrow$  From a group of 5 games, you must \emph{choose} 2.
+
+\end{frame}
+
+
+
+
+
+
+\subsection{Choose Operator}
+\begin{frame}{\bf \tcb{Choose Operator}}
+
+The {\bf choose} operator allows us to calculate the number of ways we can \emph{choose} $k$ objects from a group of $n$ objects:\\[-0.1cm]
+
+\begin{align*}
+\boxed{\binom{n}{k} = \frac{n\,!}{k\,! \, (n-k)\,!}}.\\
+\end{align*}
+
+The choose operator $\binom{n}{k}$ is pronounced ``$n$-choose-$k$'' and can also be written  $^n C _k$. \\[0.6cm]
+Note: you have the $\boxed{^n C _k}$ button on your calculator.
+
+\end{frame}
+
+
+\subsection{Examples}
+\begin{frame}{\bf \tcb{Examples}}
+
+From a group of 6 friends, you must choose 3 $\Rightarrow$ \emph{6-choose-3:}
+\begin{align*}
+\binom{6}{3} = \frac{6!}{3! \, 3!} = \frac{6\times5\times4\times\not3!}{3! \, \not3!} = \frac{6\times5\times4}{3!} = \frac{6\times5\times4}{3\times2\times1} = 20 \text{ choices}.\\
+\end{align*}
+
+From a group of 10 t-shirts, you must choose 4 $\Rightarrow$ \emph{10-choose-4:}
+\begin{align*}
+\binom{10}{4} = \frac{10!}{4! \, 6!} = \frac{10\times9\times8\times7\times\not6!}{4! \, \not6!} =
+%\frac{10\times9\times8\times7}{4!} =
+\frac{10\times9\times8\times7}{4\times3\times2\times1} = 210 \text{ choices}.\\
+\end{align*}
+
+From a group of 5 games, you must choose 2 $\Rightarrow$ \emph{5-choose-2:}
+\begin{align*}
+\binom{5}{2} = \frac{5!}{2! \, 3!}  = \frac{5\times4\times\not3!}{2!\not3!} = \frac{5\times4}{2\times1} = 10 \text{ choices}.
+\end{align*}
+
+\end{frame}
+%
+%\subsection{Choose Operator - Alternative Formula}
+%\begin{frame}{\bf \tcb{Choose Operator - Alternative Formula}}
+%The trick used on the previous slide shows that there is an alternative formula for the choose operator:
+%
+%\begin{align*}
+%\boxed{\binom{n}{k} = \frac{n \times (n-1) \times \cdots \times (n-k+1)}{k\,!}}.\\
+%\end{align*}
+%The top of the fraction is similar to a factorial except we only reduce $n$ as far as $(n-k+1)$, giving $k$ numbers on top.
+%
+%\end{frame}
+
+
+\subsection{Examples}
+\begin{frame}{\bf \tcb{Examples}}
+
+Consider $\binom{10}{4}$. This leads to a fraction with $4!$ on the bottom and 10 reduced successively by 4 places on the top:\\[-0.3cm]
+\begin{align*}
+\binom{10}{4} = \frac{10\times9\times8\times7}{4\times3\times2\times1}.\\
+\end{align*}
+
+We can often simplify further - by cancelling various numbers.\\[-0.3cm]
+\begin{align*}
+\frac{10\times9\times\not8\times7}{\not4\times3\times\not2\times1} = \frac{10\times9\times7}{3\times1}
+= \frac{10\times\not9\,\,^3\times7}{\not3\times1} &= \frac{10\times3\times7}{1} \\ &= 30 \times 7 = 210.\\
+\end{align*}
+
+This is useful if we wish to calculate things by hand.
+
+\end{frame}
+
+
+
+
+\subsection{Example: Probability}
+\begin{frame}{\bf \tcb{Example: Probability}}
+Earlier (slide \pageref{probslide}) we had the experiment of flipping four coins where\\[0.2cm]
+$\#(S) = 2^4 = 16$ and\\[0.2cm]
+$A =$ ``two heads'' $= \{HHTT, HTHT, HTTH, THHT, THTH, TTHH\}$\\[0.4cm]
+
+It is possible to list, and then count, all outcomes in $A$, but there is an easier way to count.\\[0.3cm]
+
+Let's think about how we construct the set $A$ above:\\[0.1cm]
+\begin{enumerate}[1.]\itemsep0.2cm
+\item All outcomes in $A$ are composed using 4 objects: $H$, $H$, $T$ and $T$.
+\item From the 4 available slots, we \emph{choose} 2 slots to put the $H$s. The tails go in the remaining slots.\\[0.5cm]
+\end{enumerate}
+
+
+$\Rightarrow$ $\# (A) = \binom{4}{2} =  6$.
+
+\end{frame}
+
+
+\subsection{Example: Probability}
+\begin{frame}{\bf \tcb{Example: Probability}}
+Consider a more difficult example of flipping 10 coins where $\#(S) = 2^{10} = 1024$.\\[0.2cm]
+Now consider the event $A =$ ``getting four heads''. It is \emph{very} tedious trying to list all outcomes contained in $A$.\\[0.6cm]
+
+We know that each outcome in $A$ is constructed using 4 $H$s and 6 $T$s.\\[0.2cm]
+From the 10 slots available, we \emph{choose} 4 of them for the $H$s\\[0.1cm] $\Rightarrow$ $\#(A) = \binom{10}{4} = 210$.\\[0.4cm]
+
+We can then calculate $\Pr(A) = \frac{\#(A)}{\#(S)} = \frac{210}{1024} \approx 0.205$.\\[0.6cm]
+
+{\footnotesize(Note: the \emph{Binomial} distribution which we will encounter later is specifically designed to calculate probabilities like the one above)}
+
+\end{frame}
+
+
+
+\subsection{Question 3}
+\begin{frame}{\bf \tcb{Question 3}}
+
+Using the choose formula, evaluate (without a calculator!) each of the following and explain their meaning:\\
+\begin{align*}
+\binom{8}{6}, \quad \binom{8}{2}, \quad \binom{n}{1}, \quad \binom{n}{n}, \quad \binom{n}{0}.\\
+\end{align*}
+
+\begin{align*}
+\text{What value would you assign to } \binom{8}{11} \text{?}\\[0.1cm]
+\text{{\footnotesize(hint: don't attempt to use the choose formula here)}}
+\end{align*}
+
+\end{frame}
+
+
+
+\subsection{Question 4}
+\begin{frame}{\bf \tcb{Question 4}}
+
+A team of 5 people is required to perform a particular task. We are selecting from a group of 7 women and 3 men.\\[0.2cm]
+How many selections are there:
+\begin{enumerate}[a)]\itemsep0.2cm
+\item Altogether?
+\item If one of the men is an expert and must be on the team?
+\item If two of the individuals do not get along and cannot be on the team together?
+\item If the group must contain 3 women and 2 men?
+\item If the group must contain more women than men?
+\item If the group must contain more men than women?
+\end{enumerate}
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+\end{document} 

@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 12 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+X &\sim \text{Normal}(\mu=60,\sigma=10)\\[0.5cm]
+\Rightarrow \,\overline{\!X} &\sim \text{Normal}\left(\mu=60,\,\sigma(\,\overline{\!X})=\frac{\sigma}{\sqrt{n}}=\frac{10}{\sqrt{n}}\right).
+\end{align*} 
+\item Here $\,\overline{\!X} \sim \text{Normal}(60, \frac{10}{\sqrt{30}}=1.826)$.
+\begin{align*}
+\Pr(\,\overline{\!X} > 66) &= \Pr(Z > \tfrac{66-60}{1.826}) \\
+&= \Pr(Z > 3.29) \\
+&=0.0005.
+\end{align*}
+\item 99\% limits $\Rightarrow$ $\alpha=0.1$ $\Rightarrow$ $\alpha/2=0.005$.
+\begin{align*}
+60 &\pm z_{\,0.005} (1.826) \\
+60 &\pm 2.58 (1.826) \\
+60 &\pm 4.71 \\[0.2cm]
+[55.29&,\,64.71].
+\end{align*}
+99\% of the time, the sample mean for 30 individuals will lie in the above interval.
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[c)]
+\item[d)] Here $\sigma(\,\overline{\!X}) = \frac{10}{\sqrt{50}}=1.414$
+\begin{align*}
+60 &\pm 2.58 (1.414) \\
+60 &\pm 3.65 \\[0.2cm]
+[56.35&,\,63.65].
+\end{align*}
+Note that for $n =50$ the interval is tighter (around $\mu$) than for $n=30$, i.e., $\,\overline{\!X}$ varies less in the bigger sample as we would expect.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\end{document}
+
+
+

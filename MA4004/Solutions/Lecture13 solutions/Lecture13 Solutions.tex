@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 13 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item 95\% confidence interval $\Rightarrow$ $\alpha=0.05$ $\Rightarrow$ $\alpha/2=0.025$.
+\begin{align*}
+(\bar x_1 - \bar x_2) \,\,  &\pm \,\, z_{\,0.025}\,\, \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}} \\[0.4cm]
+(8.4-11.7) \,\,  &\pm \,\, 1.96\,\, \sqrt{\frac{(1.5)^2}{50}+\frac{(0.8)^2}{50}} \\[0.4cm]
+-3.3 \,\,  &\pm \,\, 1.96\,\, \sqrt{0.045+0.0128} \\[0.2cm]
+-3.3 \,\,  &\pm \,\, 1.96\,\, \sqrt{0.0578} \\[0.2cm]
+-3.3 \,\,  &\pm \,\, 1.96\,\, (0.2404) \\[0.2cm]
+-3.3 \,\,  &\pm \,\, 0.4712 \\[0.5cm]
+\Rightarrow [-3.77,&-2.83]
+\end{align*}
+\item We are 95\% confident that the true difference, $\mu_1 - \mu_2$, lies in the above interval. The manufacturer believes that $\mu_1 - \mu_2=-2$. This value is \emph{not} contained in the above interval so the manufacturer's belief is not supported by the data.\\[0.4cm]
+    However, this is not a bad thing in this case since the confidence interval suggests that the new CPU is more than 2 seconds faster, i.e., it is better than the manufactured thought.\\
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\end{document}
+
+
+

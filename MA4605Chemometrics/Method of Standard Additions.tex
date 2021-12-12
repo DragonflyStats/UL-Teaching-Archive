@@ -1,0 +1,118 @@
+Aliquot
+Aliquot a portion of a larger whole, especially a sample taken for chemical analysis or other treatment.
+
+
+%------------------------------------------------------------------------%
+
+\subsubsection{Standard solution}
+
+In analytical chemistry, a standard solution is a solution containing a precisely known concentration of an element or a substance, a known weight of solute is dissolved to make a specific volume. It is prepared using a standard substance, such as a primary standard. Standard solutions are used to determine the concentrations of other substances, such as solutions in titrations. 
+
+The concentrations of standard solutions are normally expressed in units of moles per litre (mol/L, often abbreviated to M for molarity), moles per cubic decimetre (mol/dm3), kilomoles per cubic metre (kmol/m3) or in terms related to those used in particular titrations (such as titres). A simple standard is obtained by the dilution of a single element or a substance in a soluble solvent with which it reacts.
+
+
+%------------------------------------------------------------------------%
+\subsubsection{Calibration Curve}
+
+In analytical chemistry, a calibration curve is a general method for determining the concentration of a substance in an unknown sample by comparing the unknown to a set of standard samples of known concentration.[1] A calibration curve is one approach to the problem of instrument calibration; other approaches may mix the standard into the unknown, giving an internal standard.
+
+
+The calibration curve is a plot of how the instrumental response, the so-called analytical signal, changes with the concentration of the analyte (the substance to be measured). The operator prepares a series of standards across a range of concentrations near the expected concentration of analyte in the unknown. The concentrations of the standards must lie within the working range of the technique (instrumentation) they are using.[2] Analyzing each of these standards using the chosen technique will produce a series of measurements. 
+
+For most analyses a plot of instrument response vs. concentration will show a linear relationship. The operator can measure the response of the unknown and, using the calibration curve, can interpolate to find the concentration of analyte.
+In more general use, a calibration curve is a curve or table for a measuring instrument which measures some parameter indirectly, giving values for the desired quantity as a function of values of sensor output. For example, a calibration curve can be made for a particular pressure transducer to determine applied pressure from transducer output (a voltage).[3] Such a curve is typically used when an instrument uses a sensor whose calibration varies from one sample to another, or changes with time or use; if sensor output is consistent the instrument would be marked directly in terms of the measured unit.
+
+
+%------------------------------------------------------------------------%
+
+Error in calibration curve results[edit]
+As expected, the concentration of the unknown will have some error which can be calculated from the formula below.[5][6] This formula assumes that a linear relationship is observed for all the standards. It is important to note that the error in the concentration will be minimal if the signal from the unknown lies in the middle of the signals of all the standards (the term y_{unk}-\bar{y} goes to zero if y_{unk}=\bar{y})
+
+\[s_x=\frac{s_y}{|m|}\sqrt{\frac{1}{n}+\frac{1}{k}+\frac{(y_{unk}-\bar{y})^2}{m^2\sum{(x_i-\bar{x})^2}}}\]
+s_y is the standard deviation in the residuals \[ s_y =\sqrt{\frac{\sum{(y_i-mx_i-b)}^2}{n-2}}\]
+m is the slope of the line
+b is the y-intercept of the line
+n is the number of standards
+k is the number of replicate unknowns
+y_{unknown} is the measurement of the unknown
+\bar{y} is the average measurement of the standards
+x_i are the concentrations of the standards
+\bar{x} is the average concentration of the standards
+
+%=============================================================================%
+
+% Method of Standard Additions
+% - http://zimmer.csufresno.edu/~davidz/Chem106/StdAddn/StdAddn.html
+% - http://www.sepscience.com/Techniques/LC/Articles/216-/HPLC-Solutions-89-Standard-Additions
+% - http://www.asi-sensors.com/ASI/learning/standard_addition.pdf
+
+
+Standard Addition Method
+The standard additions method (often referred to as "spiking" the sample) is commonly used to determine the concentration of an analyte that
+is in a complex matrix such as biological fluids, soil samples, etc. The reason for using the standard additions method is that the matrix may
+contain other components that interfere with the analyte signal causing inaccuracy in the determined concentration. The idea is to add analyte
+to the sample ("spike" the sample) and monitor the change in instrument response. The change in instrument response between the sample
+and the spiked samples is assumed to be due only to change in analyte concentration.
+The procedure for standard additions is to split the sample into several even aliquots in
+separate volumetric flasks of the same volume. The first flask is then diluted to volume with
+the selected diluent. A standard containing the analyte is then added in increasing volumes
+to the subsequent flasks and each flask is then diluted to volume with the selected diluent.
+
+The instrument response is then measured for all of the diluted solutions and the data is
+plotted with volume standard added in the x-axis and instrument response in the y-axis.
+Linear regression is performed and the slope (m) and y-intercept (b) of the calibration curve
+are used to calculate the concentration of analyte in the sample.
+From the linear regression: $S = mVS + b $ [Equation 1]
+ Where: S = instrument response (signal)
+ VS = volume of standard
+
+Conceptually, if the curve started where the instrument response is zero, the volume of
+standard [(Vs)0] from that point to the point of the first solution on the curve (x = 0) contains the same amount of analyte as the sample. So:
+\[ Vxcx = |(VS)0|cS \] % [Equation 2]
+ Where: Vx = volume of the sample aliquot
+ cx = concentration of the sample
+ cs = concentration of the standard
+Combining Equation 1 and Equation 2 and solving for cx results in:
+And one can then calculate the concentration of analyte in the sample from the 
+slope and intercept of the standard addition calibration curve.
+
+%=========================================================%
+
+http://www3.nd.edu/~asimonet/ENGV60500/Lecture_8_10_11_2011.pdf
+\subsection{Method of Standard Additions}
+
+The method of standard addition is a type of quantitative analysis approach often used in analytical chemistry whereby the standard is added directly to the aliquots of analyzed sample.
+
+%-http://www.azdhs.gov/lab/documents/license/resources/calibration-training/10-method-standard-addition-calib.pdf
+
+
+%==============================================================%
+
+\subsection{The Method of Standard Additions}
+%%- http://www.tau.ac.il/~advanal/StandardAdditionsMethod.htm
+In many cases the intensity of the signal of the analyte is affected by the composition of the matrix, by the temperature and other factors.
+ 
+One of the methods to overcome these problems is the method of standard additions. Two conditions have to be fulfilled for successful application of the method:
+
+\begin{itemize}
+\item[(a)]    the calibration graph must be linear,
+\item[(b)]   the calibration curve of the analyte passes through the origin.
+\end{itemize}
+
+The signal intensity of the sample solution is measured and then portions of a solution of the element at a known concentration are added and the signal intensity is measured after each addition. The optimal size of each addition is that which gives a signal 1.5 to 3 times that of the sample.
+ 
+For each addition:
+
+ 
+where $C_x$ and $(C_x + C_s)$ are the concentration of the analyte without and with the standard addition, respectively,
+signalx and signalx+s are the signal intensities of  the solutions containing Cx and (Cx + Cs).
+ 
+A plot of the signal intensities of the solutions vs. the added concentrations yields a straight line. The concentration of the analyte is determined from the point at which the extrapolated line crosses the concentration axis at zero signal.
+ 
+An example is given in Table 1 and Fig.1.
+ 
+Table 1. Data for the determination of Cu2+ by the standard-addition method.
+Sample volume - 20.00 ml; concentration of the Cu2+ solution used for standard additions - 0.5 mM.
+
+\end{document}
+

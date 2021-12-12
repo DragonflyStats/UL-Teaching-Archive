@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------ Tutorial 2 --------------------------- Questions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{17cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\subsection*{Question 1}
+
+Consider the experiment where three coins are flipped. \\[-0.2cm]
+
+{\bf(a)} List all possible outcomes. \quad {\bf(b)} Calculate $\Pr(\text{more heads than tails})$? \quad \\{\bf(c)} Calculate $\Pr(\text{two tails})$?
+
+
+\subsection*{Question 2}
+
+Let $W = $ ``the individual uses Windows'' and $M = $ ``the individual uses Mac''.\\ Furthermore $\Pr(W) = 0.7$, $\Pr(M) = 0.2$ and $\Pr(W \cap M) = 0.1$.\\[-0.2cm]
+
+{\bf(a)} Calculate the probability that an individual uses at least one of the two operating systems? \quad {\bf(b)} Calculate the probability that an individual uses neither? \quad {\bf(c)} Are $W$ and $M$ mutually exclusive? \quad {\bf(d)} Are $W$ and $M$ independent?
+
+
+\subsection*{Question 3}
+
+Let $\Pr(A) = 0.45$, $\Pr(B) = 0.6$ and $\Pr(A \cup B) = 0.75$.\\[-0.2cm]
+
+{\bf(a)} Calculate $\Pr(A \cap B)$? \quad {\bf(b)} Are $A$ and $B$ independent? \quad {\bf(c)} Calculate  $\Pr(A^c)$ and $\Pr(B^c)$. \quad {\bf(d)} Calculate  $\Pr(A^c \cup B^c)$.
+
+
+\subsection*{Question 4}
+Consider a RAID (redundant array of inexpensive disks) system where multiple hard disks are used simultaneously.\\[0.2cm]
+Let's assume that we have two hard disks that work \emph{independently} of each other. Define the events $H_1 =$ ``hard disk one works'' and $H_2 =$ ``hard disk two works'' and also assume that $\Pr(H_1) = \Pr(H_2) = 0.9$.\\[-0.5cm]
+\begin{itemize}
+\item RAID-0 is a system which increases performance but only works if \emph{both} hard disks work.
+\item RAID-1 is a system which does not increase performance but still works with only one working hard disk.
+\end{itemize}
+
+{\bf(a)} Calculate $\Pr(\text{RAID-0 works})$ and $\Pr(\text{RAID-0 fails})$. \quad {\bf(b)} Calculate $\Pr(\text{RAID-1 works})$ and $\Pr(\text{RAID-1 fails})$. \quad {\bf(c)} Calculate $\Pr(H_1^c)$ and $\Pr(H_2^c)$. \\[0.3cm]
+\quad {\bf(d)} Cheap hard disks exist with $\Pr(H) = 0.6$. Consider a RAID-1 system with 3 of these hard disks - calculate $\Pr(\text{RAID-1 fails})$ in this case. \quad {\bf(e)} In part (a) we found that $\Pr(\text{RAID-1 fails}) = 0.01$. How many cheap disks would be required to match this level of reliability?
+
+
+\subsection*{Question 5}
+A software company examined blocks of code written by its employees. Each block of code was tested for bugs and, in addition, the skill level of the employee was also recorded. See table:
+\begin{center}
+\begin{tabular}{|cc|ccc|c|}
+\hline
+&&&&&\\[-0.4cm]
+    && \multicolumn{3}{|c|}{Skill Level} &  \\
+    && High & Average & Low & Total \\
+\hline
+&&&&&\\[-0.4cm]
+Bug in   & No    &  140 &   600  & 100 & 840 \\
+Code & Yes   &    5 &    70  &  40 & 115 \\
+\hline
+&&&&&\\[-0.4cm]
+&Total &  145 &   670  & 140 & 955 \\
+\hline
+\end{tabular}
+\end{center}
+In answering the following questions use appropriate probability notation.\\[0.2cm]
+Let $B =$ ``bug'' and, hence, $B^c =$ ``no bug''.\\[0.1cm]
+Also let $S_H = $ ``skill: high'', $S_A = $ ``skill: average'' and $S_L =$ ``skill: low''.\\[-0.2cm]
+
+{\bf(a)} Calculate the probability that the programmer has: (i) high skill, (ii) average skill and (iii) low skill. \quad {\bf(b)} Calculate the probability of a bug. \quad {\bf(c)} Calculate the probability of a bug \emph{given that} the code was written by a programmer with: (i) high skill, (ii) average skill and (iii) low skill. \quad {\bf(d)} Comment on the above conditional (i.e., updated) probabilities compared with $\Pr(B)$ calculated in part (b). Is the presence of bugs independent of the skill level? \quad {\bf(e)} Show that $\Pr(S_A\,|\,B) > \Pr(S_L\,|\,B)$. Explain the reason for this.
+
+
+
+
+\end{document} 

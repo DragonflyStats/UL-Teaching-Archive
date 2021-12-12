@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 11 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item $Y = X_1 - X_2$, i.e., the difference in the time it takes for these two people to complete the task.
+\begin{align*}
+\mu_Y &= \mu_1 - \mu_2 = 45- 44 = 1\\[0.1cm]
+\sigma_Y &= \sqrt{\sigma_1^2 + \sigma_2^2} = \sqrt{1^2 + 1.5^2} = 1.8028\\[0.1cm]
+\Rightarrow Y &\sim \text{Normal}(\mu=1,\sigma=1.8028)
+\end{align*}
+\item Person 1 finishes first $\Rightarrow$ $Y < 0$ since $X_1 < X_2$.
+\begin{align*}
+\Pr(Y < 0) &= \Pr(Z < \tfrac{0 - 1}{1.8028}) \\
+&= \Pr(Z < -0.55) \\
+&= \Pr(Z > 0.55) \\
+&= 0.2912.\\
+\end{align*}
+\item Person 2 finishes first $\Rightarrow$ $Y > 0$ since $X_1 > X_2$.
+\begin{align*}
+\Pr(Y > 0) &= \Pr(Z > \tfrac{0 - 1}{1.8028}) \\
+&= \Pr(Z > -0.55) \\
+&= \Pr(Z < 0.55) \\
+&= 1 - \Pr(Z > 0.55) \\
+&= 1 -  0.2912 = 0.7088.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+Note: Part (c) can also be done by noticing that $Y>0$ and $Y<0$ are complementary events and the fact that we have $\Pr(Y<0)$ from part (a):\\[0.1cm]
+$\Pr(Y > 0) = 1 - \Pr(Y < 0) = 1 - 0.2912 = 0.7088.$
+\begin{enumerate}[c)]
+\item[d)] We have not stated who the winner is. All we know is that whoever wins finishes at least 2 seconds before the other person.\\[0.2cm]
+        Person 1 wins:\\$\Rightarrow$ $X_2$ is at least 2 seconds more than $X_1$\\$\Rightarrow$ $Y < -2$.\\[0.3cm]
+        Person 2 wins:\\$\Rightarrow$ $X_2$ is at least 2 seconds less than $X_1$\\$\Rightarrow$ $Y > 2$.\\[0.3cm]
+        This is the same as saying the \emph{absolute} difference is more than 2 seconds, i.e., $|Y| > 2$.
+\begin{align*}
+&\Pr(Y < - 2) + \Pr(Y > 2)\\
+&= \Pr(Z < \tfrac{- 2 - 1}{1.8028}) + \Pr(Z > \tfrac{2 - 1}{1.8028})\\
+&= \Pr(Z < -1.66) + \Pr(Z > 0.55)\\
+&= \Pr(Z > 1.66) + \Pr(Z > 0.55)\\
+&=0.0485 + 0.2912\\
+&= 0.3403.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item For the 99\% limits $\Rightarrow$ 0.99 of the distribution is covered with 0.01 remaining, i.e., 0.005 in the left tail and 0.005 in the right tail:\\[-0.7cm]
+    \begin{align*}
+\text{{\bf lower}}&\text{{\bf \,\,tail}}  & \text{{\bf upper}}&\text{{\bf \,\,tail}} \\[0.2cm]
+\Pr(X < x_1) &= 0.005 & \Pr(X > x_2) &= 0.005\\[0.2cm]
+\Pr(Z < \tfrac{x_1-30}{4}) &= 0.005 & \Pr(Z > \tfrac{x_2-30}{4}) &= 0.005 \\[0.2cm]
+\Pr(Z > -\tfrac{x_1-30}{4}) &= 0.005 &&\\[-0.6cm]
+\end{align*}
+We find that the $z$ score which corresponds to $\Pr(Z > z) = 0.005$ is $z = 2.58$ (from the tables):
+\begin{align*}
+\text{{\bf lower}}&\text{{\bf \,\,limit}}  & \text{{\bf upper}}&\text{{\bf \,\,limit}} \\[0.2cm]
+-\tfrac{x_1-30}{4} &= 2.58 & \tfrac{x_2-30}{4} &= 2.58 \\[0.2cm]
+\tfrac{x_1-30}{4} &= -2.58 && \\[0.2cm]
+x_1-30 &= -2.58(4) & x_2-30 &= 2.58(4) \\[0.2cm]
+x_1 &= 30 - 2.58(4) & x_2 &= 30 + 2.58(4) \\[0.2cm]
+x_1 &= 19.68 & x_2 &= 40.32
+\end{align*}
+Notice that these limits are $30 \pm (2.58\times4) = \mu \pm z_{\,0.005} \,\sigma$.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\end{document}
+
+
+

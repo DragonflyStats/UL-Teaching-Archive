@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 9 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+E(T) &= \frac{1}{\lambda} = 5 \\[0.4cm]
+\Rightarrow \lambda &= \frac{1}{E(T)} \\&= \frac{1}{5} = 0.2 \text{ cust. / minute.}
+\end{align*}
+Thus, the exponential probability function is\\ $\Pr(T > t) = e^{-\lambda \,t} = e^{-0.2 \,t}$.\\
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(T > 15) = e^{-0.2(15)} = e^{-3} = 0.0498.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(T < 1) %&= 1 - \Pr(T \ge 1) \\
+&= 1 - \Pr(T > 1) \\
+%\text{{\footnotesize($\ge$ and $>$}} & \text{{\footnotesize \,\,are the same for continuous distributions)}}\\
+&=1-e^{-0.2(1)} \\
+&= 1- 0.8187 \\&= 0.1813.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[a)]
+\item[d)] This is the \emph{number of customers} (Poisson) rather than the time between (exponential).\\[0.3cm]
+    $X \sim \text{Poisson}(\lambda = 0.2)$ for a 1 minute period.\\[0.3cm]
+    For a \emph{one hour} period we have a $\lambda$ value of
+    $0.2(60) = 0.2(60) = 12$ customers / hour.\\[0.3cm]
+    $X \sim \text{Poisson}(12)$ for a 1 hour period. Thus:\\[-0.4cm]
+    \begin{align*}
+    E(X) &= \lambda = 12 \text{ customers.}\\
+    Var(X) &= \lambda = 12 \text{ customers$^2$.}\\
+    Sd(X) &= \sqrt{Var(X)} = \sqrt{12} = 3.46 \text{ customers.}
+    \end{align*}
+\item[e)] 1 hour period $\Rightarrow$ $\lambda = 12$ again.
+\begin{align*}
+\Pr(X \ge 15) = 0.2280.
+\end{align*}
+{\footnotesize(found using the Poisson tables ($m = \lambda = 12$) since using the probability function here is very laborious.)}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\end{document}
+
+
+

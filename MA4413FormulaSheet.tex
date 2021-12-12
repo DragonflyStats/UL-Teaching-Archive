@@ -1,0 +1,316 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 2011 13:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MA4413} \rhead{Mr. Kevin O'Brien}
+\chead{Version 1 - 16th October 2013}
+%\input{tcilatex}
+
+\begin{document}
+
+\section*{Formulae}
+\subsection*{Remarks}
+Information theory and data compression formulas to be added.
+%-------------------------------------------------%
+\subsection*{Descriptive Statistics}
+\begin{itemize}
+\item Sample Variance
+\begin{equation*}
+s^2 = \frac{\sum (x-\bar{x})^2}{n-1}
+\end{equation*}
+\end{itemize}
+%-------------------------------------------------%
+\subsection*{Probability}
+\begin{itemize}
+
+\item Conditional probability:
+\begin{equation*}
+P(B|A)=\frac{P\left( A\text{ and }B\right) }{P\left( A\right) }.
+\end{equation*}
+
+
+\item Bayes' Theorem:
+\begin{equation*}
+P(B|A)=\frac{P\left(A|B\right) \times P(B) }{P\left( A\right) }.
+\end{equation*}
+
+
+
+
+
+\item Binomial probability distribution:
+\begin{equation*}
+P(X = k) = ^{n}C_{k} \times p^{k} \times \left( 1-p\right) ^{n-k}\qquad \left( \text{where  }
+^{n}C_{k} =\frac{n!}{k!\left(n-k\right) !}. \right)
+\end{equation*}
+
+\item Poisson probability distribution:
+\begin{equation*}
+P(X = k) =\frac{m^{k}\mathrm{e}^{-m}}{k!}.
+\end{equation*}
+
+\item Exponential probability distribution:
+\begin{equation*}
+P(X \leq k) = \begin{cases}
+1-e^{- k/\mu}, & k \ge 0, \\
+0, & k < 0.
+\end{cases}\qquad \left( \text{where  }
+\mu = {1\over \lambda}\right)
+\end{equation*}
+\end{itemize}
+
+\subsection*{Confidence Intervals}
+{\bf One sample}
+\begin{eqnarray*} S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+S.E.(\hat{P})&=&\sqrt{\frac{\hat{p}\times(100-\hat{p})}{n}}.\\
+\end{eqnarray*}
+{\bf Two samples}
+\begin{eqnarray*}
+S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\frac{\hat{p}_1\times(100-\hat{p}_1)}{n_1}+\frac{\hat{p}_2\times(100-\hat{p}_2)}{n_2}}.\\\\
+\end{eqnarray*}
+\subsection*{Hypothesis tests}
+{\bf One sample}
+\begin{eqnarray*}
+S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+S.E.(\pi)&=&\sqrt{\frac{\pi\times(100-\pi)}{n}}
+\end{eqnarray*}
+{\bf Two large independent samples}
+\begin{eqnarray*}
+S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\left(\bar{p}\times(100-\bar{p})\right)\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\
+\end{eqnarray*}
+{\bf Two small independent samples}
+\begin{eqnarray*}
+S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{s_p^2\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\\\
+s_p^2&=&\frac{s_1^2(n_1-1)+s_2^2(n_2-1)}{n_1+n_2-2}.\\
+\end{eqnarray*}
+{\bf Paired sample}
+\begin{eqnarray*}
+S.E.(\bar{d})&=&\frac{s_d}{\sqrt{n}}.\\\\
+\end{eqnarray*}
+{\bf Standard Deviation of case-wise differences (computational formula)}
+\begin{eqnarray*}
+s_d = \sqrt{ {\sum d_i^2 - n\bar{d}^2 \over n-1}}.\\\\
+\end{eqnarray*}
+
+\newpage
+
+\begin{itemize}
+	\item Sample Mean
+	\[\bar{x} = \frac{\sum x_i}{n}\]
+	
+	
+	\item Inter-Quartile Range
+	\[IQR = Q_3 - Q_1 \]
+	
+	\item Trimean
+	\[ {Q_3 + Q_1 \over 2 } \]
+\end{itemize}
+
+
+\section{Formulas for Statistics}
+
+\begin{enumerate}
+	\item Sample mean
+	\begin{equation*}
+	\bar{x}=\frac{\sum x_{i}}{n}.
+	\end{equation*}
+	
+	\item Sample standard deviation
+	\begin{equation*}
+	s=\sqrt{\frac{\sum \left( x_{i}-\bar{x}\right) ^{2}}{%
+			n-1}}.
+	\end{equation*}
+	
+	\item Conditional probability:
+	\begin{equation*}
+	P(B|A)=\frac{P\left( A\text{ and }B\right) }{P\left( A\right) }.
+	\end{equation*}
+	
+\end{enumerate}
+
+
+\section{Formulas for Statistics}
+
+\begin{enumerate}
+	\item Sample mean
+	\begin{equation*}
+	\bar{x}=\frac{\sum x_{i}}{n}.
+	\end{equation*}
+	
+	\item Sample standard deviation
+	\begin{equation*}
+	s=\sqrt{\frac{\sum \left( x_{i}-\bar{x}\right) ^{2}}{%
+			n-1}}.
+	\end{equation*}
+	
+	\item Conditional probability:
+	\begin{equation*}
+	P(B|A)=\frac{P\left( A\text{ and }B\right) }{P\left( A\right) }.
+	\end{equation*}
+	
+\end{enumerate}
+
+
+
+%--------------------------------------------------------------------%
+
+
+\section{Formulas}
+%=======================================================%
+\subsection*{Confidence Intervals}
+{\bf One sample}
+\begin{eqnarray*} S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+	S.E.(\hat{P})&=&\sqrt{\frac{\hat{p}\times(100-\hat{p})}{n}}.\\
+\end{eqnarray*}
+{\bf Two samples}
+\begin{eqnarray*}
+	S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+	S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\frac{\hat{p}_1\times(100-\hat{p}_1)}{n_1}+\frac{\hat{p}_2\times(100-\hat{p}_2)}{n_2}}.\\\\
+\end{eqnarray*}
+
+%=======================================================%
+
+\begin{equation}
+\bar{X} \pm t_{\nu,\alpha/2}\mbox{S.E.}(\bar{X})
+\end{equation}
+
+\begin{equation}
+\hat{P} \pm t_{\nu,\alpha/2}\mbox{S.E.}(\hat{P})
+\end{equation}
+
+\subsection{Hypothesis Testing}
+% Inference: Two samples
+\begin{equation}
+\frac{(\hat{P}_{1}-\hat{P}_{2})-(P_{1}-P_{2})}{S.E.(\hat{P}_{1}-\hat{P}_{2})}
+\end{equation}
+
+\begin{equation}
+\frac{(\bar{X}-\bar{Y})-(\mu_{x}-\mu_{y})}{S.E.(\bar{X}-\bar{Y})}
+\end{equation}
+
+\subsection*{Hypothesis tests}
+{\bf One sample}
+\begin{eqnarray*}
+	S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+	S.E.(\pi)&=&\sqrt{\frac{\pi\times(100-\pi)}{n}}
+\end{eqnarray*}
+{\bf Two large independent samples}
+\begin{eqnarray*}
+	S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+	S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\left(\bar{p}\times(100-\bar{p})\right)\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\
+\end{eqnarray*}
+{\bf Two small independent samples}
+\begin{eqnarray*}
+	S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{s_p^2\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\\\
+	s_p^2&=&\frac{s_1^2(n_1-1)+s_2^2(n_2-1)}{n_1+n_2-2}.\\
+\end{eqnarray*}
+{\bf Paired sample}
+\begin{eqnarray*}
+	S.E.(\bar{d})&=&\frac{s_d}{\sqrt{n}}.\\\\
+\end{eqnarray*}
+{\bf Standard deviation of case-wise differences}
+\begin{eqnarray*}
+	s_d = \sqrt{ {\sum d_i^2 - n\bar{d}^2 \over n-1}}.\\\\
+\end{eqnarray*}
+
+\section*{Formulae}
+\subsection*{Probability}
+
+
+\begin{itemize}
+	
+	\item Conditional probability:
+	\begin{equation*}
+	P(B|A)=\frac{P\left( A\text{ and }B\right) }{P\left( A\right) }.
+	\end{equation*}
+	
+\end{itemize}
+\begin{itemize}
+	
+	\item Conditional probability:
+	\begin{equation*}
+	P(B|A)=\frac{P\left( A\text{ and }B\right) }{P\left( A\right) }.
+	\end{equation*}
+	
+	
+	\item Bayes' Theorem:
+	\begin{equation*}
+	P(B|A)=\frac{P\left(A|B\right) \times P(B) }{P\left( A\right) }.
+	\end{equation*}
+	
+	
+	\item Sample Variance
+	\begin{equation*}
+	s^2 = \frac{\sum (x-\bar{x})^2}{n-1}
+	\end{equation*}
+	
+	
+	\item Binomial probability distribution:
+	\begin{equation*}
+	P(X = k) = ^{n}C_{k} \times p^{k} \times \left( 1-p\right) ^{n-k}\qquad \left( \text{where}\qquad
+	^{n}C_{k} =\frac{n!}{k!\left(n-k\right) !}. \right)
+	\end{equation*}
+	
+	\item Poisson probability distribution:
+	\begin{equation*}
+	P(X = k) =\frac{m^{k}\mathrm{e}^{-m}}{k!}.
+	\end{equation*}
+\end{itemize}
+
+
+
+\subsection*{Confidence Intervals}
+{ One sample}
+\begin{eqnarray*} S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+	S.E.(\hat{P})&=&\sqrt{\frac{\hat{p}\times(100-\hat{p})}{n}}.\\
+\end{eqnarray*}
+{ Two samples}
+\begin{eqnarray*}
+	S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+	S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\frac{\hat{p}_1\times(100-\hat{p}_1)}{n_1}+\frac{\hat{p}_2\times(100-\hat{p}_2)}{n_2}}.\\\\
+\end{eqnarray*}
+\subsection*{Hypothesis tests}
+{ One sample}
+\begin{eqnarray*}
+	S.E.(\bar{X})&=&\frac{\sigma}{\sqrt{n}}.\\\\
+	S.E.(\pi)&=&\sqrt{\frac{\pi\times(100-\pi)}{n}}
+\end{eqnarray*}
+{ Two large independent samples}
+\begin{eqnarray*}
+	S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma_2^2}{n_2}}.\\\\
+	S.E.(\hat{P_1}-\hat{P_2})&=&\sqrt{\left(\bar{p}\times(100-\bar{p})\right)\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\
+\end{eqnarray*}
+{ Two small independent samples}
+\begin{eqnarray*}
+	S.E.(\bar{X}_1-\bar{X}_2)&=&\sqrt{s_p^2\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.\\\\
+	s_p^2&=&\frac{s_1^2(n_1-1)+s_2^2(n_2-1)}{n_1+n_2-2}.\\
+\end{eqnarray*}
+{\bf Paired sample}
+\begin{eqnarray*}
+	S.E.(\bar{d})&=&\frac{s_d}{\sqrt{n}}.\\\\
+\end{eqnarray*}
+{ Standard Deviation of case-wise differences (computational formula)}
+\begin{eqnarray*}
+	s_d = \sqrt{ {\sum d_i^2 - n\bar{d}^2 \over n-1}}.\\\\
+\end{eqnarray*}
+
+\end{document}
+

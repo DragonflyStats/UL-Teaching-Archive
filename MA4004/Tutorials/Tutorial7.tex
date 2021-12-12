@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------ Tutorial 7 --------------------------- Questions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{17cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\subsection*{Question 1}
+Assume that a character in a game is programmed to have an attack power according to $X \sim \text{Normal}(\mu=40,\sigma=3)$.\\[-0.2cm]
+
+{\bf(a)} What is the probability that the attack is greater than 45? \quad {\bf(b)} What is the probability that the attack is between 32 and 42? \quad {\bf(c)} Let $X_1$ and $X_2$ be the first and second attacks. What is the probability that the \emph{sum} of these two attacks is greater than 85 units? \quad \\{\bf(d)} Calculate 99\% limits for the sum of two attacks.  \quad {\bf(e)} What is the probability that the \emph{difference} in attacks is more than 5 units? Note that attack 2 can be 5 units more than attack 1 or attack 1 can be 5 units more than attack 2, i.e., $\Pr(|D|>5)=\Pr(D<-5) + \Pr(D>5)$.
+
+
+
+\subsection*{Question 2}
+
+A character in a game deals a standard attack 75\% of the time and a critical attack the rest of the time (call these events $S$ and $S^c$). Given that it is a standard attack, the attack power is $X\,|\,S \sim \text{Normal}(\mu=40,\sigma=3)$. When the character deals a critical attack, a random fluctuation is added to this according to a $\text{Normal}(\mu=5,\sigma=1)$ distribution.\\[-0.2cm]
+
+{\bf(a)} What is the distribution of $X\,|\,S^c$? \quad {\bf(b)} Calculate $\Pr(X<43\,|\,S)$ and $\Pr(X<43\,|\,S^c)$. \quad {\bf(c)} Calculate $\Pr(X<43)$. \,\, (hint: law of total probability) \quad {\bf(d)} If the character deals less than 43 damage points, what is the probability that the attack was a critical attack?
+
+
+
+\subsection*{Question 3}
+The income of a technician (in thousands) is $X_1 \sim \text{Normal}(\mu=30,\sigma=2)$. The income of an engineer is $X_2 \sim \text{Normal}(\mu=40,\sigma=3.5)$. \\[-0.2cm]
+
+{\bf(a)} Calculate the probability that an engineer earns more than a technician. \quad {\bf(b)} Calculate 90\% limits for the difference in their income. \quad {\bf(c)} For a group of 25 technicians, calculate the probability that the average wage is less than 30500, i.e., $\Pr(\,\overline{\!X}_1 < 30.5)$. \quad {\bf(d)} In a group of 10 engineers, what is the probability that \emph{at least two} of them earn more than 45000? (hint: binomial with $p = \Pr(X_2 > 45)$) \quad {\bf(e)} For a sample of 30 technicians and 35 engineers, calculate the 80\% limits for the difference in their average wages.
+
+
+\subsection*{Question 4}
+Let $X \sim \text{Exponential}(\lambda=0.02)$. Calculate the following:\\[-0.2cm]
+
+{\bf(a)} $\Pr(\,\overline{\!X} > 55)$ in a group of 100. \quad {\bf(b)} $\Pr(\,\overline{\!X} < 53)$ in a group of 40. \quad {\bf(c)} The value of $\bar x$ such that $\Pr(\,\overline{\!X} > \bar x) = 0.1$ when $n=65$. \quad {\bf(c)} The value of $n$ if $\Pr(\,\overline{\!X} < 49) = 0.1$.
+
+
+
+
+
+
+
+
+\end{document} 

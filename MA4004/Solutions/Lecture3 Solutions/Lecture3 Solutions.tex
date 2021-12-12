@@ -1,0 +1,196 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 3 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 2}
+$\Pr(A) = \frac{3}{12} = \frac{1}{4} =0.25$.\\[0.1cm]
+$\Pr(B) = \frac{6}{12} = \frac{1}{2} =0.5$.\\[0.1cm]
+$\Pr(C) = \frac{2}{12} = \frac{1}{6} =0.1667$.
+\item
+$\Pr(A \cap B) = \frac{3}{12} = \frac{1}{4} =0.25$.\\[0.1cm]
+$\Pr(A \cap C) = \frac{0}{12} = 0$.\\[0.1cm]
+$\Pr(B \cap C) = \frac{1}{12} = 0.0833$.
+\begin{enumerate}[a)]
+\item
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[]
+\item[d)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(A \cup B) &= \Pr(A) + \Pr(B) - \Pr(A \cap B) \\[0.1cm]
+&= \frac{3}{12} + \frac{6}{12} - \frac{3}{12} \\[0.1cm]
+&= \frac{6}{12} = \frac{1}{2} = 0.5.\\[0.3cm]
+\Pr(A \cup C) &= \Pr(A) + \Pr(C) - \Pr(A \cap C) \\[0.1cm]
+&= \frac{3}{12} + \frac{2}{12} - \frac{0}{12} \\[0.1cm]
+&= \frac{5}{12} =  0.4167.\\[0.3cm]
+\Pr(B \cup C) &= \Pr(B) + \Pr(C) - \Pr(B \cap C) \\[0.1cm]
+&= \frac{6}{12} + \frac{2}{12} - \frac{1}{12} \\[0.1cm]
+&= \frac{7}{12} =  0.5833.
+\end{align*}
+\item[e)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(A \text{ nor } B) = \Pr(A^c \cap B^c) &= 1 - \Pr(A \cup B) \\[0.1cm]
+&= 1 - 0.5\\
+&= 0.5.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item $\Pr(\text{RAID-0 works}) = \Pr(H_1 \cap H_2) =0.81.$
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(\text{RAID-0 fails}) &= 1 -  \Pr(\text{RAID-0 works}) \\[0.1cm]
+&= 1 - 0.81\\
+&= 0.19.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(\text{RAID-1 works}) &= \Pr(\text{$H_1$ or $H_2$ or both})  \\[0.1cm]
+&= \Pr(H_1 \cup H_2) \\[0.1cm]
+&= \Pr(H_1) + \Pr(H_2) \\&\qquad\qquad\qquad- \Pr(H_1 \cap H_2)\\[0.1cm]
+&= 0.9 + 0.9 - 0.81 \\
+&= 0.99.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}[]
+\item[d)] \quad \\[-1.45cm]
+\begin{align*}
+\Pr(\text{RAID-1 fails}) &= 1 -  \Pr(\text{RAID-1 works}) \\[0.1cm]
+&= 1 - 0.99\\
+&= 0.01.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 4}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(A) \Pr(B) &= \frac{1}{4} \times \frac{1}{2} \\[0.1cm]
+&= \frac{1}{8}\\
+&\ne \Pr(A \cap B) = \frac{1}{4}\\[0.2cm]
+\Rightarrow \text{$A$ and $B$} &\text{ are \emph{dependent}.}\\[0.2cm]
+\Pr(A) \Pr(C) &= \frac{1}{4} \times \frac{1}{6} \\[0.1cm]
+&= \frac{1}{24}\\
+&\ne \Pr(A \cap C) = 0\\[0.2cm]
+\Rightarrow \text{$A$ and $C$} &\text{ are \emph{dependent}.}\\[0.2cm]
+\Pr(B) \Pr(C) &= \frac{1}{2} \times \frac{1}{6} \\[0.1cm]
+&= \frac{1}{12}\\
+&= \Pr(B \cap C) = \frac{1}{12}\\[0.2cm]
+\Rightarrow \text{$B$ and $C$} &\text{ are \emph{independent}.}\\[0.2cm]
+\end{align*}
+\end{enumerate}
+\end{minipage}}\hspace{0.015\textwidth}
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 5}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(H_1 \cap H_2) = \Pr(H_1) \Pr(H_2) &= 0.9 (0.9) \\
+&= 0.81.
+\end{align*}
+\item $\Pr(H_1 \cup H_2) = 0.99$ (calculated in Q3).
+\item $\Pr(H_1^c) = 1 - \Pr(H_1) = 0.1.$\\[0.2cm]
+$\Pr(H_2^c) = 1 - \Pr(H_2) = 0.1.$
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(H_1^c \cap H_2^c) = \Pr(H_1^c) \Pr(H_2^c) &= 0.1 (0.1) \\
+&= 0.01.
+\end{align*}
+\item In this case $\Pr(H) = 0.6$. So $\Pr(H^c) = 0.4$.\\[0.3cm]
+We want $\Pr(\text{fail}) = 0.01$ to match performance above.\\[0.3cm]
+Two cheap disks: $\Pr(\text{fail}) = 0.4 \times 0.4 = 0.16.$
+Three cheap disks: $\Pr(\text{fail}) = 0.4^3 = 0.064.$
+Four cheap disks: $\Pr(\text{fail}) = 0.4^4 = 0.0256.$
+Five cheap disks: $\Pr(\text{fail}) = 0.4^5 = 0.01024.$
+Six cheap disks: $\Pr(\text{fail}) = 0.4^6 = 0.0041.$\\[0.3cm]
+$\Rightarrow$ So five cheap disks provide similar performance level to two expensive disks. Six cheap disks provide \emph{superior} performance.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 5(e) - alternative method}
+
+We can see from above that the general form of $\Pr(\text{fail})$ for $k$ cheap disks is:\\[0.1cm]
+
+$\Pr(\text{fail}) = 0.4^k$\\[0.1cm]
+
+We can set the above expression equal to the 0.01 (or any desired level) and solve for $k$.
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\vspace{-0.8cm}
+\begin{align*}
+0.4^k &= 0.01 \\
+\log 0.4^k &= \log 0.01 \\
+k \log 0.4 &= \log 0.01 \\
+k &= \frac{\log 0.01}{\log 0.4} \\
+&\approx 5.026,
+\end{align*}
+i.e., roughly five disks are required (as found previously using the more laborious approach).
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 6}
+\begin{enumerate}[a)]
+\item Mutually exclusive.
+\item Dependent.
+\item Independent.
+\item Dependent.
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[e)] Mutually exclusive.
+\item[f)] Dependent.
+\item[g)] Dependent.
+\item[h)] Independent.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\end{document} 

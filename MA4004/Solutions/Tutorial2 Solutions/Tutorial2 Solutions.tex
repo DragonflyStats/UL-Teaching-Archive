@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Tutorial 2 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item Sample space is:
+\begin{align*}
+S = \{&HHH, HTH, HHT, HTT, \\
+      &THH, TTH, THT, TTT\}
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\text{``More heads than tails''} = \{&HHH, HTH,\\&HHT, THH\}.\\[0.2cm]
+\Pr(\text{More heads than tails})& = \frac{4}{8} = \frac{1}{2}.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\text{``Two tails''} = \{&HTT, TTH, THT\}.\\[0.2cm]
+\Pr(\text{Two tails})& = \frac{3}{8}.
+\end{align*}
+\end{enumerate}
+\end{minipage}}\hspace{0.015\textwidth}
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(W \cup M) &= \Pr(W) + \Pr(M) - \Pr(W\cap M) \\
+&= 0.7 + 0.2 - 0.1 \quad = 0.8.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(W^c \cap M^c) &= 1 - \Pr(W \cup M) \\
+&= 1 - 0.8\quad = 0.2.
+\end{align*}
+\item $W$ and $M$ are \emph{not} mutually exlusive since $\Pr(W\cap M) \ne 0$.
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(W) \times \Pr(M) &= 0.7 \times 0.2 \\ &= 0.14 \\
+&\ne \Pr(W \cap M)  = 0.1.\\[0.3cm]
+\Rightarrow& \text{ \emph{not} independent}.
+\end{align*}
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(A \cup B) &= \Pr(A) + \Pr(B) - \Pr(A\cap B) \\
+0.75 &= 0.45 + 0.6 - \Pr(A\cap B) \\
+0.75 &= 1.05 - \Pr(A\cap B) \\
+0.75 - 1.05 &= - \Pr(A\cap B) \\
+- 0.3 &= - \Pr(A\cap B) \\[0.3cm]
+\Rightarrow \Pr(A\cap B) &= 0.3.
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+\Pr(A) \times \Pr(B) &= 0.45 \times 0.6 \\ &= 0.27 \\
+&\ne \Pr(A \cap B)  = 0.3.\\[0.3cm]
+\Rightarrow& \text{ \emph{not} independent}.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[c)] $\Pr(A^c) = 1 - \Pr(A) = 1 - 0.45 = 0.55.$\\[0.2cm]
+$\Pr(B^c) = 1 - \Pr(B) = 1 - 0.6 = 0.4.$
+\item[d)]  Note that $(A \cap B)^c = A^c \cup B^c$. \\[-0.3cm]
+\begin{align*}
+\Rightarrow \Pr(A^c \cup B^c) &= 1- \Pr(A \cap B)\\
+&= 1 - 0.3 \\
+&= 0.7.
+\end{align*}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 4}
+For solutions to Question 8 see the solutions of Q3 and Q5 of Lecture3.
+
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 5}
+The solution to this question is in Lecture4 solutions (i.e., Q2 of Lecture4).
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\end{document} 

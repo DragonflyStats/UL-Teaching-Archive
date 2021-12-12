@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 16 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+H_0:\quad \mu_1-\mu_2 &= 0 \\[0.2cm]
+H_a:\quad \mu_1-\mu_2 &\ne 0 \\[-0.2cm]
+\end{align*}
+\item \quad \\[-1.45cm]
+\begin{align*}
+z&=\frac{(\bar x_1 - \bar x_2)-(\mu_{01}-\mu_{02})}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\\[0.3cm]
+&=
+\frac{(20.5 - 19.3)-(0)}{\sqrt{\frac{12.1}{41}+\frac{14.3}{33}}} \\[0.3cm]
+&= \frac{1.2}{0.8534} = 1.41.
+\end{align*}
+\end{enumerate}
+\end{minipage}\hspace{0.055\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{enumerate}
+\item[] Two-tailed test:
+    \begin{align*}
+    \Rightarrow \text{p-value} &= 2\times\Pr(Z > |z|) \\
+    &= 2\times\Pr(Z > |1.41|) \\
+    &= 2\times\Pr(Z > 1.41) \\
+    &= 2(0.0793) = 0.1586.
+    \end{align*}
+\item[c)] The p-value tells us that there is a 15.86\% chance of obtaining results such as those observed assuming $H_0$ is true.\\[0.3cm]
+    Therefore, the results are not unusual; we cannot reject $H_0$ (since the p-value is greater than the standard $\alpha$ levels, $0.05$ and $0.01$)\\[0.3cm]
+    Conclusion: there is no difference between the true means.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+\end{document}
+
+
+

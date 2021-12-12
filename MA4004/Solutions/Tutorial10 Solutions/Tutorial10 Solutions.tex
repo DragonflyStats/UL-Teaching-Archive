@@ -1,0 +1,316 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage[all]{xy}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Tutorial 10 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 1}
+We are carrying out three hypothesis tests here all of the form:
+\begin{align*}
+H_0: \quad \mu = \mu_0 \\[0.1cm]
+H_a: \quad \mu \ne \mu_0
+\end{align*}
+using the 5\% level of significance, i.e., $\alpha = 0.05$.\\[0.3cm]
+Since this is a two-tailed test, and the sample is large, the critical values in each case are:
+\begin{align*}
+\pm z_{\,\alpha/2} = \pm z_{\,0.025} = \pm 1.96.
+\end{align*}
+We will reject the null hypothesis in any case where the observed test statistic is outside of this region.
+\begin{enumerate}[a)]
+\item For the length we have
+\begin{align*}
+H_0: \quad \mu_{\text{length}} = 40 \\[0.1cm]
+H_a: \quad \mu_{\text{length}} \ne 40
+\end{align*}
+Data: $\bar x = 40.11$, $s = 0.51$, $n = 40$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+z = \frac{\bar x - \mu_0}{\frac{s}{\sqrt{n}}} = \frac{40.11 - 40}{\frac{0.51}{\sqrt{40}}} = \frac{0.11}{0.0791} = 1.39.
+\end{align*}
+Since 1.39 is within $\pm 1.96$, we cannot reject the null hypothesis $H_0: \mu_{\text{length}} = 40$ at the 5\% level.\\[0.3cm]
+Conclusion: The length of the sleeve is okay.
+\item For the width we have
+\begin{align*}
+H_0: \quad \mu_{\text{width}} = 30 \\[0.1cm]
+H_a: \quad \mu_{\text{width}} \ne 30
+\end{align*}
+Data: $\bar x = 30.09$, $s = 0.17$, $n = 40$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+z = \frac{\bar x - \mu_0}{\frac{s}{\sqrt{n}}} = \frac{30.09 - 30}{\frac{0.17}{\sqrt{40}}} = \frac{0.09}{0.0269} = 3.35.
+\end{align*}
+Since 3.35 is outside of $\pm 1.96$, we reject the null hypothesis $H_0: \mu_{\text{width}} = 30$ at the 5\% level.\\[0.3cm]
+Conclusion: The width of the sleeve is not as designed; the sleeve is wider than it should be.
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.4cm]
+\begin{enumerate}
+\item[(c)] For the depth we have
+\begin{align*}
+H_0: \quad \mu_{\text{depth}} = 2 \\[0.1cm]
+H_a: \quad \mu_{\text{depth}} \ne 2
+\end{align*}
+Data: $\bar x = 1.91$, $s = 0.15$, $n = 40$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+z = \frac{\bar x - \mu_0}{\frac{s}{\sqrt{n}}} = \frac{1.91 - 2}{\frac{0.15}{\sqrt{40}}} = \frac{-0.09}{0.0247} = -3.79.
+\end{align*}
+Since -3.79 is outside of $\pm 1.96$, we reject the null hypothesis $H_0: \mu_{\text{depth}} = 2$  at the 5\% level.\\[0.3cm]
+Conclusion: The depth of the sleeve is not as designed; the sleeve is narrower than it should be.
+\item[d)] Although both the width and the depth need to be addressed, the depth issue is likely to be more urgent. Since the sleeve is narrower than designed, certain laptops may not fit.
+\item[e)] As these are all two-tailed tests, the p-values are given by $2\cdot\Pr(Z>|z|)$.
+    \begin{align*}
+    \text{length: \,\,p-value} &= 2\cdot\Pr(Z>|1.39|) \\
+    &= 2\cdot\Pr(Z>1.39) \\
+    &= 2(0.0823) = 0.1646.\\[0.5cm]
+    \text{width: \,\,p-value} &= 2\cdot\Pr(Z>|3.35|) \\
+    &= 2\cdot\Pr(Z>3.35) \\
+    &= 2(0.00040) = 0.0008.\\[0.5cm]
+    \text{depth: \,\,p-value} &= 2\cdot\Pr(Z>|-3.79|) \\
+    &= 2\cdot\Pr(Z>3.79) \\
+    &= 2(0.000075) = 0.00015.
+    \end{align*}
+    Thus, we see there is no evidence to reject $H_0: \mu_{\text{length}} = 40$, but there is strong evidence to reject both $H_0: \mu_{\text{width}} = 30$ and \\$H_0: \mu_{\text{depth}} = 2$.
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad \mu = 100 \\[0.1cm]
+H_a: \quad \mu \ne 100
+\end{align*}
+\item Data: $\bar x = 99.4$, $s = 2.1$, $n = 32$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+z = \frac{\bar x - \mu_0}{\frac{s}{\sqrt{n}}} = \frac{99.4 - 100}{\frac{2.1}{\sqrt{32}}} = \frac{-0.6}{0.3712} = -1.62.
+\end{align*}
+\item Two-tailed test:
+    \begin{align*}
+    \Rightarrow \text{p-value} &= 2\cdot\Pr(Z>|-1.62|) \\
+    &= 2\cdot\Pr(Z>1.62) \\
+    &= 2(0.0526) = 0.1052.
+    \end{align*}
+    Thus, the evidence against $H_0$ is not very strong.\\[0.2cm]
+    Conclusion: the matchboxes appear to contain 100 matches on average as advertised.
+\end{enumerate}
+\end{minipage}}\hspace{0.015\textwidth}
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 3}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad \mu \le 500 \\[0.1cm]
+H_a: \quad \mu > 500
+\end{align*}
+\item For $n=4$ the degrees of freedom are \\ $\nu = 4 -1 = 3$.\\[0.2cm]
+    Since this is a one-tailed test, we do not divide $\alpha = 0.001$ by two; all of the probability goes to the upper tail due to the ``$>$'' sign.
+    \begin{align*}
+    \Rightarrow \text{Critical value: } t_{\,\nu,\,\alpha} = t_{\,3,\,0.001} = 10.213.
+    \end{align*}
+\item Note, we have the variance $s^2 = 83$ $\Rightarrow$ standard deviation is $s = \sqrt{83}$.\\[0.2cm]
+    Data: $\bar x = 566$, $s = \sqrt{83}$, $n = 4$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+ t= \frac{\bar x - \mu_0}{\frac{s}{\sqrt{n}}} = \frac{566 - 500}{\frac{\sqrt{83}}{\sqrt{4}}} = \frac{66}{4.555} = 14.49.
+\end{align*}
+\item The critical region is above 10.213. The test statistic, 14.49, \emph{is} above this value. Thus we reject the null hypothesis at the 0.1 \% level.\\[0.3cm]
+    Conclusion: The evidence strongly suggests that the part lasts for more than 500 hours.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\subsection*{Question 4}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad \mu \le 4 \\[0.1cm]
+H_a: \quad \mu > 4
+\end{align*}
+\item Small sample ($n=6$) $\Rightarrow$ $\nu = 6-1=5$. One-tailed test with $\alpha=0.1$.
+    \begin{align*}
+    \Rightarrow \text{Critical value: } t_{\,\nu,\,\alpha} = t_{\,5,\,0.1} = 1.476.
+    \end{align*}
+\item Data: $\bar x = 4.6$, $s = 0.5$, $n = 6$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+t = \frac{\bar x - \mu_0}{\frac{s}{\sqrt{n}}} = \frac{4.6 - 4}{\frac{0.5}{\sqrt{6}}} = \frac{0.6}{0.204} = 2.94.
+\end{align*}
+The test statistic $z = 2.94$ is above the critical value and, hence it is in the rejection region. We reject the hypothesis that $\mu \le 4$ at the 10\% level.\\[0.3cm]
+Conclusion: The evidence suggests that our friend does not have the ability to complete the game in 4 hours or less (on average).
+\end{enumerate}
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
+\quad\\[-1.4cm]
+\begin{enumerate}
+\item[d)] For this one-tailed test the p-value would be $\Pr(Z > z)$ if the sample was large.\\[0.2cm]
+    Since the sample is small we are using a value from the t-tables with $\nu=5$.
+    \begin{align*}
+    \Rightarrow \text{p-value} &= \Pr(T_5 > t) = \Pr(T_5 > 2.94).
+    \end{align*}
+    Unlike the normal tables, we cannot look up any t-value in the t-tables.\\[0.3cm]
+    However, what we do find from the t-tables is that:
+    \begin{align*}
+    \Pr(T_5 > 2.571) &= 0.025. \\[0.2cm]
+    \Pr(T_5 > 3.365) &= 0.01.
+    \end{align*}
+    Therefore, we know that $\Pr(T_5 > 2.94)$ is between 0.01 and 0.025. In other words, the evidence against $H_0$ is quite strong.\\[0.3cm]
+    {\footnotesize(note: when using \texttt{t.test} in \texttt{R}, the exact p-value is calculated automatically)}
+\end{enumerate}
+\end{minipage}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 5}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad p = \tfrac{1}{6} \\[0.1cm]
+H_a: \quad p \ne \tfrac{1}{6}
+\end{align*}
+\item With $\alpha=0.05$, the critical values for this two-tailed test are: $\pm z_{\,\alpha/2} = \pm z_{\,0.025} = \pm 1.96$. The rejection region lies outside of these values.
+\item Data: $\hat p = \frac{18}{80}$, $n = 80$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+ z= \frac{\hat p - p_0}{\sqrt{\frac{p_0\,(1-p_0)}{n}}} = \frac{\tfrac{18}{80} - \tfrac{1}{6}}{\sqrt{\frac{\tfrac{1}{6}\,\left(\tfrac{5}{6}\right)}{80}}} = \frac{0.05833}{0.04166} = 1.4.
+\end{align*}
+This test statistic is within $\pm 1.96$ $\Rightarrow$ we cannot reject $H_0$ at the 5\% level.\\[0.3cm]
+Conclusion: The die appears to be fair with respect to probability of obtaining a six.\\[0.3cm]
+{\footnotesize(note: this does not mean that the die is fair with respect to the probability of obtaining other numbers)}
+\end{enumerate}
+\end{minipage}}\hspace{0.015\textwidth}
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 6}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad p \ge 0.6 \\[0.1cm]
+H_a: \quad p < 0.6
+\end{align*}
+\item Data: $\hat p = \frac{629}{1000} = 0.629$, $n = 1000$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+ z= \frac{\hat p - p_0}{\sqrt{\frac{p_0\,(1-p_0)}{n}}} = \frac{0.629-0.6}{\sqrt{\frac{0.6\,(0.4)}{1000}}} = \frac{0.029}{0.01549} = 1.87.
+\end{align*}
+For this one-tailed test (with $H_a$ pointing to the lower tail), we have:
+    \begin{align*}
+    \text{p-value} &= \Pr(Z<z) \\
+    &= \Pr(Z<1.87) \\
+    &= 1-\Pr(Z>1.87) \\
+    &= 1 - 0.0307 = 0.9693.
+    \end{align*}
+\item Thus, the observed data is very likely under the assumption that $H_0$ is true. There is certainly no evidence against $H_0$ $\Rightarrow$ we accept $H_0$.\\[0.2cm]
+    Conclusion: We will continue to believe that the company has at least 60\% of the market share.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 7}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad p = 0.3 \\[0.1cm]
+H_a: \quad p \ne 0.3
+\end{align*}
+\item With $\alpha=0.01$, the critical values for this two-tailed test are: $\pm z_{\,\alpha/2} = \pm z_{\,0.005} = \pm 2.58$. The rejection region lies outside of these values, i.e., below $-2.58$ and above $2.58$
+\item Data: $\hat p = 0.25$, $n = 100$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+ z= \frac{\hat p - p_0}{\sqrt{\frac{p_0\,(1-p_0)}{n}}} = \frac{0.25-0.3}{\sqrt{\frac{0.3\,(0.7)}{100}}} = \frac{-0.05}{0.0458} = 1.09.
+\end{align*}
+The test statistic $z = 1.09$ is within the acceptance region $\Rightarrow$ we accept $H_0$.\\[0.3cm]
+Conclusion: There is no change in the quality of applicants.
+\end{enumerate}
+\end{minipage}}\hspace{0.015\textwidth}
+\framebox[0.5\textwidth]{
+\begin{minipage}[t]{0.46\textwidth}
+\subsection*{Question 8}
+\begin{enumerate}[a)]
+\item \quad\\[-1.45cm]
+\begin{align*}
+H_0: \quad p \le 0.5 \\[0.1cm]
+H_a: \quad p > 0.5
+\end{align*}
+\item Data: $\hat p = \frac{43}{65} = 0.6615$, $n = 65$\\[0.2cm] $\Rightarrow$ The test statistic is
+\begin{align*}
+ z= \frac{\hat p - p_0}{\sqrt{\frac{p_0\,(1-p_0)}{n}}} = \frac{0.6615-0.5}{\sqrt{\frac{0.5\,(0.5)}{65}}} = \frac{0.1615}{0.062} = 2.60.
+\end{align*}
+For this one-tailed test (with $H_a$ pointing to the upper tail), we have:
+    \begin{align*}
+    \text{p-value} &= \Pr(Z>z) \\
+    &= \Pr(Z>2.6) \\
+    &= 0.00466.
+    \end{align*}
+\item The p-value is very small; it is smaller than 0.01 which corresponds to the 1\% level of significance $\Rightarrow$ strong evidence against $H_0$.\\[0.2cm]
+    Conclusion: More than 50\% of people prefer the new flavour. Therefore, the company should use this recipe in the future.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+
+
+
+
+
+\end{document} 

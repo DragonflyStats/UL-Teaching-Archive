@@ -1,0 +1,111 @@
+\documentclass[]{article}
+
+\usepackage{framed}
+\usepackage{amsmath}
+\begin{document}
+
+\Large
+
+\section*{MA4104 - Question 2 - Inference Procedures}
+%===============================================================%
+\begin{framed}
+\noindent \textbf{Types of Inference Procedure}
+\begin{enumerate}
+	\item Confidence Intervals
+	\item Hypothesis Testing
+\end{enumerate}
+\end{framed}
+\medskip
+\begin{framed}
+\noindent \textbf{Parameter}
+\begin{enumerate}
+	\item Single-Sample Means
+	\item Difference of Means
+	\item Single-Sample Proportions
+		\item Difference of Proportions
+\end{enumerate}
+\end{framed}
+\medskip
+\begin{framed}
+\noindent \textbf{Types of Sample Size}
+\begin{enumerate}
+	\item Sample Size is usually denoted $n$
+	\item Large Sample ($n>30$)
+	\item Hypothesis Testing
+\end{enumerate}
+\end{framed}
+\newpage
+%==============================================================%
+\subsection*{Part A}The mean hourly wage in an EU country is €10. A sample of 55 individuals in the capital city of the country has a mean hourly wage of €10.83 with a standard deviation of €3.25 per hour.
+
+\begin{itemize}
+\item[(i)] Calculate a 95\% confidence interval for the mean hourly wage in the capital city. Interpret this interval.
+
+\item[(ii)] Test the hypothesis that workers in the capital city earn more than the mean hourly wage for the country using a 5\% level of significance. 
+\end{itemize}
+\textit{Clearly state your null and alternative hypotheses and your conclusion. Give a p-value for this hypothesis test and interpret this p-value.}
+
+%==============================================================%
+\newpage
+\subsection*{Part B}
+\begin{itemize}
+\item A retail business would like to estimate the proportion of gift vouchers sold by the business that expire without being used by the customer. 
+\item The accounts department selects a random sample of 250 gift vouchers from a sales database and finds that 120 expired without being used.
+\end{itemize}
+\noindent \textbf{Questions}
+\begin{itemize}
+\item[(i)] Construct and interpret a 95\% confidence interval for the proportion of gift vouchers that expire without being used.
+
+\item[(ii)] Using your answer to the previous part, is there evidence that at least 40\% of the gift vouchers sold by the business expire without being used?
+\end{itemize}
+\newpage
+%==============================================================%
+\noindent \textbf{Point Estimate}
+\begin{framed}
+	\noindent ...The accounts department selects a \textbf{random sample of 250 gift vouchers} from a sales database and finds that \textbf{120 expired without being used}.
+\end{framed}
+{
+\LARGE \begin{itemize}
+	\item \textbf{Sample Size}: $n=250$
+	\item \textbf{Number of Occurences}: $x=120$
+	\item Therefore the \textbf{Sample Proportion} $\hat{p}$ is given by
+	\[\hat{p} = \frac{x}{n} =  \frac{120}{250} = 0.48 \]
+\end{itemize}
+}
+%-----------------------%
+\smallskip
+\noindent \textbf{Standard Error}\\
+Things to note
+\begin{itemize}
+	\item We are dealing with single sample proportions
+	\item The standard error for confidence intervals is different to the standard error for hypothesis testing, in the case of single sample proportions.
+	\end{itemize}
+\[ S.E.(p)  = \sqrt{\frac{\hat{p} \times (1-\hat{p})}{n}}\]
+%==============================================================%
+\newpage
+\subsection*{Part C} 
+\begin{itemize}
+\item A marketing manager working in a large retail business would like to determine if a text messaging service alerting customers to special offers has been successful in increasing sales. 
+\item The manager selects a random sample of 20 customers from the business’s loyalty card database and computes the amount spent by each customer for the month before and the month after the introduction of the text messaging service. 
+\item The computed mean difference (\textbf{\textit{After - Before}}) for the sample was €29.34 with the standard deviation of the differences was 21.21.
+\end{itemize}
+\noindent \textbf{Question}\\
+Have sales increased following the introduction of the text messaging service? Test this hypothesis using a 5\% significance level.
+
+\newpage
+
+\noindent \textbf{Point Estimate}
+\begin{framed}
+	\noindent ...The manager selects a random sample of 20 customers
+\end{framed}
+\begin{framed}
+	\noindent ...The manager selects a random sample of 20 customers
+\end{framed}
+{
+	\LARGE \begin{itemize}
+		\item \textbf{Sample Size}: $n=20$ (\textbf{SMALL SAMPLE})
+		\item \textbf{Sample Mean}: $\bar{x}=29.34$
+		\item \textbf{Sample Std. Deviation}: $S_{x}=21.21$
+	\end{itemize}
+}
+\end{document}

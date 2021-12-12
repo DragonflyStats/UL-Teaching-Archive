@@ -1,0 +1,201 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.3cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage{color}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\m}{\phantom{-}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------------ Lecture 17 ------------------------------------------ Solutions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-3.45cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{19.7cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 1}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+H_0:&\quad \text{The exponential model fits the data} \\[0.2cm]
+H_a:&\quad \text{The exponential model does not fit the data}
+\end{align*}
+\item \quad \\[-1cm]
+\begin{center}
+\begin{tabular}{|c|cccccc|c|}
+\hline
+&&&&&&&\\[-0.3cm]
+Class & $<$\,3 & 3\,-\,6 & 6\,-\,9 & 9\,-\,12 & 12\,-\,15 & $>$15 & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$o_i$ & 56 & 24 & 12 &  6 &  1 &  1 & 100\\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$p_i$ & 0.577 & 0.244 & 0.103 & 0.044 & 0.018 & 0.014 & \\[0.1cm]
+\hline
+&&&&&&&\\[-0.3cm]
+$100\times p_i = e_i$ & 57.7 & 24.4 & 10.3 & 4.4 & 1.8 & 1.4 & 100 \\[0.1cm]
+\hline
+\multicolumn{8}{c}{}
+\end{tabular}
+\end{center}
+\item We need to combine the last three columns so that all expected frequencies are bigger than 5.
+    \begin{center}
+\begin{tabular}{|c|cccc|c|}
+\hline
+&&&&&\\[-0.3cm]
+Class & $<$\,3 & 3\,-\,6 & 6\,-\,9 & $>$\,9 & $\sum$ \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$o_i$ & 56 & 24 & 12 &  8 & 100\\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$e_i$ & 57.7 & 24.4 & 10.3 & 7.6 & 100 \\[0.1cm]
+\hline
+&&&&&\\[-0.3cm]
+$\frac{(o_i-e_i)^2}{e_i}$ & 0.050 & 0.007 & 0.281 & 0.021 & 0.359 \\[0.1cm]
+\hline
+\multicolumn{6}{c}{}
+\end{tabular}
+\end{center}
+\item There are 4 frequencies in the above table and we estimated $\lambda$ to calculate the exponential probabilities $\Rightarrow$ $\nu = n_f -1 -k = 4 - 1 - 1 = 2$.\\[0.3cm]
+    Thus, for the 5\% level the critical value is $\chi^2_{\,\nu,\,\alpha} = \chi^2_{\,2,\,0.05} = 5.991.$\\[0.1cm]
+\item Since the test statistic $\chi^2 = \sum \frac{(o_i-e_i)^2}{e_i}  =  0.359$ is below the critical value, we accept the null hypothesis.\\[0.3cm]
+    Conclusion: the exponential model fits this data.
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 2}
+\begin{enumerate}[a)]
+\item \quad \\[-1.45cm]
+\begin{align*}
+H_0:&\quad \text{The examiner and grade awarded are \emph{independent}} \\[0.2cm]
+H_a:&\quad \text{The examiner and grade awarded are \emph{dependent}}
+\end{align*}
+\begin{center}
+\begin{tabular}{|c|ccc|c|}
+\hline
+&&&&\\[-0.3cm]
+Observed    & Examiner 1 & Examiner 2 & Examiner 3 & $\sum$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+Grade A     &   9       &   6       &  10       &  25 \\[0.2cm]
+Grade B     &  11       &  20       &  26       &  57 \\[0.2cm]
+Grade C     &  25       &  19       &  74       & 118 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$\sum$        & 45 & 45 & 110 & 200  \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+We need to calculate the expected frequencies using the formula: $e_{ij} = \frac{r_i\times c_j}{\text{total}}$.\\[0.4cm]
+For example, $\frac{25(45)}{200} = 5.625$ corresponds to row one, column one.
+
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+\framebox[1.02\textwidth]{
+\begin{minipage}[t]{0.98\textwidth}
+\subsection*{Question 2 Continued}
+\begin{enumerate}[a)]
+\item The expected frequencies are:
+\begin{center}
+\begin{tabular}{|c|ccc|c|}
+\hline
+&&&&\\[-0.3cm]
+Observed    & Examiner 1 & Examiner 2 & Examiner 3 & $\sum$ \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+Grade A     &  $\tcg{\frac{25(45)}{200}=} 5.625$       &   $\tcg{\frac{25(45)}{200}=} 5.625$       &  $\tcg{\frac{25(110)}{200}=} 13.75$       &  25 \\[0.2cm]
+Grade B     &  $\tcg{\frac{57(45)}{200}=} 12.825$       &   $\tcg{\frac{57(45)}{200}=} 12.825$       &  $\tcg{\frac{57(110)}{200}=} 31.35$       &  57 \\[0.2cm]
+Grade C     &  $\tcg{\frac{118(45)}{200}=} 26.550$       &   $\tcg{\frac{118(45)}{200}=} 26.550$       &  $\tcg{\frac{118(110)}{200}=} 64.90$       & 118 \\[0.1cm]
+\hline
+&&&&\\[-0.3cm]
+$\sum$        & 45 & 45 & 110 & 200  \\[0.1cm]
+\hline
+\multicolumn{5}{c}{}
+\end{tabular}
+\end{center}
+
+To calculate the test statistic we need the following:
+\begin{center}
+\begin{tabular}{|c|ccc|}
+\hline
+&&&\\[-0.3cm]
+$\frac{(o_i-e_i)^2}{e_i}$    & Examiner 1 & Examiner 2 & Examiner 3 \\[0.1cm]
+\hline
+&&&\\[-0.3cm]
+Grade A     &  2.02     &   0.02    &  1.02     \\[0.2cm]
+Grade B     &  0.26     &   4.01    &  0.91     \\[0.2cm]
+Grade C     &  0.09     &   2.15    &  1.28     \\[0.1cm]
+\hline
+\multicolumn{4}{c}{}
+\end{tabular}
+\end{center}
+
+$\Rightarrow$ $\chi^2 = \sum \frac{(o_i-e_i)^2}{e_i} = 11.77$.\\[0.5cm]
+Note that $\nu = (n_r-1)\times(n_c-1) = (3-1)(3-1) = (2)(2) = 4$ and $\alpha = 0.05$ $\Rightarrow$ $\chi^2_{\,4,\,0.05} = 9.488$.\\[0.5cm]
+The test statistic $\chi^2 = 11.77$ lies above the critical value $\chi^2_{\,4,\,0.05} = 9.488$ and, hence, we reject the hypothesis that there is no relationship between the two variables.\\[0.5cm]
+Conclusion: The grade awarded depends on the specific examiner.
+\item The raw difference scores are:
+\begin{center}
+\begin{tabular}{|c|ccc|}
+\hline
+&&&\\[-0.3cm]
+$o_i-e_i$    & Examiner 1 & Examiner 2 & Examiner 3 \\[0.1cm]
+\hline
+&&&\\[-0.3cm]
+Grade A     & $\m3.38$   &  $\m0.38$    & $-3.75$     \\[0.2cm]
+Grade B     & $-1.83$    &  $\m7.17$    & $-5.35$     \\[0.2cm]
+Grade C     & $-1.55$    &  $-7.55$     & $\m9.10$     \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+The main points are:
+\begin{itemize}\itemsep0.3cm
+\item Examiner 1 gives more As than expected but less Bs and Cs.
+\item Examiner 2 gives more Bs than expected but less Cs.
+\item Examiner 3 gives less As and Bs but more Cs.\\[-0.1cm]
+\end{itemize}
+It is better if Examiner 1 or 2 mark the exam.\\
+\end{enumerate}
+\end{minipage}}\vspace{0.03\textwidth}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+

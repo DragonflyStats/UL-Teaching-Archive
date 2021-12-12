@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{changepage}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+
+\setlength{\voffset}{-3cm}
+%\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{26cm}
+%\setlength{\textwidth}{14cm}
+
+
+\begin{document}
+
+\section*{MA4413 Assignment \qquad{\small(10\% of Module)}}
+\noindent\rule{\linewidth}{1pt}
+\quad\\[-0.5cm]
+
+\subsection*{Details}
+\begin{itemize}
+\item This assignment must be your own work. Evidence of copying will result in a score of zero.
+\item The deadline for this assignment is 25/11/2014:
+\begin{itemize}
+\item Hard copy to be submitted during the lecture time.
+\item Electronic copy and \texttt{R} script file containing all code to be submitted using the ``Assignments'' section on sulis.
+\end{itemize}
+%\item A number of students may be randomly selected to discuss their assignment (not in front of the class).
+\item Each student has their own set of data. You will find this in the \mbox{``MA4413-R-Assignment-Datasets''} excel file (row containing your ID).
+\end{itemize}
+\subsection*{Report}
+\begin{itemize}
+\item Results must be accompanied by concise description. Do not waffle.
+\item Your report will be a word document:
+\begin{itemize}
+\item Text size: 12pt.
+\item Main Font: arial, calibri or times new roman.
+\item Font for \texttt{R} output: \texttt{courier}.
+\end{itemize}
+\end{itemize}
+\subsection*{Hypothesis Tests}
+\begin{itemize}
+\item When you see the phrase ``carry out the test'', you are required to:
+\begin{itemize}
+\item carry out the test using \texttt{R};
+\item copy the \texttt{R} output into your report (use \texttt{courier} font);
+\item clearly state the null and alternative hypotheses;
+\item provide conclusion based on the p-values and confidence intervals.
+\end{itemize}
+\end{itemize}
+\subsection*{Independent Research}
+\begin{itemize}
+\item There are two items highlighted as being ``independent research''. These items have not been covered in the lectures; it is up to you to find out how to do them yourself.
+\end{itemize}
+
+\vfill\noindent\rule{\linewidth}{1pt}
+
+
+\newpage
+
+
+\section*{Comparing Two CPU Designs \hfill{\scriptsize \bf (30 marks)}}
+\noindent\rule{\linewidth}{1pt}
+\quad\\[-0.5cm]
+
+A manufacturer of CPUs wants to compare two designs in terms of their typical operating temperature (degrees Celsius). A sample of each type was selected and the temperature was recorded after 1 hour of normal use.\\[0.2cm]
+
+You have been assigned the task of analysing this data. Based on the analysis, you will decide whether or not there is a difference between the two designs and, if there is a difference, state which CPU design is superior (i.e., lower temperature is better).\\[0.2cm]
+
+The measurements for CPU 1 and CPU 2 can be found in the  ``MA4413-R-Assignment-Datasets'' excel file. Each student has their own data. Find the row in the excel file containing your ID.\\[0.2cm]
+
+The marking scheme is as follows:\\
+{\footnotesize(complete the tasks in the order shown below)}
+
+\begin{enumerate}[1)]
+\item[] {\bf Presentation} \hfill{\scriptsize \bf (5 marks)}
+\begin{itemize}
+\item There are 5 marks going for overall presentation of your report.
+\end{itemize}
+\item {\bf Graphical and Numerical Summaries} (Lecs 1 and 2) \hfill{\scriptsize \bf (8 marks)}
+\begin{itemize}
+\item Copy the data into an \texttt{R} script file and name the data vectors \texttt{cpu1} and \text{cpu2} respectively.
+\item Plot histograms for each CPU type. Define the breakpoints in \texttt{hist} yourself so that there are 5 classes that span the data. The code \texttt{seq(min(x), max(x), length=6)} achieves this where \texttt{x} is a vector of data.
+\item Plot the two boxplots on the same graph.
+\item Calculate the mean, standard deviation, quartiles, IQR, minimum and maximum temperature for both CPUs. Present these in a table with two columns - one for each CPU - and round all numbers to two decimal places.
+\item Comment on all of the above output with reference to the shape of the distributions, centre and spread etc. but {\bf do not waffle}. This must be concise and to the point.
+\end{itemize}
+\item {\bf Check for Normality of Data} (Lec 10) \hfill{\scriptsize \bf (4 marks)}
+\begin{itemize}
+\item Use Q-Q plots to determine whether or not the two datasets are approximately normally distributed (also refer to the histograms and boxplots).
+\item \emph{(independent research)} There also exists a hypothesis test of normality called the Shapiro-Wilk test. Carry out this test in \texttt{R}. %Copy the \texttt{R} output into your report, clearly state the null and alternative hypotheses and provide your conclusion based on the p-value {\bf(use statistical language)}.
+    \\[0.3cm]
+\end{itemize}
+\item {\bf Difference Between Population Means} (Lecs 13,14,15,16) \hfill{\scriptsize \bf (9 marks)}
+\begin{itemize}
+\item While the summaries from part (1) above are useful for describing a \emph{sample} of data, we cannot make statements about the \emph{whole population} without constructing confidence intervals and performing hypothesis tests. %In particular, we wish to compare the population means.
+\item Carry out the F-test. %Copy the \texttt{R} output into your report, clearly state the null and alternative hypotheses and provide your conclusion based on the p-value and confidence interval {\bf(use statistical language)}.
+\item Carry out the t-test for two independent samples (assuming equal variances if possible). %Copy the \texttt{R} output into your report, clearly state the null and alternative hypotheses and provide your conclusion based on the p-value and confidence interval  {\bf(use statistical language)}.
+\item \emph{(independent research)} When the samples are small, the t-test requires the assumption that the data is normally distributed. If this is not the case \emph{non-parametric methods} can be used. For comparing two independent groups, the Wilcoxon rank-sum test (also known as the Mann-Whitney U test) can be used. Carry out this test in \texttt{R}.
+    {\footnotesize(note: do not confuse with the Wilcoxon signed-rank test for paired data)}
+\end{itemize}
+\item {\bf Final Summary} \hfill{\scriptsize \bf (4 marks)}
+\begin{itemize}
+\item Briefly summarise the main results of your analysis. Also, provide your final conclusion in non-statistical language. {\bf Do not waffle}. A few key sentences is sufficient (and no more than half a page).
+\end{itemize}
+\end{enumerate}
+
+\noindent\rule{\linewidth}{1pt}
+
+
+%\noindent\rule{\linewidth}{1pt}
+%\quad\\[-0.5cm]
+%
+%
+%
+%\begin{enumerate}[1)]
+%\item {\bf Graphical and Numerical Summaries} (Lecs 1 and 2) \hfill{\scriptsize \bf (8 marks)}
+%\begin{itemize}
+%\item Copy the data into an \texttt{R} script file and name the data vectors \texttt{cpu1} and \text{cpu2} respectively.
+%\end{itemize}
+%\end{enumerate}
+
+
+
+\end{document} 

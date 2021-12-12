@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage[gen]{eurosym}
+
+%\SetBgScale{1}
+%\SetBgAngle{0}
+%\SetBgColor{black}
+%\SetBgContents{\rule{1pt}{30cm}}
+%\SetBgHshift{-8.4cm}
+%
+%\backgroundsetup{contents={
+%\begin{tabular}{c|c}
+%\hspace{2cm} & \\[0.7cm]
+%& {\bf Statistics for Computing ------ Lecture 1 ------ Solutions} \\[0.3cm]
+%%\hline
+%\hspace{2cm} & \hspace{18.5cm} \\ [28cm]
+%\end{tabular}}}
+
+\backgroundsetup{contents={
+{\bf \centering Statistics for Computing ------------------ Tutorial 11 --------------------------- Questions} }}
+
+
+\setlength{\voffset}{-3cm}
+\setlength{\hoffset}{-2cm}
+\setlength{\parindent}{0cm}
+\setlength{\textheight}{27cm}
+\setlength{\textwidth}{17cm}
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\subsection*{Question 1}
+A sample of individuals were randomly assigned one of two diet plans. Over a 6-week period these individuals followed their assigned plan. Their weight loss was recorded at the end of the 6-week period and the results were as follows: \\[-0.2cm]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&&\\[-0.4cm]
+& Plan 1 & Plan 2 \\
+\hline
+&&\\[-0.4cm]
+sample size & 42 & 50 \\
+mean weight loss & 7.1\,\,\,lbs & 5.2\,\,\,lbs \\
+variance & 10.1\,\,\,lbs$^2$ & 16.1\,\,\,lbs$^2$ \\
+\hline
+\multicolumn{3}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+We wish to test the hypothesis that there is no difference between diet plans.\\[0.2cm]
+{\bf(a)} State the null and alternative hypotheses. \quad {\bf(b)} Calculate the test statistic. \quad \\{\bf(c)} Calculate the p-value. \quad {\bf(d)} What is your conclusion?
+
+
+\subsection*{Question 2}
+A company claims that it pays men and women equally. The salaries for some randomly selected employees (in thousands) were recorded and the results were as follows:\\[-0.2cm]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&&\\[-0.4cm]
+& Male & Female \\
+\hline
+&&\\[-0.4cm]
+sample size & 5 & 3 \\
+mean salary & 30.2 & 28.4 \\
+standard deviation & 1.7 & 1.9 \\
+\hline
+\multicolumn{3}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+{\bf(a)} The F-test was carried out and a p-value of 0.7297 was obtained. What does this mean? \quad {\bf(b)} We wish to test the hypothesis that there is no difference between salaries - what are the null and alternative hypotheses? \quad {\bf(c)} If testing at the 10\% level, what is the rejection region? (note your answer to part (a)). \quad {\bf(d)} Is there evidence to suggest gender inequality?
+
+
+
+\subsection*{Question 3}
+A sample of students from two universities was randomly selected. Each student had to complete the same programming task and the time to completion was recorded in each case. The results were as follows: \\[-0.2cm]
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&&\\[-0.4cm]
+& University A & University B \\
+\hline
+&&\\[-0.4cm]
+sample size & 15 & 15 \\
+mean & 12.5\,\,\,hrs & 11.1\,\,\,hrs \\
+variance & 3\,\,\,hrs$^2$ & 1.5\,\,\,hrs$^2$ \\
+\hline
+\multicolumn{3}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+We wish to test the hypothesis that there is no difference between universities at the 5\% level.\\[0.2cm]
+{\bf(a)} State the null and alternative hypotheses. \quad {\bf(b)} If we do \emph{not} assume equal variances, what are the critical values? \quad {\bf(c)} Calculate the test statistic and, hence, provide your conclusion. \quad {\bf(d)} Between what two values does the p-value lie? (note: the p-value cannot be calculated exactly using the t-tables)
+
+
+
+\subsection*{Question 4}
+The government wish to know if there is a difference in the proportions of people living in rural and urban areas in support of a new policy. From a sample of 38 people in rural areas, it was found that 20 support the policy and from a sample of 116 individuals in urban areas, it was found that 70 support the policy. \\[-0.2cm]
+
+{\bf(a)} Test the hypothesis that there is no difference in proportions at the 5\% level.
+
+
+
+\subsection*{Question 5}
+A sample of 100 individuals were asked which product they prefer and the results were as follows:  \\[-0.2cm]
+\begin{center}
+\begin{tabular}{|c|ccccc|c|}
+\hline
+&&&&&&\\[-0.3cm]
+ & Product 1 & Product 2 & Product 3 & Product 4 & Product 5 & $\sum$ \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+Frequency & 19 & 24 & 24 & 14 & 19 & 100\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+{\bf(a)} If there was no difference between products, what would the expected frequencies be? \quad \\{\bf(b)} Test the hypothesis that the observed matches the expected \mbox{(use $\alpha=0.05$)}.
+
+
+
+\subsection*{Question 6}
+We wish to test the hypothesis that the following sample has come from a normal distribution: \\[-0.2cm]
+\begin{center}
+\begin{tabular}{|c|cccccccc|c|}
+\hline
+&&&&&&&&&\\[-0.3cm]
+$x$ & $ < 5$ & $5\!-\!7$ & $7\!-\!9$ & $9\!-\!11$ & $11\!-\!13$ & $13\!-\!15$ &  $15\!-\!17$ & $> 17$ & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&&&\\[-0.3cm]
+Frequency & 3 & 10 & 23 & 62 & 39 & 14 &  6 &  3 & 160\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+where the mean and standard deviation were also calculated: $\bar x = 10.4$ and $s = 2.5$. With these estimates for $\mu$ and $\sigma$ it is easy to calculate the following probabilities (normal tables):
+\begin{center}
+\begin{tabular}{|c|cccccccc|c|}
+\hline
+&&&&&&&&&\\[-0.3cm]
+$x$ & $ < 5$ & $5\!-\!7$ & $7\!-\!9$ & $9\!-\!11$ & $11\!-\!13$ & $13\!-\!15$ &  $15\!-\!17$ & $> 17$ & $\sum$ \\[0.1cm]
+\hline
+&&&&&&&&&\\[-0.3cm]
+$p_i$ &  0.015 & 0.072 & 0.201 & 0.307 & 0.256 & 0.116 & 0.029 & 0.004 & 1.00\\[0.1cm]
+\hline
+\multicolumn{7}{c}{}\\[-0.3cm]
+\end{tabular}
+\end{center}
+
+{\bf(a)} Calculate the expected frequencies (group classes where $e_i < 5$). \quad {\bf(b)} Calculate the test statistic. \quad {\bf(c)} Can we reject the hypothesis that the 5\% level? \quad {\bf(c)} Between what two values does the p-value lie?
+
+
+
+\subsection*{Question 7}
+One hundred computer science graduates from each of three different universities were asked how many programming languages they are competent in. The results were as follows:
+\begin{center}
+\begin{tabular}{|cc|cccc|c|}
+\hline
+&&&&&&\\[-0.3cm]
+&& \multicolumn{4}{c|}{Languages} & $\sum$ \\
+                    && 1 & 2 & 3 & 4+ & \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+\multirow{3}{*}{University}
+& A     &   16 & 38 & 39 &  7 & 100 \\[0.2cm]
+& B     &   18 & 29 & 41 & 12 & 100 \\[0.2cm]
+& C     &   28 & 31 & 38 &  3 & 100 \\[0.1cm]
+\hline
+&&&&&&\\[-0.3cm]
+& $\sum$&   62 & 98 & 118& 22 & 300  \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+{\bf(a)} Calculate the expected frequencies assuming independence of the two variables. \quad \\{\bf(b)} Calculate the $\chi^2$ statistic and, hence, a range within which the p-value lies. \quad \\ {\bf(c)} What is your conclusion? \quad {\bf(d)} Calculate the raw difference scores ($o_i - e_i$) and comment.
+
+
+
+
+
+
+
+
+\end{document} 

@@ -1,0 +1,754 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    %\insertframenumber{} / \insertpresentationendpage
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+{ % only on titlepage
+
+
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{multirow}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{enumerate}
+%\usepackage{pgfpages}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage{etex}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1}[border shrink=1mm]
+
+
+
+
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\definecolor{green2}{RGB}{51,204,51}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcgr}{\textcolor{green2}}
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\tcw}{\textcolor{white}}
+\newcommand{\m}{\phantom{-}}
+\newcommand{\bp}{\tcbb{$\bullet$}\:}
+
+
+\title{{\huge Statistics for Computing\\[0.1cm]MA4413}}
+\author[Kevin Burke]{{\bf\\[0.5cm]{\huge Lecture 7}\\[0.2cm]\emph{Bernoulli Trials and the Binomial Distribution}\\[1.4cm]Kevin Burke}\\[0.3cm]\tcb{kevin.burke@ul.ie}}
+
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+%\TPGrid[5mm,5mm]{1}{1}
+
+\begin{document}
+
+
+\begin{frame}[t]
+\titlepage
+\end{frame}
+
+\section{Bernoulli Distribution}
+\subsection{Bernoulli Trials}
+\begin{frame}{\bf \tcb{Bernoulli Trials}}
+
+Many experiments only have \emph{two} possible outcomes, i.e., where some event either happens or it does not happen:\\[0.2cm]
+\begin{itemize}\itemsep0.3cm
+\item $\{\text{Windows user,\,\, Non-Windows user}\}$.
+\item $\{\text{In favour,\,\, Not in favour}\}$ (of a government policy for example).
+\item $\{\text{Head,\,\, Tail}\}$ - flipping a coin.
+\item $\{\text{Die shows a six,\,\, Die does not show a six}\}$.
+\item $\{\text{Component is defective,\,\, Component is non-defective}\}$.
+\item $\{\text{Individual on time for work,\,\, Individual not on time}\}$.\\[0.4cm]
+\end{itemize}
+
+Such an experiment is called a {\bf Bernoulli trial}.
+
+\end{frame}
+
+
+\subsection{Bernoulli Trials}
+\begin{frame}{\bf \tcb{Bernoulli Trials}}
+
+Clearly these variables are \emph{categorical} but we can code them using a \emph{binary random variable} $X$ where\\[0.1cm]
+\begin{itemize}\itemsep0.3cm
+\item $X = 1$ means the event has occurred.
+\item $X = 0$ means the event has \emph{not} occurred.\\[0.6cm]
+\end{itemize}
+
+Thus,\\[0.1cm]
+\begin{itemize}\itemsep0.3cm
+\item $\Pr(X=1)$: probability that event occurs.
+\item $\Pr(X=0) = 1 - \Pr(X=1)$: probability that event does \emph{not} occur.\\[0.4cm]
+\end{itemize}
+
+%Consider the experiment of inspecting a mechanical component where $X=1$ represents ``component faulty''. \\[0.2cm] $\Pr(X=1)$ is the probability that it \emph{is} faulty and $\Pr(X=0) = 1 - \Pr(X=1)$ is the probability that it \emph{is not} faulty.
+
+\end{frame}
+
+
+
+
+
+
+\subsection{Bernoulli Distribution}
+\begin{frame}{\bf \tcb{Bernoulli Distribution}}
+
+For simplicity we let $p$ represent the probability that the event occurs and, hence, $1-p$ is the probability that it does not.\\[0.8cm]
+
+The \emph{probability distribution} is:\\[0.1cm]
+\begin{center}
+\begin{tabular}{|c|cc|}
+\hline
+&&\\[-0.4cm]
+x & 1 & 0 \\
+\hline
+&&\\[-0.4cm]
+$\Pr(X=x)$ & $p$ & $1-p$ \\[0.1cm]
+\hline
+\multicolumn{3}{c}{}\\
+\end{tabular}
+\end{center}
+This is known as the {\bf Bernoulli distribution}.
+
+\end{frame}
+
+
+
+
+\subsection{Bernoulli Distribution}
+\begin{frame}{\bf \tcb{Bernoulli Distribution}}
+Note that the \emph{probability function} can be written as
+\begin{align*}
+\Pr(X=x) = p^x\,(1-p)^{1-x}.\\
+\end{align*}
+
+We can check that this works:
+\begin{align*}
+\Pr(X=1) \,\,\,&= \,\,\,p^1\,(1-p)^{1-1} \,\,\,=\,\,\, p^1\,(1-p)^{0} \,\,\,=\,\,\, p. \qquad{\LARGE\tcb{\checkmark}}\\[0.3cm]
+\Pr(X=0) \,\,\,&=\,\,\, p^0\,(1-p)^{1-0} \,\,\,=\,\,\, p^0\,(1-p)^{1} \,\,\,=\,\,\, 1-p. \qquad{\LARGE\tcb{\checkmark}}
+\end{align*}
+
+
+
+\end{frame}
+
+
+
+\subsection{Bernoulli Distribution}
+\begin{frame}{\bf \tcb{Bernoulli Distribution}}
+
+We can calculate:
+\begin{align*}
+E(X) &= 1 \times p \,+\, 0 \times (1-p) = p. \\[0.6cm]
+E(X^2) &= 1^2 \times p \,+\, 0^2 \times (1-p) = p. \\[0.6cm]
+Var(X) &= E(X^2) - [E(X)]^2 = p - p^2 = p\,(1-p).\\[0.6cm]
+Sd(X) &= \sqrt{Var(X)} = \sqrt{p\,(1-p)}.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Bernoulli Distribution}
+\begin{frame}{\bf \tcb{Bernoulli Distribution}}
+
+The Bernoulli distribution is summarised via the following key formulae:
+\begin{align*}
+\boxed{X \sim \text{Bernoulli}(p)}
+\end{align*}
+{\footnotesize(this means ``the random variable $X$ has a Bernoulli distribution with parameter $p$'')}
+\begin{align*}
+\boxed{\Pr(X = x) = p^x \, (1-p)^{1-x}}\\[-1cm]
+\end{align*}
+\begin{align*}
+\text{where } \boxed{x \in \{0,1\}}
+\end{align*}
+\begin{align*}
+\boxed{E(X) = p}
+\end{align*}
+\begin{align*}
+\boxed{Var(X) = p\,(1-p)}
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Defective Components}
+\begin{frame}{\bf \tcb{Example: Defective Components}}
+
+Consider the experiment of inspecting resistors produced in a factory.\\[0.7cm]
+
+Let's assume that the \emph{true} proportion of defective units is 1\%, i.e., the probability of defect is $p = 0.01$.\\[0.7cm]
+
+Selecting a resistor randomly from the line for inspection leads to a \emph{Bernoulli trial} with $\Pr(X=1) = 0.01$ and  $\Pr(X=0) = 0.99$.\\[0.3cm]
+$\Rightarrow \Pr(X=x) = 0.01^x \, 0.99^{1-x}$.\\[0.7cm]
+
+The \emph{expected value} is $E(X) = p = 0.01$ $\Rightarrow$ if this experiment is repeated a large number of times, we expect that 1\% of units tested would be defective.
+
+\end{frame}
+
+
+
+
+
+
+\subsection{Proportions: Hypothesis Testing}
+\begin{frame}{\bf \tcb{Proportions: Hypothesis Testing}}
+
+Rarely do we know the \emph{true} proportion $p$.\\[0.5cm]
+
+However, we may \emph{hypothesise} something about its value, e.g., we might assume that $p = 0.4$.\\[0.5cm]
+
+We can \emph{estimate} $p$ using a sample (as discussed in Lecture1) which gives us $\hat p$.\\[0.5cm]
+
+If $\hat p$ is close to 0.4, then we could conclude that the true value of $p$ is as we \emph{hypothesised}.\\[0.5cm]
+
+Using Bernoulli distribution theory (just covered) and the \emph{central limit theorem} (still to come) we can test this formally.
+
+\end{frame}
+
+
+\section{Binomial Distribution}
+\subsection{Independent Bernoulli Trials}
+\begin{frame}{\bf \tcb{Independent Bernoulli Trials}}
+Consider the experiment of\\[0.2cm]
+\begin{itemize}\itemsep0.4cm
+\item carrying out $n$ Bernoulli trials\\[0.4cm]
+\emph{where}
+\item the probability of the event occurring, $p$, is the same in each trial \\[0.4cm]
+\emph{and}
+\item the result of each trial is independent of the other trials.\\[0.5cm]
+\end{itemize}
+
+We can calculate the probability of a particular number of events occurring using the {\bf Binomial distribution}, e.g., $5$ events in $20$ trials, more than $3$ events in 7 trials, no events in $100$ trials etc.
+
+\end{frame}
+
+
+\subsection{Example: Biased Coin}
+\begin{frame}{\bf \tcb{Example: Biased Coin}}
+Consider flipping a \emph{biased} coin where the $\Pr(\text{``coin shows head''}) = 0.1$ and let $X = 1$ represent a head showing.\\[0.3cm]
+
+Clearly this is a Bernoulli trial with $p = 0.1$.\\[0.8cm]
+
+If we flipped the coin 4 times, we might enquire about the probability of getting the sequence $HTTT = 1000$.\\[0.6cm]
+
+By independence of the trials, we can multiply probabilities:
+\begin{align*}
+\Pr(1000) = p(1)\,p(0)\,p(0)\,p(0) = 0.1\times0.9\times0.9\times0.9 = (0.1^1)\,(0.9^3).
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Biased Coin}
+\begin{frame}{\bf \tcb{Example: Biased Coin}}
+What if we didn't specify the order? We wish to know the probability of obtaining one head.\\[0.3cm]
+
+In this case there are \emph{four} possibilities $\{1000,0100,0010,0001\}$.\\[-0.1cm]
+\begin{align*}
+\Rightarrow \Pr(&\text{``one head''}) \\
+&= \Pr(1000) + \Pr(0100) + \Pr(0010) + \Pr(0001) \\[0.4cm]
+&=0.1(0.9)(0.9)(0.9) + 0.9(0.1)(0.9)(0.9) + \\
+&\qquad\qquad\qquad0.9(0.9)(0.1)(0.9) + 0.9(0.9)(0.9)(0.1) \\[0.4cm]
+&= (0.1^1)\,(0.9^3) + (0.1^1)\,(0.9^3) + (0.1^1)\,(0.9^3) + (0.1^1)\,(0.9^3)\\[0.4cm]
+&= 4 \times (0.1^1)\, (0.9^3) = 0.2916.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Biased Coin}
+\begin{frame}{\bf \tcb{Example: Biased Coin}}
+Similarly, if we wish to work out the probability of two heads, there are \emph{six} possibilities $\{1100,1010,1001,0110,0101,0011\}$.
+\begin{align*}
+\Rightarrow \Pr(\text{``two heads''}) &= 6 \times (0.1^2)\,(0.9^2) =0.0486.\\[-0.2cm]
+\end{align*}
+
+Clearly it can be quite tedious to list various outcomes.
+Recall that using the \emph{choose operator} makes things easier (Lecture5).\\[0.7cm]
+
+In the case of 2 heads above, we have 4 available positions and wish to place a ``1'' in 2 of these positions, i.e., we must \emph{choose} 2 positions from 4 $\Rightarrow$ $\binom{4}{2} =6$ possibilities (the 0s go in the remaining positions).
+
+\end{frame}
+
+
+\subsection{Example: Biased Coin}
+\begin{frame}{\bf \tcb{Example: Biased Coin}}
+Letting $X =$ ``the number of heads'', we have
+\begin{align*}
+\Pr(X=0) &= \binom{4}{0} \times (0.1^0) \, (0.9^4) = 1\,(1)(0.9^4) = 0.6561.\\[0.2cm]
+\Pr(X=1) &= \binom{4}{1} \times (0.1^1) \, (0.9^3) = 4\,(0.1^1)(0.9^3) = 0.2916.\\[0.2cm]
+\Pr(X=2) &= \binom{4}{2} \times (0.1^2) \, (0.9^2) = 6\,(0.1^2)(0.9^2) = 0.0486.\\[0.2cm]
+\Pr(X=3) &= \binom{4}{3} \times (0.1^3) \, (0.9^1) = 4\,(0.1^3)(0.9^1) = 0.0036.\\[0.2cm]
+\Pr(X=4) &= \binom{4}{4} \times (0.1^4) \, (0.9^0) = 1\,(0.1^4)(1) = 0.0001.
+\end{align*}
+This is the probability distribution for $X$. Note that $\sum p(x) = 1$.
+\end{frame}
+
+
+\subsection{Example: Biased Coin}
+\begin{frame}{\bf \tcb{Example: Biased Coin}}
+The information on the previous slide can be summarised via the \emph{probability function}:\\[-0.5cm]
+\begin{align*}
+p(x) = \Pr(X=x) = \binom{4}{x} \, 0.1^x \,\, 0.9^{4-x}.
+\end{align*}
+{\footnotesize(check: substitute different values of $x$ into the above formula)}\\[0.8cm]
+
+More generally, for $n$ trials:
+\begin{align*}
+p(x) = \Pr(X=x) = \binom{n}{x} \, 0.1^x \,\, 0.9^{n-x}.\\
+\end{align*}
+
+More generally still, for any value of $p$:
+\begin{align*}
+p(x) = \Pr(X=x) = \binom{n}{x} \, p^x \,\, (1-p)^{n-x}.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Binomial Distribution}
+\begin{frame}{\bf \tcb{Binomial Distribution}}
+The {\bf Binomial distribution} is used for calculating the probability of $x$ events in $n$ independent Bernoulli trials:
+\begin{align*}
+\boxed{X \sim \text{Binomial}(n,p)}
+\end{align*}
+\begin{align*}
+\boxed{\Pr(X = x) = \binom{n}{x} p^x \, (1-p)^{n-x}}\\[-1cm]
+\end{align*}
+\begin{align*}
+\text{where } \boxed{x \in \{0,1,2,\ldots,n\}}
+\end{align*}
+\begin{align*}
+\boxed{E(X) = n\,p}
+\end{align*}
+\begin{align*}
+\boxed{Var(X) = n\,p\,(1-p)}\\[-0.5cm]
+\end{align*}
+
+{\footnotesize(the derivation of the $E(X)$ and $Var(X)$ formulae is beyond the scope of this course)}
+
+\end{frame}
+
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}
+Let's assume that 5\% of all resistors manufactured by a particular company are defective. We purchase 20 resistors from this manufacturer.\\[0.2cm]
+
+Let $X= $ the number of faulty resistors received.\\[0.4cm]
+
+It is clear that $X \sim \text{Binomial}(n=20, p=0.05)$.\\[-0.2cm]
+\begin{align*}
+\Rightarrow \Pr(X=x) = \binom{n}{x}\,p^x\,(1-p)^{n-x} = \binom{20}{x}\,(0.05^x)\,(0.95^{20-x}).\\
+\end{align*}
+We simply plug in values for $x$ into this formula to work out the probability of receiving that many defective resistors.
+
+\end{frame}
+
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}\label{binexample}
+
+What is the probability that we receive:\\[0.5cm]
+
+\ldots No defective resistors?
+\begin{align*}
+\Pr(X=0) = \binom{20}{0}\,(0.05^0)\,(0.95^{20-0}) = 1\,(1)\,(0.95^{20}) = 0.3585.\\
+\end{align*}
+
+\ldots At least one defective resistor?
+\begin{align*}
+\Pr(X\ge1) = 1 - \Pr(X=0) = 1 - 0.358 = 0.6415.\\
+\end{align*}
+
+\ldots Three defective resistors?
+\begin{align*}
+\Pr(X=3) = \binom{20}{3}\,(0.05^{3})\,(0.95^{20-3}) = 1140\,(0.05^{3})\,(0.95^{17}) = 0.0596.\\
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}
+
+What is the probability of receiving \emph{more than one} defective resistor?\\[0.5cm]
+Since these are \emph{discrete} values ``more than one'' means ``two or more'':
+\begin{align*}
+\Pr(X>1) = \Pr(X\ge2) = p(2) + p(3) + \ldots + p(19) + p(20).\\[-0.3cm]
+\end{align*}
+
+We could sum all of the above probabilities but this is quite tedious. It is easier if we use the \emph{complement rule}.\\[-0.2cm]
+\begin{align*}
+\Rightarrow &\Pr(X>1) = 1-\Pr(X\le1) \\&= 1 - [\,p(0) + p(1)\,] \\[0.3cm]
+&= 1 - \left[\binom{20}{0}\,(0.05^{0})\,(0.95^{20}) +  \binom{20}{1}\,(0.05^{1})\,(0.95^{19}) \right]\\[0.3cm]
+&= 1 - (0.3585 +  0.3774)\,\,\, =\,\,\,  1 - 0.7359 \,\,\,=\,\,\, 0.2641.\\
+\end{align*}
+
+
+\end{frame}
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}\label{binexampleran}
+
+What is the probability of receiving \emph{between two and four} defective resistors?
+\begin{align*}
+\Pr(2\le X \le 4) &= p(2) + p(3) + p(4).\\[0.3cm]
+&= \binom{20}{2}\,(0.05^{2})\,(0.95^{18}) + \binom{20}{3}\,(0.05^{3})\,(0.95^{17}) + \\ &\qquad\qquad\qquad\binom{20}{4}\,(0.05^{4})\,(0.95^{16})\\[0.3cm]
+&= 0.1887 + 0.0596 + 0.0133 \\[0.2cm]
+&= 0.2616.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}
+
+How many defective resistors will we receive on average?\\
+(per shipment of 20 resistors)
+\begin{align*}
+E(X) = n\,p = 20 (0.05) = 1 \text{ resistor}.\\
+\end{align*}
+
+What is the standard deviation?
+\begin{align*}
+Var(X) &= n\,p(1-p) = 20 (0.05) (0.95) = 0.95 \text{ resistors$^2$}. \\[0.3cm]
+\Rightarrow Sd(X) &= \sqrt{Var(X)} = \sqrt{0.95} = 0.97 \text{ resistors}.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+
+Let's assume that 10\%  of resistors produced by another company are defective. Assume again that we purchase 20 resistors. Let $X$ represent the number of defective resistors received. What is the probability of receiving:\\[0.2cm]
+
+\begin{enumerate}[a)]\itemsep0.2cm
+\item Two defective resistors.
+\item No defective resistors.
+\item Less than four defective resistors.
+\item Two or more defective resistors.
+\item How many defective resistors will we receive on average?
+\item Calculate $Sd(X)$?
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+\section{Binomial Tables}
+\subsection{Binomial Tables}
+\begin{frame}{\bf \tcb{Binomial Tables}}
+The {\bf binomial tables} are very useful for calculating binomial probabilities quickly.\\[1cm]
+
+In particular, {\bf ``greater than or equal to''} probabilities are tabulated:
+\begin{align*}
+\boxed{\Pr(X \ge r)}
+\end{align*}
+where $r$ is the value in question.\\[1cm]
+
+We select the appropriate binomial distribution by finding $p$ in the column headings and $n$ in the row headings.
+
+\end{frame}
+
+
+\subsection{Limitation of Binomial Tables}
+\begin{frame}{\bf \tcb{Limitation of Binomial Tables}}
+
+The tables do not show \emph{all} possible binomial distributions (obviously - since there are an infinite number of $n$-$p$ combinations).\\[0.7cm]
+
+The tables can be used for binomial distributions with:\\[0.4cm]
+$n = \{2, 5, 10, 20, 50, 100\}$ \quad \emph{(see rows)}\\[0.4cm]
+and\\[0.4cm]
+$p = \{0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,$\\[-0.3cm]\quad\newline
+\phantom{$p = \{$}$0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50\}$ \,\, \emph{(see columns)}
+
+\end{frame}
+
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}
+Recall that in the defective resistors example $X \sim \text{Binomial}(n=20, p=0.05)$.\\[0.4cm]
+This binomial distribution \emph{does} appear in the tables. \\[1cm]
+
+
+$\Rightarrow$ We can find all of the probabilities again but now using the tables.\\[1cm]
+
+The key thing when using the tables is that we must rework the question in terms of {\bf greater than or equal to} probabilities.
+
+\end{frame}
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}
+
+\ldots No defective resistors? We need $Pr(X=0)$. Note that:\\[0.5cm]
+
+\begin{center}
+\begin{tabular}{rl@{\,}l@{\,}l@{\,}l@{\,}l@{\,}l}
+$\Pr(X \ge 0) =$ & $p(0)\,+$ & $p(1)\,+$ & $p(2)\,+$ & $\ldots\,+$ & $p(19)\,+$ & $p(20)$ \\[0.1cm]
+$\Pr(X \ge 1) =$ &           & $p(1)\,+$ & $p(2)\,+$ & $\ldots\,+$ & $p(19)\,+$ & $p(20)$ \\[0.1cm]
+\hline
+&&&&&&\\[-0.4cm]
+$\Pr(X \ge 0) - \Pr(X \ge 1) =$ & $p(0)$ &&&&&\\[0.1cm]
+\end{tabular}
+\end{center}
+{\footnotesize(think of this as using $\Pr(X \ge 1)$ to ``chop off'' all unwanted probabilities from $\Pr(X \ge 0)$ leaving $p(0)$ as required}\\
+
+\begin{align*}
+\Rightarrow \Pr(X=0) = \Pr(X \ge 0) - \Pr(X \ge 1) = 1.0000 - 0.6415 = 0.3585.
+\end{align*}
+
+The probabilities $\Pr(X \ge 0) = 1.0000$ and $\Pr(X \ge 1) = 0.6415$ were found in column $p = 0.05$, row $n = 20$.
+\end{frame}
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}\label{binexampletab}
+\ldots At least one defective resistor?\\[0.6cm]
+This is $\Pr(X\ge1)$ which is already a greater than or equal to probability $\Rightarrow$ look it up directly:\\[-0.7cm]
+\begin{align*}
+\Pr(X\ge1) = 0.6415.\\[0.2cm]
+\end{align*}
+
+\ldots Three defective resistors?\\[0.6cm]
+From $\Pr(X\ge3)$ we subtract $\Pr(X\ge4)$ to chop off all but $\Pr(X=3)$:\\[-0.3cm]
+\begin{align*}
+\Pr(X=3) = \Pr(X\ge3) - \Pr(X\ge4) = 0.0755 - 0.0159 = 0.0596.\\
+\end{align*}
+
+
+\end{frame}
+
+
+
+
+\subsection{Example: Defective Resistors}
+\begin{frame}{\bf \tcb{Example: Defective Resistors}}
+What is the probability of receiving \emph{more than one} defective resistors?
+\begin{align*}
+\Pr(X>1) = \Pr(X\ge2) = 0.2642.\\
+\end{align*}
+
+What is the probability of receiving \emph{between two and four} defective resistors?
+\begin{align*}
+\Pr(2\le X \le 4) &= \Pr(X\ge2) - \Pr(X\ge5) = 0.2642 - 0.0026 = 0.2616.\\
+\end{align*}
+
+Check that the answers are the same as those found using the probability function.
+\end{frame}
+
+
+
+\subsection{Question 2}
+\begin{frame}{\bf \tcb{Question 2}}
+
+Assume that $X =$ the number of defective resistors where $X \sim \text{Binomial}(n=20,p=0.1)$.\\[0.3cm]
+Using the binomial tables, calculate the probability of:\\[0.2cm]
+
+\begin{enumerate}[a)]\itemsep0.2cm
+\item Two defective resistors.
+\item No defective resistors.
+\item Less than four defective resistors.
+\item Two or more defective resistors.\\[0.8cm]
+\end{enumerate}
+
+Note: you calculated these in Question 1 using the \emph{formula} for the probability function.
+
+\end{frame}
+
+
+
+\section{R Code}
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+R has various probability distributions built in. The function $\boxed{\text{\texttt{dbinom(x,size,prob)}}}$ is $\Pr(X=x) = \binom{n}{x}\,p^x\,(1-p)^{n-x}$ where \texttt{size} is $n$ and \texttt{prob} is $p$.\\[0.4cm]
+\begin{tabular}{|l|}
+\hline
+For example: \\[0.2cm]
+\texttt{dbinom(0,size=20,prob=0.05)} \\
+gives \texttt{0.3584859}\\[0.2cm]
+and\\[0.2cm]
+\texttt{dbinom(3,size=20,prob=0.05)} \\
+gives \texttt{0.05958215}\\
+\hline
+\multicolumn{1}{c}{}\\[0.1cm]
+\end{tabular}
+
+Compare these with the values calculated previously on slide \pageref{binexample}.
+\end{frame}
+
+
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+We evaluate a range of probabilities at once.\\[0.4cm]
+\begin{tabular}{|l|}
+\hline
+For example:\\[0.2cm]
+\texttt{dbinom(2:4,size=20,prob=0.05)} \\
+gives \texttt{0.18867680 0.05958215 0.01332759}.\\[0.4cm]
+We can also \texttt{sum} these:\\[0.1cm]
+\texttt{sum(dbinom(2:4,size=20,prob=0.05))} \\
+which gives \texttt{0.2615865}\\
+\hline
+\multicolumn{1}{c}{}\\[0.1cm]
+\end{tabular}
+
+Compare this with slide \pageref{binexampleran}.
+\end{frame}
+
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+\emph{Greater than} probabilities, i.e., $\Pr(X > x)$, can be calculated using the $\boxed{\text{\texttt{pbinom}}}$ function.\\[0.4cm]
+It is important to note that this differs from the binomial tables which (as we saw) provide \emph{greater than or equal to} probabilities.\\[0.4cm]
+
+\begin{tabular}{|l|}
+\hline
+For example:\\[0.1cm]
+\texttt{pbinom(0,size=20,prob=0.05,lower=F)} \\
+gives \texttt{0.6415141} which is $\Pr(X > 0) = \Pr(X \ge 1)$.\\[0.2cm]
+\texttt{pbinom(2,size=20,prob=0.05,lower=F)} \\
+gives \texttt{0.07548367} which is $\Pr(X > 2) = \Pr(X \ge 3)$.\\[0.2cm]
+\texttt{pbinom(3,size=20,prob=0.05,lower=F)} \\
+gives \texttt{0.01590153} which is $\Pr(X > 3) = \Pr(X \ge 4)$.\\
+\hline
+\multicolumn{1}{c}{}\\[0.0cm]
+\end{tabular}
+
+Compare this with slide \pageref{binexampletab}.
+\end{frame}
+
+
+
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+We can \emph{generate} binomial random variables using $\boxed{\text{\texttt{rbinom}}}$.\\[0.5cm]
+
+\begin{tabular}{|l|}
+\hline
+For example:\\[0.2cm]
+\texttt{rbinom(100,size=20,prob=0.05)} \\
+generates 100 binomial variables from the\\
+Binomial$(n=20,p=0.05)$ distribution.\\
+\hline
+\multicolumn{1}{c}{}\\[0.2cm]
+\end{tabular}
+
+This represents getting 100 shipments of 20 resistors and counting the number of defective resistors in the first shipment, second, third etc.
+
+\end{frame}
+
+
+
+\subsection{R Code}
+\begin{frame}{\bf \tcb{R Code}}
+Since the Bernoulli distribution is a binomial with $n=1$ we can generate Bernoulli variables (i.e., binary random variables) by setting \texttt{size = 1}.\\[0.4cm]
+
+\begin{tabular}{|l|}
+\hline
+For example:\\[0.2cm]
+\texttt{rbinom(250,size=1,prob=0.1)} \\
+generates 250 binary variables where the probability\\
+of getting a 1 is 0.1.\\
+\hline
+\multicolumn{1}{c}{}\\[0.0cm]
+\end{tabular}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+%\section{Poisson Approximation}
+%\subsection{Poisson Approximation}
+%\begin{frame}{\bf \tcb{Poisson Approximation}}
+%
+%\end{frame}
+%
+%
+%
+%
+
+
+
+
+
+
+
+
+
+
+\end{document} 

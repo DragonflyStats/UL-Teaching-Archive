@@ -1,0 +1,655 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    %\insertframenumber{} / \insertpresentationendpage
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+{ % only on titlepage
+
+
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{multirow}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{enumerate}
+%\usepackage{pgfpages}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage{etex}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1}[border shrink=1mm]
+
+
+
+
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\definecolor{green2}{RGB}{51,204,51}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcgr}{\textcolor{green2}}
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\tcw}{\textcolor{white}}
+\newcommand{\m}{\phantom{-}}
+\newcommand{\bp}{\tcbb{$\bullet$}\:}
+
+
+\title{{\huge Statistics for Computing\\[0.1cm]MA4413}}
+\author[Kevin Burke]{{\bf\\[0.5cm]{\huge Lecture 6}\\[0.2cm]\emph{Random Variables, Expected Value and Variance}\\[1.4cm]Kevin Burke}\\[0.3cm]\tcb{kevin.burke@ul.ie}}
+
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+%\TPGrid[5mm,5mm]{1}{1}
+
+\begin{document}
+
+
+\begin{frame}[t]
+\titlepage
+\end{frame}
+
+\section{Random Variables}
+\subsection{Random Variables}
+\begin{frame}{\bf \tcb{Random Variables}}
+
+%You should be familiar with the concept of a \emph{variable} from programming, e.g., defining an integer variable and assigning it a value.\\[0.5cm]
+
+In probability theory, a {\bf random variable} is a \emph{numerical} quantity whose value is determined by an \emph{experiment}.\\[1.2cm]
+
+%Its value is derived from the outcomes of the experiment.\\[0.4cm]
+
+For example, consider the experiment of flipping two coins.\\[0.2cm]
+
+Now define a \emph{random variable} $X =$ ``the number of heads'' whose value will clearly be 0, 1 or 2 heads:\\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+&&&&\\[-0.4cm]
+Outcome  & $HH$ & $HT$ & $TH$ & $TT$ \\
+\hline
+&&&&\\[-0.4cm]
+Value assigned to $X$ & 2 & 1 & 1 & 0 \\
+\hline
+%\multicolumn{5}{c}{}\\
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\subsection{Distribution of a Random Variable}
+\begin{frame}{\bf \tcb{Distribution of a Random Variable}}
+
+The {\bf probability distribution} of $X$ is:
+
+\begin{center}
+\begin{tabular}{|c|ccc|}
+\hline
+&&&\\[-0.4cm]
+x & 0 & 1 & 2 \\
+\hline
+&&&\\[-0.4cm]
+$\Pr(X=x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$\\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+This describes how likely each of the values are, i.e., how the probability gets \emph{distributed} to each possible value of $X$.\\[0.7cm]
+
+Note that upper case $X$ denotes the random variable whereas lower case $x$ represents a specific value.\\[0.2cm]
+$\Pr(X=x)$ means \emph{``the probability that the random variable $X$ attains the specific value $x$''} where $x \in \{0, 1, 2\}$, e.g., $\Pr(X=0) = \frac{1}{4}.$
+\end{frame}
+
+
+
+\subsection{Probability Function}
+\begin{frame}{\bf \tcb{Probability Function}}
+
+$\Pr(X = x)$ is called the {\bf probability function} - it maps each value of $X$ to a probability value.\\[0.4cm]
+This is often shortened to $\boxed{p(x)}$ - pronounced ``p\,-\,of\,-\,x''.\\[0.4cm]
+
+The probability values of this function \emph{must} sum to one:
+\begin{align*}
+\boxed{\sum p(x_i) = 1}.\\
+\end{align*}
+
+In the previous example, $p(0) = \frac{1}{4}$, $p(1) = \frac{1}{2}$ and $p(2) = \frac{1}{4}$.\\[0.1cm]
+$\Rightarrow$ $p(0) + p(1) + p(2) = 1$.
+
+\end{frame}
+
+
+
+\subsection{Random Variable Vs Event}
+\begin{frame}{\bf \tcb{Random Variable Vs Event}}
+
+Previously we encountered \emph{events} - \emph{not} the same as \emph{random variables}.\\[0.4cm]
+
+For the sake of clarity consider:\\[-0.1cm]
+\begin{enumerate}[1.]\itemsep0.4cm
+\item The event $A = $ ``two heads showing''.\\[-0.05cm]
+\begin{itemize}\itemsep0.2cm
+\item An \emph{event} which either occurs or does not occur following the experiment.
+\item It refers to \emph{one} specific event; we can calculate $\Pr(A)$.
+\end{itemize}
+\item The random variable $X = $ ``the number of heads''.\\[-0.05cm]
+\begin{itemize}\itemsep0.2cm
+\item  A numeric \emph{variable} whose value is assigned following the experiment.
+\item Related to $X$ are \emph{three} events: $X=0$, $X=1$ and $X=2$; we can calculate $\Pr(X=0)$, $\Pr(X=1)$ and $\Pr(X=2)$.\\[0.2cm]
+\end{itemize}\
+\end{enumerate}
+
+Note: $X=2$ \emph{is} the event $A$.
+
+\end{frame}
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+
+Continuing the example of flipping two coins, we could define another random variable $Y = $ ``the number of unique faces showing''.\\[0.3cm]
+The possible values for this random variable are 1 (if the faces are the same) or 2 (if the faces are different):
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+&&&&\\[-0.4cm]
+Outcome  & $HH$ & $HT$ & $TH$ & $TT$ \\
+\hline
+&&&&\\[-0.4cm]
+Value assigned to $Y$ & 1 & 2 & 2 & 1 \\
+\hline
+%\multicolumn{5}{c}{}\\
+\end{tabular}
+\end{center}
+
+From the above we get the \emph{probability distribution} of $Y$:
+\begin{center}
+\begin{tabular}{|c|cc|}
+\hline
+&&\\[-0.4cm]
+y & 1 & 2 \\
+\hline
+&&\\[-0.4cm]
+$\Pr(Y=y)$ & $\frac{1}{2}$ & $\frac{1}{2}$ \\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Expected Value}
+\subsection{Expected Value}
+\begin{frame}{\bf \tcb{Expected Value}}
+
+Just as we calculated the \emph{mean} as a measure of centrality for a distribution of data, we can calculate the {\bf expected value} for a \emph{probability distribution}.\\[0.5cm]
+
+The expected value is:
+\begin{align*}
+\boxed{E(X) = \sum x_i \, p(x_i)}.
+\end{align*}
+
+In words: multiply each possible value of $X$ by its probability value and then sum the results.\\[0.5cm]
+
+This is the value we would \emph{expect} to get on average if we carried out the experiment a large number of times.
+
+\end{frame}
+
+
+
+\subsection{The Second Moment}
+\begin{frame}{\bf \tcb{The Second Moment}}
+
+We will also need to calculate $E(X^2)$ which is called the \emph{second moment} ($E(X)$ is the first):
+
+\begin{align*}
+\boxed{E(X^2) = \sum x_i^2 \, p(x_i)}.\\
+\end{align*}
+
+Note that $E(X^2)$ is not directly of interest but is used to calculate the \emph{variance} of $X$.
+
+
+\end{frame}
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+
+The random variable $X =$ ``the number of heads'' has a probability distribution given by:
+\begin{center}
+\begin{tabular}{|c|ccc|}
+\hline
+&&&\\[-0.4cm]
+x & 0 & 1 & 2 \\
+\hline
+&&&\\[-0.4cm]
+$\Pr(X=x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$\\[0.1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{align*}
+\Rightarrow E(X) \,\,\,= \,\,\,\left(0\times\frac{1}{4}\right) + \left(1\times\frac{1}{2}\right) + \left(2\times\frac{1}{4}\right) \,\,\,&=\,\,\, \frac{1}{2} + \frac{2}{4} \\[0.2cm]
+%&= \frac{0}{4} + \frac{2}{4} + \frac{2}{4} \\[0.2cm]
+&= \frac{4}{4} = 1.
+\end{align*}
+
+On average there will be \emph{one} head showing.
+
+\end{frame}
+
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+
+We can also calculate:
+\begin{align*}
+\Rightarrow E(X^2) &= \left(0^2\times\frac{1}{4}\right) + \left(1^2\times\frac{1}{2}\right) + \left(2^2\times\frac{1}{4}\right) \\[0.2cm]
+&= \left(0\times\frac{1}{4}\right) + \left(1\times\frac{1}{2}\right) + \left(4\times\frac{1}{4}\right) \\[0.2cm]
+&= \frac{1}{2} + \frac{4}{4} \\[0.2cm]
+&= 1.5.\\
+\end{align*}
+
+This value will be used later to calculate the \emph{variance}.
+
+\end{frame}
+
+
+\subsection{Question 1}
+\begin{frame}{\bf \tcb{Question 1}}
+
+We continue with the experiment of flipping two coins.\\[0.3cm]
+
+We had the random variable $Y =$ ``the number of unique faces''.\\[0.3cm]
+
+\begin{enumerate}[a)]\itemsep0.3cm
+\item Calculate $E(Y)$.
+\item Calculate $E(Y^2)$.
+\end{enumerate}
+
+
+
+\end{frame}
+
+
+
+\subsection{Expectation of Functions of $X$}
+\begin{frame}{\bf \tcb{Expectation of Functions of $X$}}
+
+It is sometimes of interest to calculate the expectation of various functions of $X$, for example, we have seen how to calculate $E(X^2)$.\\[0.4cm]
+
+Continuing with the previous example, let's say we wanted to know:
+\begin{align*}
+E(X^3) \,\,\,=\,\,\, \left(0^3\times\frac{1}{4}\right) + \left(1^3\times\frac{1}{2}\right) + \left(2^3\times\frac{1}{4}\right) \,\,\,&=\,\,\, \frac{1}{2} + \frac{8}{4} \,\,\,\\&=\,\,\, 2.5,
+\end{align*}
+or
+\begin{align*}
+E(e^X) \,\,\,=\,\,\, \left(e^0\times\frac{1}{4}\right) + \left(e^1\times\frac{1}{2}\right) + \left(e^2\times\frac{1}{4}\right) \,\,\,&=\,\,\, \frac{1}{4} + \frac{e}{2} + \frac{e^2}{4} \,\,\,\\
+&\approx\,\,\, 3.46.
+\end{align*}
+
+\end{frame}
+
+
+\subsection{Entropy}
+\begin{frame}{\bf \tcb{Entropy}}
+
+Later in the course we will discuss \emph{entropy}:\\
+\begin{align*}
+E[-\log_2 p(X)] = \sum [-\log_2 p(x_i)] \, p(x_i),\\[-0.2cm]
+\end{align*}
+i.e., the expectation of the negative log (base 2) of the probability values.\\[1cm]
+
+Don't worry about this for now - just be aware of its existence.
+
+
+\end{frame}
+
+
+
+
+
+
+\section{Variance and Standard Deviation}
+\subsection{Variance and Standard Deviation}
+\begin{frame}{\bf \tcb{Variance and Standard Deviation}}
+
+Just as we calculated the \emph{variance} of a set of data, we can calculate the {\bf variance} for a \emph{probability distribution}.\\[0.4cm]
+
+Recall that variance is the average squared distance from the mean:
+\begin{align*}
+\Rightarrow Var(X) =  E[(\,X-E(X)\,)^2] = \sum (\,x_i-E(X)\,)^2 \, p(x_i).\\
+\end{align*}
+
+The above formula can be simplified to\\[-0.5cm]
+\begin{align*}
+\boxed{Var(X) = E(X^2) - [E(X)]^2}.\\[-0.2cm]
+\end{align*}
+
+The {\bf standard deviation} is then
+\begin{align*}
+\boxed{Sd(X) = \sqrt{Var(X)}}.\\[-0.3cm]
+\end{align*}
+
+{\footnotesize(reminder: variance is measured in units-squared and standard deviation is in units)}
+
+\end{frame}
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+We continue the example of flipping two coins where $X =$ ``the number of heads''.\\[0.4cm]
+
+We have calculated $E(X) = 1$ and $E(X^2) = 1.5$.\\[-0.1cm]
+
+\begin{align*}
+\Rightarrow Var(X) = E(X^2) - [E(X)]^2 = 1.5 - (1)^2 = 1.5 - 1 = 0.5 \text{ heads$^2$},\\[-0.0cm]
+\end{align*}
+
+and the \emph{standard deviation} is\\[-0.1cm]
+
+\begin{align*}
+Sd(X) = \sqrt{Var(X)} = \sqrt{0.5} \approx 0.707 \text{ heads}.
+\end{align*}
+
+
+\end{frame}
+
+
+\subsection{Question 2}
+\begin{frame}{\bf \tcb{Question 2}}
+
+We had the random variable $Y =$ ``the number of unique faces'' based on flipping a coin twice.\\[0.3cm]
+
+\begin{enumerate}[a)]\itemsep0.3cm
+\item Calculate $Var(Y)$.
+\item Calculate $Sd(Y)$.
+\end{enumerate}
+
+\end{frame}
+
+
+
+\subsection{Question 3}
+\begin{frame}{\bf \tcb{Question 3}}
+
+Consider the experiment of rolling two dice. Define the random variable $X = $ ``the sum of the two numbers showing''.\\[0.3cm]
+
+
+\begin{enumerate}[a)]\itemsep0.3cm
+\item Construct the probability distribution of $X$.
+\item Calculate $E(X)$.
+\item Calculate $E(X^2)$.
+\item Calculate $Sd(X)$.
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+\section{Joint Distributions}
+\subsection{Joint Distributions}
+\begin{frame}{\bf \tcb{Joint Distributions}}
+
+We can also construct a {\bf joint distribution} for two random variables.\\[0.9cm]
+
+From the two coin example we had $X =$ ``the number of heads'' and $Y =$ ``the number of unique faces'':
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+&&&&\\[-0.4cm]
+Outcome  & $HH$ & $HT$ & $TH$ & $TT$ \\
+\hline
+&&&&\\[-0.4cm]
+$X$ & 2 & 1 & 1 & 0 \\
+\hline
+&&&&\\[-0.4cm]
+$Y$ & 1 & 2 & 2 & 1 \\
+\hline
+\multicolumn{5}{c}{}\\
+\end{tabular}
+\end{center}
+
+Clearly we have the following \emph{joint probabilities}:\\[0.1cm]
+$\Pr(X=2 \cap Y=1) = \frac{1}{4}$, $\Pr(X=1 \cap Y=2) = \frac{2}{4} = \frac{1}{2}$ and\\[0.1cm]
+$\Pr(X=0 \cap Y=1) = \frac{1}{4}$.\\[0.3cm]
+
+The remaining joint probabilities have the value zero.
+
+\end{frame}
+
+
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+
+Using the information from the previous slide we can construct the \emph{joint distribution}:\\[-0.2cm]
+\begin{center}
+\begin{tabular}{c|c|ccc|}
+\multicolumn{2}{c}{} & \multicolumn{3}{c}{$X$} \\
+\cline{2-5}
+&&&&\\[-0.4cm]
+&&                          0 & 1 & 2 \\
+\cline{2-5}
+&&&&\\[-0.3cm]
+\multirow{2}{*}{$Y$} & 1 & $\frac{1}{4}$ &  $0$ & $\frac{1}{4}$ \\[0.1cm]
+                     & 2 & $0$           &  $\frac{1}{2}$  & $0$  \\[0.1cm]
+\cline{2-5}
+\multicolumn{5}{c}{}
+\end{tabular}
+\end{center}
+
+Note that the above probabilities sum to one as we would expect.
+
+\end{frame}
+
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+
+Using the \emph{law of total probability} we can calculate:\\[0.1cm]
+
+\begin{align*}
+\Pr(X=0) &= \Pr(X=0 \cap Y=1) + \Pr(X=0 \cap Y=2)\\ &= \frac{1}{4} + 0 = \frac{1}{4},\\[0.5cm]
+\Pr(Y=1) &= \Pr(Y=1 \cap X=0) + \Pr(Y=1 \cap X=1) \\
+ & \hspace{5cm}+ \Pr(Y=1 \cap X=2)\\
+ &= \frac{1}{4} + 0 + \frac{1}{4} = \frac{1}{2},\\[0.8cm]
+&\qquad\qquad\qquad\ldots \text{ etc.}
+\end{align*}
+
+
+\end{frame}
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+
+We can get these total probabilities by summing across each row and each column:\\[-0.5cm]
+\begin{center}
+\begin{tabular}{c|c|ccc|c|}
+\multicolumn{2}{c}{} & \multicolumn{3}{c}{$X$} & \multicolumn{1}{c}{}\\
+\cline{2-6}
+&&&&&\\[-0.4cm]
+&&                          0 & 1 & 2 & $p(y)$\\
+\cline{2-6}
+&&&&&\\[-0.3cm]
+\multirow{2}{*}{$Y$} & 1 & $\frac{1}{4}$ &  $0$ & $\frac{1}{4}$ & $\frac{1}{2}$ \\[0.1cm]
+                     & 2 & $0$           &  $\frac{1}{2}$  & $0$ & $\frac{1}{2}$ \\[0.1cm]
+\cline{2-6}
+&&&&&\\[-0.3cm]
+& $p(x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$ & 1 \\[0.1cm]
+\cline{2-6}
+\multicolumn{6}{c}{}
+\end{tabular}
+\end{center}
+Thus, if we have a joint distribution, we can calculate the distributions of $X$ and $Y$ by summing across rows\,/\,columns.
+
+\end{frame}
+
+
+
+
+
+\subsection{Checking Independence}
+\begin{frame}{\bf \tcb{Checking Independence}}
+
+Once we have these total probabilities we can check if the variables are \emph{independent} since\\[-0.3cm]
+
+\begin{align*}
+\boxed{\Pr(X=x \cap Y=y) = p(x) \times p(y) \,\,\,\Rightarrow \text{ independent}}\\[0.3cm]
+\end{align*}
+
+From our example, if $X$ and $Y$ were independent then we would have\\[-0.5cm]
+\begin{align*}
+\Pr(X=0 \cap Y=1) \,\,\,&=\,\,\, p(0)\cdot p(1) \,\,\,=\,\,\, \frac{1}{4}\cdot \frac{1}{2} \,\,\,=\,\,\, \frac{1}{8},\\[0.2cm]
+\Pr(X=0 \cap Y=2) \,\,\,&=\,\,\, p(0)\cdot p(2) \,\,\,=\,\,\, \frac{1}{4}\cdot \frac{1}{2} \,\,\,=\,\,\, \frac{1}{8},\\[0.2cm]
+\Pr(X=1 \cap Y=1) \,\,\,&= \,\,\, p(1)\cdot p(1) \,\,\, = \,\,\,\frac{1}{2}\cdot \frac{1}{2}\,\,\, =\,\,\, \frac{1}{4},\\[0.2cm]
+\ldots \text{ etc.}
+\end{align*}
+
+
+\end{frame}
+
+
+
+\subsection{Example: Flipping Two Coins}
+\begin{frame}{\bf \tcb{Example: Flipping Two Coins}}
+
+If $X$ and $Y$ were independent the joint distribution \emph{would} be
+\begin{center}
+\begin{tabular}{c|c|ccc|c|}
+\multicolumn{2}{c}{} & \multicolumn{3}{c}{$X$} & \multicolumn{1}{c}{}\\
+\cline{2-6}
+&&&&&\\[-0.4cm]
+&&                          0 & 1 & 2 & $p(y)$\\
+\cline{2-6}
+&&&&&\\[-0.3cm]
+\multirow{2}{*}{$Y$} & 1 & $\frac{1}{8}$ &  $\frac{1}{4}$ & $\frac{1}{8}$ & $\frac{1}{2}$ \\[0.1cm]
+                     & 2 & $\frac{1}{8}$           &  $\frac{1}{4}$  & $\frac{1}{8}$ & $\frac{1}{2}$ \\[0.1cm]
+\cline{2-6}
+&&&&&\\[-0.3cm]
+& $p(x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$ & 1 \\[0.1cm]
+\cline{2-6}
+\multicolumn{6}{c}{}
+\end{tabular}
+\end{center}
+Since the above does \emph{not} match the real joint distribution (as calculated previously) we conclude that $X$ and $Y$ are \emph{dependent}.
+
+\end{frame}
+
+
+
+\subsection{Question 4}
+\begin{frame}{\bf \tcb{Question 4}}
+Let's assume that $X$ and $Y$ are two random variables with joint distribution:\vspace{-0.5cm}
+\begin{center}
+\begin{tabular}{c|c|cc|}
+\multicolumn{2}{c}{} & \multicolumn{2}{c}{$X$} \\
+\cline{2-4}
+&&&\\[-0.4cm]
+&&                          0 & 1 \\
+\cline{2-4}
+&&&\\[-0.3cm]
+\multirow{2}{*}{$Y$} & 0 & $0.4$ &  $0.2$ \\[0.1cm]
+                     & 1 & $0.1$ &  ? \\[0.1cm]
+\cline{2-4}
+%\multicolumn{4}{c}{}
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]\itemsep0.2cm
+\item What is the value of $\Pr(X=1\cap Y=1)$?
+\item Construct the distribution of $X$ and the distribution of $Y$.
+\item Are $X$ and $Y$ independent?
+\item Calculate $\Pr(X=1\,|\,Y=0)$.
+\item Calculate $E(X)$ and $Sd(X)$.
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\end{document} 
