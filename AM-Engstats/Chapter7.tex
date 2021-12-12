@@ -1,0 +1,195 @@
+a=-1,sd= 2.3381)? 
+Q7. A coal-fired power plant is considering two different systems for pollution abatement. The first system has reduced the emission of pollutants to acceptable levels 68% of the time, as de-termined from 200 air samples. The second, more expensive system has reduced the emission of pollutants to acceptable levels 70% of the time, as determined from 250 air samples. If the expen-sive system is significantly more effective than the inexpensive system in reducing the pollutants to acceptable levels, then the management of the power plant will install the expensive system. (a) Which system will be installed if management uses a significance level of 0.02 in making its decision? (b) Construct a 95% confidence interval for the difference in the two proportions. Interpret this interval. 
+
+
+%=====================%
+Chapter 7 Multivariate Analysis 7.1 Scatter Plots 
+Very often we are interested in the relationship between two variables. For example, in a chemical process, suppose that the yield of the product is related to the process-operating temperature. The investigation of a relationship between two variables begins with an attempt to discover the approx-imate form of the relationship by graphing the data using a scatter plot. 
+A scatter plot is a two-dimensional plot showing the (x,y) value for each observation. Using these plots, we can quickly determine whether there is any pronounced relationship and if so, whether the relationship may be treated as approximately linear. Figure 7.1 shows scatter plots which depict sev-eral potential relationships between a response variable Y (dependent variable) and an explanatory variable X (independent variable). A response variable is the variable whose variation we wish to explain. The explanatory variable is a variable used to explain the variation in the response variable. 
+
+% 111
+
+
+%=====================%
+
+Another use of the scatter plot is the detection of outliers. An outlier is a data point that does not fit the pattern of the rest of the data. There can be several reasons for an outlier including mistakes made in the measurement process or in the data entry or simply an unusual value. Each outlier must be investigated. The usual approach is to analyse the data including the suspect data point and then re-do the analysis excluding the suspect data point and examine the results. 
+7.2 Correlation 
+The first step in determining the relationship between two variables is to draw a scatter plot. After establishing that a linear relationship exists between the two variables X and Y, we need to measure the strength of this relationship. In order to do this, we need some measure of the asso-ciation or relationship between the two variables. There are several ways of doing this - the most common measure is the Pearson product moment correlation coefficient usually known as the correlation coefficient. 
+It is rare that we will be dealing with the populations associated with the two variables of in-terest - we will only be able to estimate the value of the population correlation coefficient (p) using samples from the populations. The sample correlation coefficient is called r and it measures the linearity of the relationship between X and Y for a sample of n points (x1, Yi), (x2, y2), ..., (xn, Yn). The formula for calculating the correlation coefficient r is given by: EriE  EXat Sxy r=     VE _ 1E7F0 Ld 2 El 02 SxxSyy 
+113 
+
+
+%=====================%
+
+
+0 
+1 
+CM 
+0-^ 
+0 
+0 
+0 
+0 
+0 
+0 
+0 0 
+0 
+0 
+0 
+0 
+0 
+0 
+0 
+0 
+0 
+F I I T 2 4 6 8 10 0 2 4 a 8 10 12 (b) r=-1 (c) r=0.80 
+
+7 - 
+O 
+
+0 
+0 
+0 
+0 
+0 
+0 
+0 0 0 
+0 0 0 
+0 0 
+0 
+0 
+0 
+, I III 4 6 8 10 (a) r=+1 
+2 
+>, 
+in .12 - $-r- Y7 _, sn >, 8 - in_ a) 2 0 0 0 9 0 0 0 00 0 00 0 0 0 0 >. 0 in n II-1111f 0 2 4 8 8 10 12 
+(d) r=-0.65 
+4'6 
+0 
+0 oe 
+0 O 0 00 0 0 00 
+0 0 
+o 0 
+Iiirl 
+-3 -2 -1 0 1 2 3 (e) r=0 
+Figure 7.2: Correlation 
+0 
+, 
+0 
+C 
+0 
+O 00 0 O 0 0 o 
+00 
+0 0 O 0 
+N 
+0—, 
+F 1 2 4 8 8 10 (f) r=0 
+Properties of r: 1. -1 <= r <= +1 2. r = +1 or -1 represents a perfect linear correlation or a perfect linear relationship between the variables. 3. r = 0 indicates little or no relationship i.e. as X increases there is no definite tendency for the value of Y to increase or decrease in a straight line. 
+114 
+
+
+
+
+
+%============================%
+
+Figures 7.1a and 7.1b are examples of linear relationships between X and Y. This means that as the independent variable X changes, the dependent variable Y tends to change systematically in a straight line. This systematic change can be positive, where Y increases as X increases (Fig 7.1a) or negative where Y decreases as X increases (Fig 7.1 b). Figures 7.1c and 7.1d are examples of curvilinear relationships and figures 7.1e and 7.1f show no relationship between X and Y. 
+A 
+R 
+0 .. 1, 
+a0 
+0 
+Oa 0 
+a0 
+0 o 
+0 
+0 
+00 o 0 
+0 
+1 1 1 1 2 4 6 8 10 (a) Linear positive 
+0 I 
+00 
+000 
+0 
+0o 0 
+00 
+00 a0 a 
+0 
+11111r 2 4 6 8 10 (b) Linear negative 
+›.. W g 4 R - o 0 0 0 0 00 00 0 0 o o 0 a o 0 a 11111- I 11 2 3 4 5 4 7 8 9 N - T >. a - 7 - I - 7- 0 o 0 o a -1 
+(d) Curvilinear relation 
+(e) No relationship 
+Figure 7.1: Regression 
+112 
+a a a 
+0 a * 0 0 
+00 a 00 a a 
+o 0 11111-111 2 3 4 5 6 7 8 9 (c) Curvilinear relation 
+0 0 0 o 0 0 00 0 1111 0 1 2 >ft 10 Go 10 - -4- - N - 0 -- a o 0 0 0 0 0 a 0a o 0 0 o 0 0 o I i I I I 2 4 a a to 
+0) No relationship 
+
+%=============================================================%
+
+00 — y intercept (where the line cuts the Y-axis) th — slope of the regression line - error term or the residual (i.e. difference between the actual Y value and the value of Y predicted by the model) 
+Meaning of the regression coefficients: 01: This is the slope of the regression line. It gives the average change in the response variable Y for each unit change in X. The slope can either be negative or positive. A positive slope of 10, for example, means that for every 1 unit increase in X we can expect an average 10 units increase in Y. 
+So: Indicates the mean value of Y when X is zero (only holds if the population could have X 
+values of 0 - otherwise /3o does not have a meaningful interpretation in the regression model). 
+7.4 The Estimated Regression Equation 
+Clearly, there are many straight lines that could be drawn to represent the relationship between X and Y. The question is, which of the straight lines that could be drawn best represents the re-lationship? The least squares method is a procedure that is used to find the straight line that provides the best approximation for the relationship between the independent and dependent vari-ables. This involves choosing values of b0 and b1 which minimize the sum of the squared vertical distances measured from the data to the line. We refer to the equation of the line developed using the least squares method as the estimated regression equation. It is of the form: 
+g=b0+bix+E 
+118 
+%=============================================================%
+
+
+the distillation unit. Calculate the estimated regression equation for this data. If the hydrocarbon 
+level is 1.2%, calculate the purity. 
+Observation Number Hydrocarbon level x(%) Purity 3' (%) 1 0.99 90.01 2 1.02 89.05 3 1.15 91.43 4 1.29 93.74 5 1.46 96.73 6 1.36 94.45 7 .087 87.59 8 1.23 91.77 9 1.55 99.42 10 1.40 93.65 11 1.19 93.54 12 1.15 92.52 13 0.98 90.56 14 1.01 89.54 15 1.11 89.85 16 1.20 90.39 17 1.26 93.25 18 1.32 93.41 19 1.43 94.98 20 0.98 87.33 
+120 
+
+
+Regression Plot 
+O 
+3 - 
+• 7 • Z • 
+
+• 
+
+• 
+0.9 1.0 1.1 12 1.9 1.• 1.5 
+Hidrocarbon 
+Note: The conclusions and inferences made from a regression line apply only over the range of data 
+obtained in the sample used to develop this line. 
+7.5 Estimated Values and Residuals 
+The regression equation ri = bo + biz is an equation for the estimated values of Y, not the actual values. Predicted values can be obtained for any value of X: In the previous example: bo + biz = 74.20 + 14.97x Say x = 1.2 then p- = 74.20 + 14.97x = 74.20 + 14.97(1.2) — 92.164. This is a point estimate. Say we wanted to estimate y when x = 5, using the present example. Data has only been collected in the x range from 0.87 to 1.55, so 5 is outside the range of the sample. Estimating beyond the range in which the data was collected is called extrapolation and is to be advised against. For instance, the relationship between the x and y variables may no longer be linear beyond the range of the data. 
+121 
+
+
+
+
+If x = 1.2 then g = 92.164. 
+When x (hydrocarbon level) is 1.2%, the predicted y (purity) is 92.16%. The value of x — 1.2 has been chosen because it is a location where data for y exists. The actual purity was recorded as 90.39. The difference between the actual and estimated value is called the residual I — 
+= yi — 
+—1.77 
+A positive residual occurs when the actual value of y is higher than the predicted: yi > A negative residual occurs when the actual value of y is lower than the predicted: y, < A zero residual occurs when there is no prediction error: y, = 
+7.6 The Coefficient of Determination 
+We have now developed the estimated regression equation to approximate the linear relationship 
+between two variables X and Y. But, how well does the estimated regression equation fit the data? 
+The coefficient of determination provides a measure of the goodness of fit for the estimated 
+regression equation. 
+Total variation in Y = Explained Variation — Unexplained Variation 
+SST — SSR • SSE 
+122 
+
+
+
+Where SST = total sum of squares SSR = sum of squares due to regression SSE = sum of squares due to error 
+The percentage of the total variation in the response variable that is explained by the explana-tory variable is called the coefficient of determination (R2). The higher the value of the coefficient of variation, the better the fit of the model. 
+R2 — SSR = SST Sz.Syy 
+S2 Sy 
+Notes: 1. R2 lies between 0 and +1. 2. The closer the value is to + I the better the fit of the regression equation. 3. The relationship between the correlation coefficient and the coefficient of determination is given 
+by 
+correlation coefficient — (sign ofbi)V(coefficient of determination) 
+Example: 
+Calculate the coefficient of determination for the previous example and comment on your answer. 
+123 
+
