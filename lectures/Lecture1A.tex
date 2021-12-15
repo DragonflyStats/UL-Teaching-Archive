@@ -1,0 +1,475 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage{multicol}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+%\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+%\usepackage{multirow}
+\usepackage{enumerate}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{eurosym}
+\usepackage{framed}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+
+%\input def.tex
+%\input dsdef.tex
+%\input rgb.tex
+
+%\newcommand \la{\lambda}
+%\newcommand \al{a}
+%\newcommand \be{b}
+\newcommand \x{\overline{x}}
+\newcommand \y{\overline{y}}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{Science Mathematics 3 (Statistics)} \rhead{Week 1}
+\chead{MA4603}
+%\input{tcilatex}
+
+\begin{document}
+
+
+
+\section{Introduction to Statistics}
+
+
+\subsection*{What is Statistics}
+\begin{itemize}
+\item Statistics is a branch of mathematics in which groups of measurements or observations are studied. 
+\item The subject is divided into two general categories: \textit{\textbf{ Descriptive statistics}} and \textit{\textbf{Inferential statistics}}. 
+\item In descriptive statistics one deals with methods used to collect, organize and analyze numerical facts.
+ Its primary concern is to describe information gathered through observation in an understandable and usable manner. 
+
+
+\item Similarities and patterns among people, things and events in the world around us are emphasized. Inferential statistics takes data collected from relatively small groups of a population and uses inductive reasoning to make generalizations, inferences and predictions about a wider population.
+\end{itemize}
+Throughout the study of statistics certain basic terms occur frequently. Some of the more commonly used terms are defined in the next sections.
+
+
+\section{Populations and Samples}	
+
+\begin{itemize}
+\item 
+The collection of everyone or everything that is to be analyzed in a study is called a \textbf{population}. As we have seen in the examples above, the population could be enormous in size. There could be millions or even billions of individuals in the population. 
+\begin{itemize}
+\item \textit{Remark: We must not think that the population has to be large. If our group being studied is fourth graders in a particular school, then the population consists only of these students. Depending on the school size, this could be less than a hundred students in our population.}
+\end{itemize}
+\item To make our study less expensive in terms of time and resources, we only study a subset of the population. This subset is called a \textbf{sample}. 
+\item 
+A relatively small group of items selected from a population is a sample. If every member of the population has an equal chance of being selected for the sample, it is called a random sample. 
+
+\item Samples can be quite large or quite small. In theory one individual from a population constitutes a sample. Many applications of statistics require that a sample have at least 30 individuals.
+
+\item We are often interested in the sample size. Sample size is often denoted $n$.
+%\item A population is a complete set of items that is being studied. All members of the set are included. The set may refer to people, objects or measurements that have a common characteristic. Examples of a population are all secondary school students, all dogs, all Leaving Certificate points.
+
+
+% Examples of a sample are all algebra students at Central High School, or all Siamese cats.
+\end{itemize}
+
+
+
+
+%\noindent \textbf{What is a Sample?}
+%A sample is a relatively small subset of people, objects, groups, or events, that is selected from the population. Instead of surveying every recent college graduate in the United States, which would cost a great deal of time and money, we could instead select a sample of recent graduates, which would then be used to generalize the findings to the larger population.
+
+\begin{framed}
+\begin{itemize}
+	\item A sample is a subset of a population.
+	\item Since it is usually impractical to test every member of a population, a sample from the population is typically the best approach available.
+\end{itemize}
+\end{framed}
+
+\section{Parameters and Statistics}	
+\subsubsection*{Parameters and Statistics}
+\begin{itemize}
+\item The main objective of Statistics as a science is to estimate a population parameter by use of sample statistics.
+
+\item What we are typically after in a study is the \textbf{parameter}. A parameter is a numerical value that states something about the entire population being studied. 
+\begin{itemize}
+	\item For example, we may want to know the mean wingspan of the American bald eagle. This is a parameter, because it is describing all of the population.
+\end{itemize}
+
+\item Parameters are difficult if not impossible to obtain exactly. On the other hand, each parameter has a corresponding \textbf{statistic} that can be measured exactly. 
+\item Inferential statistics generally require that sampling be \textbf{random} although some types of sampling (such as those used in voter polling) seek to make the sample as representative of the population as possible by choosing the sample to resemble the population on the most important characteristics.
+\item (Important) A statistic is a numerical value that states something about a sample. 
+\item To extend the example above, we could catch 100 bald eagles and then measure the wingspan of each of these. The mean wingspan of the 100 eagles that we caught is a statistic.
+
+\item The value of a parameter is a fixed number. In contrast to this, since a statistic depends upon a sample, the value of a statistic can vary from sample to sample. 
+\item Suppose our population parameter has a value, unknown to us, of 100. One sample of size 50 has corresponding statistic with value 95.5. Another sample of size 50 from the same population has corresponding statistic with value 101.1.
+\item The variability in statistic values is known as \textbf{sampling fluctuation}.
+
+\end{itemize}
+
+\begin{framed}
+\noindent \textbf{Parameter}
+\begin{itemize}
+	\item This is a numerical characteristic of the population; it is
+	a fixed number with an unknown value.\\ \vspace{0.2cm}
+\end{itemize}
+\vspace{-0.8cm}
+\noindent \textbf{Statistic}
+\begin{itemize}
+	\item This is a numerical characteristic of the sample; a value
+	known when the sample is taken but that can change from sample to
+	sample.
+\end{itemize}
+\end{framed}
+
+
+
+%
+%
+%
+%%=====================================================%
+%\subsection{Parameters and Statistics}
+%A parameter is a numeric characterisation of the population (its
+%value is usually unknown).
+%e.g. 13\% of all recent immigrants have professional occupations.
+%A statistic is a numeric characterisation of the sample (observed).
+%12.4\% of individuals in our sample have professional occupations.
+%Statistics can be used to estimate the parameters of the
+%population, e.g. here we would estimate that 12.4\% of all recent
+%immigrants have professional occupations.
+%
+%\subsection*{What Is the Difference Between a Parameter and a Statistic?}
+%
+%In several disciplines the goal is to study a large group of individuals. These groups could be as varied as a species of bird, college freshmen in the U.S. or cars driven around the world. Statistics is used in all of these studies when it is infeasible or even impossible to study each and every member of the group of interest. Rather than measuring the wingspan of every bird of a species, asking survey questions to every college freshman, or measuring the fuel economy of every car in the world, we instead study and measure a subset of the group.
+
+
+
+
+
+
+
+\subsubsection*{Examples of Parameters and Statistics}
+
+Below are some more example of parameters and statistics:
+
+\begin{itemize}
+\item Suppose we study the population of cats in Limerick City. A parameter of this population would be the mean weight of all cats in the city. A statistic would be the mean weight of a sample of 50 of these cats.
+\item We will consider a study of high school seniors in the United States. A parameter of this population is the standard deviation of grade point averages of all high school seniors. A statistic is the standard deviation of the grade point averages of a sample of 1000 high school seniors.
+\end{itemize}
+
+
+
+\subsubsection*{Mnemonic Device}
+
+There is a simple and straightforward way to remember what a parameter and statistic are measuring. All that we must do is look at the first letter of each word. A parameter measures something in a population, and a statistic measures something in a sample.
+
+
+\begin{framed}
+\noindent \textbf{Summary}
+\begin{itemize}
+	
+	
+	\item A \textit{\textbf{population}} is a collection of data whose properties are analyzed. The population is the complete collection to be studied, it contains all subjects of interest.
+	
+	\item A \textit{\textbf{sample}} is a part of the population of interest, a sub-collection selected from a population.
+	
+	\item
+	A \textit{\textbf{parameter}} is a numerical measurement that describes a characteristic of a population, while a \textit{\textbf{sample statistic}} is a numerical measurement that describes a characteristic of a sample.
+	
+	\item In general, the major use of statistics is to use information from a \textit{\textbf{sample}} to infer something about a \textit{\textbf{population}}.
+
+\end{itemize}
+\end{framed}
+\newpage
+\section{Types of Data}
+\begin{itemize}
+\item Data are numbers or measurements that are collected. Data may include numbers of individuals that make up the census of a city, ages of pupils in a certain class, temperatures in a town during a given period of time, sales made by a company, or test scores made by ninth graders on a standardized test.
+\item 
+Variables are characteristics or attributes that enable us to distinguish one individual from another. They take on different values when different individuals are observed. Some variables are height, weight, age and price. Variables are the opposite of constants whose values never change.
+\end{itemize}
+%==================================================%
+\subsection{Types of Data}
+
+
+Data are the facts and figures collected, analyzed and
+summarized for presentation and interpretation.
+
+\begin{itemize}
+	\item All the data collected in a study is the \textbf{data set} for the study.
+	\item There are several types of data and identifying the type of
+	data is vital in determining the statistical method used to
+	describe it.
+	\item Most statistical analysis are specific to a certain data type. Data can be classified as either \textit{\textbf{qualitative}} or \textit{\textbf{quantitative}}.
+\end{itemize}
+
+
+\section{Variables}
+
+\subsection*{Variables}
+The key terms used in data collection can be deﬁned as follows:
+\begin{itemize}
+\item A variable is the phenomenon being measured in the experiment or observational
+	study.
+\item A variable has two defining characteristics:
+     \begin{itemize}
+	\item A variable is an attribute that describes a person, place, thing, or idea. 
+\end{itemize}
+\item	The value of the variable can "vary" from one entity to another (randomness). 
+\item Variables can be classified as categorical (or \textbf{\textit{qualitative}}) or numerical ( or \textbf{\textit{quantitative}}). 
+\begin{itemize}
+	\item	\textbf{Categorical}. Categorical variables take on values that are names or labels. 
+	\begin{itemize}
+		\item The color of a ball (e.g., red, green, blue) or the breed of a dog (e.g., Border collie, German shepherd, Yorkshire terrier) would be examples of categorical variables.
+	\end{itemize} 
+	\item	\textbf{Quantitative}. Quantitative variables are numerical. They represent a measurable quantity. For example, when we speak of the population of a city, we are talking about the number of people in the city - a measurable attribute of the city. Therefore, population would be a quantitative variable. 
+\end{itemize}
+\item Quantitative data is always
+	numeric.
+\item \textit{The distinction between interval data and ratio data will be mentioned in class, but is omitted from syllabus.}
+\begin{itemize}
+	\item Examples: height, weight, age, expenditure.
+\end{itemize}
+        \item Quantitative variables are usually denoted by symbols or letters such as ``X". (N.B. Capital letters).
+ \end{itemize}
+ 
+%
+%For example, a person's hair color is a potential variable, which could have the value of ``blonde" for one person and ``brunette" for another.
+
+
+
+ \begin{itemize}
+	\item A \textbf{continuous variable} takes any value on a range of real numbers (analogous to
+	`measuring’). Such variables can take any
+	value in a certain range. They are usually measured
+	according to some scale, e.g. age, height, mass.
+	\item A \textbf{discrete variable} takes only distinct values, usually often integers (analogous to
+	`counting’). Such variables take values from a
+	set that can be listed (commonly integer values).
+	Such variables are often counted, e.g. number of
+	children, number of subjects passed at leaving
+	certificate
+
+\end{itemize}
+
+
+
+%=====================================================%
+\begin{itemize}
+\item Note that continuous variables are only measured to a given
+accuracy.
+e.g. Age is normally given to the closest year. However, in theory
+it could be measured much more accurately.
+\item When a discrete variable takes a very large number of values , e.g.
+the number of individuals employed by a firm, it may be treated for
+practical purposes as a continuous variable.
+\end{itemize}
+%%=====================================================%
+%\subsection{Discrete vs. Continuous Variables}
+%Quantitative variables can be further classified as \textbf{\textit{discrete}} or \textbf{\textit{continuous}}. If a variable can take on any value between its minimum value and its maximum value, it is called a continuous variable; otherwise, it is called a discrete variable. Discrete data has distinct whole number values with no intermediate points.
+%
+%\begin{framed}
+%	\begin{itemize}
+%		\item Discrete variables are often used as ``counting" variables. For example, the number of employees in a company is discrete data.
+%		\item Continuous variables are often used as ``measurement variables
+%	\end{itemize}
+%\end{framed}
+
+\begin{framed}
+	Some examples will clarify the difference between discrete and continouous variables.
+	
+	\begin{itemize}
+		\item Suppose the fire department mandates that all fire fighters must weigh between 150 and 250 pounds. The weight of a fire fighter would be an example of a continuous variable; since a fire fighter's weight could take on any value between 150 and 250 pounds. 
+		\item	Suppose we flip a coin and count the number of heads. The number of heads could be any integer value between 0 and infinity. However, it could not be any number between 0 and infinity. \\ \smallskip We could not, for example, get 2.3 heads. Therefore, the number of heads must be a discrete variable. 
+	\end{itemize}
+\end{framed}
+%\begin{multicols}{2}
+%	\begin{itemize}
+%		\item Categorical Data / Nominal Data
+%		\item Ordinal Data
+%		\item Interval Data
+%		\item Ratio Data
+%	\end{itemize}
+%\end{multicols}
+
+
+
+
+%=====================================================%
+\subsection{Qualitative Data}
+\begin{itemize}
+	\item Qualitative data includes labels or names used to identify
+	an attribute of each element. \item Qualitative data may be
+	numeric (e.g. area codes), but usually it is non-numeric. \item
+	Examples: sex, gender, region, colour, socio-economic status.
+\end{itemize}
+
+%=====================================================%
+
+
+
+
+\subsection{Types of Qualitative Data}
+Qualitative data may be further split into
+\begin{enumerate}
+	\item \textbf{Nominal classifications}. Such data is defined by a
+	pure classification, in which the order of the classes
+	has no practical interpretation, e.g. Department:
+	1-Maths, 2-Equine studies, 3-Sociology.
+	\item \textbf{Ordinal  classifications}. The order of the
+	classification is important, e.g. \begin{verbatim}
+	1. Non-smoker 
+	2. Light Smoker
+	3. Heavy Smoker,
+	\end{verbatim} i.e. the higher a
+	number the more an individual smokes.
+\end{enumerate}
+It is important to distinguish between quantitative variables and
+classifications using numeric labels, e.g. the mean of a discrete
+variable has a sensible interpretation, but not the mean of a
+nominal, or even ordinal, variable.
+%=====================================================%
+
+\section{Sampling}
+\begin{itemize}
+\item A sampling frame is a list of members of a population. It may be
+used to choose a sample.
+\item A sampling frame may be incomplete or inaccurate. For example,
+the Irish electoral register will be a complete sampling frame for the
+population of eligible voters in Ireland. However, it will not be a
+complete sampling frame for the population of adult Irish residents.
+\item Choice of an inappropriate sampling frame may well lead to
+systematic errors in estimates obtained from sampling (bias).
+\item If I tried to measure the mean mobile data usage of the whole Irish
+population by just observing a sample of Irish students, I would
+tend to overestimate this population mean.
+\end{itemize}
+%=====================================================%
+\subsection{Example}
+\begin{itemize}
+\item Suppose we wish to do a study of recent immigrants to Ireland and
+classify their occupation, e.g. managerial, professional, retail,
+unemployed.
+\item 
+We may use the register of PPS numbers given to non-nationals in
+the past 3 years as a sampling frame.
+\item 
+Such a sampling frame will not be completely accurate as some of
+these immigrants will have already left Ireland and some
+immigrants will not have registered.
+\item 
+A sample from this population is the set of individuals we choose
+to observe.
+\item 
+The main variable observed in this study is the \textbf{\textit{class of occupation}}.
+\end{itemize}
+
+
+\section{Pharmaceutical Company Study}
+\begin{itemize}
+	\item A pharmaceutical firm might be interested in conducting an
+	experiment (i.e. a clinical trial) to learn about how a new drug affects blood
+	pressure in adult males. 
+	
+	\item To obtain data about the effect of the
+	new drug, researchers select a sample of 50 individuals from a
+	list of volunteers.
+\end{itemize}
+
+
+For the clinical trial example
+\begin{framed}
+\begin{multicols}{2}
+\begin{description}
+	\item \textbf{Population} : all adult males.
+
+\item \textbf{Unit} : any adult male.
+\item \textbf{Sample} : the 50 individuals.
+\item \textbf{Parameter} : The total
+number of adult male that respond well to the drug.
+\item \textbf{Sampling frame} : the list of volunteers.
+\item \textbf{Variable} : the blood pressure.
+\end{description}
+\end{multicols}
+\end{framed}
+
+%=====================================================%
+\section{Accuracy of Estimates - Bias and Precision}
+\begin{itemize}
+\item As described above, if we use an inappropriate sampling frame, our
+estimates of parameters may have a systematic bias.
+Bias that results from our method of sampling is called sampling
+bias. Other sources of bias exist (see later).
+\item Also, we have random errors depending on the sample actually
+observed. This determines the precision of a study.
+Consider the hypothetical situation in which we have a large
+number of small samples.
+\item The mean heights in these samples will
+be rather variable, i.e. a small sample leads to low precision.
+\end{itemize}
+%=====================================================%
+\subsection{Bias and Precision}
+\begin{itemize}
+\item Suppose we had many large samples. The mean heights in these
+samples will be similar to each other (and if the sampling frame is
+appropriate will also be similar to the population mean).
+\item In this case we have low bias and high precision (ideal).
+\item Now suppose we observe the heights of Irish students in order to estimate the mean height of the population of Irish adults.
+\item When
+we have a large number of small samples, the sample means will be rather variable and tend to be larger than the mean height of all
+Irish adults (large bias and low precision).
+\item Increasing the size of these samples would increase the precision
+(the sample means would be more similar), but the bias is
+unaffected (the mean height will still tend to be overestimated as
+the sampling frame is inappropriate).
+\item Hence, increasing the sample size will increase the precision of a
+study.
+\item However, increasing sample size leaves the bias unaffected.
+
+\item Moral: Results may be misleading, even when we have large
+sample sizes, as inappropriate methods for choosing samples may
+lead to systematic bias. (Important.)
+\end{itemize}
+
+
+%=====================================================%
+\section{Non-sampling Bias}
+\begin{itemize}
+\item This is a form of bias that occurs when certain groups of
+individuals have a tendency to give inaccurate responses or not
+give an answer.
+\item For example, it was noticed that UK political polls systematically
+underestimated the support of the Conservative party in the 80s
+and 90s.
+\item This may well have been due to the fact that Conservative
+supporters were more likely to hide their preferences than
+supporters of other parties.
+\end{itemize}
+
+
+\begin{itemize}
+\item The wording of a questionnaire, who the interviewer is and what
+the interviewee perceives to be the ``right” answer in a given
+situation may also lead to bias.
+\item For example, suppose a questionnaire is carried out on how willing people are to pay extra for ”ecologically friendly goods”.
+Such a survey will tend to overestimate the proportion of individuals willing to pay extra, as it is politically correct to express
+such a willingness.
+\item Suppose in survey I there are the options a) not willing to pay more, b) willing to pay 10\% more. Suppose in survey II, option b)
+is replaced by ”willing to pay 20\% more”. \item It is likely that survey II
+would indicate that on average people are willing to pay more for ``ecologically friendly goods” (this is also an example of why you
+should not calculate a mean for data categorised in such a way ).
+\end{itemize}
+
+%===================================================%
+\end{document}
